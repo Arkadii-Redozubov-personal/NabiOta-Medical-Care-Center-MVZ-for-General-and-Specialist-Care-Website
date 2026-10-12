@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+**/node_modules/
+/.pnp
+.pnp.*
+
+# Next.js build outputs
+.next/
+**/.next/
+out/
+**/out/
+build/
+**/build/
+coverage/
+.vercel/
+
+# TypeScript & logs
+*.tsbuildinfo
+*.log*
+.DS_Store
+**/.DS_Store
+
+# Keep local-only (do not track in git per user request):
+/legacy/
+/src/
+/public/
+/v1-from-scratch-backup/
+/package.json
+/package-lock.json
+/next.config.ts
+/tsconfig.json
+/eslint.config.mjs
+/AGENTS.md
+next-env.d.ts
+*.d.ts
