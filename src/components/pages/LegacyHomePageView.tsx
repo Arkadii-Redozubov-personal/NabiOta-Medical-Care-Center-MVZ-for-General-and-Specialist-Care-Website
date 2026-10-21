@@ -371,7 +371,9 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
           <div className="container">
             <div className="hero-main fade-in">
               <h1 className="hero-title">
-                Hausärztliche &amp; fachärztliche Versorgung<br />
+                Hausärztliche &amp; <br className="mobile-only-break" />
+                fachärztliche <br />
+                Versorgung <br className="mobile-only-break" />
                 <span>unter einem Dach</span>
               </h1>
               <p className="hero-desc">
@@ -567,7 +569,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
           <h2 className="about-title fade-in" style={{ marginBottom: "24px", fontSize: "2.8rem", lineHeight: 1.2, maxWidth: "900px" }}>
             Herzlich willkommen im NabiOta MVZ
           </h2>
-          <div className="about-text-content">
+          <div className="about-text-content" style={{ maxWidth: "68ch" }}>
             <p>
               Im NabiOta Medizinischen Versorgungszentrum verbinden wir kontinuierliche hausärztliche Fürsorge mit der Expertise spezialisierter Fachärzte.
             </p>
@@ -601,7 +603,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
               <div className="doctor-profile" style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "24px" }}>
                 <div className="doc-info">
                   <h3 style={{ fontSize: "1.15rem", fontWeight: 700 }}>Ärztliche Leitung des NabiOta MVZ</h3>
-                  <p style={{ fontSize: "0.9rem", color: "var(--text-light)", lineHeight: 1.5, maxWidth: "100%" }}>
+                  <p style={{ fontSize: "0.9rem", color: "var(--text-light)", lineHeight: 1.5, maxWidth: "60ch" }}>
                     Facharzt für Innere Medizin &amp; Allgemeinmedizin · Ärztlicher Leiter gemäß § 95 SGB V · Koordination der interdisziplinären Qualitätssicherung.
                   </p>
                 </div>
@@ -762,7 +764,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                 {/* Honeypot field */}
                 <input type="text" name="website" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
-                <p style={{ fontSize: "0.85rem", opacity: 0.7, color: "white", margin: "4px 0 12px" }}>
+                <p style={{ fontSize: "0.85rem", opacity: 0.8, color: "white", margin: "4px 0 12px", textWrap: "pretty" }}>
                   *Hinweis zum Datenschutz:* Bitte senden Sie über dieses Formular keine sensiblen Befunde. Ihre Daten werden vertraulich gemäß DSGVO verarbeitet.
                 </p>
 
@@ -814,7 +816,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
             <div className="testimonial-card fade-in">
               <div className="testimonial-card-header">
                 <div className="testimonial-author-wrap">
-                  <div className="author-avatar-badge" style={{ background: "#219DD8" }}>A</div>
+                  <div className="author-avatar-badge" style={{ background: "#0e699b" }}>A</div>
                   <div className="author-details">
                     <div className="author-name-text">Anja M.</div>
                     <div className="author-meta-sub">Patientin · Hausärztliche Versorgung</div>
@@ -856,7 +858,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
             <div className="testimonial-card fade-in">
               <div className="testimonial-card-header">
                 <div className="testimonial-author-wrap">
-                  <div className="author-avatar-badge" style={{ background: "#168BCB" }}>S</div>
+                  <div className="author-avatar-badge" style={{ background: "#0f5982" }}>S</div>
                   <div className="author-details">
                     <div className="author-name-text">Sergey P.</div>
                     <div className="author-meta-sub">Patient · DMP Betreuung</div>
@@ -915,7 +917,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
       <div className="cta-fullwidth" style={{ background: "linear-gradient(135deg, #163754 0%, #168BCB 100%)", padding: "100px 20px", textAlign: "center", color: "white" }}>
         <div className="container" style={{ maxWidth: "800px", margin: "0 auto" }}>
           <h2 className="cta-title">Ihre Gesundheit in vertrauensvollen Händen</h2>
-          <p className="cta-desc">
+          <p className="cta-desc" style={{ maxWidth: "65ch", margin: "0 auto 32px", fontSize: "1.08rem", lineHeight: 1.6 }}>
             Vereinbaren Sie noch heute Ihren Termin im NabiOta MVZ. Wir freuen uns darauf, Sie persönlich in unserer Praxis begrüßen zu dürfen.
           </p>
 
@@ -937,37 +939,49 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
         </div>
       </div>
 
-      {/* ── 9. Floating Doctolib Widget ─────────────────── */}
+      {/* ── 9. Floating Appointment Widget (Desktop Card + Mobile Pill) ── */}
       {showDoctolib && (
-        <aside className="floating-doctolib" aria-label="Termin online buchen">
+        <aside className="floating-doctolib" aria-label={dict.nav.book}>
           <button
             type="button"
             className="fd-close"
             onClick={() => setShowDoctolib(false)}
-            aria-label="Schließen"
+            aria-label={dict.nav.close || "Schließen"}
           >
-            <Icon name="close" size={14} />
+            <Icon name="close" size={13} />
           </button>
-          <div className="fd-content">
-            <div className="fd-icon">
-              <Icon name="calendar" size={24} />
+
+          {/* Desktop Full Card */}
+          <div className="fd-desktop-card">
+            <div className="fd-content">
+              <div className="fd-icon">
+                <Icon name="calendar" size={24} />
+              </div>
+              <div className="fd-text">
+                <div className="fd-title">
+                  Termin online vereinbaren
+                </div>
+                <div className="fd-desc">
+                  Buchen Sie Ihren Termin schnell und einfach online.
+                </div>
+              </div>
             </div>
-            <div className="fd-text">
-              <div className="fd-title" style={{ fontWeight: 700, color: "white" }}>
-                Termin online vereinbaren
-              </div>
-              <div className="fd-desc" style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.75)" }}>
-                Schnell und unkompliziert Ihren Praxistermin anfragen.
-              </div>
+            <Link href={localePath(locale, "kontakt")} className="fd-btn">
+              Online-Termin buchen &rarr;
+            </Link>
+            <div className="fd-secure">
+              <Icon name="shield" size={12} />
+              <span>Ihre Daten sind sicher und vertraulich.</span>
             </div>
           </div>
-          <Link href={localePath(locale, "kontakt")} className="fd-btn" style={{ textDecoration: "none" }}>
-            Online-Termin buchen &rarr;
+
+          {/* Mobile Sleek Pill */}
+          <Link href={localePath(locale, "kontakt")} className="fd-mobile-pill">
+            <span className="fd-pill-icon">
+              <Icon name="calendar" size={15} />
+            </span>
+            <span className="fd-pill-text">Termin buchen</span>
           </Link>
-          <div className="fd-secure" style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", display: "flex", alignItems: "center", gap: "6px" }}>
-            <Icon name="shield" size={12} />
-            <span>Ihre Daten sind sicher und vertraulich.</span>
-          </div>
         </aside>
       )}
     </div>

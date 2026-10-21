@@ -19,37 +19,11 @@ export function Logo({ locale, className = "", inverse = false }: LogoProps) {
       <img
         src="/img/nLogo.svg"
         alt="NabiOta Health Group Germany"
-        style={{ height: "46px", width: "auto", borderRadius: "10px", flexShrink: 0 }}
+        style={{ height: "50px", width: "auto", borderRadius: "12px", flexShrink: 0 }}
       />
-      <div className="brand-text-lockup" style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
-        <span
-          className="brand-title-gold"
-          style={{
-            fontFamily: "'Cinzel', 'Cinzel Decorative', 'Georgia', serif",
-            fontWeight: 800,
-            fontSize: "1.45rem",
-            letterSpacing: "0.06em",
-            color: "#C8A858",
-            display: "block",
-          }}
-        >
-          NABIOTA
-        </span>
-        <span
-          className="brand-sub-gold"
-          style={{
-            fontFamily: "'Manrope', 'Montserrat', sans-serif",
-            fontWeight: 700,
-            fontSize: "0.62rem",
-            letterSpacing: "0.18em",
-            color: inverse ? "#e5c97b" : "#bfa14c",
-            textTransform: "uppercase",
-            display: "block",
-            marginTop: "2px",
-          }}
-        >
-          HEALTH GROUP GERMANY
-        </span>
+      <div className="brand-text-lockup">
+        <span className="brand-title-gold">NABIOTA</span>
+        <span className="brand-sub-gold">HEALTH GROUP GERMANY</span>
       </div>
     </Link>
   );

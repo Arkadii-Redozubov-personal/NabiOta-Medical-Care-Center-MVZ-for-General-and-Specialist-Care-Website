@@ -19,3 +19,10 @@ next-env.d.ts
 # Keep local-only (do not track in git per user request):
 /legacy/
 /version-from-scratch/
+
+# Agent and IDE configuration
+.agent/
+.agents/
+.gemini/
+.impeccable/
+

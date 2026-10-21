@@ -67,7 +67,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
         <div className="container" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           
           {/* WhatsApp Emergency Contact Block */}
-          <div style={{ background: "linear-gradient(135deg, rgba(37, 211, 102, 0.06) 0%, #ffffff 100%)", border: "1px solid rgba(37, 211, 102, 0.3)", borderLeft: "6px solid #25D366", padding: "24px 28px", borderRadius: "16px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "20px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
+          <div style={{ background: "linear-gradient(135deg, rgba(37, 211, 102, 0.06) 0%, #ffffff 100%)", border: "1.5px solid rgba(37, 211, 102, 0.4)", padding: "24px 28px", borderRadius: "16px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "20px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
             <div style={{ flex: "1 1 500px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
                 <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", background: "#25D366", color: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 8px rgba(37, 211, 102, 0.4)", flexShrink: 0 }}>
@@ -99,7 +99,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
           </div>
 
           {/* 116 117 Terminservice Block */}
-          <div style={{ background: "linear-gradient(135deg, rgba(220, 53, 69, 0.04) 0%, #ffffff 100%)", border: "1px solid rgba(220, 53, 69, 0.22)", borderLeft: "6px solid #dc3545", padding: "24px 28px", borderRadius: "16px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
+          <div style={{ background: "linear-gradient(135deg, rgba(220, 53, 69, 0.04) 0%, #ffffff 100%)", border: "1.5px solid rgba(220, 53, 69, 0.3)", padding: "24px 28px", borderRadius: "16px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "10px" }}>
               <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", background: "#dc3545", color: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 8px rgba(220, 53, 69, 0.3)", flexShrink: 0 }}>
                 <Icon name="alert" size={20} />
@@ -112,7 +112,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
           </div>
 
           {/* Gut vorbereitet zu Ihrem Termin */}
-          <div style={{ background: "linear-gradient(135deg, rgba(33, 157, 216, 0.06) 0%, #ffffff 100%)", border: "1px solid rgba(33, 157, 216, 0.25)", borderLeft: "6px solid #168BCB", padding: "24px 28px", borderRadius: "16px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
+          <div style={{ background: "linear-gradient(135deg, rgba(33, 157, 216, 0.06) 0%, #ffffff 100%)", border: "1.5px solid rgba(33, 157, 216, 0.3)", padding: "24px 28px", borderRadius: "16px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
               <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", background: "#168BCB", color: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 8px rgba(33, 157, 216, 0.3)", flexShrink: 0 }}>
                 <Icon name="fileText" size={20} />

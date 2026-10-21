@@ -72,13 +72,13 @@ export function Footer({ locale }: FooterProps) {
             <a href={localePath(locale, "datenschutz")}>{dict.footer.privacy}</a>
             <a href={localePath(locale, "kontakt")}>{dict.nav.contact}</a>
           </div>
-          <div style={{ marginTop: "24px", color: "rgba(255,255,255,0.6)", fontSize: "0.82rem", lineHeight: "1.5" }}>
+          <div style={{ marginTop: "24px", color: "rgba(255,255,255,0.76)", fontSize: "0.82rem", lineHeight: "1.5" }}>
             {dict.common.insured}
           </div>
         </div>
       </div>
 
-      <div className="footer-bottom container" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "24px", marginTop: "40px", textAlign: "center", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>
+      <div className="footer-bottom container" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "24px", marginTop: "40px", textAlign: "center", color: "rgba(255,255,255,0.72)", fontSize: "0.85rem" }}>
         © {new Date().getFullYear()} {site.legalName}. {dict.footer.rights}
       </div>
     </footer>

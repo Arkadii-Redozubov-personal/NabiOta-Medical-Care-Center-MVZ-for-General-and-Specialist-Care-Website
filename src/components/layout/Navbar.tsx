@@ -114,6 +114,7 @@ export function Navbar({ locale }: NavbarProps) {
         {/* Brand Logo Lockup */}
         <Link
           href={localePath(locale, "")}
+          className="logo"
           style={{ display: "inline-flex", alignItems: "center", gap: "12px", textDecoration: "none" }}
           aria-label="NabiOta Health Group Germany Startseite"
         >
@@ -121,44 +122,18 @@ export function Navbar({ locale }: NavbarProps) {
             src="/img/nLogo.svg"
             alt="NabiOta Health Group Germany"
             style={{
-              height: "48px",
+              height: "50px",
               width: "auto",
-              borderRadius: "10px",
+              borderRadius: "12px",
               flexShrink: 0,
               filter: isSolid
                 ? "drop-shadow(0 2px 6px rgba(22, 55, 84, 0.25))"
                 : "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4))",
             }}
           />
-          <div className="brand-text-lockup" style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
-            <span
-              className="brand-title-gold"
-              style={{
-                fontFamily: "'Cinzel', 'Cinzel Decorative', 'Georgia', serif",
-                fontWeight: 800,
-                fontSize: "1.45rem",
-                letterSpacing: "0.06em",
-                color: isSolid ? "#b88319" : "#C8A858",
-                display: "block",
-              }}
-            >
-              NABIOTA
-            </span>
-            <span
-              className="brand-sub-gold"
-              style={{
-                fontFamily: "'Manrope', 'Montserrat', sans-serif",
-                fontWeight: 800,
-                fontSize: "0.62rem",
-                letterSpacing: "0.18em",
-                color: isSolid ? "#8c5d08" : "#e5c97b",
-                textTransform: "uppercase",
-                display: "block",
-                marginTop: "2px",
-              }}
-            >
-              HEALTH GROUP GERMANY
-            </span>
+          <div className="brand-text-lockup">
+            <span className="brand-title-gold">NABIOTA</span>
+            <span className="brand-sub-gold">HEALTH GROUP GERMANY</span>
           </div>
         </Link>
 
@@ -314,12 +289,12 @@ export function Navbar({ locale }: NavbarProps) {
                   key={l}
                   href={localePath(l, currentRoute)}
                   style={{
-                    padding: "8px 12px",
+                    padding: "9px 14px",
                     borderRadius: "8px",
                     color: l === locale ? "#168BCB" : "#163754",
                     background: l === locale ? "#E5F3FC" : "transparent",
                     fontWeight: l === locale ? 700 : 500,
-                    fontSize: "0.88rem",
+                    fontSize: "0.94rem",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
@@ -327,7 +302,7 @@ export function Navbar({ locale }: NavbarProps) {
                   }}
                 >
                   <span>{localeLabels[l].native}</span>
-                  <span style={{ fontSize: "0.75rem", opacity: 0.7 }}>{localeLabels[l].short}</span>
+                  <span style={{ fontSize: "0.80rem", opacity: 0.7 }}>{localeLabels[l].short}</span>
                 </Link>
               ))}
             </div>
@@ -336,7 +311,7 @@ export function Navbar({ locale }: NavbarProps) {
 
         {/* Appointment CTA button */}
         <Link href={localePath(locale, "kontakt")} className="btn-book hidden-mobile">
-          <Icon name="calendar" size={16} />
+          <Icon name="calendar" size={18} />
           <span>{dict.nav.book}</span>
         </Link>
 
