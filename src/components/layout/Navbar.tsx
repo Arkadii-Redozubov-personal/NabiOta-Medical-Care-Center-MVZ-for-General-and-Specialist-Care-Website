@@ -19,6 +19,7 @@ export function Navbar({ locale }: NavbarProps) {
   const [langOpen, setLangOpen] = useState(false);
   const [specOpen, setSpecOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSpecOpen, setMobileSpecOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const specRef = useRef<HTMLDivElement>(null);
   const specTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -82,6 +83,7 @@ export function Navbar({ locale }: NavbarProps) {
   // Close mobile drawer on route change
   useEffect(() => {
     setMobileOpen(false);
+    setMobileSpecOpen(false);
     setLangOpen(false);
     setSpecOpen(false);
   }, [pathname]);
@@ -104,6 +106,7 @@ export function Navbar({ locale }: NavbarProps) {
     "navbar",
     isScrolled ? "scrolled" : "",
     !hasDarkHero ? "is-solid" : "",
+    mobileOpen ? "mobile-open" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -175,30 +178,26 @@ export function Navbar({ locale }: NavbarProps) {
               >
                 {activeSpecialties.map((s) => {
                   const specData = dict.specialtyContent[s.slug];
+                  const isActive = currentRoute === `fachbereiche/${s.slug}`;
                   return (
                     <Link
                       key={s.slug}
                       href={localePath(locale, `fachbereiche/${s.slug}`)}
-                      className="nav-dropdown-item"
+                      className={`nav-dropdown-item ${isActive ? "active" : ""}`}
+                      aria-current={isActive ? "page" : undefined}
                     >
                       <div className="nav-dropdown-icon-box">
                         <Icon name={s.icon} size={18} />
                       </div>
-                      <div className="nav-dropdown-text-box">
-                        <span className="nav-dropdown-item-title">{specData?.name || s.slug}</span>
-                        {specData?.short && (
-                          <span className="nav-dropdown-item-sub">
-                            {specData.short}
-                          </span>
-                        )}
-                      </div>
+                      <span className="nav-dropdown-item-title">{specData?.name || s.slug}</span>
                     </Link>
                   );
                 })}
 
                 <Link
                   href={localePath(locale, "fachbereiche")}
-                  className="nav-dropdown-footer-link"
+                  className={`nav-dropdown-footer-link ${currentRoute === "fachbereiche" ? "active" : ""}`}
+                  aria-current={currentRoute === "fachbereiche" ? "page" : undefined}
                 >
                   <span>{dict.nav.allSpecialties}</span>
                   <span style={{ fontSize: "1.1rem" }}>→</span>
@@ -207,12 +206,6 @@ export function Navbar({ locale }: NavbarProps) {
             )}
           </div>
 
-          <Link
-            href={localePath(locale, "leistungen")}
-            aria-current={currentRoute === "leistungen" ? "page" : undefined}
-          >
-            {dict.nav.services}
-          </Link>
           <Link
             href={localePath(locale, "patienten")}
             aria-current={currentRoute === "patienten" ? "page" : undefined}
@@ -224,12 +217,6 @@ export function Navbar({ locale }: NavbarProps) {
             aria-current={currentRoute === "ueber-uns" ? "page" : undefined}
           >
             {dict.nav.about}
-          </Link>
-          <Link
-            href={localePath(locale, "qualitaet")}
-            aria-current={currentRoute === "qualitaet" ? "page" : undefined}
-          >
-            {dict.nav.quality}
           </Link>
           <Link
             href={localePath(locale, "kontakt")}
@@ -315,154 +302,171 @@ export function Navbar({ locale }: NavbarProps) {
           <span>{dict.nav.book}</span>
         </Link>
 
-        {/* Burger Button (Only displayed on mobile < 992px) */}
+        {/* Burger Button (Only displayed on mobile < 1180px) */}
         <button
           type="button"
-          className="burger-menu"
+          className={`burger-menu ${mobileOpen ? "open" : ""}`}
           id="burgerMenu"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? dict.nav.close : dict.nav.menu}
-          style={{
-            background: "transparent",
-            border: "none",
-            outline: "none",
-          }}
+          aria-expanded={mobileOpen}
         >
-          {mobileOpen ? "✕" : "☰"}
+          <svg
+            className="burger-icon"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
+          <svg
+            className="close-icon"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="5" y1="5" x2="19" y2="19"></line>
+            <line x1="19" y1="5" x2="5" y2="19"></line>
+          </svg>
         </button>
       </nav>
 
-      {/* Mobile Drawer (visible when open on mobile) */}
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div
-          className="mobile-menu"
-          id="mobileMenu"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100vh",
-            background: "rgba(22, 55, 84, 0.98)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
-            padding: "80px 24px 40px",
-            zIndex: 999,
-            overflowY: "auto",
-          }}
-        >
-          <Link href={localePath(locale, "")} onClick={() => setMobileOpen(false)}>
-            {dict.nav.home}
-          </Link>
+        <div className="mobile-menu" id="mobileMenu" style={{ display: "flex" }}>
+          <div className="mobile-menu-inner">
+            <Link
+              href={localePath(locale, "")}
+              className={`mobile-link ${currentRoute === "" ? "active" : ""}`}
+              onClick={() => setMobileOpen(false)}
+            >
+              <span>{dict.nav.home}</span>
+              <svg className="link-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </Link>
 
-          {/* Specialties Accordion on Mobile */}
-          <details style={{ borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "14px 0" }}>
-            <summary style={{ color: "white", fontSize: "1.15rem", fontWeight: 600, cursor: "pointer", display: "flex", justifyContent: "space-between" }}>
-              <span>{dict.nav.specialties}</span>
-              <span>▼</span>
-            </summary>
-            <div style={{ paddingLeft: "16px", marginTop: "12px", display: "flex", flexDirection: "column", gap: "10px" }}>
-              {activeSpecialties.map((s) => (
-                <Link
-                  key={s.slug}
-                  href={localePath(locale, `fachbereiche/${s.slug}`)}
-                  onClick={() => setMobileOpen(false)}
-                  style={{ color: "rgba(255,255,255,0.85)", fontSize: "1rem", padding: "6px 0", borderBottom: "none" }}
-                >
-                  {dict.specialtyContent[s.slug]?.name || s.slug}
-                </Link>
-              ))}
-              <Link
-                href={localePath(locale, "fachbereiche")}
-                onClick={() => setMobileOpen(false)}
-                style={{ color: "#219DD8", fontWeight: 700, padding: "8px 0", borderBottom: "none" }}
-              >
-                {dict.nav.allSpecialties} →
-              </Link>
-            </div>
-          </details>
-
-          <Link href={localePath(locale, "leistungen")} onClick={() => setMobileOpen(false)}>
-            {dict.nav.services}
-          </Link>
-          <Link href={localePath(locale, "patienten")} onClick={() => setMobileOpen(false)}>
-            {dict.nav.patients}
-          </Link>
-          <Link href={localePath(locale, "ueber-uns")} onClick={() => setMobileOpen(false)}>
-            {dict.nav.about}
-          </Link>
-          <Link href={localePath(locale, "qualitaet")} onClick={() => setMobileOpen(false)}>
-            {dict.nav.quality}
-          </Link>
-          <Link href={localePath(locale, "karriere")} onClick={() => setMobileOpen(false)}>
-            {dict.nav.career}
-          </Link>
-          <Link href={localePath(locale, "kontakt")} onClick={() => setMobileOpen(false)}>
-            {dict.nav.contact}
-          </Link>
-
-          {/* Mobile Languages */}
-          <div
-            className="mobile-lang-switcher"
-            style={{
-              marginTop: "24px",
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "8px",
-              width: "100%",
-            }}
-          >
-            {locales.map((l) => (
-              <Link
-                key={l}
-                href={localePath(l, currentRoute)}
-                onClick={() => setMobileOpen(false)}
-                className="mobile-lang-btn"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "8px 14px",
-                  borderRadius: "99px",
-                  background: l === locale ? "#219DD8" : "rgba(255,255,255,0.1)",
-                  color: "#ffffff",
-                  fontSize: "0.85rem",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  borderBottom: "none",
-                  width: "auto",
-                  maxWidth: "none",
-                  flex: "0 0 auto",
+            {/* Specialties Accordion on Mobile */}
+            <div className={`mobile-dropdown-wrapper ${mobileSpecOpen ? "open" : ""}`}>
+              <div
+                className="mobile-dropdown-toggle"
+                role="button"
+                tabIndex={0}
+                onClick={() => setMobileSpecOpen(!mobileSpecOpen)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setMobileSpecOpen(!mobileSpecOpen);
+                  }
                 }}
               >
-                {localeLabels[l].native}
-              </Link>
-            ))}
-          </div>
+                <span className="dropdown-title">{dict.nav.specialties}</span>
+                <svg className="dropdown-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div className="mobile-dropdown-menu">
+                {activeSpecialties.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={localePath(locale, `fachbereiche/${s.slug}`)}
+                    className={`mobile-sublink ${currentRoute === `fachbereiche/${s.slug}` ? "active" : ""}`}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <span className="sublink-left">
+                      <span className="sublink-text">{dict.specialtyContent[s.slug]?.name || s.slug}</span>
+                    </span>
+                    <svg className="sublink-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </Link>
+                ))}
+                <Link
+                  href={localePath(locale, "fachbereiche")}
+                  className={`mobile-sublink ${currentRoute === "fachbereiche" ? "active" : ""}`}
+                  onClick={() => setMobileOpen(false)}
+                  style={{ color: "#219DD8", fontWeight: 700 }}
+                >
+                  <span className="sublink-left">
+                    <span className="sublink-text">{dict.nav.allSpecialties} →</span>
+                  </span>
+                  <svg className="sublink-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </Link>
+              </div>
+            </div>
 
-          {/* Mobile Appointment Button */}
-          <div style={{ marginTop: "28px" }}>
+
+            <Link
+              href={localePath(locale, "patienten")}
+              className={`mobile-link ${currentRoute === "patienten" ? "active" : ""}`}
+              onClick={() => setMobileOpen(false)}
+            >
+              <span>{dict.nav.patients}</span>
+              <svg className="link-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </Link>
+
+            <Link
+              href={localePath(locale, "ueber-uns")}
+              className={`mobile-link ${currentRoute === "ueber-uns" ? "active" : ""}`}
+              onClick={() => setMobileOpen(false)}
+            >
+              <span>{dict.nav.about}</span>
+              <svg className="link-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </Link>
+
+            <Link
+              href={localePath(locale, "karriere")}
+              className={`mobile-link ${currentRoute === "karriere" ? "active" : ""}`}
+              onClick={() => setMobileOpen(false)}
+            >
+              <span>{dict.nav.career}</span>
+              <svg className="link-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </Link>
+
             <Link
               href={localePath(locale, "kontakt")}
+              className={`mobile-link ${currentRoute === "kontakt" ? "active" : ""}`}
               onClick={() => setMobileOpen(false)}
-              className="btn-book"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                width: "100%",
-                padding: "16px",
-                textAlign: "center",
-                boxSizing: "border-box",
-              }}
             >
-              <Icon name="calendar" size={18} />
-              <span>{dict.nav.book}</span>
+              <span>{dict.nav.contact}</span>
+              <svg className="link-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
             </Link>
+
+            {/* Mobile Language Switcher (Pill Container) */}
+            <div className="mobile-lang-switcher">
+              {locales.map((l) => (
+                <Link
+                  key={l}
+                  href={localePath(l, currentRoute)}
+                  onClick={() => setMobileOpen(false)}
+                  className={l === locale ? "active" : ""}
+                >
+                  {localeLabels[l].short}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}

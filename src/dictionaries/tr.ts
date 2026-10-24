@@ -121,11 +121,11 @@ const tr: Dictionary = {
     meta: {
       title: "Uzmanlık Alanları – NabiOta MVZ",
       description:
-        "Genel tıp, dahiliye, kardiyoloji, gastroenteroloji, endokrinoloji, göğüs hastalıkları ve nöroloji NabiOta MVZ'de.",
+        "Aile hekimliği, kardiyoloji, gastroenteroloji, endokrinoloji, göğüs hastalıkları ve nöroloji NabiOta MVZ'de.",
     },
     hero: {
       overline: "Uzmanlıklar",
-      title: "Yedi Uzmanlık Dalı. Uyumlu Bir Tedavi.",
+      title: "Altı Uzmanlık Dalı. Uyumlu Bir Tedavi.",
       text: "Temelde aile hekimliği, uzman branşların gücüyle desteklenir – yetkili kapsamda ve kesintisiz koordinasyonla.",
     },
   },
@@ -154,23 +154,6 @@ const tr: Dictionary = {
       diagnostics: ["İstirahat EKG'si", "Laboratuvar tahlilleri", "24 saatlik tansiyon ölçümü", "Temel solunum fonksiyon testi"],
       approach:
         "Hastayı bir bütün olarak değerlendiririz: Ayrıntılı dinler, bulguları anlaşılır biçimde açıklar ve tedavi adımlarını birlikte belirleriz.",
-    },
-    "innere-medizin": {
-      name: "İç Hastalıkları (Dahiliye)",
-      short: "Yetişkinler için temel ve uzman iç hastalıkları bakımı.",
-      intro:
-        "Dahiliye, iç organ rahatsızlıklarını kapsar. Dahiliye uzmanlarımız karmaşık ve birden fazla hastalığın bir arada bulunduğu durumlarda rehberinizdir.",
-      focus: [
-        "Yüksek tansiyon ve metabolik hastalıklar",
-        "Çoklu hastalığı olan bireylerin takibi",
-        "Açıklanamayan şikayetlerin araştırılması",
-        "Düzenli ilaç tedavisi kontrolü",
-        "Yapılandırılmış tedavi programları (DMP)",
-        "Hastane öncesi hazırlık ve taburculuk sonrası takip",
-      ],
-      diagnostics: ["Ultrasonografi (USG)", "İstirahat ve Holter EKG", "Ambulatuvar tansiyon takibi", "Kapsamlı laboratuvar testleri"],
-      approach:
-        "Dahili hastalıklar çoğu zaman birbirini etkiler. Tüm tetkiklerin bütünsel görünümünü korur, diğer uzmanlıklarla uyumlu adımlar atarız.",
     },
     kardiologie: {
       name: "Kardiyoloji",
@@ -352,13 +335,13 @@ const tr: Dictionary = {
   },
   patientsPage: {
     meta: {
-      title: "Hastalarımız İçin – NabiOta MVZ",
-      description: "Ziyaretiniz için gereken her şey: ilk randevu kontrol listesi, sigortalar, reçeteler, hasta hakları ve SSS.",
+      title: "Hasta Hizmetleri: Randevu, Hazırlık ve Belgeler – NabiOta MVZ",
+      description: "Randevular, hazırlık ve belgeler: NabiOta MVZ ziyareti için gereken her şey. Kontrol listesi, raporlar, reçeteler, sigorta ve mesai dışı acil nöbetçi hekimlik.",
     },
     hero: {
-      overline: "Hastalarımız İçin",
-      title: "Randevunuza İyi Hazırlanın",
-      text: "Kayıttan hasta haklarınıza kadar merkezimizdeki ziyaretinizle ilgili en önemli pratik bilgiler.",
+      overline: "7. Hasta Hizmetleri",
+      title: "Randevular, Hazırlık ve Belgeler",
+      text: "Uygun bir randevu planlaması için lütfen hangi uzmanlık alanına ihtiyaç duyduğunuzu ve şikayetinizi bize iletiniz. Ziyaretiniz için tüm pratik bilgiler.",
     },
     firstVisit: {
       title: "İlk Ziyaretiniz",

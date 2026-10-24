@@ -7,7 +7,6 @@ import type { IconName } from "@/components/ui/Icon";
  */
 export const specialties = [
   { slug: "allgemeinmedizin", icon: "stethoscope", image: "/img/gp_consultation.webp", active: true },
-  { slug: "innere-medizin", icon: "pulse", image: "/img/internal_bloodpressure.webp", active: true },
   { slug: "kardiologie", icon: "heart", image: "/img/cardiology_echo.webp", active: true },
   { slug: "gastroenterologie", icon: "stomach", image: "/img/gastro_consult.webp", active: true },
   { slug: "endokrinologie", icon: "thyroid", image: "/img/endocrinology_consult.webp", active: true },

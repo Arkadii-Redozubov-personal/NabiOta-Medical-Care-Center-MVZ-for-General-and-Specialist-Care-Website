@@ -24,7 +24,13 @@ export type IconName =
   | "globe"
   | "building"
   | "award"
-  | "fileText";
+  | "fileText"
+  | "pill"
+  | "droplet"
+  | "cross"
+  | "monitor"
+  | "activity"
+  | "info";
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: IconName;
@@ -231,6 +237,47 @@ export function Icon({ name, size = 24, className = "", ...props }: IconProps) {
           <line x1="16" y1="13" x2="8" y2="13" />
           <line x1="16" y1="17" x2="8" y2="17" />
           <line x1="10" y1="9" x2="8" y2="9" />
+        </svg>
+      );
+    case "pill":
+      return (
+        <svg {...common}>
+          <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
+          <path d="m8.5 8.5 7 7" />
+        </svg>
+      );
+    case "droplet":
+      return (
+        <svg {...common}>
+          <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+        </svg>
+      );
+    case "cross":
+      return (
+        <svg {...common}>
+          <path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h5v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z" />
+        </svg>
+      );
+    case "monitor":
+      return (
+        <svg {...common}>
+          <rect width="20" height="14" x="2" y="3" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+      );
+    case "info":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="16" x2="12" y2="12" />
+          <line x1="12" y1="8" x2="12.01" y2="8" />
+        </svg>
+      );
+    case "activity":
+      return (
+        <svg {...common}>
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
         </svg>
       );
     default:

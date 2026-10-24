@@ -16,13 +16,6 @@ export function ImprintPageView({ locale }: ImprintPageViewProps) {
     <div>
       <section className="page-hero">
         <div className="container page-hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb">
-            <Link href={localePath(locale, "")}>{dict.nav.home}</Link>
-            <Icon name="arrow" size={12} />
-            <span aria-current="page">{dict.legal.imprintTitle}</span>
-          </nav>
-
-          <span className="eyebrow">Rechtliche Hinweise</span>
           <h1 className="h1">{dict.legal.imprintTitle}</h1>
         </div>
       </section>
@@ -38,9 +31,11 @@ export function ImprintPageView({ locale }: ImprintPageViewProps) {
           <p>
             <strong>{site.legalName}</strong>
             <br />
-            {site.address.street}
+            Hauptbetriebsstätte: Bismarckstr. 106, 41061 Mönchengladbach
             <br />
-            {site.address.zip} {site.address.city}
+            Zweigpraxis Viersen: Theodor-Heuss-Platz 10, 41747 Viersen
+            <br />
+            Zweigpraxis Düsseldorf: Münsterstr. 519, 40472 Düsseldorf
           </p>
 
           <h2>Vertretungsberechtigte Geschäftsführer</h2>

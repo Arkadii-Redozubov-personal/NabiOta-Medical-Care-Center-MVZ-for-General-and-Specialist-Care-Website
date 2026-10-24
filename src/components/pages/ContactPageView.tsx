@@ -33,13 +33,6 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
         <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
-              <nav className="breadcrumb" aria-label="Breadcrumb">
-                <Link href={localePath(locale, "")}>{dict.nav.home}</Link>
-                <Icon name="arrow" size={12} />
-                <span aria-current="page">{dict.nav.contact}</span>
-              </nav>
-
-              <span className="eyebrow">{page.hero.overline || dict.nav.contact}</span>
               <h1 className="h1">{page.hero.title}</h1>
               <p className="lead">{page.hero.text}</p>
             </div>
@@ -131,12 +124,12 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
       </section>
 
       {/* ── 3. Interactive Contact Form Split ──────────── */}
-      <section className="section" style={{ paddingBlock: "50px" }}>
+      <section className="section" style={{ paddingBlock: "40px" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "40px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "32px", alignItems: "stretch" }}>
             
             {/* Form Column */}
-            <div style={{ background: "#ffffff", padding: "36px", borderRadius: "24px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 12px 36px rgba(22, 55, 84, 0.06)" }}>
+            <div style={{ background: "#ffffff", padding: "36px", borderRadius: "24px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 12px 36px rgba(22, 55, 84, 0.06)", display: "flex", flexDirection: "column", height: "100%" }}>
               <h2 style={{ fontSize: "1.85rem", fontWeight: 800, color: "#163754", marginBottom: "8px" }}>
                 Direktnachricht oder Terminanfrage
               </h2>
@@ -144,7 +137,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                 Senden Sie uns Ihr Anliegen. Unser Empfangsteam meldet sich zeitnah bei Ihnen zurück.
               </p>
 
-              <form style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <form style={{ display: "flex", flexDirection: "column", gap: "16px", flex: 1, justifyContent: "space-between" }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   <input
                     type="text"
@@ -181,7 +174,6 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                 >
                   <option value="">Fachbereich wählen (optional)</option>
                   <option value="allgemeinmedizin">Allgemeinmedizin</option>
-                  <option value="innere-medizin">Innere Medizin</option>
                   <option value="kardiologie">Kardiologie</option>
                   <option value="gastroenterologie">Gastroenterologie</option>
                   <option value="endokrinologie">Endokrinologie</option>
@@ -202,60 +194,61 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
 
                 <button
                   type="submit"
-                  className="btn-primary"
-                  style={{ border: "none", cursor: "pointer", width: "100%", padding: "16px", fontSize: "1rem", borderRadius: "99px" }}
+                  className="btn btn--primary"
+                  style={{ border: "none", cursor: "pointer", width: "100%", padding: "16px", fontSize: "1rem", borderRadius: "99px", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px" }}
                 >
-                  Nachricht senden →
+                  <span>Nachricht senden</span>
+                  <span className="btn-arrow" aria-hidden="true">→</span>
                 </button>
               </form>
             </div>
 
-            {/* Quick Contact Info Cards */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div style={{ background: "#ffffff", padding: "24px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "16px", alignItems: "flex-start" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Icon name="phone" size={24} />
+            {/* Quick Contact Info Cards - Equal height with form */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px", height: "100%" }}>
+              <div style={{ flex: 1, background: "#ffffff", padding: "26px 28px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "18px", alignItems: "center" }}>
+                <div style={{ width: "52px", height: "52px", borderRadius: "14px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Icon name="phone" size={26} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#163754", margin: "0 0 4px" }}>Zentrale Telefonnummern</h3>
+                  <h3 style={{ fontSize: "1.12rem", fontWeight: 800, color: "#163754", margin: "0 0 6px" }}>Zentrale Telefonnummern</h3>
                   <p style={{ margin: "0 0 4px", fontSize: "0.92rem", color: "#475569" }}>
-                    Mönchengladbach: <a href="tel:+4921616782683" style={{ color: "#168BCB", fontWeight: 700 }}>02161 678 2683</a>
+                    Mönchengladbach: <a href="tel:+4921616782683" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>02161 678 2683</a>
                   </p>
                   <p style={{ margin: "0 0 4px", fontSize: "0.92rem", color: "#475569" }}>
-                    Viersen: <a href="tel:+4921621448720" style={{ color: "#168BCB", fontWeight: 700 }}>02162 144 8720</a>
+                    Viersen: <a href="tel:+4921621448720" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>02162 144 8720</a>
                   </p>
                   <p style={{ margin: "0", fontSize: "0.92rem", color: "#475569" }}>
-                    Düsseldorf: <a href="tel:+492110000000" style={{ color: "#168BCB", fontWeight: 700 }}>+49 (0) 211 000 000 0</a>
+                    Düsseldorf: <a href="tel:+492110000000" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>+49 (0) 211 000 000 0</a>
                   </p>
                 </div>
               </div>
 
-              <div style={{ background: "#ffffff", padding: "24px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "16px", alignItems: "flex-start" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Icon name="mail" size={24} />
+              <div style={{ flex: 1, background: "#ffffff", padding: "26px 28px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "18px", alignItems: "center" }}>
+                <div style={{ width: "52px", height: "52px", borderRadius: "14px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Icon name="mail" size={26} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#163754", margin: "0 0 4px" }}>E-Mail-Kontakt</h3>
+                  <h3 style={{ fontSize: "1.12rem", fontWeight: 800, color: "#163754", margin: "0 0 6px" }}>E-Mail-Kontakt</h3>
                   <p style={{ margin: "0 0 4px", fontSize: "0.92rem", color: "#475569" }}>
-                    Allgemeine Anfragen: <a href="mailto:info@nabiota-mvz.de" style={{ color: "#168BCB", fontWeight: 700 }}>info@nabiota-mvz.de</a>
+                    Allgemeine Anfragen: <a href="mailto:info@nabiota-mvz.de" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>info@nabiota-mvz.de</a>
                   </p>
                   <p style={{ margin: 0, fontSize: "0.92rem", color: "#475569" }}>
-                    Praxiskontakt: <a href="mailto:kontakt@my-bandscheibe.de" style={{ color: "#168BCB", fontWeight: 700 }}>kontakt@my-bandscheibe.de</a>
+                    Praxiskontakt: <a href="mailto:kontakt@my-bandscheibe.de" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>kontakt@my-bandscheibe.de</a>
                   </p>
                 </div>
               </div>
 
-              <div style={{ background: "#ffffff", padding: "24px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "16px", alignItems: "flex-start" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Icon name="alert" size={24} />
+              <div style={{ flex: 1, background: "#ffffff", padding: "26px 28px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "18px", alignItems: "center" }}>
+                <div style={{ width: "52px", height: "52px", borderRadius: "14px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Icon name="alert" size={26} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#163754", margin: "0 0 4px" }}>Notruf &amp; Bereitschaft</h3>
+                  <h3 style={{ fontSize: "1.12rem", fontWeight: 800, color: "#163754", margin: "0 0 6px" }}>Notruf &amp; Bereitschaft</h3>
                   <p style={{ margin: "0 0 4px", fontSize: "0.92rem", color: "#475569" }}>
-                    Ärztlicher Bereitschaftsdienst: <strong>116 117</strong>
+                    Ärztlicher Bereitschaftsdienst: <strong style={{ color: "#163754" }}>116 117</strong>
                   </p>
                   <p style={{ margin: 0, fontSize: "0.92rem", color: "#475569" }}>
-                    Lebensbedrohlicher Notfall: <strong>112</strong>
+                    Lebensbedrohlicher Notfall: <strong style={{ color: "#dc2626" }}>112</strong>
                   </p>
                 </div>
               </div>
@@ -265,16 +258,8 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
       </section>
 
       {/* ── 4. Detailed Branch Cards (3 Standorte) ─────── */}
-      <section className="section section--sky" style={{ paddingBlock: "80px" }}>
+      <section className="section" style={{ paddingBlock: "10px 80px" }}>
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <span className="eyebrow" style={{ justifyContent: "center" }}>PRAXISSTANDORTE</span>
-            <h2 className="section-title text-center" style={{ margin: "8px auto" }}>Unsere Standorte im Überblick</h2>
-            <p style={{ color: "#547596", maxWidth: "600px", margin: "12px auto 0", fontSize: "1.05rem" }}>
-              Besuchen Sie uns an einem unserer barrierefreien Standorte.
-            </p>
-          </div>
-
           <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
             
             {/* ── Standort 1: Mönchengladbach ── */}
@@ -300,6 +285,16 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                       <p style={{ margin: "0 0 2px", color: "#475569" }}>Patienten: <a href="tel:+4921616782683" style={{ color: "#168BCB" }}>02161 678 2683</a></p>
                       <p style={{ margin: "0 0 2px", color: "#475569" }}>Kollegen: <a href="tel:+4921619883200" style={{ color: "#168BCB" }}>02161 988 3200</a></p>
                       <p style={{ margin: 0, color: "#64748b", fontSize: "0.85rem" }}>Fax: 02161 678 0381</p>
+                    </div>
+                  </div>
+
+                  <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                    <div style={{ color: "#168BCB", marginTop: "2px" }}><Icon name="mail" size={20} /></div>
+                    <div>
+                      <strong style={{ color: "#163754", display: "block" }}>E-Mail</strong>
+                      <a href="mailto:moenchengladbach@nabiota-mvz.de" style={{ color: "#168BCB", textDecoration: "none" }}>
+                        moenchengladbach@nabiota-mvz.de
+                      </a>
                     </div>
                   </div>
 
@@ -348,8 +343,8 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                     <div style={{ color: "#168BCB", marginTop: "2px" }}><Icon name="mapPin" size={20} /></div>
                     <div>
                       <strong style={{ color: "#163754", display: "block" }}>Adresse</strong>
-                      <a href="https://www.google.com/maps/dir/?api=1&destination=Hauptstr.+76%2C+41747+Viersen" target="_blank" rel="noopener noreferrer" style={{ color: "#168BCB", textDecoration: "none" }}>
-                        Hauptstr. 76, 41747 Viersen
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=Theodor-Heuss-Platz+10%2C+41747+Viersen" target="_blank" rel="noopener noreferrer" style={{ color: "#168BCB", textDecoration: "none" }}>
+                        Theodor-Heuss-Platz 10, 41747 Viersen
                       </a>
                     </div>
                   </div>
@@ -361,6 +356,16 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                       <p style={{ margin: "0 0 2px", color: "#475569" }}>Patienten: <a href="tel:+4921621448720" style={{ color: "#168BCB" }}>02162 144 8720</a></p>
                       <p style={{ margin: "0 0 2px", color: "#475569" }}>Kollegen: <a href="tel:+4921621448837" style={{ color: "#168BCB" }}>02162 144 8837</a></p>
                       <p style={{ margin: 0, color: "#64748b", fontSize: "0.85rem" }}>Fax: 02162 144 9098</p>
+                    </div>
+                  </div>
+
+                  <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                    <div style={{ color: "#168BCB", marginTop: "2px" }}><Icon name="mail" size={20} /></div>
+                    <div>
+                      <strong style={{ color: "#163754", display: "block" }}>E-Mail</strong>
+                      <a href="mailto:viersen@nabiota-mvz.de" style={{ color: "#168BCB", textDecoration: "none" }}>
+                        viersen@nabiota-mvz.de
+                      </a>
                     </div>
                   </div>
 
@@ -391,7 +396,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
               <div style={{ borderRadius: "16px", overflow: "hidden", minHeight: "280px", border: "1px solid rgba(22, 55, 84, 0.1)" }}>
                 <iframe
                   title="Standort Viersen"
-                  src="https://maps.google.com/maps?q=Hauptstr.%2076%2C%2041747%20Viersen&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Theodor-Heuss-Platz%2010%2C%2041747%20Viersen&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   style={{ width: "100%", height: "100%", minHeight: "280px", border: 0 }}
                   loading="lazy"
                 />
@@ -408,8 +413,8 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                     <div style={{ color: "#168BCB", marginTop: "2px" }}><Icon name="mapPin" size={20} /></div>
                     <div>
                       <strong style={{ color: "#163754", display: "block" }}>Adresse</strong>
-                      <a href="https://www.google.com/maps/dir/?api=1&destination=Schadowstr.+74%2C+40212+D%C3%BCsseldorf" target="_blank" rel="noopener noreferrer" style={{ color: "#168BCB", textDecoration: "none" }}>
-                        Schadowstr. 74, 40212 Düsseldorf (5. OG)
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=M%C3%BCnsterstr.+519%2C+40472+D%C3%BCsseldorf" target="_blank" rel="noopener noreferrer" style={{ color: "#168BCB", textDecoration: "none" }}>
+                        Münsterstr. 519, 40472 Düsseldorf
                       </a>
                     </div>
                   </div>
@@ -419,6 +424,16 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                     <div>
                       <strong style={{ color: "#163754", display: "block" }}>Telefon</strong>
                       <p style={{ margin: "0", color: "#475569" }}>Zentrale: <a href="tel:+492110000000" style={{ color: "#168BCB" }}>+49 (0) 211 000 000 0</a></p>
+                    </div>
+                  </div>
+
+                  <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                    <div style={{ color: "#168BCB", marginTop: "2px" }}><Icon name="mail" size={20} /></div>
+                    <div>
+                      <strong style={{ color: "#163754", display: "block" }}>E-Mail</strong>
+                      <a href="mailto:duesseldorf@nabiota-mvz.de" style={{ color: "#168BCB", textDecoration: "none" }}>
+                        duesseldorf@nabiota-mvz.de
+                      </a>
                     </div>
                   </div>
 
@@ -443,7 +458,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
               <div style={{ borderRadius: "16px", overflow: "hidden", minHeight: "280px", border: "1px solid rgba(22, 55, 84, 0.1)" }}>
                 <iframe
                   title="Standort Düsseldorf"
-                  src="https://maps.google.com/maps?q=Schadowstr.%2074%2C%2040212%20D%C3%BCsseldorf&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=M%C3%BCnsterstr.%20519%2C%2040472%20D%C3%BCsseldorf&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   style={{ width: "100%", height: "100%", minHeight: "280px", border: 0 }}
                   loading="lazy"
                 />

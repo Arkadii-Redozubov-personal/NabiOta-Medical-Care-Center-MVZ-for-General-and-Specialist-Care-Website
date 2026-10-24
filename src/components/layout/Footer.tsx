@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 import { type Locale, localePath } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { site } from "@/data/site";
 import { activeSpecialties } from "@/data/specialties";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 interface FooterProps {
   locale: Locale;
@@ -29,10 +32,10 @@ export function Footer({ locale }: FooterProps) {
               <span className="brand-sub-gold">HEALTH GROUP GERMANY</span>
             </div>
           </a>
-          <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px" }}>
+          <div style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px" }}>
             <strong>{site.legalName}</strong><br />
-            {site.address.street}<br />
-            {site.address.zip} {site.address.city}
+            <span style={{ color: "#93c5fd", fontWeight: 600 }}>{site.subtitle}</span><br />
+            Standorte: {site.locationsText}
           </div>
           <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "16px" }}>
             Tel: <a href={`tel:${site.phoneHref}`} style={{ color: "white" }}>{site.phone}</a><br />
@@ -57,10 +60,8 @@ export function Footer({ locale }: FooterProps) {
         <div>
           <div className="footer-title">{dict.footer.navTitle}</div>
           <div className="footer-links">
-            <a href={localePath(locale, "leistungen")}>{dict.nav.services}</a>
             <a href={localePath(locale, "patienten")}>{dict.nav.patients}</a>
             <a href={localePath(locale, "ueber-uns")}>{dict.nav.about}</a>
-            <a href={localePath(locale, "qualitaet")}>{dict.nav.quality}</a>
             <a href={localePath(locale, "kontakt")}>{dict.nav.contact}</a>
           </div>
         </div>
@@ -70,6 +71,25 @@ export function Footer({ locale }: FooterProps) {
           <div className="footer-links">
             <a href={localePath(locale, "impressum")}>{dict.footer.imprint}</a>
             <a href={localePath(locale, "datenschutz")}>{dict.footer.privacy}</a>
+            <button
+              type="button"
+              onClick={() => openCookieSettings()}
+              style={{
+                background: "transparent",
+                border: "none",
+                padding: 0,
+                color: "rgba(255, 255, 255, 0.72)",
+                font: "inherit",
+                fontSize: "inherit",
+                textAlign: "left",
+                cursor: "pointer",
+                transition: "color 0.15s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255, 255, 255, 0.72)")}
+            >
+              {dict.footer.cookies || "Cookie-Einstellungen"}
+            </button>
             <a href={localePath(locale, "kontakt")}>{dict.nav.contact}</a>
           </div>
           <div style={{ marginTop: "24px", color: "rgba(255,255,255,0.76)", fontSize: "0.82rem", lineHeight: "1.5" }}>

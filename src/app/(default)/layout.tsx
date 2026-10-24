@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 import { getDictionary } from "@/dictionaries";
 import { getPageMetadata } from "@/lib/seo";
 
@@ -33,6 +34,7 @@ export default function DefaultLayout({
         <Navbar locale="de" />
         <main>{children}</main>
         <Footer locale="de" />
+        <CookieConsent locale="de" />
       </body>
     </html>
   );

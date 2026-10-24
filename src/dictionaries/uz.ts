@@ -121,11 +121,11 @@ const uz: Dictionary = {
     meta: {
       title: "Tibbiy yoʻnalishlar – NabiOta MVZ",
       description:
-        "Umumiy amaliyot, ichki kasalliklar, kardiologiya, gastroenterologiya, endokrinologiya, pulmonologiya va nevrologiya NabiOta MVZda.",
+        "Birlamchi tibbiy yordam, kardiologiya, gastroenterologiya, endokrinologiya, pulmonologiya va nevrologiya NabiOta MVZda.",
     },
     hero: {
       overline: "Yoʻnalishlar",
-      title: "Yetti tibbiy yoʻnalish. Yagona davolash rejasi.",
+      title: "Olti tibbiy yoʻnalish. Yagona davolash rejasi.",
       text: "Oila shifokorligi tayanchi va tor mutaxassislar tajribasi uygʻunligi – ruxsat etilgan meʻyorlar doirasida va uzviy hamkorlikda.",
     },
   },
@@ -154,23 +154,6 @@ const uz: Dictionary = {
       diagnostics: ["Tinch holatdagi EKG", "Laboratoriya tahlillari", "24 soatlik qon bosimi monitoringi", "Asosiy oʻpka faoliyati testi"],
       approach:
         "Biz inson salomatligiga yaxlit qaraymiz: diqqat bilan tinglaymiz, tashxislarni tushunarli tilda izohlaymiz va davolash bosqichlarini siz bilan birga belgilaymiz.",
-    },
-    "innere-medizin": {
-      name: "Ichki kasalliklar (Terapiya)",
-      short: "Kattalar uchun umumiy va ixtisoslashgan ichki kasalliklar terapiyasi.",
-      intro:
-        "Ichki kasalliklar ichki organlar faoliyatini qamrab oladi. Terapevt shifokorlarimiz ayniqsa murakkab va bir vaqtning oʻzida bir nechta kasalliklari boʻlgan bemorlarga kompleks yordam koʻrsatadilar.",
-      focus: [
-        "Arterial gipertoniya va metabolik kasalliklar",
-        "Koʻp xastalikli bemorlarni kuzatib borish",
-        "Nomaʻlum alomatlarni chuqur tekshirish",
-        "Dori vositalarini muntazam tahlil qilish",
-        "Surunkali kasalliklarni davolash dasturlari (DMP)",
-        "Statsionarga tayyorlash va shifoxonadan keyingi parvarish",
-      ],
-      diagnostics: ["Ultrasovush tekshiruvi (UZI)", "Xolter EKG monitoringi", "Kunlik qon bosimi nazorati", "Keng qamrovli laboratoriya"],
-      approach:
-        "Ichki aʻzolar kasalliklari bir-biri bilan chambarchas bogʻliq. Biz barcha tahlillarning umumiy koʻrinishini nazorat qilamiz va boshqa mutaxassislar bilan birgalikda ish yuritamiz.",
     },
     kardiologie: {
       name: "Kardiologiya",
@@ -352,13 +335,13 @@ const uz: Dictionary = {
   },
   patientsPage: {
     meta: {
-      title: "Bemorlar uchun – NabiOta MVZ",
-      description: "Tashrifingiz uchun barcha maʻlumotlar: birinchi qabul roʻyxati, sugʻurta, retseptlar, bemor huquqlari va koʻp beriladigan savollar.",
+      title: "Bemorlar xizmati: Qabul, tayyorgarlik va hujjatlar – NabiOta MVZ",
+      description: "Qabul, tayyorgarlik va hujjatlar: NabiOta MVZ ga tashrif uchun barcha maʻlumotlar. Hujjatlar roʻyxati, xulosalar, retseptlar, sugʻurta va navbatchi shifokor xizmati.",
     },
     hero: {
-      overline: "Bemorlar uchun",
-      title: "Qabulga toʻgʻri tayyorgarlik koʻring",
-      text: "Roʻyxatdan oʻtishdan tortib bemor sifatidagi qonuniy huquqlaringizgacha boʻlgan eng muhim amaliy maʻlumotlar.",
+      overline: "7. Bemorlar xizmati",
+      title: "Qabul, tayyorgarlik va hujjatlar",
+      text: "Qabulni toʻgʻri rejalashtirish uchun qaysi mutaxassis koʻrigi va qanday murojaat boʻyicha yozilmoqchi ekanligingizni bildiring. Qulay tashrifingiz uchun barcha koʻrsatmalar.",
     },
     firstVisit: {
       title: "Dastlabki tashrifingiz",

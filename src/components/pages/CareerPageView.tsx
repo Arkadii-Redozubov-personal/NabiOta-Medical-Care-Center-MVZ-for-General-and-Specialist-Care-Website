@@ -33,13 +33,6 @@ export function CareerPageView({ locale }: CareerPageViewProps) {
         <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
-              <nav className="breadcrumb" aria-label="Breadcrumb">
-                <Link href={localePath(locale, "")}>{dict.nav.home}</Link>
-                <Icon name="arrow" size={12} />
-                <span aria-current="page">{dict.nav.career}</span>
-              </nav>
-
-              <span className="eyebrow">{page.hero.overline}</span>
               <h1 className="h1">{page.hero.title}</h1>
               <p className="lead">{page.hero.text}</p>
             </div>
@@ -66,7 +59,6 @@ export function CareerPageView({ locale }: CareerPageViewProps) {
       <section className="section">
         <div className="container">
           <div className="section-head section-head--center">
-            <span className="eyebrow">{page.hero.overline}</span>
             <h2 className="h2">{page.benefits.title}</h2>
           </div>
 
@@ -89,10 +81,9 @@ export function CareerPageView({ locale }: CareerPageViewProps) {
 
       {/* ── 3. Open Positions & Apply ────────────────────── */}
       <section className="section section--sky">
-        <div className="container" style={{ maxWidth: "980px" }}>
+        <div className="container">
           <div className="section-head section-head--row">
             <div>
-              <span className="eyebrow">{dict.nav.career}</span>
               <h2 className="h2">{page.jobs.title}</h2>
             </div>
             <div>

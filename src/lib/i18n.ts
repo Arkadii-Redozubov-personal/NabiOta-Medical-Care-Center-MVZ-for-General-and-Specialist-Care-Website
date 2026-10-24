@@ -29,10 +29,8 @@ export function getDir(locale: Locale): "rtl" | "ltr" {
 export const routes = {
   home: "",
   specialties: "fachbereiche",
-  services: "leistungen",
   about: "ueber-uns",
   patients: "patienten",
-  quality: "qualitaet",
   career: "karriere",
   contact: "kontakt",
   imprint: "impressum",

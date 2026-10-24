@@ -126,9 +126,6 @@ export function TeamSlider({ locale }: TeamSliderProps) {
     >
       {/* ── Section Header ─────────────────────────────── */}
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        <span className="eyebrow" style={{ justifyContent: "center" }}>
-          {data.sectionTitle.toUpperCase()}
-        </span>
         <h2 className="section-title text-center" style={{ margin: "8px auto" }}>
           {data.sectionSubtitle}
         </h2>

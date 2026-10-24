@@ -16,13 +16,6 @@ export function PrivacyPageView({ locale }: PrivacyPageViewProps) {
     <div>
       <section className="page-hero">
         <div className="container page-hero__inner">
-          <nav className="breadcrumb" aria-label="Breadcrumb">
-            <Link href={localePath(locale, "")}>{dict.nav.home}</Link>
-            <Icon name="arrow" size={12} />
-            <span aria-current="page">{dict.legal.privacyTitle}</span>
-          </nav>
-
-          <span className="eyebrow">Datenschutz</span>
           <h1 className="h1">{dict.legal.privacyTitle}</h1>
         </div>
       </section>

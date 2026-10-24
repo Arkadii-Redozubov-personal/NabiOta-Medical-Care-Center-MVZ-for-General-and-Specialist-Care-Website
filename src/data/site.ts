@@ -4,18 +4,49 @@
  */
 export const site = {
   name: "NabiOta MVZ",
+  subtitle: "Zentrum für hausärztliche und fachärztliche Versorgung",
+  locationsText: "Mönchengladbach · Viersen · Düsseldorf",
+  locations: [
+    {
+      city: "Mönchengladbach",
+      state: "NRW",
+      street: "Bismarckstr. 106",
+      zip: "41061",
+      email: "moenchengladbach@nabiota-mvz.de",
+      phone: "02161 678 2683",
+      phoneHref: "+4921616782683",
+    },
+    {
+      city: "Viersen",
+      state: "NRW",
+      street: "Theodor-Heuss-Platz 10",
+      zip: "41747",
+      email: "viersen@nabiota-mvz.de",
+      phone: "02162 144 8720",
+      phoneHref: "+4921621448720",
+    },
+    {
+      city: "Düsseldorf",
+      state: "NRW",
+      street: "Münsterstr. 519",
+      zip: "40472",
+      email: "duesseldorf@nabiota-mvz.de",
+      phone: "+49 (0) 211 000 000 0",
+      phoneHref: "+492110000000",
+    },
+  ],
   legalName: "NabiOta MVZ für hausärztliche und fachärztliche Versorgung GmbH",
-  url: "https://www.nabiota-mvz.de", // TODO: final domain
-  email: "info@nabiota-mvz.de", // TODO
-  phone: "+49 (0) 211 000 000 0", // TODO
-  phoneHref: "+492110000000", // TODO
-  fax: "+49 (0) 211 000 000 9", // TODO
+  url: "https://www.nabiota-mvz.de",
+  email: "info@nabiota-mvz.de",
+  phone: "02161 678 2683",
+  phoneHref: "+4921616782683",
+  fax: "+49 (0) 2161 678 2689",
   emergencyService: "116 117",
   emergency: "112",
   address: {
-    street: "Musterstraße 1", // TODO
-    zip: "40210", // TODO
-    city: "Düsseldorf", // TODO
+    street: "Bismarckstr. 106",
+    zip: "41061",
+    city: "Mönchengladbach",
     country: "DE",
   },
   /** Opening hours – day keys are translated in the dictionaries. TODO: real hours */

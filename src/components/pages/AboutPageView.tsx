@@ -33,13 +33,6 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
         <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
-              <nav className="breadcrumb" aria-label="Breadcrumb">
-                <Link href={localePath(locale, "")}>{dict.nav.home}</Link>
-                <Icon name="arrow" size={12} />
-                <span aria-current="page">{dict.nav.about}</span>
-              </nav>
-
-              <span className="eyebrow">{content.hero.eyebrow}</span>
               <h1 className="h1">{content.hero.title}</h1>
               <p className="lead">{content.hero.lead}</p>
             </div>

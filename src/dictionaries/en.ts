@@ -121,11 +121,11 @@ const en: Dictionary = {
     meta: {
       title: "Specialties – NabiOta MVZ",
       description:
-        "General medicine, internal medicine, cardiology, gastroenterology, endocrinology, pulmonology, and neurology at NabiOta MVZ.",
+        "Primary care, cardiology, gastroenterology, endocrinology, pulmonology, and neurology at NabiOta MVZ.",
     },
     hero: {
       overline: "Specialties",
-      title: "Seven Specialties. One Coordinated Care Plan.",
+      title: "Six Specialties. One Coordinated Care Plan.",
       text: "Primary family medicine as the anchor, complemented by specialist expertise – within the approved scope and seamlessly networked.",
     },
   },
@@ -154,23 +154,6 @@ const en: Dictionary = {
       diagnostics: ["Resting ECG", "Laboratory diagnostics", "24-hour blood pressure", "Basic lung function"],
       approach:
         "We view patients holistically: we take time for discussion, explain findings transparently, and decide together on your treatment path.",
-    },
-    "innere-medizin": {
-      name: "Internal Medicine",
-      short: "Primary and specialist internal medicine for adults.",
-      intro:
-        "Internal medicine focuses on disorders of internal organs. Our internists provide both primary and specialized care, especially for complex and comorbid patients.",
-      focus: [
-        "Hypertension & metabolic diseases",
-        "Care for multimorbid patients",
-        "Workup of unexplained symptoms",
-        "Regular medication optimization",
-        "Disease Management Programs (DMP)",
-        "Pre- and post-hospital care",
-      ],
-      diagnostics: ["Ultrasound (sonography)", "Resting & Holter ECG", "24-hour ambulatory blood pressure", "Laboratory panels"],
-      approach:
-        "Internal conditions are often interconnected. We maintain the broad view of all findings and coordinate care across our specialized colleagues.",
     },
     kardiologie: {
       name: "Cardiology",
@@ -352,13 +335,13 @@ const en: Dictionary = {
   },
   patientsPage: {
     meta: {
-      title: "For Patients – NabiOta MVZ",
-      description: "Everything for your visit: first appointment checklist, insurance, prescriptions, patient rights, and FAQ.",
+      title: "Patient Service: Appointments, Preparation & Documents – NabiOta MVZ",
+      description: "Appointments, preparation, and documents: everything for your visit to NabiOta MVZ. Checklists, medical reports, prescriptions, insurance, and after-hours medical services.",
     },
     hero: {
-      overline: "For Patients",
-      title: "Well Prepared for Your Appointment",
-      text: "Key information for your visit – from check-in requirements to your rights as a patient.",
+      overline: "7. Patient Service",
+      title: "Appointments, Preparation, and Documents",
+      text: "For coordinated appointment planning, please let us know the required medical specialty and your reason for visit. Key practical guidance for your care.",
     },
     firstVisit: {
       title: "Your First Visit",

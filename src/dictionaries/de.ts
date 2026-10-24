@@ -6,9 +6,9 @@
  */
 const de = {
   meta: {
-    siteTitle: "NabiOta MVZ – Hausärztliche & fachärztliche Versorgung",
+    siteTitle: "NabiOta MVZ – Zentrum für hausärztliche und fachärztliche Versorgung",
     description:
-      "NabiOta MVZ: Allgemeinmedizin, Innere Medizin, Kardiologie, Gastroenterologie, Endokrinologie, Pneumologie und Neurologie unter einem Dach – für gesetzlich und privat Versicherte.",
+      "NabiOta MVZ: Zentrum für hausärztliche und fachärztliche Versorgung in Mönchengladbach, Viersen und Düsseldorf. Allgemeinmedizin, Kardiologie, Gastroenterologie, Pneumologie, Neurologie und Endokrinologie.",
   },
   nav: {
     home: "Startseite",
@@ -46,30 +46,30 @@ const de = {
   },
   home: {
     meta: {
-      title: "NabiOta MVZ – Ihr Hausarzt- und Facharztzentrum",
+      title: "NabiOta MVZ – Zentrum für hausärztliche und fachärztliche Versorgung",
       description:
-        "Kontinuierliche hausärztliche Betreuung und fachärztliche Expertise unter einem Dach: Vorsorge, Diagnostik, Behandlung und Nachsorge im NabiOta MVZ.",
+        "Hausärztliche Betreuung und fachärztliche Medizin in Mönchengladbach, Viersen und Düsseldorf. Vorsorge, Diagnostik, Behandlung und Nachsorge im NabiOta MVZ.",
     },
     hero: {
-      overline: "Medizinisches Versorgungszentrum",
+      overline: "",
       title: "Hausärztliche und fachärztliche Versorgung",
       titleAccent: "unter einem Dach.",
-      text: "Von der Vorsorge über die Diagnostik bis zur Nachsorge: Im NabiOta MVZ arbeiten Allgemeinmedizin, Innere Medizin und Neurologie eng zusammen – abgestimmt, persönlich und kontinuierlich.",
+      text: "Im NabiOta MVZ möchten wir hausärztliche Betreuung und fachärztliche Medizin miteinander verbinden. Unser Ziel ist eine persönliche, verständliche und aufeinander abgestimmte Versorgung – von der ersten Abklärung über die Behandlung bis zur langfristigen Nachsorge.",
       ctaPrimary: "Termin anfragen",
       ctaSecondary: "Unsere Fachbereiche",
-      badges: ["Gesetzlich & privat versichert", "7 Fachrichtungen", "Ärztlich geleitet"],
+      badges: ["Mönchengladbach · Viersen · Düsseldorf", "Gesetzlich & privat versichert", "6 Fachrichtungen"],
       cardTitle: "Heute für Sie da",
     },
     stats: [
-      { value: "7", label: "Fachrichtungen unter einem Dach" },
-      { value: "1", label: "Ansprechpartner für Ihre Versorgung" },
+      { value: "3", label: "Standorte: MG · VIE · DUS" },
+      { value: "6", label: "Medizinische Schwerpunkte" },
       { value: "6", label: "Sprachen im Team" },
       { value: "GKV & PKV", label: "Alle Versicherten willkommen" },
     ],
     specialties: {
-      overline: "Fachbereiche",
-      title: "Medizin, die zusammenarbeitet",
-      text: "Unsere Ärztinnen und Ärzte verschiedener Fachrichtungen stimmen Diagnostik und Therapie direkt miteinander ab – kurze Wege für Sie.",
+      overline: "Schwerpunkte",
+      title: "Unsere medizinischen Schwerpunkte",
+      text: "Allgemeinmedizin und hausärztliche Innere Medizin · Kardiologie · Gastroenterologie · Pneumologie · Neurologie · Endokrinologie",
       cta: "Alle Fachbereiche ansehen",
     },
     pathway: {
@@ -125,11 +125,11 @@ const de = {
     meta: {
       title: "Fachbereiche – NabiOta MVZ",
       description:
-        "Allgemeinmedizin, Innere Medizin, Kardiologie, Gastroenterologie, Endokrinologie, Pneumologie und Neurologie im NabiOta MVZ.",
+        "Allgemeinmedizin, Kardiologie, Gastroenterologie, Endokrinologie, Pneumologie und Neurologie im NabiOta MVZ.",
     },
     hero: {
       overline: "Fachbereiche",
-      title: "Sieben Fachrichtungen. Eine abgestimmte Versorgung.",
+      title: "Sechs Fachrichtungen. Eine abgestimmte Versorgung.",
       text: "Hausärztliche Betreuung als Basis, ergänzt durch fachärztliche Expertise – im jeweils genehmigten Umfang und eng miteinander vernetzt.",
     },
   },
@@ -144,7 +144,7 @@ const de = {
   specialtyContent: {
     allgemeinmedizin: {
       name: "Allgemeinmedizin",
-      short: "Ihre hausärztliche Anlaufstelle für alle gesundheitlichen Fragen.",
+      short: "Erste Anlaufstelle bei Beschwerden, Vorsorge und langfristige Betreuung.",
       intro:
         "Als Hausärztinnen und Hausärzte sind wir Ihre erste Anlaufstelle – bei akuten Beschwerden ebenso wie bei der langfristigen Betreuung. Wir kennen Ihre Krankengeschichte und koordinieren alle weiteren Schritte.",
       focus: [
@@ -159,26 +159,9 @@ const de = {
       approach:
         "Wir sehen den Menschen als Ganzes: Wir nehmen uns Zeit für Gespräche, erklären Befunde verständlich und entscheiden gemeinsam mit Ihnen über die nächsten Schritte.",
     },
-    "innere-medizin": {
-      name: "Innere Medizin",
-      short: "Hausärztliche und fachärztliche Internistik für Erwachsene.",
-      intro:
-        "Die Innere Medizin umfasst die Erkrankungen der inneren Organe. Unsere Internistinnen und Internisten betreuen Sie hausärztlich und fachärztlich – besonders bei komplexen und mehreren gleichzeitig bestehenden Erkrankungen.",
-      focus: [
-        "Bluthochdruck und Stoffwechselerkrankungen",
-        "Betreuung multimorbider Patienten",
-        "Abklärung unklarer Beschwerden",
-        "Regelmäßige Medikationsprüfung",
-        "Strukturierte Behandlungsprogramme (DMP)",
-        "Vor- und Nachsorge bei Krankenhausaufenthalten",
-      ],
-      diagnostics: ["Sonographie (Ultraschall)", "EKG und Langzeit-EKG", "Langzeit-Blutdruckmessung", "Labordiagnostik"],
-      approach:
-        "Internistische Erkrankungen hängen oft zusammen. Wir behalten den Überblick über alle Befunde und stimmen die Behandlung mit unseren Fachbereichen ab.",
-    },
     kardiologie: {
       name: "Kardiologie",
-      short: "Diagnostik und Behandlung von Herz- und Kreislauferkrankungen.",
+      short: "Abklärung und Behandlung von Herz- und Kreislauferkrankungen.",
       intro:
         "Unsere Kardiologie kümmert sich um Ihr Herz und Ihren Kreislauf – von der Vorsorge über die Abklärung von Beschwerden bis zur langfristigen Betreuung bei Herzerkrankungen.",
       focus: [
@@ -195,7 +178,7 @@ const de = {
     },
     gastroenterologie: {
       name: "Gastroenterologie",
-      short: "Erkrankungen von Magen, Darm, Leber und Bauchspeicheldrüse.",
+      short: "Erkrankungen der Verdauungsorgane, der Leber und der Gallenwege.",
       intro:
         "Die Gastroenterologie befasst sich mit dem gesamten Verdauungstrakt. Wir klären Beschwerden sorgfältig ab und begleiten Sie bei chronischen Erkrankungen.",
       focus: [
@@ -212,7 +195,7 @@ const de = {
     },
     endokrinologie: {
       name: "Endokrinologie",
-      short: "Hormon- und Stoffwechselerkrankungen, inklusive Schilddrüse und Diabetes.",
+      short: "Erkrankungen des Hormonsystems und damit verbundene Stoffwechselstörungen.",
       intro:
         "Hormone steuern zahlreiche Prozesse im Körper. Unsere Endokrinologie erkennt und behandelt Störungen des Hormonhaushalts und des Stoffwechsels.",
       focus: [
@@ -246,7 +229,7 @@ const de = {
     },
     neurologie: {
       name: "Neurologie",
-      short: "Erkrankungen des Gehirns, des Rückenmarks und der Nerven.",
+      short: "Erkrankungen des Gehirns, des Rückenmarks und der peripheren Nerven.",
       intro:
         "Die Neurologie befasst sich mit Erkrankungen des Nervensystems. Wir klären neurologische Beschwerden sorgfältig ab und begleiten Sie bei chronischen Verläufen.",
       focus: [
@@ -356,13 +339,13 @@ const de = {
   },
   patientsPage: {
     meta: {
-      title: "Für Patienten – NabiOta MVZ",
-      description: "Alles für Ihren Besuch im NabiOta MVZ: Erstbesuch, Versicherung, Rezepte und Überweisungen, Patientenrechte und häufige Fragen.",
+      title: "Patientenservice: Termine, Vorbereitung & Unterlagen – NabiOta MVZ",
+      description: "Termine, Vorbereitung und Unterlagen: Alles für Ihren Besuch im NabiOta MVZ. Checkliste, Befunde, Rezepte, Kosten und Notdienst außerhalb der Sprechzeiten.",
     },
     hero: {
-      overline: "Für Patienten",
-      title: "Gut vorbereitet zu Ihrem Termin",
-      text: "Hier finden Sie die wichtigsten Informationen rund um Ihren Besuch – von der ersten Anmeldung bis zu Ihren Rechten als Patientin oder Patient.",
+      overline: "7. Patientenservice",
+      title: "Termine, Vorbereitung und Unterlagen",
+      text: "Für eine passende Terminplanung teilen Sie uns bitte mit, für welchen Fachbereich Sie einen Termin benötigen und welches Anliegen Sie haben. Hier finden Sie alle wichtigen Hinweise für Ihren Besuch.",
     },
     firstVisit: {
       title: "Ihr erster Besuch",
