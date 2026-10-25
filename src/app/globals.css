@@ -348,7 +348,7 @@ html[dir="rtl"] {
     .btn-book:hover {
       background: linear-gradient(135deg, #0d5d88 0%, #09476b 100%);
       transform: none;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+      box-shadow: none;
       text-decoration: none !important;
     }
     .btn-book:hover svg,
@@ -424,7 +424,7 @@ html[dir="rtl"] {
       background: #1378ad;
       color: #ffffff;
       transform: none;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      box-shadow: none;
       text-decoration: none !important;
     }
     .btn-primary:hover svg,
@@ -2383,7 +2383,7 @@ html[dir="rtl"] {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(56, 189, 248, 0.35);
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), 0 0 20px rgba(56, 189, 248, 0.18);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 .expertise-icon {
   width: 64px !important;
@@ -2395,7 +2395,7 @@ html[dir="rtl"] {
   border-radius: 50% !important;
   background: #ffffff !important;
   border: 2px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.75), 0 0 45px rgba(33, 157, 216, 0.4), 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
   margin: 0 auto 12px auto !important;
   align-self: center !important;
   transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -2410,11 +2410,11 @@ html[dir="rtl"] {
 .expertise-card:hover .expertise-icon {
   background: #ffffff !important;
   border-color: #ffffff !important;
-  box-shadow: 0 0 32px rgba(56, 189, 248, 0.95), 0 0 55px rgba(14, 165, 233, 0.6), 0 6px 18px rgba(0, 0, 0, 0.3) !important;
-  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28) !important;
+  transform: scale(1.05) translateY(-2px);
 }
 .expertise-card:hover .expertise-icon svg {
-  transform: scale(1.1);
+  transform: scale(1.08);
   color: #0369a1 !important;
 }
 .expertise-text {
@@ -2474,7 +2474,7 @@ html[dir="rtl"] {
   border-color: #0ea5e9;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 0 14px rgba(14, 165, 233, 0.6);
+  box-shadow: none !important;
 }
 .expertise-card::after {
   display: none !important;
@@ -2577,7 +2577,7 @@ html[dir="rtl"] {
     border-radius: 50% !important;
     background: #ffffff !important;
     border: 2px solid rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.75), 0 0 35px rgba(33, 157, 216, 0.4) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -3160,7 +3160,7 @@ html[dir="rtl"] {
     border-radius: 50% !important;
     background: #ffffff !important;
     border: 2px solid rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.75), 0 0 35px rgba(33, 157, 216, 0.4) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -3212,7 +3212,7 @@ html[dir="rtl"] {
     border-radius: 50% !important;
     background: #ffffff !important;
     border: 2px solid rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 0 18px rgba(56, 189, 248, 0.75), 0 0 30px rgba(33, 157, 216, 0.4) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -6134,7 +6134,7 @@ html[dir="rtl"] .breadcrumb svg {
 .gastro-btn-primary:hover {
   background: #1982b6;
   transform: none;
-  box-shadow: 0 8px 22px rgba(33, 157, 216, 0.35);
+  box-shadow: none;
   text-decoration: none !important;
 }
 
@@ -8747,7 +8747,7 @@ a.contact-line:hover {
 .pneumo-ref-btn:hover {
   background: #0369a1;
   transform: none;
-  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
+  box-shadow: none;
   color: #ffffff;
   text-decoration: none !important;
 }
@@ -10504,7 +10504,7 @@ a.contact-line:hover {
   background: linear-gradient(135deg, #0d5d7c 0%, #1279b3 100%);
   transform: translateY(-2px);
   color: #ffffff;
-  box-shadow: 0 8px 22px rgba(22, 139, 203, 0.38);
+  box-shadow: none;
 }
 
 .patient-ref-hero-right {
@@ -11842,7 +11842,7 @@ a.contact-line:hover {
 .interactive-map-popup .popup-route-btn:hover {
   background: #168bcb;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(33, 157, 216, 0.35);
+  box-shadow: none;
 }
 
 .interactive-map-popup .popup-contact-link {
@@ -12362,7 +12362,7 @@ a.contact-line:hover {
   background: #168BCB;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(22, 139, 203, 0.4);
+  box-shadow: none;
 }
 .branch-qr-section {
   padding: 22px 28px;
