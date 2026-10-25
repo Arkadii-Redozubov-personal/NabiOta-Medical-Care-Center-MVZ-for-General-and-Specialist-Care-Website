@@ -571,7 +571,6 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
               <div className="patient-ref-section-header">
                 <h2 className="patient-ref-title">
                   {pageData.checklist.title}
-                  <span className="patient-ref-line" aria-hidden="true" />
                 </h2>
               </div>
 
@@ -586,23 +585,24 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
                     </div>
                   ))}
                 </div>
+              </div>
 
-                <div className="patient-ref-assist-banner">
-                  <div className="patient-ref-assist-left">
-                    <div className="patient-ref-assist-icon">
-                      <UserAvatarIcon size={22} />
-                    </div>
-                    <p className="patient-ref-assist-text">{pageData.checklist.assist}</p>
+              {/* Standalone Language & Mobility Assistance Banner */}
+              <div className="patient-ref-assist-banner" style={{ marginTop: "20px" }}>
+                <div className="patient-ref-assist-left">
+                  <div className="patient-ref-assist-icon">
+                    <UserAvatarIcon size={22} />
                   </div>
-                  <div className="patient-ref-assist-leaf" aria-hidden="true">
-                    <Image
-                      src="/img/leaf_branch_accent.png"
-                      alt=""
-                      fill
-                      sizes="120px"
-                      style={{ objectFit: "contain" }}
-                    />
-                  </div>
+                  <p className="patient-ref-assist-text">{pageData.checklist.assist}</p>
+                </div>
+                <div className="patient-ref-assist-leaf" aria-hidden="true">
+                  <Image
+                    src="/img/leaf_branch_accent.webp"
+                    alt=""
+                    fill
+                    sizes="120px"
+                    style={{ objectFit: "contain" }}
+                  />
                 </div>
               </div>
             </section>
@@ -613,7 +613,7 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
               <div className="patient-ref-card-findings">
                 <div className="patient-ref-findings-photo">
                   <Image
-                    src="/img/patient_medical_folders.jpg"
+                    src="/img/patient_medical_folders.webp"
                     alt={pageData.findings.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 25vw"
@@ -626,7 +626,6 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
                 <div className="patient-ref-findings-content">
                   <h3 className="patient-ref-title" style={{ fontSize: "1.45rem" }}>
                     {pageData.findings.title}
-                    <span className="patient-ref-line" aria-hidden="true" style={{ width: "32px", height: "2px" }} />
                   </h3>
                   <p className="patient-ref-card-p">{pageData.findings.p1}</p>
                   <p className="patient-ref-card-p">{pageData.findings.p2}</p>
@@ -666,7 +665,7 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
                 <p className="patient-ref-card-p">{pageData.info.p2}</p>
                 <div className="patient-ref-card-leaf-watermark" aria-hidden="true">
                   <Image
-                    src="/img/leaf_branch_accent.png"
+                    src="/img/leaf_branch_accent.webp"
                     alt=""
                     fill
                     sizes="140px"
@@ -714,24 +713,6 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
               </div>
             </section>
 
-            {/* ── Section: Teal Organizer Banner ──────────────────── */}
-            <section className="patient-ref-organizer-banner" aria-label={pageData.organizer.title}>
-              <div className="patient-ref-organizer-left">
-                <div className="patient-ref-organizer-icon">
-                  <UserAvatarIcon size={26} />
-                </div>
-                <div>
-                  <h3 className="patient-ref-organizer-title">{pageData.organizer.title}</h3>
-                  <p className="patient-ref-organizer-text">{pageData.organizer.text}</p>
-                  <Link href={localePath(locale, "kontakt")} className="patient-ref-btn-white">
-                    <span>{pageData.organizer.btn}</span>
-                    <span className="btn-arrow" aria-hidden="true">→</span>
-                  </Link>
-                </div>
-              </div>
-
-            </section>
-
             {/* ── Section: Download Center (Preserved as requested) ── */}
             <section className="patient-ref-section-downloads" id="downloads" aria-label={content.downloadCenter.title}>
               <div className="patient-ref-section-header" style={{ marginBottom: "28px" }}>
@@ -751,7 +732,6 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
               <div className="patient-ref-section-header" style={{ marginBottom: "28px" }}>
                 <h2 className="patient-ref-title">
                   {content.faq.title}
-                  <span className="patient-ref-line" aria-hidden="true" />
                 </h2>
                 <p style={{ color: "#547596", marginTop: "10px", fontSize: "1rem", maxWidth: "780px" }}>
                   {content.faq.desc}
@@ -791,6 +771,23 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
                     </p>
                   </details>
                 ))}
+              </div>
+            </section>
+
+            {/* ── Section: Teal Organizer Banner (Moved to bottom of page) ── */}
+            <section className="patient-ref-organizer-banner" aria-label={pageData.organizer.title}>
+              <div className="patient-ref-organizer-left">
+                <div className="patient-ref-organizer-icon">
+                  <UserAvatarIcon size={26} />
+                </div>
+                <div>
+                  <h3 className="patient-ref-organizer-title">{pageData.organizer.title}</h3>
+                  <p className="patient-ref-organizer-text">{pageData.organizer.text}</p>
+                  <Link href={localePath(locale, "kontakt")} className="patient-ref-btn-white">
+                    <span>{pageData.organizer.btn}</span>
+                    <span className="btn-arrow" aria-hidden="true">→</span>
+                  </Link>
+                </div>
               </div>
             </section>
 

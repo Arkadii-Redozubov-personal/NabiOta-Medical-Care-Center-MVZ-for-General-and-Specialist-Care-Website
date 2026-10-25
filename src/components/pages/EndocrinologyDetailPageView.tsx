@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
@@ -29,12 +31,12 @@ const appointmentButtonText: Record<Locale, string> = {
 };
 
 const endoServiceImages = [
-  "/img/endo_service_consult.jpg",
-  "/img/endo_service_hormones.jpg",
-  "/img/endo_service_ultrasound.jpg",
-  "/img/endo_service_followup.jpg",
-  "/img/endo_service_functiontest.jpg",
-  "/img/endo_service_imaging.jpg",
+  "/img/endo_service_consult.webp",
+  "/img/endo_service_hormones.webp",
+  "/img/endo_service_ultrasound.webp",
+  "/img/endo_service_followup.webp",
+  "/img/endo_service_functiontest.webp",
+  "/img/endo_service_imaging.webp",
 ];
 
 /* ── Custom SVGs matching the Endocrinology Reference ─────────────────── */
@@ -316,6 +318,13 @@ export function EndocrinologyDetailPageView({
     },
   ];
 
+  const [selectedIdx, setSelectedIdx] = useState(0);
+  const activeDiagnostic = diagnosticsData[selectedIdx] || diagnosticsData[0];
+  const activeImage = endoServiceImages[selectedIdx] || endoServiceImages[0];
+  const otherDiagnostics = diagnosticsData
+    .map((item, originalIdx) => ({ item, originalIdx }))
+    .filter((entry) => entry.originalIdx !== selectedIdx);
+
   /* 4 Checklist Cards */
   const checklistCards = [
     {
@@ -474,7 +483,6 @@ export function EndocrinologyDetailPageView({
                     (locale === "ru"
                       ? "Когда имеет смысл эндокринологическое обследование?"
                       : "Wann ist eine endokrinologische Abklärung sinnvoll?")}
-                  <span className="endo-ref-line" aria-hidden="true" />
                 </h2>
               </div>
               <div className="endo-ref-subtitle">
@@ -531,30 +539,92 @@ export function EndocrinologyDetailPageView({
                     (locale === "ru"
                       ? "Исследования и спектр услуг"
                       : "Untersuchungen und Leistungen")}
-                  <span className="endo-ref-line" aria-hidden="true" />
                 </h2>
               </div>
 
-              <div className="endo-ref-services-cards-grid">
-                {diagnosticsData.map((d, dIdx) => (
-                  <div key={dIdx} className="endo-ref-service-card">
-                    <div className="endo-ref-card-img-wrap">
+              {/* Interactive Showcase: Featured Card on Left + Remaining Services on Right */}
+              <div className="cardio-interactive-showcase">
+                {/* Left: Featured Active Card */}
+                {activeDiagnostic && (
+                  <div key={selectedIdx} className="cardio-featured-card fade-in">
+                    <div className="cardio-featured-media">
                       <Image
-                        src={endoServiceImages[dIdx] || endoServiceImages[0]}
-                        alt={d.text}
+                        src={activeImage}
+                        alt={activeDiagnostic.text}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"
+                        sizes="(max-width: 992px) 100vw, 540px"
+                        priority
                         style={{ objectFit: "cover" }}
                       />
                     </div>
-                    <div className="endo-ref-card-body">
-                      <div className="endo-ref-card-content-row">
-                        <div className="endo-ref-service-icon">{d.icon}</div>
-                        <span className="endo-ref-service-text">{d.text}</span>
+                    <div className="cardio-featured-body">
+                      <div className="cardio-featured-top">
+                        <div className="cardio-featured-title-row">
+                          <div className="cardio-featured-icon" aria-hidden="true">
+                            {activeDiagnostic.icon}
+                          </div>
+                          <h3 className="cardio-featured-title">
+                            {activeDiagnostic.text.includes(":")
+                              ? activeDiagnostic.text.split(":")[0].trim()
+                              : activeDiagnostic.text}
+                          </h3>
+                        </div>
+                        {activeDiagnostic.text.includes(":") && (
+                          <p className="cardio-featured-desc">
+                            {activeDiagnostic.text.split(":").slice(1).join(":").trim()}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
-                ))}
+                )}
+
+                {/* Right: List of Remaining Services */}
+                <div className="cardio-services-sidebar" role="list">
+                  {otherDiagnostics.map(({ item, originalIdx }) => {
+                    const hasColon = item.text.includes(":");
+                    const title = hasColon ? item.text.split(":")[0].trim() : item.text;
+                    const desc = hasColon ? item.text.split(":").slice(1).join(":").trim() : "";
+
+                    return (
+                      <button
+                        key={originalIdx}
+                        type="button"
+                        onClick={() => setSelectedIdx(originalIdx)}
+                        className="cardio-service-list-item"
+                        aria-label={item.text}
+                      >
+                        <div className="cardio-service-item-media">
+                          <Image
+                            src={endoServiceImages[originalIdx] || endoServiceImages[0]}
+                            alt={title}
+                            fill
+                            sizes="80px"
+                            style={{ objectFit: "cover" }}
+                          />
+                        </div>
+                        <div className="cardio-service-item-text">
+                          <h4 className="cardio-service-item-title">{title}</h4>
+                          {desc && <p className="cardio-service-item-desc">{desc}</p>}
+                        </div>
+                        <div className="cardio-service-item-arrow" aria-hidden="true">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="9 18 15 12 9 6" />
+                          </svg>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               <p className="endo-ref-services-note">
@@ -571,7 +641,7 @@ export function EndocrinologyDetailPageView({
               <div className="endo-ref-treatment-grid">
                 <div className="endo-ref-treatment-photo-wrap">
                   <Image
-                    src="/img/endo_ultrasound_patient.jpg"
+                    src="/img/endo_ultrasound_patient.webp"
                     alt={locale === "ru" ? "УЗИ щитовидной железы" : "Schilddrüsensonografie und Untersuchung"}
                     fill
                     sizes="(max-width: 900px) 100vw, 45vw"
@@ -586,7 +656,6 @@ export function EndocrinologyDetailPageView({
                         (locale === "ru"
                           ? "Лечение и долгосрочное наблюдение"
                           : "Behandlung und langfristige Begleitung")}
-                      <span className="endo-ref-line" aria-hidden="true" />
                     </h2>
                   </div>
 
@@ -617,7 +686,6 @@ export function EndocrinologyDetailPageView({
                     (locale === "ru"
                       ? "Что поможет на приёме"
                       : "Das hilft bei Ihrem Termin")}
-                  <span className="endo-ref-line" aria-hidden="true" />
                 </h2>
               </div>
 
@@ -638,7 +706,7 @@ export function EndocrinologyDetailPageView({
             <div className="endo-ref-cta-card">
               <div className="endo-ref-cta-bg">
                 <Image
-                  src="/img/endo_cta_molecules.jpg"
+                  src="/img/endo_cta_molecules.webp"
                   alt=""
                   fill
                   sizes="100vw"

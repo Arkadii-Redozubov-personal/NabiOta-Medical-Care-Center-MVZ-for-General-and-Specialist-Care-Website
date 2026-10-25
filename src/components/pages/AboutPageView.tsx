@@ -126,7 +126,6 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
           <div style={{ display: "flex", gap: "48px", alignItems: "center", marginBottom: "48px", flexWrap: "wrap" }}>
             <div style={{ flex: 1, minWidth: "300px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
-                <div style={{ width: "32px", height: "3px", background: "#168BCB", borderRadius: "2px" }} />
                 <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "2px", color: "#168BCB" }}>
                   {content.philosophy.tag}
                 </span>

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
@@ -29,12 +31,12 @@ const appointmentButtonText: Record<Locale, string> = {
 };
 
 const neuroServiceImages = [
-  "/img/neuro_service_exam.jpg",
-  "/img/neuro_service_neurography.jpg",
-  "/img/neuro_service_emg.jpg",
-  "/img/neuro_service_eeg.jpg",
-  "/img/neuro_service_memory.jpg",
-  "/img/neuro_service_ultrasound.jpg",
+  "/img/neuro_service_exam.webp",
+  "/img/neuro_service_neurography.webp",
+  "/img/neuro_service_emg.webp",
+  "/img/neuro_service_eeg.webp",
+  "/img/neuro_service_memory.webp",
+  "/img/neuro_service_ultrasound.webp",
 ];
 
 /* ── Custom SVGs for Trust Bar ────────────────────────────────────────── */
@@ -397,6 +399,13 @@ export function NeurologyDetailPageView({
     },
   ];
 
+  const [selectedIdx, setSelectedIdx] = useState(0);
+  const activeDiagnostic = diagnosticsData[selectedIdx] || diagnosticsData[0];
+  const activeImage = neuroServiceImages[selectedIdx] || neuroServiceImages[0];
+  const otherDiagnostics = diagnosticsData
+    .map((item, originalIdx) => ({ item, originalIdx }))
+    .filter((entry) => entry.originalIdx !== selectedIdx);
+
   /* 3 Checklist Items */
   const checklistCards = [
     {
@@ -551,7 +560,6 @@ export function NeurologyDetailPageView({
                     (locale === "ru"
                       ? "Когда имеет смысл неврологическое обследование?"
                       : "Wann ist eine neurologische Abklärung sinnvoll?")}
-                  <span className="neuro-ref-line" aria-hidden="true" />
                 </h2>
               </div>
               <div className="neuro-ref-subtitle">
@@ -598,7 +606,7 @@ export function NeurologyDetailPageView({
                 {/* Right-aligned Photo 1 banner with smooth blur fade */}
                 <div className="neuro-ref-reasons-bg" aria-hidden="true">
                   <Image
-                    src="/img/neuro_symptom_brain_banner.png"
+                    src="/img/neuro_symptom_brain_banner.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1024px) 100vw, 55vw"
@@ -617,40 +625,90 @@ export function NeurologyDetailPageView({
                     (locale === "ru"
                       ? "Исследования и спектр услуг"
                       : "Untersuchungen und Leistungen")}
-                  <span className="neuro-ref-line" aria-hidden="true" />
                 </h2>
               </div>
 
-              {/* 3x2 Photo Cards Grid */}
-              <div className="neuro-ref-services-cards-grid">
-                {diagnosticsData.map((d, dIdx) => {
-                  const hasColon = d.text.includes(":");
-                  const title = hasColon ? d.text.split(":")[0].trim() : d.text;
-                  const desc = hasColon ? d.text.split(":").slice(1).join(":").trim() : "";
+              {/* Interactive Showcase: Featured Card on Left + Remaining Services on Right */}
+              <div className="cardio-interactive-showcase">
+                {/* Left: Featured Active Card */}
+                {activeDiagnostic && (() => {
+                  const hasColon = activeDiagnostic.text.includes(":");
+                  const activeTitle = hasColon ? activeDiagnostic.text.split(":")[0].trim() : activeDiagnostic.text;
+                  const activeDesc = hasColon ? activeDiagnostic.text.split(":").slice(1).join(":").trim() : "";
 
                   return (
-                    <div key={dIdx} className="neuro-ref-service-card">
-                      <div className="neuro-ref-card-img-wrap">
+                    <div key={selectedIdx} className="cardio-featured-card fade-in">
+                      <div className="cardio-featured-media">
                         <Image
-                          src={neuroServiceImages[dIdx] || neuroServiceImages[0]}
-                          alt={title}
+                          src={activeImage}
+                          alt={activeTitle}
                           fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"
+                          sizes="(max-width: 992px) 100vw, 540px"
+                          priority
                           style={{ objectFit: "cover" }}
                         />
                       </div>
-                      <div className="neuro-ref-card-body">
-                        <div className="neuro-ref-card-content-row">
-                          <div className="neuro-ref-service-icon">{d.icon}</div>
-                          <div className="neuro-ref-card-text-wrap">
-                            <h3 className="neuro-ref-service-card-title">{title}</h3>
-                            {desc && <p className="neuro-ref-service-card-desc">{desc}</p>}
+                      <div className="cardio-featured-body">
+                        <div className="cardio-featured-top">
+                          <div className="cardio-featured-title-row">
+                            <div className="cardio-featured-icon" aria-hidden="true">
+                              {activeDiagnostic.icon}
+                            </div>
+                            <h3 className="cardio-featured-title">{activeTitle}</h3>
                           </div>
+                          {activeDesc && <p className="cardio-featured-desc">{activeDesc}</p>}
                         </div>
                       </div>
                     </div>
                   );
-                })}
+                })()}
+
+                {/* Right: List of Remaining Services */}
+                <div className="cardio-services-sidebar" role="list">
+                  {otherDiagnostics.map(({ item, originalIdx }) => {
+                    const hasColon = item.text.includes(":");
+                    const title = hasColon ? item.text.split(":")[0].trim() : item.text;
+                    const desc = hasColon ? item.text.split(":").slice(1).join(":").trim() : "";
+
+                    return (
+                      <button
+                        key={originalIdx}
+                        type="button"
+                        onClick={() => setSelectedIdx(originalIdx)}
+                        className="cardio-service-list-item"
+                        aria-label={item.text}
+                      >
+                        <div className="cardio-service-item-media">
+                          <Image
+                            src={neuroServiceImages[originalIdx] || neuroServiceImages[0]}
+                            alt={title}
+                            fill
+                            sizes="80px"
+                            style={{ objectFit: "cover" }}
+                          />
+                        </div>
+                        <div className="cardio-service-item-text">
+                          <h4 className="cardio-service-item-title">{title}</h4>
+                          {desc && <p className="cardio-service-item-desc">{desc}</p>}
+                        </div>
+                        <div className="cardio-service-item-arrow" aria-hidden="true">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="9 18 15 12 9 6" />
+                          </svg>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Supplemental Examinations note */}
@@ -688,7 +746,6 @@ export function NeurologyDetailPageView({
                       (locale === "ru"
                         ? "Лечение и дальнейшее наблюдение"
                         : "Behandlung und Nachsorge")}
-                    <span className="neuro-ref-line" aria-hidden="true" />
                   </h2>
                 </div>
 
@@ -710,7 +767,6 @@ export function NeurologyDetailPageView({
                     (locale === "ru"
                       ? "Что поможет на приёме"
                       : "Das hilft bei Ihrem Termin")}
-                  <span className="neuro-ref-line" aria-hidden="true" />
                 </h2>
               </div>
 
@@ -734,7 +790,7 @@ export function NeurologyDetailPageView({
             <div className="neuro-ref-emergency-card">
               <div className="neuro-ref-emergency-bg">
                 <Image
-                  src="/img/neuro_emergency_bg.jpg"
+                  src="/img/neuro_emergency_bg.webp"
                   alt=""
                   fill
                   sizes="100vw"

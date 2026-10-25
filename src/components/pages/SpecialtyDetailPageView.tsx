@@ -12,6 +12,7 @@ import { PneumologyDetailPageView } from "@/components/pages/PneumologyDetailPag
 import { NeurologyDetailPageView } from "@/components/pages/NeurologyDetailPageView";
 import { EndocrinologyDetailPageView } from "@/components/pages/EndocrinologyDetailPageView";
 import { SpecialtyDownloadsSection } from "@/components/ui/SpecialtyDownloadsSection";
+import { GeneralMedicineServicesShowcase } from "@/components/ui/GeneralMedicineServicesShowcase";
 
 interface SpecialtyDetailPageViewProps {
   locale: Locale;
@@ -285,7 +286,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     </div>
                     <div className="specialty-notice-art" aria-hidden="true">
                       <Image
-                        src="/img/leaf_branch_accent.png"
+                        src="/img/leaf_branch_accent.webp"
                         alt=""
                         width={130}
                         height={68}
@@ -306,42 +307,51 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                 </div>
                 <p className="specialty-section-lead">{richData.servicesLead}</p>
 
-                <div className="specialty-services-grid">
-                  {richData.services.map((service, idx) => {
-                    const currentServiceIcons = richData.serviceIcons || serviceIcons;
-                    return (
-                      <div key={idx} className="specialty-service-card">
-                        <div className="specialty-service-icon">
-                          <Icon name={currentServiceIcons[idx % currentServiceIcons.length]} size={20} />
-                        </div>
-                        <div className="specialty-service-text">{service}</div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {richData.servicesNote && (
-                  <div className="specialty-services-note">
-                    <div className="specialty-services-note-left">
-                      <Icon name="info" size={18} style={{ color: "#219DD8", flexShrink: 0 }} />
-                      <span>{richData.servicesNote}</span>
+                {slug === "allgemeinmedizin" ? (
+                  <GeneralMedicineServicesShowcase
+                    locale={locale}
+                    servicesNote={richData.servicesNote}
+                  />
+                ) : (
+                  <>
+                    <div className="specialty-services-grid">
+                      {richData.services.map((service, idx) => {
+                        const currentServiceIcons = richData.serviceIcons || serviceIcons;
+                        return (
+                          <div key={idx} className="specialty-service-card">
+                            <div className="specialty-service-icon">
+                              <Icon name={currentServiceIcons[idx % currentServiceIcons.length]} size={20} />
+                            </div>
+                            <div className="specialty-service-text">{service}</div>
+                          </div>
+                        );
+                      })}
                     </div>
-                    {/* Subtle decorative ECG line matching reference */}
-                    <svg
-                      width="130"
-                      height="28"
-                      viewBox="0 0 130 28"
-                      fill="none"
-                      stroke="rgba(33, 157, 216, 0.4)"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      style={{ flexShrink: 0 }}
-                    >
-                      <path d="M0 14h42l4-8 6 18 6-20 5 14 5-4h62" />
-                    </svg>
-                  </div>
+
+                    {richData.servicesNote && (
+                      <div className="specialty-services-note">
+                        <div className="specialty-services-note-left">
+                          <Icon name="info" size={18} style={{ color: "#219DD8", flexShrink: 0 }} />
+                          <span>{richData.servicesNote}</span>
+                        </div>
+                        {/* Subtle decorative ECG line matching reference */}
+                        <svg
+                          width="130"
+                          height="28"
+                          viewBox="0 0 130 28"
+                          fill="none"
+                          stroke="rgba(33, 157, 216, 0.4)"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                          style={{ flexShrink: 0 }}
+                        >
+                          <path d="M0 14h42l4-8 6 18 6-20 5 14 5-4h62" />
+                        </svg>
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
 
@@ -367,7 +377,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     <div className="specialty-vaccine-banner">
                       <div className="specialty-vaccine-img">
                         <Image
-                          src={richData.banner?.image || "/img/vaccine_vials_banner.jpg"}
+                          src={richData.banner?.image || "/img/vaccine_vials_banner.webp"}
                           alt={richData.banner?.title || richData.treatmentTitle || richData.preventionTitle || "Medical Care"}
                           fill
                           sizes="(max-width: 768px) 100vw, 200px"
@@ -441,7 +451,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                   {/* Full-height background image with smooth blur transition on left */}
                   <div className="specialty-checklist-bg" aria-hidden="true">
                     <Image
-                      src="/img/appointment_checklist_bg.png"
+                      src="/img/appointment_checklist_bg.webp"
                       alt=""
                       fill
                       sizes="(max-width: 1080px) 0vw, 55vw"

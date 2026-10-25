@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
@@ -29,12 +31,12 @@ const appointmentButtonText: Record<Locale, string> = {
 };
 
 const cardioServiceImages = [
-  "/img/cardio_service_ekg_rest.jpg",
-  "/img/cardio_service_holter.jpg",
-  "/img/cardio_service_bp_monitor.jpg",
-  "/img/cardio_service_echo.jpg",
-  "/img/cardio_service_stress_test.jpg",
-  "/img/cardio_service_lab.jpg",
+  "/img/cardio_service_ekg_rest.webp",
+  "/img/cardio_service_holter.webp",
+  "/img/cardio_service_bp_monitor.webp",
+  "/img/cardio_service_echo.webp",
+  "/img/cardio_service_stress_test.webp",
+  "/img/cardio_service_lab.webp",
 ];
 
 export function CardiologyDetailPageView({
@@ -51,6 +53,17 @@ export function CardiologyDetailPageView({
   const processSteps = richData.cardioProcessSteps || [];
   const advantagesSection = richData.cardioAdvantagesSection;
   const ctaSection = richData.cardioCtaSection;
+
+  // Selected examination index (default to Holter-EKG index 1 matching design reference)
+  const [selectedIdx, setSelectedIdx] = useState(1);
+
+  const activeCard = serviceCards[selectedIdx] || serviceCards[0];
+  const activeIcon = selectedIdx === 1 ? "clock" : activeCard?.icon || "pulse";
+  const activeImage = cardioServiceImages[selectedIdx] || cardioServiceImages[0];
+
+  const otherServices = serviceCards
+    .map((card, originalIdx) => ({ card, originalIdx }))
+    .filter((item) => item.originalIdx !== selectedIdx);
 
   return (
     <div>
@@ -247,32 +260,66 @@ export function CardiologyDetailPageView({
                 </div>
               </div>
 
-              {/* 3x2 Grid */}
-              <div className="cardio-services-grid">
-                {serviceCards.map((card, idx) => (
-                  <div key={idx} className="cardio-service-card">
-                    <div className="cardio-service-img-wrap">
+              {/* Interactive Showcase: Featured Card on Left + Remaining Services on Right */}
+              <div className="cardio-interactive-showcase">
+                {/* Left: Featured Active Card */}
+                {activeCard && (
+                  <div key={selectedIdx} className="cardio-featured-card fade-in">
+                    <div className="cardio-featured-media">
                       <Image
-                        src={cardioServiceImages[idx] || cardioServiceImages[0]}
-                        alt={card.title}
+                        src={activeImage}
+                        alt={activeCard.title}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"
+                        sizes="(max-width: 992px) 100vw, 540px"
+                        priority
                         style={{ objectFit: "cover" }}
                       />
                     </div>
-                    <div className="cardio-service-body">
-                      <div className="cardio-service-content-row">
-                        <div className="cardio-service-icon-wrap">
-                          <Icon name={idx === 2 ? "clock" : card.icon} size={20} />
+                    <div className="cardio-featured-body">
+                      <div className="cardio-featured-top">
+                        <div className="cardio-featured-title-row">
+                          <div className="cardio-featured-icon" aria-hidden="true">
+                            <Icon name={activeIcon} size={22} />
+                          </div>
+                          <h3 className="cardio-featured-title">{activeCard.title}</h3>
                         </div>
-                        <div className="cardio-service-text-wrap">
-                          <h3 className="cardio-service-title">{card.title}</h3>
-                          <p className="cardio-service-desc">{card.desc}</p>
-                        </div>
+                        <p className="cardio-featured-desc">{activeCard.desc}</p>
                       </div>
                     </div>
                   </div>
-                ))}
+                )}
+
+                {/* Right: List of Remaining Services */}
+                <div className="cardio-services-sidebar" role="list">
+                  {otherServices.map(({ card, originalIdx }) => (
+                    <button
+                      key={originalIdx}
+                      type="button"
+                      onClick={() => setSelectedIdx(originalIdx)}
+                      className="cardio-service-list-item"
+                      aria-label={`${card.title}: ${card.desc}`}
+                    >
+                      <div className="cardio-service-item-media">
+                        <Image
+                          src={cardioServiceImages[originalIdx] || cardioServiceImages[0]}
+                          alt={card.title}
+                          fill
+                          sizes="80px"
+                          style={{ objectFit: "cover" }}
+                        />
+                      </div>
+                      <div className="cardio-service-item-text">
+                        <h4 className="cardio-service-item-title">{card.title}</h4>
+                        <p className="cardio-service-item-desc">{card.desc}</p>
+                      </div>
+                      <div className="cardio-service-item-arrow" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* Subtle services footnote matching PDF */}
@@ -335,7 +382,7 @@ export function CardiologyDetailPageView({
                 {/* Full-height background image on right with smooth blur fade into card on left */}
                 <div className="cardio-heart-bg-wrap" aria-hidden="true">
                   <Image
-                    src="/img/cardio_heart_art.jpg"
+                    src="/img/cardio_heart_art.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1080px) 60vw, 52vw"
@@ -398,7 +445,7 @@ export function CardiologyDetailPageView({
                 {/* Left Column: Doctor Photo with Quote Overlay */}
                 <div className="cardio-doctor-photo-card">
                   <Image
-                    src="/img/cardio_doctor_clipboard.jpg"
+                    src="/img/cardio_doctor_clipboard.webp"
                     alt={advantagesSection.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 480px"
@@ -467,7 +514,7 @@ export function CardiologyDetailPageView({
                 {/* Blurred background decoration matching template */}
                 <div className="specialty-checklist-bg" aria-hidden="true">
                   <Image
-                    src="/img/appointment_checklist_bg.png"
+                    src="/img/appointment_checklist_bg.webp"
                     alt=""
                     fill
                     sizes="40vw"
@@ -528,7 +575,7 @@ export function CardiologyDetailPageView({
                 {/* Background image container */}
                 <div className="cardio-cta-bg" aria-hidden="true">
                   <Image
-                    src="/img/cardio_cta_banner_bg.png"
+                    src="/img/cardio_cta_banner_bg.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1280px) 100vw, 1280px"

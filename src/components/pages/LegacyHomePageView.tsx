@@ -2,11 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { site } from "@/data/site";
 import { activeSpecialties } from "@/data/specialties";
 import { Icon } from "@/components/ui/Icon";
+import { HomeBranchesInteractiveMap } from "@/components/ui/HomeBranchesInteractiveMap";
 
 import {
   homepageSpecialtiesData,
@@ -14,6 +16,21 @@ import {
   homeSectionTranslations,
 } from "@/data/homeTranslations";
 import { homeExtraTranslations } from "@/data/homeExtraTranslations";
+
+const branchMotto: Record<Locale, string> = {
+  de: "An jedem Standort kümmern wir uns verlässlich um Ihre Gesundheit.",
+  en: "At every location, we care for your health with dedication.",
+  ru: "В каждом филиале мы заботимся о вашем здоровье.",
+  tr: "Her şubemizde sağlığınız için özenle yanınızdayız.",
+  ar: "في كل فرع، نهتم بصحتكم بكل تفانٍ.",
+  uz: "Har bir filialimizda sizning sog'lig'ingiz haqida g'amxo'rlik qilamiz.",
+};
+
+const branchImages = [
+  "/img/branch_moenchengladbach.webp",
+  "/img/branch_viersen.webp",
+  "/img/branch_duesseldorf.webp",
+];
 
 interface LegacyHomePageViewProps {
   locale: Locale;
@@ -73,24 +90,24 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
               <h1 className="hero-title">
                 {copy.hero.title}
               </h1>
-              <p className="hero-desc" style={{ marginTop: "18px" }}>
+              <p className="hero-desc" style={{ marginTop: "24px", marginBottom: "36px" }}>
                 {copy.hero.text}
               </p>
 
               <div className="hero-actions">
                 <Link href={localePath(locale, "kontakt")} className="btn-primary">
-                  <Icon name="calendar" size={18} style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                  <Icon name="calendar" size={18} />
                   <span>{dict.nav.book}</span>
-                  <span className="btn-arrow" style={{ marginLeft: "4px" }}>→</span>
+                  <span className="btn-arrow" aria-hidden="true">→</span>
                 </Link>
                 <Link href={localePath(locale, "fachbereiche")} className="btn-outline">
-                  <Icon name="arrow" size={16} style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                  {dict.home.hero.ctaSecondary}
+                  <span>{dict.home.hero.ctaSecondary}</span>
+                  <span className="btn-arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
 
               {/* Trusted Expertise Bar */}
-              <div className="trusted-expertise" style={{ marginTop: "32px" }}>
+              <div className="trusted-expertise" style={{ marginTop: "48px" }}>
                 <div className="trusted-stats">
                   <div className="trusted-stat">
                     <div className="trusted-stat-icon">
@@ -129,13 +146,9 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
               </div>
             </div>
 
-            {/* Areas of Expertise Grid */}
+            {/* Areas of Expertise Grid (Frameless reference design) */}
             <div className="expertise-wrapper">
               <div className="expertise-container">
-                <div className="expertise-title">
-                  <span>{expertiseTitles[locale] || expertiseTitles.de}</span>
-                  <span className="expertise-title-line" aria-hidden="true" />
-                </div>
                 <div className="expertise-grid">
                   {(homepageSpecialtiesData[locale] || homepageSpecialtiesData.de).map((spec) => (
                     <Link
@@ -144,11 +157,26 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                       className="expertise-card"
                     >
                       <div className="expertise-icon">
-                        <Icon name={spec.icon} size={32} />
+                        <Icon name={spec.icon} size={38} />
                       </div>
                       <div className="expertise-text">
                         <span className="expertise-card-title">{spec.title}</span>
                         <span className="expertise-card-desc">{spec.desc}</span>
+                      </div>
+                      <div className="expertise-arrow-btn" aria-hidden="true">
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
                       </div>
                     </Link>
                   ))}
@@ -184,7 +212,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
             </Link>
           </div>
 
-          <div className="services-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
+          <div className="services-grid home-services-grid-2col">
             {copy.schwerpunkte.items.map((item) => (
               <div key={item.slug} className="service-card fade-in">
                 <img
@@ -262,55 +290,101 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
         </section>
       </div>
 
-      {/* ── 5. Standorte Section (An drei Standorten für Sie da) ── */}
-      <div className="section-wrapper standorte-section-wrapper" style={{ background: "#f8fafc", padding: "40px 0 54px 0", borderTop: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0" }}>
-        <section className="section container standorte-section" style={{ paddingTop: 0, paddingBottom: 0 }}>
-          <div className="standorte-header" style={{ maxWidth: "860px", marginBottom: "28px" }}>
-            <h2 className="section-title" style={{ fontSize: "2.6rem", lineHeight: 1.2, marginBottom: "12px", color: "var(--text-dark)" }}>
-              {copy.standorte.title}
-            </h2>
-            <p style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "#334155", marginBottom: "14px" }}>
-              {copy.standorte.lead1}
-            </p>
-            <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "#475569" }}>
-              {copy.standorte.lead2}
-            </p>
-          </div>
+      {/* ── 5. Standorte Section (An drei Standorten für Sie da - Redesign) ── */}
+      <div className="home-branches-section-wrap standorte-section-wrapper">
+        <section className="section container home-branches-container standorte-section" style={{ paddingTop: 0, paddingBottom: 0 }}>
+          <div className="home-branches-grid">
+            {/* Left Column: Title + Descriptions + 3 Branch Cards */}
+            <div className="home-branches-left-col">
+              <h2 className="home-branches-title">
+                {copy.standorte.title}
+              </h2>
+              <p className="home-branches-lead1">
+                {copy.standorte.lead1}
+              </p>
+              <p className="home-branches-lead2">
+                {copy.standorte.lead2}
+              </p>
 
-          {/* 3 City Cards */}
-          <div className="standorte-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "28px" }}>
-            {copy.standorte.cards.map((card, idx) => (
-              <div key={idx} className="standort-card" style={{ background: "white", padding: "32px", borderRadius: "18px", border: "1px solid #e2e8f0", boxShadow: "0 4px 20px rgba(0,0,0,0.04)", display: "flex", flexDirection: "column" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-                  <div style={{ width: "46px", height: "46px", borderRadius: "12px", background: "rgba(33, 157, 216, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#219DD8", flexShrink: 0 }}>
-                    <Icon name="mapPin" size={24} />
-                  </div>
-                  <div>
-                    <h3 style={{ fontSize: "1.4rem", fontWeight: 700, margin: 0, color: "#163754" }}>{card.city}</h3>
-                    <span style={{ fontSize: "0.85rem", color: "#64748b" }}>{copy.standorte.subBadge}</span>
-                  </div>
-                </div>
-                <p style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, flexGrow: 1, marginBottom: "20px" }}>
-                  {card.desc}
-                </p>
-                <Link href={localePath(locale, "kontakt")} className="service-link" style={{ fontWeight: 600, color: "#219DD8" }}>
-                  {copy.standorte.cta} &rarr;
-                </Link>
+              <div className="home-branches-list">
+                {copy.standorte.cards.map((card, idx) => (
+                  <Link
+                    key={idx}
+                    href={localePath(locale, "kontakt")}
+                    className="home-branch-card"
+                  >
+                    <div className="home-branch-card-media">
+                      <Image
+                        src={branchImages[idx] || branchImages[0]}
+                        alt={card.city}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 160px"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+
+                    <div className="home-branch-card-content">
+                      <div className="home-branch-header-row">
+                        <div className="home-branch-pin-badge" aria-hidden="true">
+                          <Icon name="mapPin" size={16} />
+                        </div>
+                        <div>
+                          <h3 className="home-branch-city-name">{card.city}</h3>
+                          <span className="home-branch-subbadge">{copy.standorte.subBadge}</span>
+                        </div>
+                      </div>
+
+                      {/* Original Card Description */}
+                      <p className="home-branch-card-desc">
+                        {card.desc}
+                      </p>
+
+                      <div className="home-branch-cta-row">
+                        <div className="home-branch-calendar-badge" aria-hidden="true">
+                          <Icon name="calendar" size={13} />
+                        </div>
+                        <span>{copy.standorte.cta}</span>
+                        <span aria-hidden="true">&rarr;</span>
+                      </div>
+                    </div>
+
+                    <div className="home-branch-chevron-btn" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </div>
+                  </Link>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right Column: Interactive Regional Map (Variant 1: Leaflet / OpenStreetMap) */}
+            <div className="home-branches-right-col">
+              <HomeBranchesInteractiveMap
+                locale={locale}
+                noticeTitle={copy.standorte.noticeTitle}
+                noticeText={copy.standorte.noticeText}
+              />
+            </div>
           </div>
 
-          {/* Location Notice Callout */}
-          <div className="standorte-notice-box" style={{ background: "rgba(33, 157, 216, 0.08)", border: "1px solid rgba(33, 157, 216, 0.25)", borderRadius: "16px", padding: "20px 24px", display: "flex", alignItems: "flex-start", gap: "16px" }}>
-            <div style={{ color: "#219DD8", flexShrink: 0, marginTop: "2px" }}>
-              <Icon name="alert" size={22} />
-            </div>
-            <p style={{ margin: 0, fontSize: "0.98rem", color: "#163754", lineHeight: 1.65 }}>
-              <strong style={{ display: "block", marginBottom: "4px" }}>{copy.standorte.noticeTitle}</strong>
-              {copy.standorte.noticeText}
-            </p>
+          {/* Bottom Row: Pulse Line & Motto */}
+          <div className="home-branches-bottom-row">
+            <svg width="34" height="18" viewBox="0 0 34 18" fill="none" stroke="#219DD8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M1 9h8l3-6 4 12 4-9 3 5h10" />
+            </svg>
+            <span>{branchMotto[locale] || branchMotto.de}</span>
           </div>
         </section>
+
+        {/* Decorative Background Waves in Bottom-Right */}
+        <div className="home-branch-bg-waves" aria-hidden="true">
+          <svg width="400" height="260" viewBox="0 0 400 260" fill="none">
+            <path d="M0 260C120 220 250 250 400 130" stroke="rgba(33, 157, 216, 0.16)" strokeWidth="1.5" />
+            <path d="M40 260C150 210 270 230 400 90" stroke="rgba(33, 157, 216, 0.12)" strokeWidth="1.5" />
+            <path d="M90 260C190 200 300 210 400 50" stroke="rgba(33, 157, 216, 0.08)" strokeWidth="1.5" />
+          </svg>
+        </div>
       </div>
 
       {/* ── 6. How It Works & Direct Contact Form ────────── */}

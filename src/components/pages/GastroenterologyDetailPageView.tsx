@@ -29,15 +29,15 @@ const appointmentButtonText: Record<Locale, string> = {
 };
 
 const gastroPrimaryImages = [
-  "/img/gastro_service_consult.jpg",
-  "/img/gastro_service_lab.jpg",
-  "/img/gastro_service_ultrasound.jpg",
+  "/img/gastro_service_consult.webp",
+  "/img/gastro_service_lab.webp",
+  "/img/gastro_service_ultrasound.webp",
 ];
 
 const gastroEndoscopyImages = [
-  "/img/gastro_service_gastroscopy.jpg",
-  "/img/gastro_service_colonoscopy.jpg",
-  "/img/gastro_service_biopsy.jpg",
+  "/img/gastro_service_gastroscopy.webp",
+  "/img/gastro_service_colonoscopy.webp",
+  "/img/gastro_service_biopsy.webp",
 ];
 
 export function GastroenterologyDetailPageView({
@@ -306,7 +306,7 @@ export function GastroenterologyDetailPageView({
                       <div className="gastro-endoscopy-subcard">
                         <div className="gastro-card-img-wrap">
                           <Image
-                            src="/img/gastro_service_breathtest.jpg"
+                            src="/img/gastro_service_breathtest.webp"
                             alt={gastro.breathTest.title}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 25vw"
@@ -336,7 +336,7 @@ export function GastroenterologyDetailPageView({
               <div className="gastro-decision-card">
                 <div className="gastro-decision-bg" aria-hidden="true">
                   <Image
-                    src="/img/gastro_endoscopy_decision.png"
+                    src="/img/gastro_endoscopy_decision.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1280px) 100vw, 1280px"
@@ -463,7 +463,7 @@ export function GastroenterologyDetailPageView({
                 {/* Background image container */}
                 <div className="gastro-cta-bg" aria-hidden="true">
                   <Image
-                    src="/img/gastro_cta_banner_bg.png"
+                    src="/img/gastro_cta_banner_bg.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1280px) 100vw, 1280px"
