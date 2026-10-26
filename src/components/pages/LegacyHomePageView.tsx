@@ -157,7 +157,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                       className="expertise-card"
                     >
                       <div className="expertise-icon">
-                        <Icon name={spec.icon} size={38} />
+                        <Icon name={spec.icon} size={40} />
                       </div>
                       <div className="expertise-text">
                         <span className="expertise-card-title">{spec.title}</span>

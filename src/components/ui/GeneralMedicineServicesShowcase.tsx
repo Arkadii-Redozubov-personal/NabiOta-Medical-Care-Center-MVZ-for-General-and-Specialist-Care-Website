@@ -185,20 +185,11 @@ export function GeneralMedicineServicesShowcase({
   servicesNote,
 }: GeneralMedicineServicesShowcaseProps) {
   const isRTL = locale === "ar";
-  const N = generalServicesData.length;
-
-  // Triplicate array to enable seamless bidirectional infinite looping
-  const allSlides = useMemo(
-    () => [...generalServicesData, ...generalServicesData, ...generalServicesData],
-    []
-  );
-
-  const [currentIndex, setCurrentIndex] = useState(N);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(4);
-  const [isTransitioning, setIsTransitioning] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
-  const isSlidingRef = useRef(false);
+  // Touch gesture state
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
@@ -217,66 +208,25 @@ export function GeneralMedicineServicesShowcase({
     return () => window.removeEventListener("resize", updateVisible);
   }, []);
 
-  // Slide navigation handlers
+  const maxIndex = Math.max(0, generalServicesData.length - visibleCards);
+
+  // Keep index within bounds if window is resized
+  useEffect(() => {
+    setCurrentIndex((prev) => Math.min(prev, maxIndex));
+  }, [maxIndex]);
+
+  // Infinite cycle navigation:
+  // Forward: reaching the end smoothly loops back to the start (0)
+  // Backward: from the start smoothly loops to the end (maxIndex)
   const handlePrev = useCallback(() => {
-    if (isSlidingRef.current) return;
-    isSlidingRef.current = true;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev - 1);
-  }, []);
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
+  }, [maxIndex]);
 
   const handleNext = useCallback(() => {
-    if (isSlidingRef.current) return;
-    isSlidingRef.current = true;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev + 1);
-  }, []);
+    setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
+  }, [maxIndex]);
 
-  // Infinite loop snap without animation when sliding beyond bounds
-  const handleTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>) => {
-    if (e.target !== e.currentTarget || e.propertyName !== "transform") return;
-    isSlidingRef.current = false;
-
-    if (currentIndex >= N * 2) {
-      setIsTransitioning(false);
-      setCurrentIndex((prev) => prev - N);
-    } else if (currentIndex < N) {
-      setIsTransitioning(false);
-      setCurrentIndex((prev) => prev + N);
-    }
-  };
-
-  // Re-enable transition on the frame after an instantaneous jump
-  useEffect(() => {
-    if (!isTransitioning) {
-      const r1 = requestAnimationFrame(() => {
-        const r2 = requestAnimationFrame(() => {
-          setIsTransitioning(true);
-        });
-        return () => cancelAnimationFrame(r2);
-      });
-      return () => cancelAnimationFrame(r1);
-    }
-  }, [isTransitioning]);
-
-  // Safety fallback to prevent slider lock
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      isSlidingRef.current = false;
-    }, 550);
-    return () => clearTimeout(timeout);
-  }, [currentIndex]);
-
-  // Autoplay every 4s, pauses on hover/touch
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      handleNext();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [isHovered, handleNext]);
-
-  // Keyboard navigation when user is hovering/interacting with slider
+  // Keyboard navigation when hovering slider
   useEffect(() => {
     if (!isHovered) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -294,7 +244,6 @@ export function GeneralMedicineServicesShowcase({
 
   // Touch swipe support
   const handleTouchStart = (e: React.TouchEvent) => {
-    setIsHovered(true);
     touchStartX.current = e.targetTouches[0].clientX;
   };
 
@@ -303,7 +252,6 @@ export function GeneralMedicineServicesShowcase({
   };
 
   const handleTouchEnd = () => {
-    setIsHovered(false);
     if (touchStartX.current === null || touchEndX.current === null) return;
     const diff = touchStartX.current - touchEndX.current;
     if (Math.abs(diff) > 40) {
@@ -319,29 +267,12 @@ export function GeneralMedicineServicesShowcase({
     touchEndX.current = null;
   };
 
-  // Active dot index mapped to original 0..N-1 items
-  const activeDot = ((currentIndex % N) + N) % N;
-
-  const goToDot = (dotIdx: number) => {
-    if (isSlidingRef.current) return;
-    const currentMod = ((currentIndex % N) + N) % N;
-    if (dotIdx === currentMod) return;
-
-    isSlidingRef.current = true;
-    setIsTransitioning(true);
-
-    let diff = dotIdx - currentMod;
-    if (diff > N / 2) diff -= N;
-    if (diff < -N / 2) diff += N;
-
-    setCurrentIndex((prev) => prev + diff);
-  };
-
+  const totalDots = maxIndex + 1;
   const cardWidthCalc = `((100% - ${(visibleCards - 1) * 20}px) / ${visibleCards})`;
 
   return (
     <div>
-      {/* ── Infinite Slider (4 Cards Visible on Desktop, endless cycle) ── */}
+      {/* ── Slider with 4 Main Cards in View (Endless Cycle) ── */}
       <div
         className="gen-slider-outer"
         onMouseEnter={() => setIsHovered(true)}
@@ -377,17 +308,14 @@ export function GeneralMedicineServicesShowcase({
         >
           <div
             className="gen-slider-track"
-            onTransitionEnd={handleTransitionEnd}
             style={{
               transform: isRTL
                 ? `translateX(calc(${currentIndex} * (${cardWidthCalc} + 20px)))`
                 : `translateX(calc(-${currentIndex} * (${cardWidthCalc} + 20px)))`,
-              transition: isTransitioning
-                ? "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)"
-                : "none",
+              transition: "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)",
             }}
           >
-            {allSlides.map((item, idx) => {
+            {generalServicesData.map((item, idx) => {
               const itemTitle = item.titles[locale] || item.titles.de;
               const itemDesc = item.descs[locale] || item.descs.de;
 
@@ -396,7 +324,9 @@ export function GeneralMedicineServicesShowcase({
                   key={`${item.icon}-${idx}`}
                   className="gen-slider-card"
                   style={{
-                    flex: `0 0 ${cardWidthCalc}`,
+                    flex: `0 0 calc(${cardWidthCalc})`,
+                    maxWidth: `calc(${cardWidthCalc})`,
+                    width: `calc(${cardWidthCalc})`,
                   }}
                 >
                   <div className="gen-slider-card-media">
@@ -440,14 +370,14 @@ export function GeneralMedicineServicesShowcase({
         </button>
       </div>
 
-      {/* Pagination Dots (matching 8 services, endless cycle) */}
+      {/* Pagination Dots */}
       <div className="gen-slider-dots" role="tablist" aria-label="Slider navigation dots">
-        {generalServicesData.map((_, dotIdx) => (
+        {Array.from({ length: totalDots }).map((_, dotIdx) => (
           <button
             key={dotIdx}
             type="button"
-            onClick={() => goToDot(dotIdx)}
-            className={`gen-slider-dot ${dotIdx === activeDot ? "active" : ""}`}
+            onClick={() => setCurrentIndex(dotIdx)}
+            className={`gen-slider-dot ${dotIdx === currentIndex ? "active" : ""}`}
             aria-label={`Go to slide ${dotIdx + 1}`}
           />
         ))}
