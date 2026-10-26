@@ -316,9 +316,6 @@ export function GastroenterologyDetailPageView({
                             priority
                             style={{ objectFit: "cover" }}
                           />
-                          <div className="cardio-featured-badge">
-                            {gastro.endoscopyTag}
-                          </div>
                         </div>
                         <div className="cardio-featured-body">
                           <div className="cardio-featured-top">
