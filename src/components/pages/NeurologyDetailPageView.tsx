@@ -567,7 +567,7 @@ export function NeurologyDetailPageView({
                   (locale === "ru" ? "Типичные поводы для обращения" : "Typische Behandlungsanlässe")}
               </div>
 
-              {/* Single unified card: 10 reasons + dizziness note on left, Photo 1 on right with smooth blur fade */}
+              {/* Unified card: 10 reasons across 2 columns + dizziness note, full width */}
               <div className="neuro-ref-reasons-unified-card">
                 <div className="neuro-ref-reasons-unified-content">
                   <div className="neuro-ref-reasons-grid">
@@ -601,18 +601,6 @@ export function NeurologyDetailPageView({
                           : "Schwindel kann unterschiedliche Ursachen haben. Ob eine neurologische Untersuchung sinnvoll ist, hängt vom Beschwerdebild ab.")}
                     </p>
                   </div>
-                </div>
-
-                {/* Right-aligned Photo 1 banner with smooth blur fade */}
-                <div className="neuro-ref-reasons-bg" aria-hidden="true">
-                  <Image
-                    src="/img/neuro_symptom_brain_banner.webp"
-                    alt=""
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 55vw"
-                    style={{ objectFit: "cover", objectPosition: "right center" }}
-                  />
-                  <div className="neuro-ref-banner-blur-fade" />
                 </div>
               </div>
             </div>
@@ -726,16 +714,18 @@ export function NeurologyDetailPageView({
             {/* ── SECTION 3: Behandlung und Nachsorge ───────────────── */}
             <div id="behandlung" className="neuro-ref-section-treatment">
               <div className="neuro-ref-treatment-left">
-                <div className="neuro-ref-treatment-card">
-                  <div className="neuro-ref-treatment-icon-circle">
-                    <TrustBrainIcon size={34} />
-                  </div>
-                  <div className="neuro-ref-treatment-script">
-                    {n?.treatmentBadge ||
-                      (locale === "ru"
-                        ? "Вместе за ваше неврологическое здоровье."
-                        : "Gemeinsam für Ihre neurologische Gesundheit.")}
-                  </div>
+                <div className="neuro-ref-treatment-photo-wrap">
+                  <Image
+                    src="/img/neuro_symptom_brain_banner.webp"
+                    alt={
+                      locale === "ru"
+                        ? "Неврологическое лечение и дальнейшее наблюдение"
+                        : "Neurologische Behandlung und Nachsorge"
+                    }
+                    fill
+                    sizes="(max-width: 992px) 100vw, 45vw"
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                  />
                 </div>
               </div>
 

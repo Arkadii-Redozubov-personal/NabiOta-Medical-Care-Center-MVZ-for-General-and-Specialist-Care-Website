@@ -2552,12 +2552,12 @@ html[dir="rtl"] {
   }
   .expertise-grid {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 16px 12px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px 8px !important;
     width: 100% !important;
   }
   .expertise-card {
-    padding: 16px 10px 14px !important;
+    padding: 14px 6px 12px !important;
     border-radius: 16px !important;
     text-align: center !important;
     background: rgba(255, 255, 255, 0.04) !important;
@@ -2569,22 +2569,23 @@ html[dir="rtl"] {
     align-items: center !important;
     display: flex !important;
     flex-direction: column !important;
+    justify-content: flex-start !important;
   }
   .expertise-icon {
-    width: 54px !important;
-    height: 54px !important;
-    margin: 0 auto 10px auto !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 auto 8px auto !important;
     border-radius: 50% !important;
     background: #ffffff !important;
     border: 2px solid rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
   }
   .expertise-icon svg {
-    width: 26px !important;
-    height: 26px !important;
+    width: 24px !important;
+    height: 24px !important;
     color: #0284c7 !important;
     filter: none !important;
   }
@@ -2595,43 +2596,46 @@ html[dir="rtl"] {
   }
   .expertise-card-title {
     display: block !important;
-    font-size: 0.92rem !important;
+    font-size: 0.80rem !important;
     font-weight: 700 !important;
-    line-height: 1.25 !important;
+    line-height: 1.22 !important;
     text-align: center !important;
     width: 100% !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 3px !important;
     color: #ffffff !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
   }
   .expertise-card-desc {
-    display: block !important;
-    font-size: 0.74rem !important;
-    line-height: 1.35 !important;
-    color: rgba(255, 255, 255, 0.72) !important;
-    text-align: center !important;
+    display: none !important;
   }
   .expertise-arrow-btn {
-    display: inline-flex !important;
-    margin: 8px auto 0 auto !important;
-    width: 26px !important;
-    height: 26px !important;
-    align-self: center !important;
+    display: none !important;
   }
 }
 
 @media (max-width: 420px) {
   .expertise-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 12px 8px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px 6px !important;
   }
   .expertise-card {
-    padding: 8px 6px !important;
+    padding: 10px 4px 10px !important;
+    border-radius: 14px !important;
+  }
+  .expertise-icon {
+    width: 42px !important;
+    height: 42px !important;
+    margin: 0 auto 6px auto !important;
+  }
+  .expertise-icon svg {
+    width: 20px !important;
+    height: 20px !important;
   }
   .expertise-card-title {
-    font-size: 0.85rem !important;
-  }
-  .expertise-card-desc {
-    font-size: 0.70rem !important;
+    font-size: 0.72rem !important;
+    line-height: 1.18 !important;
   }
 }
   
@@ -9405,7 +9409,6 @@ a.contact-line:hover {
 .neuro-ref-reasons-unified-content {
   position: relative;
   z-index: 2;
-  max-width: 730px;
   width: 100%;
 }
 
@@ -9630,24 +9633,25 @@ a.contact-line:hover {
 /* ── Section 3: Treatment & Badge Card ────────────────────────────────── */
 .neuro-ref-section-treatment {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 48px;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 44px;
   align-items: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 34px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.04);
 }
 
-.neuro-ref-treatment-card {
-  background: linear-gradient(135deg, #e0f9fc 0%, #f0fdfa 100%);
-  border: 1px solid #ccfbf1;
-  border-radius: 22px;
-  padding: 38px 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 18px;
-  min-height: 250px;
-  box-shadow: 0 6px 20px rgba(14, 116, 144, 0.06);
+.neuro-ref-treatment-photo-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+  width: 100%;
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  background: #f1f5f9;
 }
 
 .neuro-ref-treatment-icon-circle {
@@ -9920,6 +9924,10 @@ a.contact-line:hover {
   }
   .neuro-ref-emergency-content {
     padding: 28px 22px;
+  }
+  .neuro-ref-section-treatment {
+    padding: 22px 18px;
+    gap: 24px;
   }
 }
 
