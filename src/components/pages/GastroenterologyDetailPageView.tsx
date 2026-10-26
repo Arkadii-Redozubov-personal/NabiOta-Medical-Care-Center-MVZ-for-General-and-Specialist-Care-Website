@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
@@ -38,6 +40,7 @@ const gastroEndoscopyImages = [
   "/img/gastro_service_gastroscopy.webp",
   "/img/gastro_service_colonoscopy.webp",
   "/img/gastro_service_biopsy.webp",
+  "/img/gastro_service_breathtest.webp",
 ];
 
 export function GastroenterologyDetailPageView({
@@ -48,6 +51,26 @@ export function GastroenterologyDetailPageView({
 }: GastroenterologyDetailPageViewProps) {
   const dict = getDictionary(locale);
   const gastro = richData.gastroContent;
+
+  const endoscopyList = useMemo(() => {
+    if (!gastro) return [];
+    const items = [...gastro.endoscopyServices];
+    if (gastro.breathTest) {
+      items.push(gastro.breathTest);
+    }
+    return items;
+  }, [gastro]);
+
+  const [selectedEndoIdx, setSelectedEndoIdx] = useState(0);
+
+  const activeEndo = endoscopyList[selectedEndoIdx] || endoscopyList[0];
+  const activeEndoImage = gastroEndoscopyImages[selectedEndoIdx] || gastroEndoscopyImages[0];
+
+  const otherEndoServices = useMemo(() => {
+    return endoscopyList
+      .map((item, originalIdx) => ({ item, originalIdx }))
+      .filter((entry) => entry.originalIdx !== selectedEndoIdx);
+  }, [endoscopyList, selectedEndoIdx]);
 
   return (
     <div>
@@ -270,62 +293,87 @@ export function GastroenterologyDetailPageView({
                   ))}
                 </div>
 
-                {/* Endoscopy Section */}
-                <div className="gastro-endoscopy-section">
-                  <h2 className="gastro-section-title" style={{ marginTop: "44px" }}>
-                    {gastro.endoscopyTag}
-                  </h2>
-                  <div className="gastro-endoscopy-grid">
-                    {gastro.endoscopyServices.map((sub, idx) => (
-                      <div key={idx} className="gastro-endoscopy-subcard">
-                        <div className="gastro-card-img-wrap">
+                {/* Endoscopy Section: Interactive Showcase (Main card on Left + Sidebar on Right) */}
+                <div className="gastro-endoscopy-section" style={{ marginTop: "48px" }}>
+                  <div className="cardio-services-header">
+                    <div className="cardio-services-header-left">
+                      <h2 className="gastro-section-title" style={{ margin: 0 }}>
+                        {gastro.endoscopyTag}
+                      </h2>
+                    </div>
+                  </div>
+
+                  <div className="cardio-interactive-showcase" style={{ marginTop: "24px" }}>
+                    {/* Left: Featured Active Card */}
+                    {activeEndo && (
+                      <div key={selectedEndoIdx} className="cardio-featured-card">
+                        <div className="cardio-featured-media">
                           <Image
-                            src={gastroEndoscopyImages[idx] || gastroEndoscopyImages[0]}
-                            alt={sub.title}
+                            src={activeEndoImage}
+                            alt={activeEndo.title}
                             fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 25vw"
+                            sizes="(max-width: 992px) 100vw, 540px"
+                            priority
                             style={{ objectFit: "cover" }}
                           />
-                        </div>
-                        <div className="gastro-card-body">
-                          <div className="gastro-card-content-row">
-                            <div className="gastro-endoscopy-icon">
-                              <Icon name={sub.icon} size={20} />
-                            </div>
-                            <div className="gastro-card-text-wrap">
-                              <h4>{sub.title}</h4>
-                              <p>{sub.desc}</p>
-                            </div>
+                          <div className="cardio-featured-badge">
+                            {gastro.endoscopyTag}
                           </div>
                         </div>
-                      </div>
-                    ))}
-
-                    {/* 4th card in the row: Breath Test */}
-                    {gastro.breathTest && (
-                      <div className="gastro-endoscopy-subcard">
-                        <div className="gastro-card-img-wrap">
-                          <Image
-                            src="/img/gastro_service_breathtest.webp"
-                            alt={gastro.breathTest.title}
-                            fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 25vw"
-                            style={{ objectFit: "cover" }}
-                          />
-                        </div>
-                        <div className="gastro-card-body">
-                          <div className="gastro-card-content-row">
-                            <div className="gastro-endoscopy-icon">
-                              <Icon name={gastro.breathTest.icon} size={20} />
+                        <div className="cardio-featured-body">
+                          <div className="cardio-featured-top">
+                            <div className="cardio-featured-title-row">
+                              <div className="cardio-featured-icon" aria-hidden="true">
+                                <Icon name={activeEndo.icon} size={22} />
+                              </div>
+                              <h3 className="cardio-featured-title">{activeEndo.title}</h3>
                             </div>
-                            <div className="gastro-card-text-wrap">
-                              <h4>{gastro.breathTest.title}</h4>
-                              <p>{gastro.breathTest.desc}</p>
-                            </div>
+                            <p className="cardio-featured-desc">{activeEndo.desc}</p>
                           </div>
                         </div>
                       </div>
                     )}
+
+                    {/* Right: List of Remaining Services */}
+                    <div className="cardio-services-sidebar" role="list">
+                      {otherEndoServices.map(({ item, originalIdx }) => (
+                        <button
+                          key={originalIdx}
+                          type="button"
+                          onClick={() => setSelectedEndoIdx(originalIdx)}
+                          className="cardio-service-list-item"
+                          aria-label={`${item.title}: ${item.desc}`}
+                        >
+                          <div className="cardio-service-item-media">
+                            <Image
+                              src={gastroEndoscopyImages[originalIdx] || gastroEndoscopyImages[0]}
+                              alt={item.title}
+                              fill
+                              sizes="80px"
+                              style={{ objectFit: "cover" }}
+                            />
+                          </div>
+                          <div className="cardio-service-item-text">
+                            <h4 className="cardio-service-item-title">{item.title}</h4>
+                            <p className="cardio-service-item-desc">{item.desc}</p>
+                          </div>
+                          <div className="cardio-service-item-arrow" aria-hidden="true">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <polyline points="9 18 15 12 9 6" />
+                            </svg>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
