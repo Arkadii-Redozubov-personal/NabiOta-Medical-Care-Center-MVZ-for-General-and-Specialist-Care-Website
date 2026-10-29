@@ -201,7 +201,7 @@ html[dir="rtl"] {
     }
     .hero-inner {
       position: relative;
-      background-image: linear-gradient(105deg, rgba(13, 35, 56, 0.94) 0%, rgba(22, 55, 84, 0.8) 45%, rgba(22, 55, 84, 0.28) 78%, rgba(22, 55, 84, 0.1) 100%), url('/img/hero_reception.webp');
+      background-image: linear-gradient(105deg, rgba(13, 35, 56, 0.94) 0%, rgba(22, 55, 84, 0.8) 45%, rgba(22, 55, 84, 0.28) 78%, rgba(22, 55, 84, 0.1) 100%), url('/img/home/hero_reception.webp');
       background-size: cover;
       background-position: center 20%;
       min-height: 100vh;
@@ -10834,7 +10834,7 @@ a.contact-line:hover {
 /* ── Section 6: Bottom Banner (Teal / Ocean Gradient Card) ────────────── */
 .patient-ref-organizer-banner {
   background-color: #0b5874;
-  background-image: url('/img/patient_organizer_banner_bg.webp');
+  background-image: url('/img/patients/patient_organizer_banner_bg.webp');
   background-repeat: no-repeat;
   background-position: right center;
   background-size: contain;
@@ -11288,7 +11288,7 @@ a.contact-line:hover {
     gap: 16px;
   }
   .patient-ref-organizer-banner {
-    background-image: linear-gradient(135deg, rgba(8, 48, 68, 0.94) 0%, rgba(9, 64, 88, 0.88) 60%, rgba(13, 84, 115, 0.75) 100%), url('/img/patient_organizer_banner_bg.webp');
+    background-image: linear-gradient(135deg, rgba(8, 48, 68, 0.94) 0%, rgba(9, 64, 88, 0.88) 60%, rgba(13, 84, 115, 0.75) 100%), url('/img/patients/patient_organizer_banner_bg.webp');
     padding: 30px 20px;
   }
 }

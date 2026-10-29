@@ -363,7 +363,7 @@ export function PneumologyDetailPageView({
               <div className="pneumo-ref-s1-right">
                 <div className="pneumo-ref-photo-card">
                   <Image
-                    src="/img/pneumo_patient_test.webp"
+                    src="/img/specialties/pneumologie/pneumo_patient_test.webp"
                     alt={locale === "ru" ? "Пульмонологическая диагностика" : "Pneumologische Untersuchung"}
                     fill
                     sizes="(max-width: 900px) 100vw, 42vw"
@@ -436,7 +436,7 @@ export function PneumologyDetailPageView({
               <div className="pneumo-ref-s3-left">
                 <div className="pneumo-ref-inhaler-card">
                   <Image
-                    src="/img/pneumo_inhaler_demo.webp"
+                    src="/img/specialties/pneumologie/pneumo_inhaler_demo.webp"
                     alt={locale === "ru" ? "Обучение технике ингаляции" : "Inhalationstechnik und Beratung"}
                     fill
                     sizes="(max-width: 900px) 100vw, 44vw"
@@ -522,7 +522,7 @@ export function PneumologyDetailPageView({
               {/* Background image container */}
               <div className="pneumo-ref-cta-bg" aria-hidden="true">
                 <Image
-                  src="/img/pneumo_cta_banner_bg.webp"
+                  src="/img/specialties/pneumologie/pneumo_cta_banner_bg.webp"
                   alt=""
                   fill
                   sizes="(max-width: 1280px) 100vw, 1280px"

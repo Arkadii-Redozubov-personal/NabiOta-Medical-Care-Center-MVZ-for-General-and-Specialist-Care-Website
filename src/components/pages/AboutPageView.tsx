@@ -21,7 +21,7 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
       <section className="page-hero page-hero--image">
         <div className="page-hero__bg" aria-hidden="true">
           <Image
-            src="/img/team_group.webp"
+            src="/img/team/team_group.webp"
             alt={content.hero.title}
             fill
             priority
@@ -145,7 +145,7 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
             <div style={{ flex: "0 0 440px", maxWidth: "100%" }}>
               <div style={{ position: "relative", width: "100%", height: "360px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 16px 40px rgba(22, 55, 84, 0.12)" }}>
                 <Image
-                  src="/img/consultation.webp"
+                  src="/img/about/consultation.webp"
                   alt={content.philosophy.heading}
                   fill
                   sizes="(max-width: 768px) 100vw, 440px"
@@ -202,7 +202,7 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
           >
             <div style={{ flex: "0 0 280px", maxWidth: "100%" }}>
               <Image
-                src="/img/surgeon1.webp"
+                src="/img/team/surgeon1.webp"
                 alt={content.fischer.name}
                 width={320}
                 height={380}

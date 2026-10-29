@@ -31,7 +31,7 @@ export function SpecialtiesPageView({ locale }: SpecialtiesPageViewProps) {
       <section className="page-hero page-hero--image">
         <div className="page-hero__bg" aria-hidden="true">
           <Image
-            src="/img/diseases.webp"
+            src="/img/specialties/diseases.webp"
             alt={page.hero.title}
             fill
             priority

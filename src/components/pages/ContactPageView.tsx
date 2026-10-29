@@ -313,7 +313,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
       <section className="page-hero page-hero--image">
         <div className="page-hero__bg" aria-hidden="true">
           <Image
-            src="/img/contact_background.webp"
+            src="/img/contact/contact_background.webp"
             alt={page.hero.title}
             fill
             priority

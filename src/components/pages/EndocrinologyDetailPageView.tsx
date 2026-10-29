@@ -31,12 +31,12 @@ const appointmentButtonText: Record<Locale, string> = {
 };
 
 const endoServiceImages = [
-  "/img/endo_service_consult.webp",
-  "/img/endo_service_hormones.webp",
-  "/img/endo_service_ultrasound.webp",
-  "/img/endo_service_followup.webp",
-  "/img/endo_service_functiontest.webp",
-  "/img/endo_service_imaging.webp",
+  "/img/specialties/endokrinologie/endo_service_consult.webp",
+  "/img/specialties/endokrinologie/endo_service_hormones.webp",
+  "/img/specialties/endokrinologie/endo_service_ultrasound.webp",
+  "/img/specialties/endokrinologie/endo_service_followup.webp",
+  "/img/specialties/endokrinologie/endo_service_functiontest.webp",
+  "/img/specialties/endokrinologie/endo_service_imaging.webp",
 ];
 
 /* ── Custom SVGs matching the Endocrinology Reference ─────────────────── */
@@ -351,7 +351,7 @@ export function EndocrinologyDetailPageView({
       <section className="page-hero page-hero--image">
         <div className="page-hero__bg" aria-hidden="true">
           <Image
-            src={spec.image || "/img/endocrinology_consult.webp"}
+            src={spec.image || "/img/specialties/endokrinologie/endocrinology_consult.webp"}
             alt={richData ? richData.title : specData.name}
             fill
             priority
@@ -641,7 +641,7 @@ export function EndocrinologyDetailPageView({
               <div className="endo-ref-treatment-grid">
                 <div className="endo-ref-treatment-photo-wrap">
                   <Image
-                    src="/img/endo_ultrasound_patient.webp"
+                    src="/img/specialties/endokrinologie/endo_ultrasound_patient.webp"
                     alt={locale === "ru" ? "УЗИ щитовидной железы" : "Schilddrüsensonografie und Untersuchung"}
                     fill
                     sizes="(max-width: 900px) 100vw, 45vw"
@@ -706,7 +706,7 @@ export function EndocrinologyDetailPageView({
             <div className="endo-ref-cta-card">
               <div className="endo-ref-cta-bg">
                 <Image
-                  src="/img/endo_cta_molecules.webp"
+                  src="/img/specialties/endokrinologie/endo_cta_molecules.webp"
                   alt=""
                   fill
                   sizes="100vw"

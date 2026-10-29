@@ -40,7 +40,7 @@ export function getPageMetadata(locale: Locale, route = "", titleOverride?: stri
       type: "website",
       images: [
         {
-          url: `${site.url}/img/hero_reception.webp`,
+          url: `${site.url}/img/home/hero_reception.webp`,
           width: 1600,
           height: 900,
           alt: site.name,

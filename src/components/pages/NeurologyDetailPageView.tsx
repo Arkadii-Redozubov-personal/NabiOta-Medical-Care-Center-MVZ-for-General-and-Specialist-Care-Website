@@ -31,12 +31,12 @@ const appointmentButtonText: Record<Locale, string> = {
 };
 
 const neuroServiceImages = [
-  "/img/neuro_service_exam.webp",
-  "/img/neuro_service_neurography.webp",
-  "/img/neuro_service_emg.webp",
-  "/img/neuro_service_eeg.webp",
-  "/img/neuro_service_memory.webp",
-  "/img/neuro_service_ultrasound.webp",
+  "/img/specialties/neurologie/neuro_service_exam.webp",
+  "/img/specialties/neurologie/neuro_service_neurography.webp",
+  "/img/specialties/neurologie/neuro_service_emg.webp",
+  "/img/specialties/neurologie/neuro_service_eeg.webp",
+  "/img/specialties/neurologie/neuro_service_memory.webp",
+  "/img/specialties/neurologie/neuro_service_ultrasound.webp",
 ];
 
 /* ── Custom SVGs for Trust Bar ────────────────────────────────────────── */
@@ -428,7 +428,7 @@ export function NeurologyDetailPageView({
       <section className="page-hero page-hero--image">
         <div className="page-hero__bg" aria-hidden="true">
           <Image
-            src={spec.image || "/img/neurology_exam.webp"}
+            src={spec.image || "/img/specialties/neurologie/neurology_exam.webp"}
             alt={richData ? richData.title : specData.name}
             fill
             priority
@@ -716,7 +716,7 @@ export function NeurologyDetailPageView({
               <div className="neuro-ref-treatment-left">
                 <div className="neuro-ref-treatment-photo-wrap">
                   <Image
-                    src="/img/neuro_symptom_brain_banner.webp"
+                    src="/img/specialties/neurologie/neuro_symptom_brain_banner.webp"
                     alt={
                       locale === "ru"
                         ? "Неврологическое лечение и дальнейшее наблюдение"
@@ -780,7 +780,7 @@ export function NeurologyDetailPageView({
             <div className="neuro-ref-emergency-card">
               <div className="neuro-ref-emergency-bg">
                 <Image
-                  src="/img/neuro_emergency_bg.webp"
+                  src="/img/specialties/neurologie/neuro_emergency_bg.webp"
                   alt=""
                   fill
                   sizes="100vw"

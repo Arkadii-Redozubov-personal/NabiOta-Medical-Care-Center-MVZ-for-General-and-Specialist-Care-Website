@@ -16,9 +16,6 @@ next-env.d.ts
 *.log*
 .DS_Store
 
-# Keep local-only (do not track in git per user request):
-/legacy/
-/version-from-scratch/
 
 # Agent and IDE configuration
 .agent/

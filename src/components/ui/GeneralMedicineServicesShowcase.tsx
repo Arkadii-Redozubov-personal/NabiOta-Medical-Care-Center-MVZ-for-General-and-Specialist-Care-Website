@@ -20,7 +20,7 @@ interface GeneralServiceItem {
 const generalServicesData: GeneralServiceItem[] = [
   {
     icon: "stethoscope",
-    image: "/img/general_service_anamnese.webp",
+    image: "/img/specialties/allgemeinmedizin/general_service_anamnese.webp",
     titles: {
       ru: "Сбор анамнеза и осмотр",
       de: "Anamnese & Untersuchung",
@@ -40,7 +40,7 @@ const generalServicesData: GeneralServiceItem[] = [
   },
   {
     icon: "heart",
-    image: "/img/general_service_bp_pulse.webp",
+    image: "/img/specialties/allgemeinmedizin/general_service_bp_pulse.webp",
     titles: {
       ru: "Артериальное давление и пульс",
       de: "Blutdruck- & Pulsmessung",
@@ -60,7 +60,7 @@ const generalServicesData: GeneralServiceItem[] = [
   },
   {
     icon: "droplet",
-    image: "/img/general_service_lab.webp",
+    image: "/img/specialties/allgemeinmedizin/general_service_lab.webp",
     titles: {
       ru: "Лабораторные анализы",
       de: "Laboruntersuchungen",
@@ -80,7 +80,7 @@ const generalServicesData: GeneralServiceItem[] = [
   },
   {
     icon: "pulse",
-    image: "/img/general_service_ekg.webp",
+    image: "/img/specialties/allgemeinmedizin/general_service_ekg.webp",
     titles: {
       ru: "ЭКГ покоя",
       de: "Ruhe-EKG",
@@ -100,7 +100,7 @@ const generalServicesData: GeneralServiceItem[] = [
   },
   {
     icon: "clock",
-    image: "/img/general_service_smad.webp",
+    image: "/img/specialties/allgemeinmedizin/general_service_smad.webp",
     titles: {
       ru: "Суточное мониторирование АД (СМАД)",
       de: "Langzeit-Blutdruckmessung",
@@ -120,7 +120,7 @@ const generalServicesData: GeneralServiceItem[] = [
   },
   {
     icon: "lungs",
-    image: "/img/general_service_spirometry.webp",
+    image: "/img/specialties/allgemeinmedizin/general_service_spirometry.webp",
     titles: {
       ru: "Спирометрия",
       de: "Lungenfunktionsprüfung",
@@ -140,7 +140,7 @@ const generalServicesData: GeneralServiceItem[] = [
   },
   {
     icon: "monitor",
-    image: "/img/general_service_ultrasound.webp",
+    image: "/img/specialties/allgemeinmedizin/general_service_ultrasound.webp",
     titles: {
       ru: "УЗИ внутренних органов",
       de: "Ultraschalldiagnostik",
@@ -160,7 +160,7 @@ const generalServicesData: GeneralServiceItem[] = [
   },
   {
     icon: "fileText",
-    image: "/img/general_service_medication.webp",
+    image: "/img/specialties/allgemeinmedizin/general_service_medication.webp",
     titles: {
       ru: "Аудит схемы медикаментов",
       de: "Medikationsanalyse",

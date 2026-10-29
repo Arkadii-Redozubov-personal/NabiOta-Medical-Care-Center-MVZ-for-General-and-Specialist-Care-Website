@@ -31,7 +31,7 @@ An integrated outpatient healthcare center combining comprehensive family medici
 - Next.js 16 (App Router) + React 19 + TypeScript.
 - Vanilla CSS design system with CSS custom properties (no Tailwind, zero heavy client UI libraries).
 - Static generation across all localized routes (`/[lang]`, `/[lang]/team`, `/[lang]/impressum`, `/[lang]/datenschutz`, etc.).
-- Active codebase lives directly in the repository root (`src/`, `public/`, `package.json`), strictly excluding archived local folders `legacy/` and `version-from-scratch/`.
+- Active codebase lives directly in the repository root (`src/`, `public/`, `package.json`).
 - 6 languages supported with complete dictionary parity: German (`de`), English (`en`), Russian (`ru`), Turkish (`tr`), Arabic (`ar` with RTL layout), and Uzbek (`uz`).
 
 ## Brand Commitments

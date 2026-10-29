@@ -380,7 +380,7 @@ export const richSpecialtiesByLocale: Record<Locale, Record<string, RichSpecialt
         "Wenn eine weiterführende Untersuchung oder ein Eingriff erforderlich ist, stimmen wir die nächsten Schritte mit einer geeigneten Einrichtung ab.",
       ],
       banner: {
-        image: "/img/cardiology_echo.webp",
+        image: "/img/specialties/kardiologie/cardiology_echo.webp",
         title: "Moderne kardiologische Funktionsdiagnostik",
         subtitle:
           "Präzise Echokardiographie, Langzeit-Messungen und Belastungstests für Ihre kardiovaskuläre Gesundheit.",
@@ -1155,7 +1155,7 @@ export const richSpecialtiesByLocale: Record<Locale, Record<string, RichSpecialt
         "Если требуется дальнейшее углубленное обследование или вмешательство, мы согласовываем следующие шаги с профильным специализированным медицинским учреждением.",
       ],
       banner: {
-        image: "/img/cardiology_echo.webp",
+        image: "/img/specialties/kardiologie/cardiology_echo.webp",
         title: "Современная кардиологическая функциональная диагностика",
         subtitle:
           "Точная эхокардиография, суточные измерения и нагрузочные тесты для здоровья вашей сердечно-сосудистой системы.",
@@ -1931,7 +1931,7 @@ export const richSpecialtiesByLocale: Record<Locale, Record<string, RichSpecialt
         "Should specialized invasive diagnostics or surgical procedures be necessary, we coordinate next steps directly with leading cardiac centers.",
       ],
       banner: {
-        image: "/img/cardiology_echo.webp",
+        image: "/img/specialties/kardiologie/cardiology_echo.webp",
         title: "Advanced Cardiac Functional Diagnostics",
         subtitle:
           "Precise echocardiography, long-term monitoring, and exercise stress testing for your cardiovascular wellbeing.",
@@ -2707,7 +2707,7 @@ export const richSpecialtiesByLocale: Record<Locale, Record<string, RichSpecialt
         "İleri düzey girişimsel tetkik veya operasyon gerektiğinde, sonraki adımları uygun kalp merkezleriyle koordine ediyoruz.",
       ],
       banner: {
-        image: "/img/cardiology_echo.webp",
+        image: "/img/specialties/kardiologie/cardiology_echo.webp",
         title: "Modern Kardiyolojik Fonksiyon Tanısı",
         subtitle:
           "Kalp sağlığınız için hassas ekokardiyografi, uzun süreli ölçümler ve efor testleri.",
@@ -3482,7 +3482,7 @@ export const richSpecialtiesByLocale: Record<Locale, Record<string, RichSpecialt
         "إذا تطلب الأمر فحوصات تداخلية أو تدخلاً جراحياً، نقوم بتنسيق الخطوات التالية مع مراكز القلب المتخصصة.",
       ],
       banner: {
-        image: "/img/cardiology_echo.webp",
+        image: "/img/specialties/kardiologie/cardiology_echo.webp",
         title: "تشخيص وظيفي متطور للقلب",
         subtitle:
           "فحوصات إيكو دقيقة، ومراقبة طويلة الأمد، واختبارات الجهد لصحة قلبكم وشرايينكم.",
@@ -4257,7 +4257,7 @@ export const richSpecialtiesByLocale: Record<Locale, Record<string, RichSpecialt
         "Zarur hollarda keyingi bosqichlarni ixtisoslashtirilgan kardiomarkazlar bilan muvofiqlashtiramiz.",
       ],
       banner: {
-        image: "/img/cardiology_echo.webp",
+        image: "/img/specialties/kardiologie/cardiology_echo.webp",
         title: "Zamonaviy kardiologik funksional diagnostika",
         subtitle:
           "Yurak sog'lig'ingiz uchun aniq exokardiografiya, kunlik monitoring va yuklama testlari.",

@@ -509,7 +509,7 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
       <section className="page-hero page-hero--image">
         <div className="page-hero__bg" aria-hidden="true">
           <Image
-            src="/img/for_patients_background.webp"
+            src="/img/patients/for_patients_background.webp"
             alt={content.hero.title}
             fill
             priority
@@ -597,7 +597,7 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
                 </div>
                 <div className="patient-ref-assist-leaf" aria-hidden="true">
                   <Image
-                    src="/img/leaf_branch_accent.webp"
+                    src="/img/patients/leaf_branch_accent.webp"
                     alt=""
                     fill
                     sizes="120px"
@@ -613,7 +613,7 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
               <div className="patient-ref-card-findings">
                 <div className="patient-ref-findings-photo">
                   <Image
-                    src="/img/patient_medical_folders.webp"
+                    src="/img/patients/patient_medical_folders.webp"
                     alt={pageData.findings.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 25vw"
@@ -665,7 +665,7 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
                 <p className="patient-ref-card-p">{pageData.info.p2}</p>
                 <div className="patient-ref-card-leaf-watermark" aria-hidden="true">
                   <Image
-                    src="/img/leaf_branch_accent.webp"
+                    src="/img/patients/leaf_branch_accent.webp"
                     alt=""
                     fill
                     sizes="140px"

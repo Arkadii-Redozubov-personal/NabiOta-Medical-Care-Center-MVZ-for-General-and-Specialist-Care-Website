@@ -21,7 +21,7 @@ export function CareerPageView({ locale }: CareerPageViewProps) {
       <section className="page-hero page-hero--image">
         <div className="page-hero__bg" aria-hidden="true">
           <Image
-            src="/img/team_group.webp"
+            src="/img/team/team_group.webp"
             alt={page.hero.title}
             fill
             priority

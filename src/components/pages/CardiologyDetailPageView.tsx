@@ -31,12 +31,12 @@ const appointmentButtonText: Record<Locale, string> = {
 };
 
 const cardioServiceImages = [
-  "/img/cardio_service_ekg_rest.webp",
-  "/img/cardio_service_holter.webp",
-  "/img/cardio_service_bp_monitor.webp",
-  "/img/cardio_service_echo.webp",
-  "/img/cardio_service_stress_test.webp",
-  "/img/cardio_service_lab.webp",
+  "/img/specialties/kardiologie/cardio_service_ekg_rest.webp",
+  "/img/specialties/kardiologie/cardio_service_holter.webp",
+  "/img/specialties/kardiologie/cardio_service_bp_monitor.webp",
+  "/img/specialties/kardiologie/cardio_service_echo.webp",
+  "/img/specialties/kardiologie/cardio_service_stress_test.webp",
+  "/img/specialties/kardiologie/cardio_service_lab.webp",
 ];
 
 export function CardiologyDetailPageView({
@@ -382,7 +382,7 @@ export function CardiologyDetailPageView({
                 {/* Full-height background image on right with smooth blur fade into card on left */}
                 <div className="cardio-heart-bg-wrap" aria-hidden="true">
                   <Image
-                    src="/img/cardio_heart_art.webp"
+                    src="/img/specialties/kardiologie/cardio_heart_art.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1080px) 60vw, 52vw"
@@ -445,7 +445,7 @@ export function CardiologyDetailPageView({
                 {/* Left Column: Doctor Photo with Quote Overlay */}
                 <div className="cardio-doctor-photo-card">
                   <Image
-                    src="/img/cardio_doctor_clipboard.webp"
+                    src="/img/specialties/kardiologie/cardio_doctor_clipboard.webp"
                     alt={advantagesSection.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 480px"
@@ -514,7 +514,7 @@ export function CardiologyDetailPageView({
                 {/* Blurred background decoration matching template */}
                 <div className="specialty-checklist-bg" aria-hidden="true">
                   <Image
-                    src="/img/appointment_checklist_bg.webp"
+                    src="/img/patients/appointment_checklist_bg.webp"
                     alt=""
                     fill
                     sizes="40vw"
@@ -575,7 +575,7 @@ export function CardiologyDetailPageView({
                 {/* Background image container */}
                 <div className="cardio-cta-bg" aria-hidden="true">
                   <Image
-                    src="/img/cardio_cta_banner_bg.webp"
+                    src="/img/specialties/kardiologie/cardio_cta_banner_bg.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1280px) 100vw, 1280px"

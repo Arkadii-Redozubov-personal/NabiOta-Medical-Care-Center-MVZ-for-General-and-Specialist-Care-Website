@@ -286,7 +286,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     </div>
                     <div className="specialty-notice-art" aria-hidden="true">
                       <Image
-                        src="/img/leaf_branch_accent.webp"
+                        src="/img/patients/leaf_branch_accent.webp"
                         alt=""
                         width={130}
                         height={68}
@@ -377,7 +377,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     <div className="specialty-vaccine-banner">
                       <div className="specialty-vaccine-img">
                         <Image
-                          src={richData.banner?.image || "/img/vaccine_vials_banner.webp"}
+                          src={richData.banner?.image || "/img/specialties/allgemeinmedizin/vaccine_vials_banner.webp"}
                           alt={richData.banner?.title || richData.treatmentTitle || richData.preventionTitle || "Medical Care"}
                           fill
                           sizes="(max-width: 768px) 100vw, 200px"
@@ -451,7 +451,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                   {/* Full-height background image with smooth blur transition on left */}
                   <div className="specialty-checklist-bg" aria-hidden="true">
                     <Image
-                      src="/img/appointment_checklist_bg.webp"
+                      src="/img/patients/appointment_checklist_bg.webp"
                       alt=""
                       fill
                       sizes="(max-width: 1080px) 0vw, 55vw"

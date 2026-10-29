@@ -27,9 +27,9 @@ const branchMotto: Record<Locale, string> = {
 };
 
 const branchImages = [
-  "/img/branch_moenchengladbach.webp",
-  "/img/branch_viersen.webp",
-  "/img/branch_duesseldorf.webp",
+  "/img/home/branch_moenchengladbach.webp",
+  "/img/home/branch_viersen.webp",
+  "/img/home/branch_duesseldorf.webp",
 ];
 
 interface LegacyHomePageViewProps {
@@ -81,7 +81,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
           <div className="hero-bg-slider">
             <div
               className="hero-bg-slide"
-              style={{ backgroundImage: "url('/img/hero_reception.webp')", opacity: 1 }}
+              style={{ backgroundImage: "url('/img/home/hero_reception.webp')", opacity: 1 }}
             />
           </div>
           <div className="hero-overlay" />
@@ -281,7 +281,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
 
             <img
               loading="lazy"
-              src="/img/team_group.webp"
+              src="/img/team/team_group.webp"
               alt="Praxisteam NabiOta MVZ"
               className="about-praxis-img"
               style={{ width: "380px", height: "240px", objectFit: "cover", borderRadius: "var(--radius-lg)" }}
