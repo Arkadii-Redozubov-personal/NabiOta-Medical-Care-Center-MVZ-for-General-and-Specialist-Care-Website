@@ -1,0 +1,903 @@
+/* ==========================================================================
+   Inner Page Styles (Contact, Specialties, Services, About, Patients, Quality, Career, Legal)
+   ========================================================================== */
+/* ---------- Typography helpers ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  margin-block-end: 1rem;
+}
+
+html[dir="rtl"] .eyebrow {
+  letter-spacing: 0;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gradient-primary);
+}
+
+.section--navy .eyebrow {
+  color: #7cc8ee;
+}
+
+.h1 {
+  font-size: clamp(2.4rem, 5.4vw, 4.25rem);
+  font-weight: 800;
+}
+
+.h2 {
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-weight: 800;
+}
+
+.h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.lead {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.section--navy .lead {
+  color: rgb(255 255 255 / 0.75);
+}
+
+.text-accent {
+  color: var(--primary);
+}
+
+.muted {
+  color: var(--slate);
+}
+
+.section-head {
+  max-width: 720px;
+  margin-block-end: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.section-head .lead {
+  margin-block-start: 1rem;
+}
+
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-head--center .eyebrow {
+  justify-content: center;
+}
+
+.section-head--row {
+  max-width: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.section-head--row > div {
+  max-width: 680px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  --btn-bg: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 52px;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: box-shadow 0.3s var(--ease), background 0.3s var(--ease),
+    color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Strip underline from all buttons, links & nested spans */
+a.btn,
+button.btn,
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn:visited,
+.btn *,
+.btn:hover *,
+.btn:focus *,
+.btn:active *,
+.btn:visited * {
+  text-decoration: none !important;
+}
+
+.btn:hover {
+  transform: none;
+}
+
+/* Arrow inside button: smooth glide to the right on hover */
+.btn svg,
+.btn .btn-arrow,
+.btn > span:last-child:not(:first-child) {
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.btn:hover svg.icon-arrow,
+.btn:hover .btn-arrow,
+.btn:hover > span:last-child:not(:first-child) {
+  transform: translateX(6px);
+}
+
+html[dir="rtl"] .btn svg.icon-arrow,
+html[dir="rtl"] .btn .btn-arrow,
+html[dir="rtl"] .btn > span:last-child:not(:first-child) {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .btn:hover svg.icon-arrow,
+html[dir="rtl"] .btn:hover .btn-arrow,
+html[dir="rtl"] .btn:hover > span:last-child:not(:first-child) {
+  transform: scaleX(-1) translateX(6px);
+}
+
+.btn--primary {
+  background: var(--gradient-primary);
+  color: var(--white);
+  box-shadow: none;
+}
+
+.btn--primary:hover {
+  transform: none;
+  box-shadow: none;
+  background: linear-gradient(135deg, var(--blue-600) 0%, #1278b2 100%);
+}
+
+.btn--secondary {
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--border);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn--secondary:hover {
+  border-color: var(--blue);
+  color: var(--blue-600);
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--glass {
+  background: rgb(255 255 255 / 0.14);
+  color: var(--white);
+  border-color: rgb(255 255 255 / 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn--glass:hover {
+  background: rgb(255 255 255 / 0.24);
+  transform: none;
+}
+
+.btn--sm {
+  min-height: 44px;
+  padding: 0.65rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--blue-600);
+  font-size: 0.95rem;
+}
+
+.link-arrow svg {
+  transition: transform 0.35s var(--ease);
+}
+
+html[dir="rtl"] .link-arrow svg {
+  transform: scaleX(-1);
+}
+
+.link-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+html[dir="rtl"] .link-arrow:hover svg {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  box-shadow: var(--shadow-xs);
+}
+
+.card h3 {
+  margin-block: 1.1rem 0.5rem;
+}
+
+.card p {
+  color: var(--slate);
+  font-size: 0.97rem;
+}
+
+.icon-badge {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: var(--sky);
+  color: var(--blue-600);
+  flex-shrink: 0;
+}
+
+.icon-badge--solid {
+  background: var(--gradient-primary);
+  color: var(--white);
+  box-shadow: var(--shadow-blue);
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: var(--shadow-lg);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: var(--sky);
+  color: var(--navy);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pill svg {
+  color: var(--blue);
+}
+
+.check-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.check-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  color: var(--navy);
+}
+
+.check-list li svg {
+  flex-shrink: 0;
+  margin-block-start: 0.15rem;
+  color: var(--blue);
+}
+
+.sample-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #9a6a00;
+  background: #fff6db;
+  border: 1px dashed #f0cf72;
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.85rem;
+}
+
+
+/* ---------- Page hero (subpages) ---------- */
+.page-hero {
+  position: relative;
+  padding-block: calc(var(--header-h) + 1.75rem) 2.25rem;
+  overflow: hidden;
+  background:
+    radial-gradient(1000px 420px at 85% -10%, rgb(33 157 216 / 0.16), transparent 60%),
+    radial-gradient(700px 380px at -10% 110%, rgb(33 157 216 / 0.1), transparent 60%),
+    var(--bg);
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgb(22 55 84 / 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, rgb(0 0 0 / 0.6), transparent 85%);
+  -webkit-mask-image: linear-gradient(180deg, rgb(0 0 0 / 0.6), transparent 85%);
+  pointer-events: none;
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block-end: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--slate);
+}
+
+.breadcrumb a {
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--blue-600);
+}
+
+
+/* ==========================================================================
+   Rich Specialty Detail Page (Matches Reference Layout)
+   ========================================================================== */
+
+.specialty-rich-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 3.25rem;
+  width: 100%;
+}
+
+/* 0. Introductory Section on Specialty Detail Pages */
+.specialty-intro-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.specialty-eyebrow {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #219DD8;
+  margin-bottom: 8px;
+}
+
+.specialty-main-title {
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  color: #163754;
+  line-height: 1.25;
+  margin: 0 0 16px;
+  max-width: 1200px;
+}
+
+.specialty-intro-lead-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 1200px;
+}
+
+.specialty-main-lead {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0;
+}
+
+.specialty-rich-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.specialty-section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.specialty-section-header h2 {
+  font-size: clamp(1.45rem, 2.3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--blue-dark, #163754);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.specialty-section-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(33, 157, 216, 0.1);
+  color: var(--blue, #219DD8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.specialty-section-lead {
+  color: #64748b;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+/* Reasons 3-column Grid */
+.specialty-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.specialty-reason-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: 0 2px 6px rgba(22, 55, 84, 0.02);
+}
+
+.specialty-reason-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(33, 157, 216, 0.1);
+  color: #219DD8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.specialty-reason-text {
+  font-size: 0.93rem;
+  line-height: 1.5;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* Notice Banner */
+.specialty-notice-banner {
+  background: linear-gradient(135deg, rgba(33, 157, 216, 0.08) 0%, rgba(22, 55, 84, 0.03) 100%);
+  border: 1px solid rgba(33, 157, 216, 0.22);
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.specialty-notice-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.specialty-notice-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(33, 157, 216, 0.15);
+  color: #219DD8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.specialty-notice-text {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: #163754;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.specialty-notice-art {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  max-width: 140px;
+  height: 62px;
+}
+
+.specialty-notice-art img {
+  mix-blend-mode: multiply;
+  object-fit: contain;
+  height: 60px;
+  width: auto;
+}
+
+/* Services 2-column Grid */
+.specialty-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.specialty-service-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 6px rgba(22, 55, 84, 0.02);
+}
+
+.specialty-service-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(33, 157, 216, 0.1);
+  color: #219DD8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.specialty-service-text {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.45;
+}
+
+.specialty-services-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.specialty-services-note-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Vaccine Feature Banner (Increased height & spacious layout) */
+.specialty-vaccine-banner {
+  background: linear-gradient(135deg, rgba(33, 157, 216, 0.08) 0%, rgba(22, 55, 84, 0.04) 100%);
+  border: 1px solid rgba(33, 157, 216, 0.22);
+  border-radius: 18px;
+  padding: 18px 24px 18px 18px;
+  display: grid;
+  grid-template-columns: 240px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  margin-top: 1.1rem;
+  min-height: 185px;
+}
+
+.specialty-vaccine-img {
+  position: relative;
+  width: 240px;
+  height: 155px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(22, 55, 84, 0.08);
+  flex-shrink: 0;
+}
+
+.specialty-vaccine-info h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #163754;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.specialty-vaccine-info p {
+  font-size: 0.96rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.specialty-vaccine-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #163754;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+  margin-right: 4px;
+}
+
+.specialty-vaccine-btn:hover {
+  background: #219DD8;
+  transform: translateX(3px);
+}
+
+/* Checklist Box (Full height image with smooth blur transition on left) */
+.specialty-checklist-card {
+  background: linear-gradient(135deg, rgba(33, 157, 216, 0.08) 0%, rgba(22, 55, 84, 0.03) 100%);
+  border: 1px solid rgba(33, 157, 216, 0.25);
+  border-radius: 20px;
+  padding: 34px 38px;
+  position: relative;
+  overflow: hidden;
+}
+
+.specialty-checklist-content {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  width: 100%;
+}
+
+.specialty-checklist-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.specialty-checklist-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #219DD8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.specialty-checklist-header h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #163754;
+  margin: 0;
+}
+
+.specialty-checklist-desc {
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0 0 22px;
+  max-width: 840px;
+}
+
+.specialty-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.specialty-checklist-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #163754;
+  box-shadow: 0 2px 6px rgba(22, 55, 84, 0.03);
+}
+
+.specialty-checklist-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 42%;
+  min-width: 300px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.75) 45%, black 70%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.75) 45%, black 70%);
+}
+
+.specialty-checklist-blur-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 140px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(to right, rgba(240, 248, 253, 0.95) 0%, rgba(240, 248, 253, 0.35) 60%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Emergency Alert Box (e.g. for Cardiology 112 note) */
+.cardio-checklist-section,
+.specialty-checklist-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.specialty-emergency-alert {
+  margin-top: 14px;
+  background: #fff5f5;
+  border: 1.5px solid #fecaca;
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
+}
+
+.specialty-emergency-alert--full {
+  margin-top: 0;
+  width: 100%;
+  padding: 16px 22px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.08);
+}
+
+.specialty-emergency-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.specialty-emergency-text {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #991b1b;
+  flex-grow: 1;
+}
+
+.specialty-emergency-text strong {
+  color: #7f1d1d;
+}
+
+.specialty-emergency-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #dc2626;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.specialty-emergency-btn:hover {
+  background: #b91c1c;
+  transform: scale(1.04);
+}
+@media (max-width: 1120px) {
+  .specialty-reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .specialty-checklist-content {
+    max-width: 100%;
+  }
+  .specialty-checklist-bg {
+    opacity: 0.35;
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialty-reasons-grid {
+    grid-template-columns: 1fr;
+  }
+  .specialty-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .specialty-vaccine-banner {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 12px;
+  }
+  .specialty-vaccine-img {
+    width: 100%;
+    height: 150px;
+  }
+  .specialty-checklist-grid {
+    grid-template-columns: 1fr;
+  }
+  .specialty-checklist-card {
+    padding: 22px 18px;
+  }
+  .specialty-checklist-bg {
+    display: none;
+  }
+  .specialty-notice-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .specialty-notice-art {
+    display: none;
+  }
+  .specialty-services-note {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+

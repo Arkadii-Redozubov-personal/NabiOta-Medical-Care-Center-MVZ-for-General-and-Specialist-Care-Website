@@ -1,0 +1,31 @@
+/* ── Cookie Consent Banner Animations & Responsive ───────────────────── */
+@keyframes cookieFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cookieFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .cookie-banner-overlay {
+    padding: 8px !important;
+  }
+  .cookie-banner-card {
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+    gap: 10px !important;
+  }
+}

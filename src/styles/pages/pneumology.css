@@ -1,0 +1,595 @@
+/* ==========================================================================
+   4. PNEUMOLOGIE (PULMONOLOGY) DETAIL PAGE - REFERENCE DESIGN STYLES
+   ========================================================================== */
+
+.pneumo-ref-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 4.75rem;
+  width: 100%;
+}
+
+.pneumo-ref-section-header {
+  margin-bottom: 8px;
+}
+
+.pneumo-ref-title {
+  font-size: clamp(1.65rem, 2.3vw, 2.15rem);
+  font-weight: 800;
+  color: #163754;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.pneumo-ref-line {
+  display: none !important;
+}
+
+.pneumo-ref-subtitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #64748b;
+  margin: 0 0 24px;
+}
+
+/* ── Section 1: Reasons + Patient Photo ───────────────────────────────── */
+.pneumo-ref-section1 {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.pneumo-ref-s1-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.pneumo-ref-reasons-columns {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 20px 28px;
+  margin-top: 6px;
+}
+
+.pneumo-ref-reasons-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pneumo-ref-reason-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pneumo-ref-reason-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pneumo-ref-reason-text {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.45;
+}
+
+.pneumo-ref-s1-right {
+  display: flex;
+  justify-content: center;
+}
+
+.pneumo-ref-photo-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 14px 34px -10px rgba(33, 157, 216, 0.18);
+  border: 1px solid rgba(33, 157, 216, 0.2);
+}
+
+.pneumo-ref-script-badge {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 2;
+  font-family: 'Caveat', 'Brush Script MT', 'Segoe Print', cursive, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: rotate(-3deg);
+  border: 1px solid rgba(33, 157, 216, 0.25);
+  line-height: 1.3;
+}
+
+/* ── Section 2: Diagnostics + Lungs Illustration ──────────────────────── */
+.pneumo-ref-section2 {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 52px;
+  align-items: start;
+}
+
+.pneumo-ref-s2-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.pneumo-ref-desc-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 18px 0 24px;
+}
+
+.pneumo-ref-desc-p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+}
+
+.pneumo-ref-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0284c7;
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  text-decoration: none !important;
+  width: fit-content;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+  transition: all 0.2s ease;
+}
+
+.pneumo-ref-btn svg,
+.pneumo-ref-btn .btn-arrow,
+.pneumo-ref-btn > span:last-child:not(:first-child) {
+  display: inline-block;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.pneumo-ref-btn:hover {
+  background: #0369a1;
+  transform: none;
+  box-shadow: none;
+  color: #ffffff;
+  text-decoration: none !important;
+}
+
+.pneumo-ref-btn:hover svg,
+.pneumo-ref-btn:hover .btn-arrow,
+.pneumo-ref-btn:hover > span:last-child:not(:first-child) {
+  transform: translateX(5px);
+}
+
+.pneumo-ref-lungs-art {
+  margin-top: 28px;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pneumo-ref-s2-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.pneumo-ref-diag-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.pneumo-ref-diag-card {
+  background: #ffffff;
+  border: 1px solid #e0f2fe;
+  border-radius: 14px;
+  padding: 13px 16px;
+  box-shadow: 0 2px 8px rgba(33, 157, 216, 0.04);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+
+.pneumo-ref-diag-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.pneumo-ref-diag-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pneumo-ref-diag-title {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #163754;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.pneumo-ref-diag-desc {
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.pneumo-ref-diag-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #0284c7;
+}
+
+.pneumo-ref-plus-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #0284c7;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Section 3: Treatment + Inhaler Photo ──────────────────────────────── */
+.pneumo-ref-section3 {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.pneumo-ref-inhaler-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  width: 100%;
+}
+
+.pneumo-ref-treatment-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.pneumo-ref-treatment-p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #475569;
+  margin: 0;
+}
+
+/* ── Section 4: What to bring Checklist Card ──────────────────────────── */
+.pneumo-ref-checklist-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 22px;
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr 1.3fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.pneumo-ref-cl-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pneumo-ref-cl-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(33, 157, 216, 0.15);
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pneumo-ref-cl-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #163754;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.pneumo-ref-cl-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.pneumo-ref-cl-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pneumo-ref-cl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.pneumo-ref-cl-check {
+  color: #0284c7;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.pneumo-ref-cl-notice {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 24px;
+  border: 1px solid #e0f2fe;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  box-shadow: 0 4px 14px rgba(33, 157, 216, 0.04);
+}
+
+.pneumo-ref-notice-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0284c7;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  font-style: italic;
+  font-family: serif;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pneumo-ref-notice-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+/* ── Section 5: Emergency 112 Banner ──────────────────────────────────── */
+.pneumo-ref-emergency-banner {
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  padding: 18px 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pneumo-ref-em-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pneumo-ref-em-text {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #dc2626;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── Section 6: Bottom Alpine CTA Banner ──────────────────────────────── */
+.pneumo-ref-cta-card {
+  background: #092038;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 20px 40px -12px rgba(16, 56, 89, 0.35);
+}
+
+.pneumo-ref-cta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pneumo-ref-cta-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(9, 32, 56, 0.92) 0%,
+    rgba(9, 32, 56, 0.75) 45%,
+    rgba(9, 32, 56, 0.2) 75%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pneumo-ref-cta-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px 48px;
+}
+
+.pneumo-ref-cta-text-side {
+  max-width: 680px;
+}
+
+.pneumo-ref-cta-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #bae6fd;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.pneumo-ref-cta-title {
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.pneumo-ref-cta-desc {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 24px;
+  max-width: 580px;
+}
+
+.pneumo-ref-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #0e3759;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none !important;
+  width: fit-content;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.pneumo-ref-cta-btn svg,
+.pneumo-ref-cta-btn .btn-arrow,
+.pneumo-ref-cta-btn > span:last-child:not(:first-child) {
+  display: inline-block;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.pneumo-ref-cta-btn:hover {
+  background: #e0f2fe;
+  transform: none;
+  color: #0e3759;
+  text-decoration: none !important;
+}
+
+.pneumo-ref-cta-btn:hover svg,
+.pneumo-ref-cta-btn:hover .btn-arrow,
+.pneumo-ref-cta-btn:hover > span:last-child:not(:first-child) {
+  transform: translateX(5px);
+}
+
+/* ── Responsive Rules ─────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .pneumo-ref-section1 {
+    grid-template-columns: 1fr;
+  }
+  .pneumo-ref-section2 {
+    grid-template-columns: 1fr;
+  }
+  .pneumo-ref-section3 {
+    grid-template-columns: 1fr;
+  }
+  .pneumo-ref-checklist-box {
+    grid-template-columns: 1fr;
+  }
+  .pneumo-ref-cta-content {
+    padding: 36px 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pneumo-ref-reasons-columns {
+    grid-template-columns: 1fr;
+  }
+  .pneumo-ref-diag-grid {
+    grid-template-columns: 1fr;
+  }
+  .pneumo-ref-cta-content {
+    padding: 32px 24px;
+  }
+  .pneumo-ref-checklist-box {
+    padding: 24px 20px;
+  }
+}

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import Image from "next/image";
 import { type Locale } from "@/lib/i18n";
 import { Icon, type IconName } from "@/components/ui/Icon";
+import styles from "./GeneralMedicineServicesShowcase.module.css";
 
 interface GeneralMedicineServicesShowcaseProps {
   locale: Locale;
@@ -274,7 +275,7 @@ export function GeneralMedicineServicesShowcase({
     <div>
       {/* ── Slider with 4 Main Cards in View (Endless Cycle) ── */}
       <div
-        className="gen-slider-outer"
+        className={styles.outer}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -282,7 +283,7 @@ export function GeneralMedicineServicesShowcase({
         <button
           type="button"
           onClick={isRTL ? handleNext : handlePrev}
-          className="gen-slider-nav-btn gen-slider-nav-prev"
+          className={styles.navBtn}
           aria-label={isRTL ? "Next services" : "Previous services"}
         >
           <svg
@@ -301,13 +302,13 @@ export function GeneralMedicineServicesShowcase({
 
         {/* Viewport & Sliding Track */}
         <div
-          className="gen-slider-viewport"
+          className={styles.viewport}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
           <div
-            className="gen-slider-track"
+            className={styles.track}
             style={{
               transform: isRTL
                 ? `translateX(calc(${currentIndex} * (${cardWidthCalc} + 20px)))`
@@ -322,14 +323,14 @@ export function GeneralMedicineServicesShowcase({
               return (
                 <div
                   key={`${item.icon}-${idx}`}
-                  className="gen-slider-card"
+                  className={styles.card}
                   style={{
                     flex: `0 0 calc(${cardWidthCalc})`,
                     maxWidth: `calc(${cardWidthCalc})`,
                     width: `calc(${cardWidthCalc})`,
                   }}
                 >
-                  <div className="gen-slider-card-media">
+                  <div className={styles.cardMedia}>
                     <Image
                       src={item.image}
                       alt={itemTitle}
@@ -338,9 +339,9 @@ export function GeneralMedicineServicesShowcase({
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div className="gen-slider-card-body">
-                    <h3 className="gen-slider-card-title">{itemTitle}</h3>
-                    <p className="gen-slider-card-desc">{itemDesc}</p>
+                  <div className={styles.cardBody}>
+                    <h3 className={styles.cardTitle}>{itemTitle}</h3>
+                    <p className={styles.cardDesc}>{itemDesc}</p>
                   </div>
                 </div>
               );
@@ -352,7 +353,7 @@ export function GeneralMedicineServicesShowcase({
         <button
           type="button"
           onClick={isRTL ? handlePrev : handleNext}
-          className="gen-slider-nav-btn gen-slider-nav-next"
+          className={styles.navBtn}
           aria-label={isRTL ? "Previous services" : "Next services"}
         >
           <svg
@@ -371,13 +372,13 @@ export function GeneralMedicineServicesShowcase({
       </div>
 
       {/* Pagination Dots */}
-      <div className="gen-slider-dots" role="tablist" aria-label="Slider navigation dots">
+      <div className={styles.dots} role="tablist" aria-label="Slider navigation dots">
         {Array.from({ length: totalDots }).map((_, dotIdx) => (
           <button
             key={dotIdx}
             type="button"
             onClick={() => setCurrentIndex(dotIdx)}
-            className={`gen-slider-dot ${dotIdx === currentIndex ? "active" : ""}`}
+            className={`${styles.dot} ${dotIdx === currentIndex ? styles.dotActive : ""}`}
             aria-label={`Go to slide ${dotIdx + 1}`}
           />
         ))}

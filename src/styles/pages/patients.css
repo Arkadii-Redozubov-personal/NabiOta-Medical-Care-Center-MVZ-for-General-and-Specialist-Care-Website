@@ -1,0 +1,570 @@
+/* ── Section 1: Hero / Appointment Card ──────────────────────────────── */
+.patient-ref-hero-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.patient-ref-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.patient-ref-hero-p {
+  color: #475569;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.patient-ref-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #107297 0%, #168BCB 100%);
+  color: #ffffff;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  width: fit-content;
+  box-shadow: 0 6px 18px rgba(22, 139, 203, 0.28);
+  transition: all 0.25s ease;
+  margin-top: 8px;
+}
+
+.patient-ref-btn-primary:hover {
+  background: linear-gradient(135deg, #0d5d7c 0%, #1279b3 100%);
+  transform: translateY(-2px);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.patient-ref-hero-right {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(22, 55, 84, 0.08);
+  aspect-ratio: 4 / 3;
+  min-height: 280px;
+}
+
+.patient-ref-leaf-overlay {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  opacity: 0.75;
+  z-index: 2;
+}
+
+/* ── Section 2: Was Sie zu Ihrem Termin mitbringen sollten ───────────── */
+.patient-ref-checklist-card {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(22, 55, 84, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.patient-ref-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+}
+
+.patient-ref-checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.patient-ref-circle-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(22, 139, 203, 0.08);
+  border: 1.5px solid rgba(22, 139, 203, 0.25);
+  color: #168BCB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.patient-ref-checklist-text {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.patient-ref-assist-banner {
+  background: #ebf6fc;
+  border: 1px solid rgba(22, 139, 203, 0.24);
+  border-radius: 20px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.patient-ref-assist-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 1;
+}
+
+.patient-ref-assist-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #168BCB;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.patient-ref-assist-text {
+  color: #164664;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.patient-ref-assist-leaf {
+  position: absolute;
+  right: 0;
+  bottom: -20px;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* ── Section 3: Befunde & Behandlungsunterlagen | Rezepte ─────────────── */
+.patient-ref-grid-2col {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+}
+
+.patient-ref-card-findings {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(22, 55, 84, 0.04);
+  display: flex;
+  overflow: hidden;
+}
+
+.patient-ref-findings-photo {
+  width: 38%;
+  min-height: 280px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.patient-ref-findings-badge {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #168BCB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(22, 55, 84, 0.16);
+  border: 2px solid #ebf6fc;
+}
+
+.patient-ref-findings-content {
+  padding: 34px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  width: 62%;
+}
+
+.patient-ref-card-prescriptions {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(22, 55, 84, 0.04);
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.patient-ref-card-p {
+  color: #475569;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Section 4: Informationen vor Untersuchungen | Kosten & Versicherung ─ */
+.patient-ref-grid-info-cost {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.patient-ref-card-info,
+.patient-ref-card-cost {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(22, 55, 84, 0.04);
+  padding: 34px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.patient-ref-card-leaf-watermark {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* ── Section 5: Hilfe außerhalb der Sprechzeiten ──────────────────────── */
+.patient-ref-emergency-bar {
+  background: #ebf6fc;
+  border: 1px solid rgba(22, 139, 203, 0.24);
+  border-radius: 22px;
+  padding: 26px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.patient-ref-emergency-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1 1 540px;
+}
+
+.patient-ref-emergency-clock {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #168BCB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(22, 139, 203, 0.15);
+  border: 1.5px solid rgba(22, 139, 203, 0.2);
+}
+
+.patient-ref-emergency-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.patient-ref-emergency-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #163754;
+  margin: 0;
+}
+
+.patient-ref-emergency-desc {
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.patient-ref-emergency-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  padding-left: 24px;
+  border-left: 1px solid rgba(22, 139, 203, 0.25);
+}
+
+.patient-ref-emergency-phone-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #168BCB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(22, 139, 203, 0.12);
+}
+
+.patient-ref-emergency-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.patient-ref-emergency-num {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #164664;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.patient-ref-emergency-num:hover {
+  color: #168BCB;
+}
+
+/* ── Accessibility Utility ────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Section 6: Bottom Banner (Teal / Ocean Gradient Card) ────────────── */
+.patient-ref-organizer-banner {
+  background-color: #0b5874;
+  background-image: url('/img/patients/patient_organizer_banner_bg.webp');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  border-radius: 24px;
+  padding: 48px 52px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 36px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 44px rgba(22, 55, 84, 0.16);
+  min-height: 260px;
+}
+
+[dir='rtl'] .patient-ref-organizer-banner {
+  background-position: left center;
+}
+
+.patient-ref-organizer-left {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  max-width: min(800px, 60%);
+  z-index: 2;
+}
+
+.patient-ref-organizer-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.patient-ref-organizer-eyebrow {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 6px;
+}
+
+.patient-ref-organizer-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.95rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.patient-ref-organizer-text {
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  margin: 0 0 24px;
+  max-width: 680px;
+}
+
+.patient-ref-btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #164664;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none !important;
+  width: fit-content;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+  transition: all 0.2s ease;
+}
+
+.patient-ref-btn-white svg,
+.patient-ref-btn-white .btn-arrow,
+.patient-ref-btn-white > span:last-child:not(:first-child) {
+  display: inline-block;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.patient-ref-btn-white:hover {
+  background: #f0f9ff;
+  color: #168BCB;
+  transform: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  text-decoration: none !important;
+}
+
+.patient-ref-btn-white:hover svg,
+.patient-ref-btn-white:hover .btn-arrow,
+.patient-ref-btn-white:hover > span:last-child:not(:first-child) {
+  transform: translateX(5px);
+}
+
+.patient-ref-organizer-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.patient-ref-organizer-script {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  color: rgba(255, 255, 255, 0.94);
+  transform: rotate(-4deg);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  text-align: right;
+  line-height: 1.25;
+}
+
+.patient-ref-organizer-leaf {
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 220px;
+  height: 220px;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* ── Section 7 & 8: Downloads & FAQ Section Styling ──────────────────── */
+.patient-ref-section-downloads,
+.patient-ref-section-faq {
+  margin-top: 10px;
+}
+
+/* ── Responsive Rules for Patient Reference ──────────────────────────── */
+@media (max-width: 1024px) {
+  .patient-ref-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .patient-ref-grid-2col {
+    grid-template-columns: 1fr;
+  }
+  .patient-ref-card-findings {
+    flex-direction: column;
+  }
+  .patient-ref-findings-photo {
+    width: 100%;
+    min-height: 220px;
+  }
+  .patient-ref-findings-content {
+    width: 100%;
+    padding: 28px 24px;
+  }
+  .patient-ref-organizer-banner {
+    padding: 38px 36px;
+  }
+  .patient-ref-organizer-left {
+    max-width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .patient-ref-checklist-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .patient-ref-checklist-card {
+    padding: 26px 20px;
+  }
+  .patient-ref-grid-info-cost {
+    grid-template-columns: 1fr;
+  }
+  .patient-ref-emergency-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+  .patient-ref-emergency-right {
+    border-left: none;
+    border-top: 1px solid rgba(22, 139, 203, 0.25);
+    padding-left: 0;
+    padding-top: 18px;
+    width: 100%;
+  }
+  .patient-ref-organizer-left {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 16px;
+  }
+  .patient-ref-organizer-banner {
+    background-image: linear-gradient(135deg, rgba(8, 48, 68, 0.94) 0%, rgba(9, 64, 88, 0.88) 60%, rgba(13, 84, 115, 0.75) 100%), url('/img/patients/patient_organizer_banner_bg.webp');
+    padding: 30px 20px;
+  }
+}
+
+

@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import "leaflet/dist/leaflet.css";
 import { type Locale, localePath } from "@/lib/i18n";
+import styles from "./HomeBranchesInteractiveMap.module.css";
 
 interface HomeBranchesInteractiveMapProps {
   locale: Locale;
@@ -366,14 +367,14 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
   };
 
   return (
-    <div className="home-branches-map-card">
+    <div className={styles.mapCard}>
       {/* Top Interactive Toolbar */}
-      <div className="home-interactive-map-header">
+      <div className={styles.mapHeader}>
         {/* Quick Filter Buttons */}
-        <div className="home-interactive-map-filter-pills" role="tablist">
+        <div className={styles.filterPills} role="tablist">
           <button
             type="button"
-            className={`home-map-pill-btn ${activeFilter === "all" ? "active" : ""}`}
+            className={`${styles.pillBtn} ${activeFilter === "all" ? styles.pillBtnActive : ""}`}
             onClick={() => handleSelectBranch("all")}
           >
             {UI_TEXT.allLocations[locale] || UI_TEXT.allLocations.de}
@@ -382,7 +383,7 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
             <button
               key={b.id}
               type="button"
-              className={`home-map-pill-btn ${activeFilter === b.id ? "active" : ""}`}
+              className={`${styles.pillBtn} ${activeFilter === b.id ? styles.pillBtnActive : ""}`}
               onClick={() => handleSelectBranch(b.id)}
             >
               {b.city[locale] || b.city.de}
@@ -392,20 +393,20 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
       </div>
 
       {/* Map Wrap */}
-      <div className="home-interactive-map-viewport-wrap">
-        <div ref={mapContainerRef} className="home-interactive-map-viewport" />
+      <div className={styles.viewportWrap}>
+        <div ref={mapContainerRef} className={styles.viewport} />
       </div>
 
       {/* Notice Box below map */}
-      <div className="home-branch-notice-box">
-        <div className="home-branch-notice-icon" aria-hidden="true">
+      <div className={styles.noticeBox}>
+        <div className={styles.noticeIcon} aria-hidden="true">
           i
         </div>
         <div>
-          <h4 className="home-branch-notice-title">
+          <h4 className={styles.noticeTitle}>
             {noticeTitle || "Gemeinsame Patientenakte"}
           </h4>
-          <p className="home-branch-notice-text">
+          <p className={styles.noticeText}>
             {noticeText ||
               "Alle 3 Standorte sind digital vernetzt. Ihre Befunde und Behandlungsdaten stehen den Ärzten an jedem Standort sicher zur Verfügung."}
           </p>

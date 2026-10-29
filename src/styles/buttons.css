@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Buttons & Interactive Actions
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn svg,
+.btn .btn-arrow,
+.btn > span:last-child:not(:first-child) {
+  transition: transform 0.25s var(--ease);
+}
+
+.btn:hover svg.icon-arrow,
+.btn:hover .btn-arrow,
+.btn:hover > span:last-child:not(:first-child) {
+  transform: translateX(3px);
+}
+
+[dir="rtl"] .btn:hover svg.icon-arrow,
+[dir="rtl"] .btn:hover .btn-arrow,
+[dir="rtl"] .btn:hover > span:last-child:not(:first-child) {
+  transform: translateX(-3px);
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(33, 157, 216, 0.25);
+}
+
+.btn--primary:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 8px 24px rgba(33, 157, 216, 0.35);
+  color: #ffffff;
+}
+
+.btn--secondary {
+  background: #ffffff;
+  color: var(--navy);
+  border-color: var(--border);
+}
+
+.btn--secondary:hover {
+  background: var(--sky);
+  border-color: var(--blue);
+  color: var(--navy);
+}
+
+.btn--sm {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+}
+
+.btn-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.btn-book {
+  background: var(--primary);
+  color: white;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-book:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  color: white;
+}

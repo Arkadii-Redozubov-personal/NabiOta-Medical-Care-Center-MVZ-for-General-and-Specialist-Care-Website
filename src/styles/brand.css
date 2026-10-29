@@ -1,0 +1,77 @@
+/* Golden Brand Lockup (NABIOTA HEALTH GROUP GERMANY) */
+.brand-text-lockup {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  justify-content: center;
+  direction: ltr;
+  text-align: left;
+}
+.brand-title-gold {
+  font-family: 'Cinzel', 'Playfair Display', 'Times New Roman', Georgia, serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 1.8px;
+  background: linear-gradient(135deg, #dfb758 0%, #c6922a 30%, #9e6f14 60%, #cf9f38 85%, #845706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #c6922a;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+  white-space: nowrap;
+}
+.brand-sub-gold {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #d8aa45 0%, #b88319 45%, #8f5f0a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #b88319;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .brand-title-gold {
+    font-size: 1.45rem;
+    letter-spacing: 1.4px;
+    white-space: nowrap;
+  }
+  .brand-sub-gold {
+    font-size: 0.60rem;
+    letter-spacing: 2.0px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 480px) {
+  .navbar a img {
+    height: 48px;
+  }
+  .brand-title-gold {
+    font-size: 1.36rem;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+  }
+  .brand-sub-gold {
+    font-size: 0.55rem;
+    letter-spacing: 1.6px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 380px) {
+  .navbar a img {
+    height: 44px;
+  }
+  .brand-title-gold {
+    font-size: 1.22rem;
+    letter-spacing: 0.9px;
+    white-space: nowrap;
+  }
+  .brand-sub-gold {
+    font-size: 0.49rem;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+  }
+}

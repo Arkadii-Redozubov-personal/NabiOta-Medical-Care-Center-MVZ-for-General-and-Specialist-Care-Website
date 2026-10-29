@@ -1,0 +1,148 @@
+.outer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.viewport {
+  flex: 1;
+  overflow: hidden;
+  padding: 8px 4px;
+}
+
+.track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(22, 55, 84, 0.04);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(33, 157, 216, 0.12);
+  border-color: rgba(33, 157, 216, 0.35);
+}
+
+.cardMedia {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.cardMedia img {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .cardMedia img {
+  transform: scale(1.05);
+}
+
+.cardBody {
+  padding: 16px 4px 6px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #163754;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #64748b;
+  margin: 0;
+}
+
+.navBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(22, 55, 84, 0.06);
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.navBtn:hover:not(:disabled),
+.navBtn:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+  color: #0369a1;
+  transform: scale(1.08);
+  box-shadow: none;
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+  box-shadow: none;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  width: 28px;
+  height: 8px;
+  background: #0ea5e9;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
+}
+
+@media (max-width: 640px) {
+  .outer {
+    gap: 8px;
+  }
+  .navBtn {
+    width: 38px;
+    height: 38px;
+  }
+}

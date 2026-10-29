@@ -1,0 +1,314 @@
+.mapCard {
+  background: #ffffff;
+  border: 1.5px solid rgba(22, 55, 84, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(22, 55, 84, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.mapHeader {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px 12px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(22, 55, 84, 0.08);
+  z-index: 5;
+}
+
+.filterPills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.pillBtn {
+  background: #f1f5f9;
+  border: 1px solid rgba(22, 55, 84, 0.06);
+  border-radius: 99px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.pillBtn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.pillBtnActive {
+  background: #219DD8;
+  color: #ffffff;
+  border-color: #219DD8;
+  box-shadow: 0 2px 8px rgba(33, 157, 216, 0.35);
+}
+
+.viewportWrap {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  min-height: 480px;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.viewport {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  z-index: 1;
+}
+
+.noticeBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-top: 1px solid rgba(22, 55, 84, 0.06);
+  margin-top: auto;
+}
+
+.noticeIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0284c7;
+  font-weight: 800;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.noticeTitle {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #163754;
+  margin: 0 0 4px;
+}
+
+.noticeText {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #547596;
+  margin: 0;
+}
+
+/* ── Leaflet Global Injected DOM Styles ── */
+:global(.interactive-branch-marker) {
+  background: transparent !important;
+  border: none !important;
+}
+
+:global(.interactive-marker-wrap) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 10px rgba(22, 55, 84, 0.22));
+  transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+:global(.interactive-marker-wrap:hover) {
+  transform: scale(1.08) translateY(-2px);
+}
+
+:global(.interactive-marker-pin) {
+  position: relative;
+  width: 24px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.interactive-marker-pin svg) {
+  display: block;
+}
+
+:global(.interactive-marker-pulse) {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(33, 157, 216, 0.4);
+  animation: branchPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes branchPulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+:global(.interactive-marker-badge) {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.12);
+  border-radius: 99px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #163754;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(22, 55, 84, 0.12);
+  pointer-events: auto;
+}
+
+:global(.custom-leaflet-popup .leaflet-popup-content-wrapper) {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 0;
+  box-shadow: 0 16px 40px rgba(22, 55, 84, 0.18);
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  overflow: hidden;
+}
+
+:global(.custom-leaflet-popup .leaflet-popup-content) {
+  margin: 0;
+  line-height: 1.4;
+  font-family: inherit;
+}
+
+:global(.custom-leaflet-popup .leaflet-popup-tip) {
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(22, 55, 84, 0.12);
+}
+
+:global(.custom-leaflet-popup a.leaflet-popup-close-button) {
+  top: 14px;
+  right: 14px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+:global(.custom-leaflet-popup a.leaflet-popup-close-button:hover) {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+:global(.interactive-map-popup) {
+  padding: 18px 20px 16px;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+:global(.interactive-map-popup .popup-header) {
+  margin-bottom: 12px;
+}
+
+:global(.interactive-map-popup .popup-title) {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #163754;
+  margin: 0;
+  line-height: 1.25;
+}
+
+:global(.interactive-map-popup .popup-body) {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+:global(.interactive-map-popup .popup-row) {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+:global(.interactive-map-popup .popup-row svg) {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+:global(.interactive-map-popup .popup-addr-main) {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+:global(.interactive-map-popup .popup-addr-sub) {
+  display: block;
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+:global(.interactive-map-popup .popup-phone-link) {
+  font-size: 0.88rem;
+  color: #163754;
+  text-decoration: none;
+}
+
+:global(.interactive-map-popup .popup-phone-link:hover) {
+  color: #219DD8;
+}
+
+:global(.interactive-map-popup .popup-actions) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+:global(.interactive-map-popup .popup-route-btn) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #219DD8;
+  color: #ffffff;
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+:global(.interactive-map-popup .popup-route-btn:hover) {
+  background: #168BCB;
+}
+
+:global(.interactive-map-popup .popup-contact-link) {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #547596;
+  text-decoration: none;
+}
+
+:global(.interactive-map-popup .popup-contact-link:hover) {
+  color: #219DD8;
+}

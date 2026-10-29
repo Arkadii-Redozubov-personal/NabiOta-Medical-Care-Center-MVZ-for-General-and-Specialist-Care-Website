@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Legacy Primary Theme */
+  --primary: #219DD8;
+  --primary-dark: #168BCB;
+  --primary-hover: #168BCB;
+  --bg-dark: #163754;
+  --bg-light: #F5F9FC;
+  --text-dark: #163754;
+  --text-light: #547596;
+  --white: #ffffff;
+  --radius-xl: 40px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+
+  /* Client Design System Tokens */
+  --blue: #219dd8;
+  --blue-600: #168bcb;
+  --navy: #163754;
+  --navy-900: #0d2338;
+  --slate: #547596;
+  --bg: #f5f9fc;
+  --sky: #e5f3fc;
+  --border: #d7e6f1;
+  --glass: #ffffffcc;
+
+  --gradient-primary: linear-gradient(135deg, var(--blue) 0%, var(--blue-600) 100%);
+  --gradient-navy: linear-gradient(160deg, #1b4469 0%, var(--navy) 45%, var(--navy-900) 100%);
+  --ring: 0 0 0 4px rgb(33 157 216 / 0.18);
+
+  --shadow-xs: 0 1px 2px rgb(22 55 84 / 0.06);
+  --shadow-sm: 0 4px 14px rgb(22 55 84 / 0.06);
+  --shadow-md: 0 14px 40px rgb(22 55 84 / 0.09);
+  --shadow-lg: 0 30px 70px rgb(22 55 84 / 0.14);
+  --shadow-blue: 0 12px 30px rgb(33 157 216 / 0.32);
+
+  --radius-pill: 999px;
+  --container: 1240px;
+  --header-h: 84px;
+
+  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[dir="rtl"] {
+  --font-heading: "Noto Sans Arabic", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Noto Sans Arabic", "Plus Jakarta Sans", system-ui, sans-serif;
+}
