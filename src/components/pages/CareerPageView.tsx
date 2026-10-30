@@ -4,7 +4,6 @@ import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { Icon } from "@/components/ui/Icon";
-import { subpageHeroBadges } from "@/data/heroBadges";
 
 interface CareerPageViewProps {
   locale: Locale;
@@ -13,7 +12,7 @@ interface CareerPageViewProps {
 export function CareerPageView({ locale }: CareerPageViewProps) {
   const dict = getDictionary(locale);
   const page = dict.careerPage;
-  const badges = subpageHeroBadges[locale]?.career || subpageHeroBadges.de.career;
+  const badges = dict.heroBadges.career;
 
   return (
     <div>

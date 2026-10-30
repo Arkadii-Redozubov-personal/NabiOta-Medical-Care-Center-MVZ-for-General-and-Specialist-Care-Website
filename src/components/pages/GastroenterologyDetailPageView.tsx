@@ -4,10 +4,10 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { getDictionary, type RichSpecialtyContent } from "@/dictionaries";
 import { specialties } from "@/data/specialties";
 import { Icon } from "@/components/ui/Icon";
-import { type RichSpecialtyContent } from "@/data/specialtyDetailData";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { SpecialtyDownloadsSection } from "@/components/ui/SpecialtyDownloadsSection";
 
 interface GastroenterologyDetailPageViewProps {
@@ -21,14 +21,7 @@ interface GastroenterologyDetailPageViewProps {
   richData: RichSpecialtyContent;
 }
 
-const appointmentButtonText: Record<Locale, string> = {
-  de: "Termin vereinbaren",
-  ru: "Записаться на приём",
-  en: "Book an Appointment",
-  tr: "Randevu Al",
-  ar: "حجز موعد",
-  uz: "Qabulga yozilish",
-};
+
 
 const gastroPrimaryImages = [
   "/img/specialties/gastroenterologie/gastro_service_consult.webp",
@@ -100,7 +93,7 @@ export function GastroenterologyDetailPageView({
                   href={localePath(locale, "kontakt")}
                   className="btn btn--primary page-hero-btn"
                 >
-                  <span>{appointmentButtonText[locale]}</span>
+                  <span>{dict.common.bookAppointmentOnline}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -338,18 +331,7 @@ export function GastroenterologyDetailPageView({
                             <p className="cardio-service-item-desc">{item.desc}</p>
                           </div>
                           <div className="cardio-service-item-arrow" aria-hidden="true">
-                            <svg
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <polyline points="9 18 15 12 9 6" />
-                            </svg>
+                            <ChevronRightIcon style={{ width: 20, height: 20 }} />
                           </div>
                         </button>
                       ))}

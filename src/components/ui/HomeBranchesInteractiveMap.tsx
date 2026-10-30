@@ -5,181 +5,14 @@ import Link from "next/link";
 import "leaflet/dist/leaflet.css";
 import { type Locale, localePath } from "@/lib/i18n";
 import styles from "./HomeBranchesInteractiveMap.module.css";
+import { branchesConfig, type BranchConfig } from "@/data/branches";
+import { getDictionary } from "@/dictionaries";
 
 interface HomeBranchesInteractiveMapProps {
   locale: Locale;
   noticeTitle?: string;
   noticeText?: string;
 }
-
-interface BranchLocation {
-  id: "mg" | "viersen" | "dus";
-  city: Record<Locale, string>;
-  subtitle: Record<Locale, string>;
-  address: string;
-  detail: Record<Locale, string>;
-  phone: string;
-  phoneHref: string;
-  lat: number;
-  lng: number;
-  googleMapsUrl: string;
-}
-
-const BRANCHES: BranchLocation[] = [
-  {
-    id: "mg",
-    city: {
-      de: "Mönchengladbach",
-      ru: "Мёнхенгладбах",
-      en: "Mönchengladbach",
-      tr: "Mönchengladbach",
-      ar: "مونشنغلادباخ",
-      uz: "Myonxengladbax",
-    },
-    subtitle: {
-      de: "Hauptstandort · MVZ",
-      ru: "Главный филиал · MVZ",
-      en: "Main Location · MVZ",
-      tr: "Ana Konum · MVZ",
-      ar: "الموقع الرئيسي · MVZ",
-      uz: "Bosh filial · MVZ",
-    },
-    address: "Bismarckstr. 106, 41061 Mönchengladbach",
-    detail: {
-      de: "3. Obergeschoss · Personenaufzug vorhanden",
-      ru: "3-й этаж · Есть пассажирский лифт",
-      en: "3rd Floor · Passenger elevator available",
-      tr: "3. Kat · Asansör mevcuttur",
-      ar: "الطابق الثالث · يوجد مصعد للركاب",
-      uz: "3-qavat · Lift mavjud",
-    },
-    phone: "02161 678 2683",
-    phoneHref: "+4921616782683",
-    lat: 51.1963,
-    lng: 6.4385,
-    googleMapsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=Bismarckstr.+106%2C+41061+M%C3%B6nchengladbach",
-  },
-  {
-    id: "viersen",
-    city: {
-      de: "Viersen",
-      ru: "Фирзен",
-      en: "Viersen",
-      tr: "Viersen",
-      ar: "فيرسن",
-      uz: "Fiersen",
-    },
-    subtitle: {
-      de: "Praxisstandort · MVZ",
-      ru: "Филиал клиники · MVZ",
-      en: "Practice Location · MVZ",
-      tr: "Klinik Konumu · MVZ",
-      ar: "فرع العيادة · MVZ",
-      uz: "Klinika filiali · MVZ",
-    },
-    address: "Hauptstr. 76 (Theodor-Heuss-Pl. 10), 41747 Viersen",
-    detail: {
-      de: "Zentral gelegen · Barrierefreier Zugang",
-      ru: "В центре города · Безбарьерный доступ",
-      en: "Centrally located · Barrier-free access",
-      tr: "Merkezi konumda · Engelsiz erişim",
-      ar: "موقع مركزي · وصول ميسر لذوي الاحتياجات",
-      uz: "Shahar markazida · Qulay kirish",
-    },
-    phone: "02162 144 8720",
-    phoneHref: "+4921621448720",
-    lat: 51.2558,
-    lng: 6.3916,
-    googleMapsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=Hauptstr.+76%2C+41747+Viersen",
-  },
-  {
-    id: "dus",
-    city: {
-      de: "Düsseldorf",
-      ru: "Дюссельдорф",
-      en: "Düsseldorf",
-      tr: "Düsseldorf",
-      ar: "دوسلدورف",
-      uz: "Dyusseldorf",
-    },
-    subtitle: {
-      de: "Praxisstandort · MVZ",
-      ru: "Филиал клиники · MVZ",
-      en: "Practice Location · MVZ",
-      tr: "Klinik Konumu · MVZ",
-      ar: "فرع العيادة · MVZ",
-      uz: "Klinika filiali · MVZ",
-    },
-    address: "Münsterstr. 519, 40472 Düsseldorf",
-    detail: {
-      de: "Gute Verkehrsanbindung · Aufzug vorhanden",
-      ru: "Удобная транспортная доступность · Есть лифт",
-      en: "Convenient transit access · Elevator available",
-      tr: "Ulaşımı kolay · Asansör mevcuttur",
-      ar: "سهولة الوصول بالمواصلات · يوجد مصعد",
-      uz: "Qulay transport bog'lanishi · Lift mavjud",
-    },
-    phone: "02161 678 2683",
-    phoneHref: "+4921616782683",
-    lat: 51.2589,
-    lng: 6.8042,
-    googleMapsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=M%C3%BCnsterstr.+519%2C+40472+D%C3%BCsseldorf",
-  },
-];
-
-const UI_TEXT = {
-  allLocations: {
-    de: "Alle Standorte",
-    ru: "Все 3 филиала",
-    en: "All 3 Locations",
-    tr: "Tüm 3 Konum",
-    ar: "جميع الفروع الثلاثة",
-    uz: "Barcha 3 filial",
-  },
-  mapBadge: {
-    de: "Interaktive Karte",
-    ru: "Интерактивная карта",
-    en: "Interactive Map",
-    tr: "Etkileşimli Harita",
-    ar: "خريطة تفاعلية",
-    uz: "Interaktiv xarita",
-  },
-  liveStatus: {
-    de: "DSGVO-konform",
-    ru: "DSGVO-совместимо",
-    en: "GDPR-compliant",
-    tr: "KVKK uyumlu",
-    ar: "متوافق مع حماية البيانات",
-    uz: "Xavfsiz xarita",
-  },
-  routeBtn: {
-    de: "Route in Google Maps",
-    ru: "Маршрут в Google Maps",
-    en: "Directions in Google Maps",
-    tr: "Google Maps'te Yol Tarifi",
-    ar: "المسار في خرائط Google",
-    uz: "Google Maps yo'nalishi",
-  },
-  phoneLabel: {
-    de: "Telefon",
-    ru: "Телефон",
-    en: "Phone",
-    tr: "Telefon",
-    ar: "الهاتف",
-    uz: "Telefon",
-  },
-  moreDetails: {
-    de: "Alle Kontaktdaten",
-    ru: "Все контакты",
-    en: "Full details",
-    tr: "Tüm detaylar",
-    ar: "جميع التفاصيل",
-    uz: "Barcha ma'lumotlar",
-  },
-};
 
 export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProps> = ({
   locale,
@@ -191,6 +24,7 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
   const markersRef = useRef<Record<string, any>>({});
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [isMapReady, setIsMapReady] = useState<boolean>(false);
+  const dict = getDictionary(locale);
 
   useEffect(() => {
     let isMounted = true;
@@ -205,7 +39,7 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
 
       // Calculate initial bounds
       const bounds = L.latLngBounds(
-        BRANCHES.map((b) => [b.lat, b.lng] as [number, number])
+        branchesConfig.map((b) => [b.lat, b.lng] as [number, number])
       );
 
       // Initialize map instance
@@ -228,14 +62,15 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
       }).addTo(map);
 
       // Create Custom Pins & Popups
-      BRANCHES.forEach((b) => {
-        const cityName = b.city[locale] || b.city.de;
-        const subtitleText = b.subtitle[locale] || b.subtitle.de;
-        const detailText = b.detail[locale] || b.detail.de;
-        const routeLabel = UI_TEXT.routeBtn[locale] || UI_TEXT.routeBtn.de;
-        const phoneLabel = UI_TEXT.phoneLabel[locale] || UI_TEXT.phoneLabel.de;
+      branchesConfig.forEach((b) => {
+        const branchText = dict.branchMap[b.id as keyof typeof dict.branchMap];
+        const cityName = (branchText as any)?.city ?? b.id;
+        const subtitleText = (branchText as any)?.subtitle ?? "";
+        const detailText = (branchText as any)?.detail ?? "";
+        const routeLabel = dict.branchMap.ui.routeBtn;
+        const phoneLabel = dict.branchMap.ui.phoneLabel;
         const contactPath = localePath(locale, "kontakt");
-        const moreLabel = UI_TEXT.moreDetails[locale] || UI_TEXT.moreDetails.de;
+        const moreLabel = dict.branchMap.ui.moreDetails;
 
         // Custom pulsing HTML Pin Marker
         const customIcon = L.divIcon({
@@ -343,7 +178,7 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
       // Fit to all bounds
       import("leaflet").then(({ default: L }) => {
         const bounds = L.latLngBounds(
-          BRANCHES.map((b) => [b.lat, b.lng] as [number, number])
+          branchesConfig.map((b) => [b.lat, b.lng] as [number, number])
         );
         map.flyToBounds(bounds, {
           padding: [60, 60],
@@ -353,7 +188,7 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
         map.closePopup();
       });
     } else {
-      const branch = BRANCHES.find((b) => b.id === branchId);
+      const branch = branchesConfig.find((b) => b.id === branchId);
       if (branch) {
         map.flyTo([branch.lat, branch.lng], 14, { duration: 1.2 });
         const marker = markersRef.current[branchId];
@@ -377,16 +212,16 @@ export const HomeBranchesInteractiveMap: React.FC<HomeBranchesInteractiveMapProp
             className={`${styles.pillBtn} ${activeFilter === "all" ? styles.pillBtnActive : ""}`}
             onClick={() => handleSelectBranch("all")}
           >
-            {UI_TEXT.allLocations[locale] || UI_TEXT.allLocations.de}
+            {dict.branchMap.ui.allLocations}
           </button>
-          {BRANCHES.map((b) => (
+          {branchesConfig.map((b) => (
             <button
               key={b.id}
               type="button"
               className={`${styles.pillBtn} ${activeFilter === b.id ? styles.pillBtnActive : ""}`}
               onClick={() => handleSelectBranch(b.id)}
             >
-              {b.city[locale] || b.city.de}
+              {(dict.branchMap[b.id as keyof typeof dict.branchMap] as any)?.city ?? b.id}
             </button>
           ))}
         </div>

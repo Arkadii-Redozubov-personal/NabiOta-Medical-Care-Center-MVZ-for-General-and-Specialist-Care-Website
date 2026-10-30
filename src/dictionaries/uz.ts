@@ -1,4 +1,12 @@
 import type { Dictionary } from "./de";
+import { teamDataByLocale, aboutPageContentByLocale } from "./teamTranslations";
+import { patientServiceTranslations } from "./patientServiceTranslations";
+import { richSpecialtiesByLocale } from "./specialtyDetailTranslations";
+import {
+  homeSectionTranslations,
+  homepageSpecialtiesData,
+} from "./homeTranslations";
+import { homeExtraTranslations, branchMotto } from "./homeExtraTranslations";
 
 const uz: Dictionary = {
   meta: {
@@ -39,6 +47,9 @@ const uz: Dictionary = {
     emergencyTitle: "Shoshilinch holatlarda",
     emergencyText:
       "Ish vaqtidan tashqari 116 117 raqamli navbatchi tibbiy xizmatiga murojaat qiling. Hayot uchun xavfli holatlarda darhol 112 raqamiga qoʻngʻiroq qiling.",
+    bookAppointmentOnline: "Qabulga onlayn yozilish",
+    emergencyNoticeTitle: "Muhim shoshilinch xabar:",
+    focusAreasTitle: "Asosiy yo'nalishlar:",
   },
   home: {
     meta: {
@@ -502,6 +513,197 @@ const uz: Dictionary = {
     text: "Siz qidirayotgan sahifa mavjud emas yoki boshqa manzilga koʻchirilgan.",
     cta: "Bosh sahifaga qaytish",
   },
+  cookieModal: {
+    title: "Cookie sozlamalari",
+    description:
+      "Saytning xavfsiz ishlashi uchun zaruriy cookie fayllaridan foydalanamiz. Qo'shimcha xizmatlar (masalan, Google Maps) faqat roziligingiz bilan yuklanadi.",
+    acceptAll: "Barchasini qabul qilish",
+    necessaryOnly: "Faqat zaruriylar",
+    customize: "Sozlash",
+    saveSelection: "Tanlovni saqlash",
+    back: "Yopish",
+    detailsTitle: "Maxfiylik va Cookie sozlamalari",
+    detailsSubtitle:
+      "Qaysi xizmatlarga ruxsat berishni o'zingiz tanlang. Buni saytning pastki qismida istalgan vaqtda o'zgartirishingiz mumkin.",
+    alwaysActive: "Har doim faol",
+    privacyLinkText: "Maxfiylik",
+    imprintLinkText: "Huquqiy ma'lumot",
+    categories: {
+      necessary: {
+        title: "Texnik jihatdan zarur",
+        desc: "Sayt xavfsizligi, sahifalar bo'ylab harakat, til tanlash va sozlamalarni saqlash uchun talab qilinadi.",
+      },
+      functional: {
+        title: "Tashqi media (Google Maps)",
+        desc: "Klinikalar joylashuvining interaktiv xaritalarini ko'rsatish imkonini beradi.",
+      },
+      analytics: {
+        title: "Anonim statistika",
+        desc: "Bemorlar uchun ma'lumotlarning qulayligini oshirishga yordam beradi.",
+      },
+    },
+  },
+  heroBadges: {
+    contact: [
+      { icon: "calendar", title: "Onlayn qabul", subtitle: "Tez va oson qabulga yozilish" },
+      { icon: "mapPin", title: "3 ta klinika filiali", subtitle: "Myonxengladbax, Fiersen, Dyusseldorf" },
+      { icon: "clock", title: "Tezkor qabullar", subtitle: "Kelishuvga ko'ra shoshilinch tekshiruvlar" },
+    ],
+    patients: [
+      { icon: "shield", title: "Ishonchli tayyorgarlik", subtitle: "Qabul uchun aniq ko'rsatmalar" },
+      { icon: "heart", title: "G'amxo'rlik va hurmat", subtitle: "Bemor har doim diqqat markazida" },
+      { icon: "phone", title: "Tezkor aloqa", subtitle: "Telefon va onlayn orqali siz bilan" },
+    ],
+    specialties: [
+      { icon: "pulse", title: "7 ta tibbiy yo'nalish", subtitle: "Keng qamrovli ambulator xizmat" },
+      { icon: "users", title: "Fanlararo yondashuv", subtitle: "Mutaxassis shifokorlarning yaqin hamkorligi" },
+      { icon: "award", title: "Barcha sug'urtalar", subtitle: "Davlat (GKV) va xususiy (PKV)" },
+    ],
+    services: [
+      { icon: "pulse", title: "Zamonaviy texnologiya", subtitle: "Maxsus uskunalar yordamida diagnostika" },
+      { icon: "users", title: "Kompleks yondashuv", subtitle: "Individual moslashtirilgan muolajalar" },
+      { icon: "shield", title: "Dalillarga asoslangan tibbiyot", subtitle: "Klinik ko'rsatmalarga muvofiq davolash" },
+    ],
+    quality: [
+      { icon: "award", title: "Sertifikatlangan sifat", subtitle: "Eng yuqori standartlarga qat'iy rioya" },
+      { icon: "shield", title: "Bemorlar xavfsizligi", subtitle: "Mukammal gigiyena va ma'lumotlar himoyasi" },
+      { icon: "pulse", title: "Doimiy auditlar", subtitle: "Jarayonlarni bosqichma-bosqich takomillashtirish" },
+    ],
+    career: [
+      { icon: "users", title: "Ahil jamoa", subtitle: "Hurmat va o'zaro qo'llab-quvvatlash" },
+      { icon: "award", title: "Munosib maosh", subtitle: "Jozibador shartlar va qulayliklar" },
+      { icon: "clock", title: "Ish va hayot balansi", subtitle: "Tungi navbatchiliksiz belgilangan ish vaqti" },
+    ],
+  },
+  branchLabels: {
+    branchesHeading: "Bizning 3 ta filialimiz",
+    addressesCardTitle: "Filiallar va manzillar",
+    centralPhonesTitle: "Markaziy telefon raqamlari",
+    emailContactTitle: "Elektron pochta",
+    emergencyDutyTitle: "Shoshilinch yordam va navbatchilik",
+    generalInquiries: "Umumiy so'rovlar",
+    practiceContact: "Klinika bilan aloqa",
+    medicalDuty: "Shifokor navbatchilik xizmati",
+    lifeThreatening: "Hayot uchun xavfli holat",
+    address: "Manzil",
+    phone: "Telefon",
+    forPatients: "Bemorlar uchun",
+    forDoctors: "Shifokorlar uchun",
+    fax: "Faks",
+    email: "Elektron pochta",
+    openingHours: "Ish vaqti",
+    onSiteServices: "Filial xizmatlari",
+    onSiteServicesText: "Konsultatsiyalar, diagnostika, nazorat",
+    accessibilityMG: "To'siqsiz kirish: Ha, lift mavjud.",
+    accessibilityViersen: "To'siqsiz kirish: Ha, lift mavjud.",
+    accessibilityDus: "To'siqsiz kirish: Ha, lift mavjud.",
+    bookDoctolib: "Doctolib orqali yozilish",
+    planRoute: "Google Maps'da yo'nalish",
+    qrNotice: "Marshrutni to'g'ridan-to'g'ri Google Maps'da ochish uchun QR-kodni skanerlang yoki bosing.",
+    startRoute: "Google Maps'da yo'nalishni boshlash",
+    days: {
+      mo: "Dush",
+      di: "Sesh",
+      mi: "Chor",
+      do: "Pay",
+      fr: "Jum",
+      sa: "Shan",
+      satHours: "oldindan kelishuv bo'yicha",
+    },
+  },
+  patientsExtra: {
+    heroCta: "Qabulga yozilish",
+    checklist: {
+      title: "Qabulga o'zingiz bilan nimalarni olib kelishingiz kerak",
+      items: [
+        "Elektron tibbiy sug'urta kartasi (eGK) yoki xususiy sug'urta ma'lumotlari.",
+        "Agar qabulingiz uchun talab qilinsa, shifokor yo'llanmasi (Überweisung).",
+        "Aniq dozalari ko'rsatilgan amaldagi dori-darmonlar rejasi.",
+        "Tegishli shifokor xulosalari, kasalxona epikrizlari va tahlil natijalari.",
+        "Allergiya va nojo'ya ta'sirlar haqidagi ma'lumotlar.",
+        "Qon bosimi, qand miqdori yoki bosh og'rig'i kundaliklari kabi maxsus qaydlar.",
+      ],
+      assist: "Agar tashrifingiz davomida til bo'yicha yoki maxsus yordamga ehtiyojingiz bo'lsa, iltimos, bizga oldindan xabar bering.",
+    },
+    findings: {
+      title: "Tibbiy xulosalar va davolanish hujjatlari",
+      p1: "Tibbiy xulosalar tekshiruv va davolashni muvofiqlashtirishga yordam beradi. Davolanishingizda ishtirok etayotgan shifokorlar haqida xabar bering.",
+      p2: "Agar sizga davolanish hujjatlarining nusxalari yoki ularni boshqa klinikaga yuborish kerak bo'lsa, jamoamizga murojaat qiling.",
+      p3: "Hujjatlarni berish va uzatish shaxsni tasdiqlash hamda ma'lumotlarni himoya qilish qoidalariga (DSGVO) qat'iy muvofiq amalga oshiriladi.",
+    },
+    prescriptions: {
+      title: "Retseptlar va yo'llanmalar",
+      p1: "Muntazam retseptlar va yo'llanmalar shifokor ko'rigidan so'ng tayyorlanishi mumkin.",
+      p2: "Dori-darmon so'raganda preparatning aniq nomi, dozasi va qabul qilish tartibini ko'rsating.",
+      p3: "Davolanish holatiga qarab, yangi retsept berishdan oldin shifokorning shaxsiy ko'rigi talab qilinishi mumkin.",
+    },
+    info: {
+      title: "Tekshiruvlar oldidan ma'lumot",
+      p1: "Maxsus tayyorgarlik talab qiladigan tekshiruvlar uchun och qolish, ichakni tozalash, dorilarni qabul qilish yoki hamrohlik bo'yicha ko'rsatmalar beriladi.",
+      p2: "Ko'rsatmalarni tushunmasangiz yoki kasalligingiz bo'lsa, so'rang. Saytdagi umumiy ma'lumotlar shifokorning shaxsiy maslahatini almashtirmaydi.",
+    },
+    cost: {
+      title: "Xarajatlar va sug'urta qoplamasi",
+      p1: "Sug'urtangiz qaysi xizmatlarni qoplashi tekshiruv turiga, tibbiy ko'rsatmaga va sug'urta maqomingizga bog'liq.",
+      p2: "Agar to'lovli xizmat rejalashtirilgan bo'lsa, biz sizni xizmat va kutilayotgan narx haqida oldindan xabardor qilamiz.",
+    },
+    emergency: {
+      title: "Qabul vaqtidan tashqari yordam",
+      p1: "Hayot uchun xavfli holatlarda darhol 112 raqamiga qo'ng'iroq qiling.",
+      p2: "Hayotga xavf solmaydigan, lekin keyingi ish vaqtigacha kutib bo'lmaydigan shoshilinch holatlarda 116 117 navbatchi shifokor xizmatiga murojaat qiling.",
+    },
+    organizer: {
+      eyebrow: "BIZNING HUZURIMIZDAGI QABULINGIZ",
+      title: "Biz siz uchun barcha tashkiliy masalalarda yoningizdamiz.",
+      text: "Qabulga yozilish, hujjatlar yoki maxsus istaklar bo'yicha savollaringiz bo'lsa, jamoamiz doimo yordam berishga tayyor.",
+      btn: "Bog'lanish",
+      script: "Salomatligingiz uchun – yuqori darajada tashkil etilgan.",
+    },
+  },
+  vaccineBanner: {
+    title: "O'z vaqtida emlash — salomatligingiz garovi",
+    subtitle:
+      "Tahlillar va emlashlar og'ir kasalliklarning oldini olishga va salomatlikni uzoq yillar saqlashga yordam beradi.",
+  },
+  generalServices: {
+    anamnese: { title: "Anamnez va umumiy ko'rik", desc: "Bemor shikoyatlari va kasallik tarixini batafsil o'rganish hamda fizik tekshiruv." },
+    bp_pulse: { title: "Qon bosimi va puls o'lchovi", desc: "Qon bosimi ko'rsatkichlari va yurak urish tezligini muntazam nazorat qilish." },
+    lab: { title: "Laboratoriya tahlillari", desc: "Tibbiy ko'rsatmalarga asosan qon, siydik va najas laboratoriya tahlillari." },
+    ekg: { title: "Tinch holatdagi EKG", desc: "Yurak ritmi va elektr faolligini aniqlash uchun tinch holatda EKG yozuvi." },
+    smad: { title: "24 soatlik qon bosimi monitoringi (SMAD)", desc: "Kunlik faoliyat va uyqu vaqtida qon bosimini uzluksiz 24 soatlik nazorat qilish." },
+    spirometry: { title: "Spirometriya (O'pka faoliyati)", desc: "O'pka hajmi va nafas yo'llari o'tkazuvchanligini maxsaviy apparatda baholash." },
+    ultrasound: { title: "Ultratovush tekshiruvi (UZI)", desc: "Filial doirasida ichki a'zolar va qorin bo'shlig'i ultratovush diagnostikasi." },
+    medication: { title: "Dori vositalari auditi", desc: "Qabul qilinayotgan dori vositalarining o'zaro muvofiqligi, dozalari va xavfsizligini tekshirish." },
+  },
+  branchMap: {
+    mg: { city: "Myonxengladbax", subtitle: "Bosh filial · MVZ", detail: "3-qavat · Lift mavjud" },
+    viersen: { city: "Fiersen", subtitle: "Klinika filiali · MVZ", detail: "Shahar markazida · Qulay kirish" },
+    dus: { city: "Dyusseldorf", subtitle: "Klinika filiali · MVZ", detail: "Qulay transport bog'lanishi · Lift mavjud" },
+    ui: {
+      allLocations: "Barcha 3 filial",
+      mapBadge: "Interaktiv xarita",
+      liveStatus: "Xavfsiz xarita",
+      routeBtn: "Google Maps yo'nalishi",
+      phoneLabel: "Telefon",
+      moreDetails: "Barcha ma'lumotlar",
+    },
+  },
+  categoryHeadings: {
+    allgemeinmedizin: { title: "Umumiy amaliyot hujjatlari va yuklamalar", subtitle: "Qon bosimi kundaligi, profilaktik ko'rik varaqasi va emlash maslahatiga tayyorgarlik." },
+    kardiologie: { title: "Kardiologiya hujjatlari va yuklamalar", subtitle: "Yurak-qon tomir shikoyatlari anketasi, sutkalik EKG/QBM va yuklama testlari bo'yicha qo'llanmalar." },
+    gastroenterologie: { title: "Gastroenterologiya hujjatlari va yuklamalar", subtitle: "Ovqat hazm qilish shikoyatlari anketasi, gastroskopiya va kolonoskopiyaga tayyorgarlik." },
+    pneumologie: { title: "Pulmonologiya hujjatlari va yuklamalar", subtitle: "Nafas yo'llari va allergiya anketasi, o'pka funksiyasi testi qo'llanmasi va Peak-Flow kundaligi." },
+    neurologie: { title: "Nevrologiya hujjatlari va yuklamalar", subtitle: "Bosh og'rig'i kundaligi, nevrologik shikoyatlar anketasi va EEG, EMG tekshiruvlariga tayyorgarlik." },
+    endokrinologie: { title: "Endokrinologiya hujjatlari va yuklamalar", subtitle: "Gormonal va moddalar almashinuvi anketasi, gormon testlariga tayyorgarlik va qand miqdori kundaligi." },
+  },
+  team: teamDataByLocale.uz,
+  aboutPageContent: aboutPageContentByLocale.uz,
+  patientService: patientServiceTranslations.uz,
+  specialtyDetail: richSpecialtiesByLocale.uz,
+  homeSections: homeSectionTranslations.uz,
+  homeSpecialties: homepageSpecialtiesData.uz,
+  homeExtra: homeExtraTranslations.uz,
+  branchMotto: branchMotto.uz,
 };
 
 export default uz;

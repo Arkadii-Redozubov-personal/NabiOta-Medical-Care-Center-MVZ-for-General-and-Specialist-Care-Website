@@ -606,3 +606,12 @@ export const homeExtraTranslations: Record<Locale, HomeExtraContent> = {
     },
   },
 };
+
+export const branchMotto: Record<Locale, string> = {
+  de: "An jedem Standort kümmern wir uns verlässlich um Ihre Gesundheit.",
+  en: "At every location, we care for your health with dedication.",
+  ru: "В каждом филиале мы заботимся о вашем здоровье.",
+  tr: "Her şubemizde sağlığınız için özenle yanınızdayız.",
+  ar: "في كل فرع، نهتم بصحتكم بكل تفانٍ.",
+  uz: "Har bir filialimizda sizning sog'lig'ingiz haqida g'amxo'rlik qilamiz.",
+};

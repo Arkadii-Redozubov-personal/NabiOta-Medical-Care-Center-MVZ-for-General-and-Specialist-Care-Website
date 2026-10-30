@@ -1,3 +1,12 @@
+import { teamDataByLocale, aboutPageContentByLocale } from "./teamTranslations";
+import { patientServiceTranslations } from "./patientServiceTranslations";
+import { richSpecialtiesByLocale } from "./specialtyDetailTranslations";
+import {
+  homeSectionTranslations,
+  homepageSpecialtiesData,
+} from "./homeTranslations";
+import { homeExtraTranslations, branchMotto } from "./homeExtraTranslations";
+
 /**
  * German master dictionary. Its shape defines the `Dictionary` type – all other
  * languages must provide exactly the same keys.
@@ -43,6 +52,9 @@ const de = {
     emergencyTitle: "Im Notfall",
     emergencyText:
       "Außerhalb unserer Sprechzeiten erreichen Sie den ärztlichen Bereitschaftsdienst unter 116 117. Bei lebensbedrohlichen Notfällen wählen Sie bitte sofort 112.",
+    bookAppointmentOnline: "Termin online vereinbaren",
+    emergencyNoticeTitle: "Wichtiger Notfallhinweis:",
+    focusAreasTitle: "Schwerpunkte:",
   },
   home: {
     meta: {
@@ -506,6 +518,197 @@ const de = {
     text: "Die gesuchte Seite existiert leider nicht oder wurde verschoben.",
     cta: "Zur Startseite",
   },
+  cookieModal: {
+    title: "Cookie-Einstellungen",
+    description:
+      "Wir verwenden technisch notwendige Cookies für den Betrieb der Website. Optionale Dienste (z. B. Google Maps Standortkarten) laden wir nur mit Ihrer Zustimmung.",
+    acceptAll: "Alle akzeptieren",
+    necessaryOnly: "Nur notwendige",
+    customize: "Anpassen",
+    saveSelection: "Auswahl speichern",
+    back: "Schließen",
+    detailsTitle: "Cookie- und Datenschutzeinstellungen",
+    detailsSubtitle:
+      "Wählen Sie, welche optionalen Dienste Sie zulassen möchten. Diese Entscheidung können Sie jederzeit im Footer ändern.",
+    alwaysActive: "Immer aktiv",
+    privacyLinkText: "Datenschutz",
+    imprintLinkText: "Impressum",
+    categories: {
+      necessary: {
+        title: "Technisch notwendig",
+        desc: "Erforderlich für Navigation, Seitensicherheit, Sprachauswahl und Cookie-Präferenzen.",
+      },
+      functional: {
+        title: "Externe Medien (Google Maps)",
+        desc: "Ermöglicht das Anzeigen interaktiver Standortkarten der Praxis.",
+      },
+      analytics: {
+        title: "Anonyme Statistik",
+        desc: "Hilft uns, die Benutzerfreundlichkeit der Website kontinuierlich zu verbessern.",
+      },
+    },
+  },
+  heroBadges: {
+    contact: [
+      { icon: "calendar", title: "Online-Terminbuchung", subtitle: "Schnell & unkompliziert buchen" },
+      { icon: "mapPin", title: "3 Praxisstandorte", subtitle: "Mönchengladbach, Viersen, Düsseldorf" },
+      { icon: "clock", title: "Kurzfristige Termine", subtitle: "Akutsprechstunden nach Absprache" },
+    ],
+    patients: [
+      { icon: "shield", title: "Sichere Vorbereitung", subtitle: "Strukturierte Leitfäden für Ihren Termin" },
+      { icon: "heart", title: "Fürsorge & Respekt", subtitle: "Der Mensch steht stets im Mittelpunkt" },
+      { icon: "phone", title: "Schnelle Erreichbarkeit", subtitle: "Telefonisch und online für Sie da" },
+    ],
+    specialties: [
+      { icon: "pulse", title: "7 Fachbereiche", subtitle: "Umfassende ambulante Versorgung" },
+      { icon: "users", title: "Interdisziplinär", subtitle: "Enge Vernetzung aller Fachärzte" },
+      { icon: "award", title: "Alle Kassen", subtitle: "Gesetzlich (GKV) & Privat (PKV)" },
+    ],
+    services: [
+      { icon: "pulse", title: "Modernste Technik", subtitle: "Spezialisierte Gerätediagnostik" },
+      { icon: "users", title: "Ganzheitlicher Ansatz", subtitle: "Individuell abgestimmte Therapien" },
+      { icon: "shield", title: "Evidenzbasierte Medizin", subtitle: "Leitliniengerechte Behandlungsführung" },
+    ],
+    quality: [
+      { icon: "award", title: "Zertifiziertes QM", subtitle: "Strikte Einhaltung höchster Standards" },
+      { icon: "shield", title: "Patientensicherheit", subtitle: "Umfassende Hygiene & Datenschutz" },
+      { icon: "pulse", title: "Ständige Audits", subtitle: "Kontinuierliche Prozessoptimierung" },
+    ],
+    career: [
+      { icon: "users", title: "Starkes Team", subtitle: "Wertschätzendes Miteinander & Zusammenhalt" },
+      { icon: "award", title: "Faire Vergütung", subtitle: "Attraktive Konditionen & Benefits" },
+      { icon: "clock", title: "Work-Life-Balance", subtitle: "Geregelte Arbeitszeiten ohne Nachtdienst" },
+    ],
+  },
+  branchLabels: {
+    branchesHeading: "Unsere 3 Praxisstandorte",
+    addressesCardTitle: "Standorte & Adressen",
+    centralPhonesTitle: "Zentrale Telefonnummern",
+    emailContactTitle: "E-Mail-Kontakt",
+    emergencyDutyTitle: "Notruf & Bereitschaft",
+    generalInquiries: "Allgemeine Anfragen",
+    practiceContact: "Praxiskontakt",
+    medicalDuty: "Ärztlicher Bereitschaftsdienst",
+    lifeThreatening: "Lebensbedrohlicher Notfall",
+    address: "Adresse",
+    phone: "Telefon",
+    forPatients: "Für Patienten",
+    forDoctors: "Für Ärztliche Kollegen",
+    fax: "Fax",
+    email: "E-Mail",
+    openingHours: "Öffnungszeiten",
+    onSiteServices: "Leistungen vor Ort",
+    onSiteServicesText: "Konsultationen, Diagnostik, Nachsorge",
+    accessibilityMG: "Barrierefreier Zugang: Ja, Personenaufzug vorhanden.",
+    accessibilityViersen: "Barrierefreier Zugang: Ja, ebenerdiger bzw. Aufzugszugang.",
+    accessibilityDus: "Barrierefreier Zugang: Ja, Personenaufzug vorhanden.",
+    bookDoctolib: "Termin auf Doctolib buchen",
+    planRoute: "Route in Google Maps planen",
+    qrNotice: "Scannen Sie den QR-Code oder tippen Sie darauf, um die Navigation direkt in Google Maps zu starten.",
+    startRoute: "Route in Google Maps starten",
+    days: {
+      mo: "Mo",
+      di: "Di",
+      mi: "Mi",
+      do: "Do",
+      fr: "Fr",
+      sa: "Sa",
+      satHours: "nach Vereinbarung",
+    },
+  },
+  patientsExtra: {
+    heroCta: "Termin vereinbaren",
+    checklist: {
+      title: "Was Sie zu Ihrem Termin mitbringen sollten",
+      items: [
+        "Elektronische Gesundheitskarte beziehungsweise Angaben zur privaten Versicherung.",
+        "Überweisung, sofern für Ihren Termin erforderlich.",
+        "Aktuellen Medikamentenplan mit Dosierungen.",
+        "Relevante Arztbriefe, Krankenhausberichte und Untersuchungsergebnisse.",
+        "Angaben zu Allergien und Unverträglichkeiten.",
+        "Fachbezogene Aufzeichnungen, etwa Blutdruck-, Blutzucker- oder Kopfschmerztagebücher.",
+      ],
+      assist: "Bitte informieren Sie uns, wenn Sie Unterstützung bei der Verständigung oder besondere Hilfen für Ihren Besuch benötigen.",
+    },
+    findings: {
+      title: "Befunde und Behandlungsunterlagen",
+      p1: "Befunde helfen dabei, Untersuchungen und Behandlungen aufeinander abzustimmen. Bitte teilen Sie uns mit, welche Ärztinnen und Ärzte an Ihrer Versorgung beteiligt sind.",
+      p2: "Wenn Sie Kopien Ihrer Behandlungsunterlagen benötigen oder Befunde an eine weiterbehandelnde Praxis übermittelt werden sollen, wenden Sie sich bitte an unser Team.",
+      p3: "Für die Herausgabe und Übermittlung beachten wir die erforderliche Identitätsprüfung und die geltenden Datenschutzvorgaben.",
+    },
+    prescriptions: {
+      title: "Rezepte und Überweisungen",
+      p1: "Folgeverordnungen und Überweisungen können nach ärztlicher Prüfung vorbereitet werden.",
+      p2: "Bitte geben Sie bei Medikamentenanfragen den genauen Namen, die Stärke und die verordnete Dosierung an.",
+      p3: "Je nach Behandlungssituation kann vor einer erneuten Verordnung ein persönlicher Termin oder eine Kontrolluntersuchung erforderlich sein.",
+    },
+    info: {
+      title: "Informationen vor Untersuchungen",
+      p1: "Für Untersuchungen mit besonderer Vorbereitung erhalten Sie passende Hinweise. Dazu können Nüchternheit, Darmvorbereitung, Medikamenteneinnahme oder die Organisation einer Begleitperson gehören.",
+      p2: "Bitte fragen Sie nach, wenn Sie Hinweise nicht verstehen oder wegen einer Vorerkrankung unsicher sind. Allgemeine Informationen auf der Website ersetzen das persönliche Aufklärungsgespräch nicht.",
+    },
+    cost: {
+      title: "Kosten und Versicherung",
+      p1: "Welche Leistungen Ihre Krankenversicherung übernimmt, hängt von der Untersuchung, der medizinischen Indikation und Ihrem Versicherungsschutz ab.",
+      p2: "Wenn eine privat zu zahlende Leistung vorgesehen ist, informieren wir Sie vorab über die Leistung und die voraussichtlichen Kosten.",
+    },
+    emergency: {
+      title: "Hilfe außerhalb der Sprechzeiten",
+      p1: "Bei lebensbedrohlichen Beschwerden wählen Sie bitte die 112.",
+      p2: "Bei dringenden, nicht lebensbedrohlichen Beschwerden, deren Behandlung nicht bis zur nächsten regulären Sprechstunde warten kann, erreichen Sie den ärztlichen Bereitschaftsdienst unter 116117.",
+    },
+    organizer: {
+      eyebrow: "IHR TERMIN BEI UNS",
+      title: "Wir sind für Sie da – auch organisatorisch.",
+      text: "Bei Fragen zu Terminen, Unterlagen oder besonderen Anliegen steht Ihnen unser Team gerne zur Verfügung.",
+      btn: "Kontakt aufnehmen",
+      script: "Gut organisiert – für Ihre Gesundheit.",
+    },
+  },
+  vaccineBanner: {
+    title: "Rechtzeitige Impfung – Schutz für Ihre Gesundheit",
+    subtitle:
+      "Vorsorgeuntersuchungen und Impfungen schützen vor schweren Krankheiten und erhalten Ihre Gesundheit langfristig.",
+  },
+  generalServices: {
+    anamnese: { title: "Anamnese & Untersuchung", desc: "Ausführliche Erhebung der Krankengeschichte und gründliche körperliche Untersuchung." },
+    bp_pulse: { title: "Blutdruck- & Pulsmessung", desc: "Präzise Messung der Vitalwerte, Blutdruckkontrolle und Pulserfassung." },
+    lab: { title: "Laboruntersuchungen", desc: "Medizinisch begründete Blut-, Urin- und gegebenenfalls Stuhlanalysen." },
+    ekg: { title: "Ruhe-EKG", desc: "Aufzeichnung der elektrischen Herzaktivität zur Erkennung von Rhythmusstörungen." },
+    smad: { title: "Langzeit-Blutdruckmessung", desc: "Kontinuierliche 24-Stunden-Messung des Blutdruckverlaufs im Alltag und Schlaf." },
+    spirometry: { title: "Lungenfunktionsprüfung", desc: "Spirometrische Bestimmung von Lungenvolumina und Atemwegswiderständen." },
+    ultrasound: { title: "Ultraschalldiagnostik", desc: "Sonografische Untersuchung der Bauchorgane und relevanter Strukturen." },
+    medication: { title: "Medikationsanalyse", desc: "Überprüfung der Dauermedikation auf Verträglichkeit, Dosierung und Wechselwirkungen." },
+  },
+  branchMap: {
+    mg: { city: "Mönchengladbach", subtitle: "Hauptstandort · MVZ", detail: "3. Obergeschoss · Personenaufzug vorhanden" },
+    viersen: { city: "Viersen", subtitle: "Praxisstandort · MVZ", detail: "Zentral gelegen · Barrierefreier Zugang" },
+    dus: { city: "Düsseldorf", subtitle: "Praxisstandort · MVZ", detail: "Gute Verkehrsanbindung · Aufzug vorhanden" },
+    ui: {
+      allLocations: "Alle Standorte",
+      mapBadge: "Interaktive Karte",
+      liveStatus: "DSGVO-konform",
+      routeBtn: "Route in Google Maps",
+      phoneLabel: "Telefon",
+      moreDetails: "Alle Kontaktdaten",
+    },
+  },
+  categoryHeadings: {
+    allgemeinmedizin: { title: "Unterlagen & Downloads für die hausärztliche Versorgung", subtitle: "Blutdrucktagebuch, Vorsorge-Checkliste und Vorbereitung zur Impfberatung direkt zum Ausdrucken." },
+    kardiologie: { title: "Kardiologische Unterlagen & Downloads", subtitle: "Fragebogen zu Herz-Kreislauf-Beschwerden, Merkblätter zu Langzeit-EKG/Blutdruck und Belastungstests." },
+    gastroenterologie: { title: "Gastroenterologische Unterlagen & Downloads", subtitle: "Fragebogen zu Verdauungsbeschwerden, Vorbereitung auf Endoskopien und Nachsorgehinweise." },
+    pneumologie: { title: "Pneumologische Unterlagen & Downloads", subtitle: "Fragebogen zu Atemwegs- und Allergiebeschwerden, Merkblatt zur Lungenfunktion und Peak-Flow-Tagebuch." },
+    neurologie: { title: "Neurologische Unterlagen & Downloads", subtitle: "Kopfschmerztagebuch, Anfallstagebuch, Fragebogen zu neurologischen Beschwerden und Vorbereitung auf Elektrophysiologie." },
+    endokrinologie: { title: "Endokrinologische Unterlagen & Downloads", subtitle: "Fragebogen zu hormonellen und stoffwechselbezogenen Beschwerden, Vorbereitung auf Hormontests und Blutzuckerprotokolle." },
+  },
+  team: teamDataByLocale.de,
+  aboutPageContent: aboutPageContentByLocale.de,
+  patientService: patientServiceTranslations.de,
+  specialtyDetail: richSpecialtiesByLocale.de,
+  homeSections: homeSectionTranslations.de,
+  homeSpecialties: homepageSpecialtiesData.de,
+  homeExtra: homeExtraTranslations.de,
+  branchMotto: branchMotto.de,
 };
 
 export default de;

@@ -5,7 +5,6 @@ import { type Locale, localePath } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { Icon } from "@/components/ui/Icon";
 import { TeamSlider } from "./TeamSlider";
-import { aboutPageContentByLocale } from "@/data/team";
 
 interface AboutPageViewProps {
   locale: Locale;
@@ -13,7 +12,7 @@ interface AboutPageViewProps {
 
 export function AboutPageView({ locale }: AboutPageViewProps) {
   const dict = getDictionary(locale);
-  const content = aboutPageContentByLocale[locale] ?? aboutPageContentByLocale.de;
+  const content = dict.aboutPageContent;
 
   return (
     <div className="about-page-view">

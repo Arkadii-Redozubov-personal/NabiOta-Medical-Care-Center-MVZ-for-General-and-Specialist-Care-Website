@@ -5,7 +5,6 @@ import { type Locale, localePath } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { specialties, type SpecialtySlug } from "@/data/specialties";
 import { Icon, type IconName } from "@/components/ui/Icon";
-import { richSpecialtiesByLocale } from "@/data/specialtyDetailData";
 import { CardiologyDetailPageView } from "@/components/pages/CardiologyDetailPageView";
 import { GastroenterologyDetailPageView } from "@/components/pages/GastroenterologyDetailPageView";
 import { PneumologyDetailPageView } from "@/components/pages/PneumologyDetailPageView";
@@ -41,53 +40,13 @@ const serviceIcons: IconName[] = [
   "fileText",
 ];
 
-const vaccineBannerContent: Record<Locale, { title: string; subtitle: string }> = {
-  de: {
-    title: "Rechtzeitige Impfung – Schutz für Ihre Gesundheit",
-    subtitle:
-      "Vorsorgeuntersuchungen und Impfungen schützen vor schweren Krankheiten und erhalten Ihre Gesundheit langfristig.",
-  },
-  ru: {
-    title: "Своевременная вакцинация — залог вашей безопасности",
-    subtitle:
-      "Сдача анализов и вакцинация помогают предотвратить серьёзные заболевания и сохранить здоровье на долгие годы.",
-  },
-  en: {
-    title: "Timely Vaccination – Protection for Your Health",
-    subtitle:
-      "Preventive screenings and vaccinations protect against serious illnesses and preserve long-term wellness.",
-  },
-  tr: {
-    title: "Zamanında Aşılama – Sağlığınızın Güvencesi",
-    subtitle:
-      "Tahliller ve aşılar ciddi hastalıkları önlemeye ve sağlığınızı uzun yıllar korumaya yardımcı olur.",
-  },
-  ar: {
-    title: "التطعيم في الوقت المناسب — حماية لصحتكم",
-    subtitle:
-      "تساعد الفحوصات والتطعيمات في الوقاية من الأمراض الخطيرة والحفاظ على صحتكم لسنوات عديدة.",
-  },
-  uz: {
-    title: "O'z vaqtida emlash — salomatligingiz garovi",
-    subtitle:
-      "Tahlillar va emlashlar og'ir kasalliklarning oldini olishga va salomatlikni uzoq yillar saqlashga yordam beradi.",
-  },
-};
 
-const appointmentButtonText: Record<Locale, string> = {
-  de: "Termin vereinbaren",
-  ru: "Записаться на приём",
-  en: "Book an Appointment",
-  tr: "Randevu Al",
-  ar: "حجز موعد",
-  uz: "Qabulga yozilish",
-};
 
 export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageViewProps) {
   const dict = getDictionary(locale);
   const spec = specialties.find((s) => s.slug === slug);
   const specData = dict.specialtyContent[slug];
-  const richData = richSpecialtiesByLocale[locale]?.[slug] || richSpecialtiesByLocale.de?.[slug];
+  const richData = dict.specialtyDetail?.[slug];
 
   if (!spec || !specData) {
     return null;
@@ -177,7 +136,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                   href={localePath(locale, "kontakt")}
                   className="btn btn--primary page-hero-btn"
                 >
-                  <span>{appointmentButtonText[locale]}</span>
+                  <span>{dict.common.bookAppointmentOnline}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -366,13 +325,11 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                       <div className="specialty-vaccine-info">
                         <h3>
                           {richData.banner?.title ||
-                            vaccineBannerContent[locale]?.title ||
-                            vaccineBannerContent.de.title}
+                            dict.vaccineBanner.title}
                         </h3>
                         <p>
                           {richData.banner?.subtitle ||
-                            vaccineBannerContent[locale]?.subtitle ||
-                            vaccineBannerContent.de.subtitle}
+                            dict.vaccineBanner.subtitle}
                         </p>
                       </div>
                       <Link
@@ -449,17 +406,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     </div>
                     <div className="specialty-emergency-text">
                       <strong>
-                        {locale === "de"
-                          ? "Wichtiger Notfallhinweis:"
-                          : locale === "ru"
-                          ? "Внимание, экстренный случай:"
-                          : locale === "en"
-                          ? "Important Emergency Notice:"
-                          : locale === "tr"
-                          ? "Önemli Acil Durum Uyarısı:"
-                          : locale === "ar"
-                          ? "تنبيه طوارئ هام:"
-                          : "Muhim shoshilinch xabar:"}
+                        {dict.common.emergencyNoticeTitle}
                       </strong>{" "}
                       {richData.emergencyNote}
                     </div>

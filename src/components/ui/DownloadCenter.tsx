@@ -2,8 +2,9 @@
 
 import React, { useState, useMemo } from "react";
 import type { Locale } from "@/lib/i18n";
-import { patientServiceTranslations } from "@/data/patientServiceTranslations";
+import { getDictionary } from "@/dictionaries";
 import type { DownloadItem } from "@/data/downloadsData";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { DownloadItemRow } from "@/components/ui/DownloadItemRow";
 import { generateMedicalPdf } from "@/lib/pdfGenerator";
 
@@ -16,7 +17,7 @@ export function DownloadCenter({
   locale = "de",
   initialCategory = "allgemein",
 }: DownloadCenterProps) {
-  const content = (patientServiceTranslations[locale] ?? patientServiceTranslations.de).downloadCenter;
+  const content = getDictionary(locale).patientService.downloadCenter;
   const [activeTab, setActiveTab] = useState<string>(initialCategory);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [downloadSuccessId, setDownloadSuccessId] = useState<string | null>(null);
@@ -97,10 +98,7 @@ export function DownloadCenter({
             placeholder={content.searchPlaceholder}
           />
           <div className="download-search-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
+            <MagnifyingGlassIcon style={{ width: 18, height: 18 }} />
           </div>
           {searchQuery && (
             <button

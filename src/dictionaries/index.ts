@@ -20,3 +20,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
 export function getDictionary(locale: Locale = "de"): Dictionary {
   return dictionaries[locale] ?? dictionaries.de;
 }
+
+export * from "./homeTranslations";
+export * from "./homeExtraTranslations";
+export * from "./patientServiceTranslations";
+export * from "./teamTranslations";
+export * from "./specialtyDetailTranslations";

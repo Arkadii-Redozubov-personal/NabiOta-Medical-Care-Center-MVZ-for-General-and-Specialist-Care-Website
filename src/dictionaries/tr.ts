@@ -1,4 +1,12 @@
 import type { Dictionary } from "./de";
+import { teamDataByLocale, aboutPageContentByLocale } from "./teamTranslations";
+import { patientServiceTranslations } from "./patientServiceTranslations";
+import { richSpecialtiesByLocale } from "./specialtyDetailTranslations";
+import {
+  homeSectionTranslations,
+  homepageSpecialtiesData,
+} from "./homeTranslations";
+import { homeExtraTranslations, branchMotto } from "./homeExtraTranslations";
 
 const tr: Dictionary = {
   meta: {
@@ -39,6 +47,9 @@ const tr: Dictionary = {
     emergencyTitle: "Acil Durumlarda",
     emergencyText:
       "Mesai saatleri dışında 116 117 numaralı nöbetçi hekim servisini arayabilirsiniz. Hayati tehlike arz eden durumlarda lütfen derhal 112'yi arayınız.",
+    bookAppointmentOnline: "Çevrimiçi randevu alın",
+    emergencyNoticeTitle: "Önemli Acil Durum Uyarısı:",
+    focusAreasTitle: "Önemli Alanlar:",
   },
   home: {
     meta: {
@@ -502,6 +513,197 @@ const tr: Dictionary = {
     text: "Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
     cta: "Ana Sayfaya Dön",
   },
+  cookieModal: {
+    title: "Çerez Ayarları",
+    description:
+      "Web sitesinin çalışması için zorunlu çerezler kullanıyoruz. İsteğe bağlı hizmetler (ör. Google Maps) yalnızca onayınızla yüklenir.",
+    acceptAll: "Hepsini kabul et",
+    necessaryOnly: "Yalnızca zorunlu",
+    customize: "Özelleştir",
+    saveSelection: "Seçimi kaydet",
+    back: "Kapat",
+    detailsTitle: "Gizlilik ve Çerez Tercihleri",
+    detailsSubtitle:
+      "Hangi isteğe bağlı hizmetlere izin vermek istediğinizi seçin. Altbilgiden dilediğiniz zaman değiştirebilirsiniz.",
+    alwaysActive: "Her zaman aktif",
+    privacyLinkText: "Gizlilik",
+    imprintLinkText: "Künye",
+    categories: {
+      necessary: {
+        title: "Teknik Olarak Zorunlu",
+        desc: "Gezinme, site güvenliği, dil seçimi ve tercihlerin kaydedilmesi için gereklidir.",
+      },
+      functional: {
+        title: "Harici Medya (Google Maps)",
+        desc: "Klinik konumlarımızın interaktif haritalarını etkinleştirir.",
+      },
+      analytics: {
+        title: "Anonim İstatistik",
+        desc: "Sitenin kullanım kolaylığını geliştirmemize yardımcı olur.",
+      },
+    },
+  },
+  heroBadges: {
+    contact: [
+      { icon: "calendar", title: "Online Randevu", subtitle: "Hızlı ve kolay randevu planlama" },
+      { icon: "mapPin", title: "3 Klinik Konumu", subtitle: "Mönchengladbach, Viersen, Düsseldorf" },
+      { icon: "clock", title: "Acil Randevular", subtitle: "Anlaşmaya göre akut muayeneler" },
+    ],
+    patients: [
+      { icon: "shield", title: "Güvenli Hazırlık", subtitle: "Randevunuz için yapılandırılmış rehber" },
+      { icon: "heart", title: "İlgi ve Saygı", subtitle: "İnsan daima odak noktamızda" },
+      { icon: "phone", title: "Hızlı İletişim", subtitle: "Telefonla ve internet üzerinden yanınızdayız" },
+    ],
+    specialties: [
+      { icon: "pulse", title: "7 Uzmanlık Alanı", subtitle: "Kapsamlı ayakta tedavi hizmeti" },
+      { icon: "users", title: "Disiplinler Arası", subtitle: "Tüm uzman hekimlerin yakın iş birliği" },
+      { icon: "award", title: "Tüm Sigortalar", subtitle: "Yasal (GKV) ve Özel (PKV)" },
+    ],
+    services: [
+      { icon: "pulse", title: "En Son Teknoloji", subtitle: "Uzman cihaz tanı yöntemleri" },
+      { icon: "users", title: "Bütüncül Yaklaşım", subtitle: "Bireysel olarak uyarlanmış tedaviler" },
+      { icon: "shield", title: "Kanıta Dayalı Tıp", subtitle: "Kılavuzlara uygun tedavi yönetimi" },
+    ],
+    quality: [
+      { icon: "award", title: "Sertifikalı Kalite Yönetimi", subtitle: "En yüksek standartlara sıkı uyum" },
+      { icon: "shield", title: "Hasta Güvenliği", subtitle: "Kapsamlı hijyen ve veri koruması" },
+      { icon: "pulse", title: "Düzenli Denetimler", subtitle: "Sürekli süreç optimizasyonu" },
+    ],
+    career: [
+      { icon: "users", title: "Güçlü Ekip", subtitle: "Değer veren iş birliği ve dayanışma" },
+      { icon: "award", title: "Adil Ücretlendirme", subtitle: "Çekici şartlar ve sosyal haklar" },
+      { icon: "clock", title: "İş-Yaşam Dengesi", subtitle: "Gece nöbetsiz düzenli çalışma saatleri" },
+    ],
+  },
+  branchLabels: {
+    branchesHeading: "3 Klinik Konumumuz",
+    addressesCardTitle: "Konumlar ve Adresler",
+    centralPhonesTitle: "Merkezi Telefon Numaraları",
+    emailContactTitle: "E-posta İletişimi",
+    emergencyDutyTitle: "Acil Durum ve Nöbetçi Servis",
+    generalInquiries: "Genel Sorular",
+    practiceContact: "Klinik İletişimi",
+    medicalDuty: "Nöbetçi Doktor Hizmeti",
+    lifeThreatening: "Hayati Tehlike",
+    address: "Adres",
+    phone: "Telefon",
+    forPatients: "Hastalar için",
+    forDoctors: "Meslektaşlar için",
+    fax: "Faks",
+    email: "E-posta",
+    openingHours: "Çalışma Saatleri",
+    onSiteServices: "Şube Hizmetleri",
+    onSiteServicesText: "Konsültasyonlar, tanı ve takip",
+    accessibilityMG: "Engelsiz erişim: Evet, asansör mevcuttur.",
+    accessibilityViersen: "Engelsiz erişim: Evet, asansör mevcuttur.",
+    accessibilityDus: "Engelsiz erişim: Evet, asansör mevcuttur.",
+    bookDoctolib: "Doctolib üzerinden randevu alın",
+    planRoute: "Google Maps'te Yol Tarifi",
+    qrNotice: "Rotayı doğrudan Google Maps'te başlatmak için QR kodunu tarayın veya dokunun.",
+    startRoute: "Google Maps'te navigasyonu başlat",
+    days: {
+      mo: "Pzt",
+      di: "Sal",
+      mi: "Çar",
+      do: "Per",
+      fr: "Cum",
+      sa: "Cmt",
+      satHours: "randevu ile",
+    },
+  },
+  patientsExtra: {
+    heroCta: "Randevu Al",
+    checklist: {
+      title: "Randevunuza Getirmeniz Gerekenler",
+      items: [
+        "Elektronik sağlık kartı (eGK) veya özel sigorta bilgileri.",
+        "Randevunuz için gerekliyse sevk belgesi (Überweisung).",
+        "Dozajları belirtilmiş güncel ilaç kullanım planı.",
+        "İlgili doktor epikrizleri, hastane raporları ve tetkik sonuçları.",
+        "Alerjiler ve intoleranslar hakkında bilgiler.",
+        "Tansiyon, kan şekeri veya baş ağrısı günlüğü gibi branşa özel kayıtlar.",
+      ],
+      assist: "Ziyaretiniz sırasında dil desteği veya özel yardıma ihtiyaç duyuyorsanız lütfen bize önceden bildiriniz.",
+    },
+    findings: {
+      title: "Tıbbi Raporlar ve Tedavi Evrakları",
+      p1: "Tıbbi raporlar, tetkik ve tedavilerin koordineli yürütülmesine yardımcı olur. Lütfen tedavinize dahil olan diğer hekimleri bize iletiniz.",
+      p2: "Tedavi belgelerinizin kopyalarına ihtiyacınız varsa veya başka bir kliniğe iletilmesini isterseniz lütfen ekibimizle iletişime geçiniz.",
+      p3: "Evrakların teslimi ve iletilmesinde kimlik doğrulama ve yürürlükteki veri koruma (KVKK/DSGVO) kurallarına titizlikle uyulur.",
+    },
+    prescriptions: {
+      title: "Reçeteler ve Sevk Belgeleri",
+      p1: "Tekrarlanan reçeteler ve sevkler doktor kontrolünden sonra hazırlanabilir.",
+      p2: "İlaç taleplerinde lütfen ilacın tam adını, dozajını ve kullanım sıklığını belirtiniz.",
+      p3: "Tedavi sürecine bağlı olarak yeni bir reçete yazılmadan önce yüz yüze doktor kontrolü gerekebilir.",
+    },
+    info: {
+      title: "Tetkikler Öncesi Bilgilendirme",
+      p1: "Özel hazırlık gerektiren tetkikler için açlık durumu, bağırsak hazırlığı, ilaç kullanımı veya refakatçi organizasyonu gibi uygun talimatlar alacaksınız.",
+      p2: "Talimatları anlamadığınızda veya kronik bir rahatsızlığınız varsa lütfen sorunuz. Web sitesindeki genel bilgiler hekim bilgilendirmesinin yerini alamaz.",
+    },
+    cost: {
+      title: "Ücretler ve Sigorta Kapsamı",
+      p1: "Sağlık sigortanızın hangi hizmetleri karşılayacağı yapılan tetkike, tıbbi endikasyona ve sigorta statünüze bağlıdır.",
+      p2: "Kişiye özel ücretli bir hizmet söz konusu olduğunda, işlem ve tahmini maliyet hakkında sizi önceden bilgilendiriyoruz.",
+    },
+    emergency: {
+      title: "Çalışma Saatleri Dışında Yardım",
+      p1: "Hayati tehlike arz eden durumlarda lütfen derhal 112'yi arayınız.",
+      p2: "Hayati tehlikesi olmayan ancak bir sonraki mesai saatine kadar bekleyemeyecek acil durumlarda 116 117 nöbetçi doktor servisine ulaşabilirsiniz.",
+    },
+    organizer: {
+      eyebrow: "BİZİMLE RANDEVUNUZ",
+      title: "Sizin için buradayız – organizasyonel olarak da yanınızdayız.",
+      text: "Randevular, evraklar veya özel taleplerinizle ilgili tüm sorularınızda ekibimiz memnuniyetle yardımcı olmaktadır.",
+      btn: "İletişime Geçin",
+      script: "İyi organize edilmiş – sağlığınız için.",
+    },
+  },
+  vaccineBanner: {
+    title: "Zamanında Aşılama – Sağlığınızın Güvencesi",
+    subtitle:
+      "Tahliller ve aşılar ciddi hastalıkları önlemeye ve sağlığınızı uzun yıllar korumaya yardımcı olur.",
+  },
+  generalServices: {
+    anamnese: { title: "Anamnez ve Fizik Muayene", desc: "Ayrıntılı hasta öyküsü alımı ve kapsamlı genel fizik muayene." },
+    bp_pulse: { title: "Tansiyon ve Nabız Ölçümü", desc: "Kan basıncı ve nabız değerlerinin klinik olarak hassas değerlendirilmesi." },
+    lab: { title: "Laboratuvar Tahlilleri", desc: "Tıbbi gerekliliğe uygun kapsamlı kan, idrar ve dışkı tetkikleri." },
+    ekg: { title: "İstirahat EKG'si", desc: "Kalbin elektriksel aktivitesinin ve ritminin istirahat halinde kaydedilmesi." },
+    smad: { title: "24 Saatlik Tansiyon Takibi", desc: "Günlük yaşamda ve uykuda sürekli 24 saatlik tansiyon holter izlemi." },
+    spirometry: { title: "Solunum Fonksiyon Testi", desc: "Spirometri ile akciğer kapasitesi ve hava yolları fonksiyonlarının ölçümü." },
+    ultrasound: { title: "Ultrason Görüntüleme", desc: "Şube kapsamında karın organlarının ve dokuların ultrasonografik incelemesi." },
+    medication: { title: "İlaç Güvenliği Denetimi", desc: "Kullanılan ilaçların dozaj, uyumluluk ve olası etkileşimler açısından kontrolü." },
+  },
+  branchMap: {
+    mg: { city: "Mönchengladbach", subtitle: "Ana Konum · MVZ", detail: "3. Kat · Asansör mevcuttur" },
+    viersen: { city: "Viersen", subtitle: "Klinik Konumu · MVZ", detail: "Merkezi konumda · Engelsiz erişim" },
+    dus: { city: "Düsseldorf", subtitle: "Klinik Konumu · MVZ", detail: "Ulaşımı kolay · Asansör mevcuttur" },
+    ui: {
+      allLocations: "Tüm 3 Konum",
+      mapBadge: "Etkileşimli Harita",
+      liveStatus: "KVKK uyumlu",
+      routeBtn: "Google Maps'te Yol Tarifi",
+      phoneLabel: "Telefon",
+      moreDetails: "Tüm detaylar",
+    },
+  },
+  categoryHeadings: {
+    allgemeinmedizin: { title: "Genel Tıp Belgeleri ve İndirmeler", subtitle: "Tansiyon günlüğü, check-up kontrol listesi ve aşı danışmanlığı hazırlık formu." },
+    kardiologie: { title: "Kardiyoloji Belgeleri ve İndirmeler", subtitle: "Kalp-damar şikayet anketi, Holter EKG / 24s tansiyon ve efor testi bilgilendirme formları." },
+    gastroenterologie: { title: "Gastroenteroloji Belgeleri ve İndirmeler", subtitle: "Sindirim şikayetleri anketi, endoskopi ve kolonoskopi hazırlık formları ve diyet önerileri." },
+    pneumologie: { title: "Göğüs Hastalıkları Belgeleri ve İndirmeler", subtitle: "Solunum ve alerji anketi, solunum fonksiyon testi kılavuzu ve Peak-Flow günlüğü." },
+    neurologie: { title: "Nöroloji Belgeleri ve İndirmeler", subtitle: "Baş ağrısı günlüğü, nöbet takip formu, nörolojik şikayet anketi ve elektrofizyoloji hazırlığı." },
+    endokrinologie: { title: "Endokrinoloji Belgeleri ve İndirmeler", subtitle: "Hormon ve metabolizma anketi, fonksiyon testlerine hazırlık ve kan şekeri takip günlükleri." },
+  },
+  team: teamDataByLocale.tr,
+  aboutPageContent: aboutPageContentByLocale.tr,
+  patientService: patientServiceTranslations.tr,
+  specialtyDetail: richSpecialtiesByLocale.tr,
+  homeSections: homeSectionTranslations.tr,
+  homeSpecialties: homepageSpecialtiesData.tr,
+  homeExtra: homeExtraTranslations.tr,
+  branchMotto: branchMotto.tr,
 };
 
 export default tr;

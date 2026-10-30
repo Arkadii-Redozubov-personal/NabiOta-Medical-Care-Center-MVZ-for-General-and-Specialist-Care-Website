@@ -4,10 +4,24 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { getDictionary, type RichSpecialtyContent } from "@/dictionaries";
 import { specialties } from "@/data/specialties";
 import { Icon } from "@/components/ui/Icon";
-import { type RichSpecialtyContent } from "@/data/specialtyDetailData";
+import {
+  BoltIcon,
+  ShieldCheckIcon,
+  HeartIcon,
+  UserIcon,
+  SparklesIcon,
+  DocumentTextIcon,
+  ClipboardDocumentCheckIcon,
+  ExclamationTriangleIcon,
+  CalendarDaysIcon,
+  ArrowRightIcon,
+  CheckCircleIcon,
+  ClockIcon,
+  ChartBarIcon,
+} from "@heroicons/react/24/outline";
 import { SpecialtyDownloadsSection } from "@/components/ui/SpecialtyDownloadsSection";
 
 interface NeurologyDetailPageViewProps {
@@ -21,14 +35,7 @@ interface NeurologyDetailPageViewProps {
   richData: RichSpecialtyContent;
 }
 
-const appointmentButtonText: Record<Locale, string> = {
-  de: "Termin vereinbaren",
-  ru: "Записаться на приём",
-  en: "Book an Appointment",
-  tr: "Randevu Al",
-  ar: "حجز موعد",
-  uz: "Qabulga yozilish",
-};
+
 
 const neuroServiceImages = [
   "/img/specialties/neurologie/neuro_service_exam.webp",
@@ -38,262 +45,6 @@ const neuroServiceImages = [
   "/img/specialties/neurologie/neuro_service_memory.webp",
   "/img/specialties/neurologie/neuro_service_ultrasound.webp",
 ];
-
-/* ── Custom SVGs for Trust Bar ────────────────────────────────────────── */
-function TrustBrainIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z" />
-      <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z" />
-    </svg>
-  );
-}
-
-function TrustUserIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </svg>
-  );
-}
-
-function TrustShieldIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <path d="M9 12l2 2 4-4" />
-    </svg>
-  );
-}
-
-function TrustHeartPulseIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-      <path d="M3.22 12H9.5l1.5-3 2 6.5 1.5-3.5h4.28" />
-    </svg>
-  );
-}
-
-/* ── Custom SVGs for 10 Reasons ───────────────────────────────────────── */
-function HeadacheIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3a7 7 0 0 0-7 7c0 2.5 1.2 4.7 3 6v4h8v-4c1.8-1.3 3-3.5 3-6a7 7 0 0 0-7-7z" />
-      <path d="M9.5 9h5" />
-      <path d="M8 6l1.5 1.5" />
-      <path d="M16 6l-1.5 1.5" />
-    </svg>
-  );
-}
-
-function TinglingHandIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v4" />
-      <path d="M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7" />
-      <path d="M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8" />
-      <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-5.7-2.4L3.6 16.8a2 2 0 0 1 2.9-2.7L8 15" />
-      <circle cx="21" cy="4" r="1" fill="currentColor" />
-      <circle cx="17" cy="1" r="1" fill="currentColor" />
-    </svg>
-  );
-}
-
-function CarpalTunnelIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-      <rect x="5" y="11" width="14" height="10" rx="3" />
-      <circle cx="12" cy="16" r="1.5" fill="currentColor" />
-    </svg>
-  );
-}
-
-function PolyneuropathyIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 2v7m0 6v7M2 12h7m6 0h7" />
-      <path d="m4.9 4.9 5 5m4.2 4.2 5 5m-14.2 0 5-5m4.2-4.2 5-5" />
-    </svg>
-  );
-}
-
-function TremorHandIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 11.5V5a2 2 0 0 1 4 0v6" />
-      <path d="M11 9V3a2 2 0 0 1 4 0v7" />
-      <path d="M15 8a2 2 0 0 1 4 0v5" />
-      <path d="M7 10a2 2 0 0 0-4 0v6a7 7 0 0 0 7 7h3a7 7 0 0 0 7-7v-3" />
-      <path d="M21 5c.8.8.8 2.2 0 3" />
-      <path d="M23 3c1.7 1.7 1.7 4.3 0 6" />
-    </svg>
-  );
-}
-
-function ParkinsonIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="6" cy="6" r="3" />
-      <circle cx="18" cy="6" r="3" />
-      <circle cx="12" cy="18" r="3" />
-      <path d="M8.5 7.5l7 0" />
-      <path d="M7.5 8.5l3.5 7" />
-      <path d="M16.5 8.5l-3.5 7" />
-    </svg>
-  );
-}
-
-function EpilepsyIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z" />
-      <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z" />
-      <path d="m11 8 2 3-2 1 2 4" strokeWidth="2" />
-    </svg>
-  );
-}
-
-function MemoryIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3a7 7 0 0 0-7 7c0 2.5 1.2 4.7 3 6v4h8v-4c1.8-1.3 3-3.5 3-6a7 7 0 0 0-7-7z" />
-      <circle cx="12" cy="10" r="2" />
-      <path d="M12 12v2" />
-    </svg>
-  );
-}
-
-function StrokeAftercareIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z" />
-      <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z" />
-      <path d="M8.5 12h7" />
-    </svg>
-  );
-}
-
-function MultipleSclerosisIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="8" />
-      <circle cx="9" cy="10" r="1.5" fill="currentColor" />
-      <circle cx="15" cy="14" r="1.5" fill="currentColor" />
-      <path d="M9 14c1.5-1 4.5-1 6 0" />
-    </svg>
-  );
-}
-
-/* ── Custom SVGs for 6 Diagnostics ────────────────────────────────────── */
-function StethoscopeExamIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
-      <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />
-      <circle cx="20" cy="10" r="2" />
-    </svg>
-  );
-}
-
-function NerveConductivityIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 12h4l2-4 4 8 2-4h8" />
-      <circle cx="2" cy="12" r="1.5" fill="currentColor" />
-      <circle cx="22" cy="12" r="1.5" fill="currentColor" />
-    </svg>
-  );
-}
-
-function MuscleEMGIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 2v4m0 12v4M2 12h4m12 0h4" />
-      <path d="m5 5 3 3m8 8 3 3M5 19l3-3m8-8 3-3" />
-    </svg>
-  );
-}
-
-function EEGWaveIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 13h3l2-6 3 13 3-9 2 5 2-3h5" />
-    </svg>
-  );
-}
-
-function MemoryTestIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-      <path d="M9 12h6" />
-      <path d="M9 16h6" />
-    </svg>
-  );
-}
-
-function UltrasoundProbeIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="6" y="3" width="12" height="11" rx="3" />
-      <path d="M12 14v7" />
-      <path d="M9 21h6" />
-      <path d="M9 8h6" />
-    </svg>
-  );
-}
-
-/* ── Custom SVGs for Checklist ────────────────────────────────────────── */
-function DocumentClipboardIcon({ size = 24 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <polyline points="14 2 14 8 20 8" />
-      <line x1="16" y1="13" x2="8" y2="13" />
-      <line x1="16" y1="17" x2="8" y2="17" />
-      <polyline points="10 9 9 9 8 9" />
-    </svg>
-  );
-}
-
-function DiaryIcon({ size = 24 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-      <line x1="9" y1="7" x2="15" y2="7" />
-      <line x1="9" y1="11" x2="13" y2="11" />
-    </svg>
-  );
-}
-
-function CompanionIcon({ size = 24 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
-}
-
-/* ── Custom SVG for Emergency Banner ─────────────────────────────────── */
-function EmergencyAlertBadge({ size = 28 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <path d="m12 8v4" />
-      <path d="m12 16h.01" />
-    </svg>
-  );
-}
 
 export function NeurologyDetailPageView({
   locale,
@@ -307,19 +58,19 @@ export function NeurologyDetailPageView({
   /* 4 Trust Bar Items */
   const trustBarItems = [
     {
-      icon: <TrustBrainIcon size={22} />,
+      icon: <BoltIcon style={{ width: 22, height: 22 }} />,
       text: n?.trustBar[0]?.text || "Individuelle Diagnostik und Behandlung",
     },
     {
-      icon: <TrustUserIcon size={22} />,
+      icon: <UserIcon style={{ width: 22, height: 22 }} />,
       text: n?.trustBar[1]?.text || "Ganzheitlicher Blick auf Ihre Gesundheit",
     },
     {
-      icon: <TrustShieldIcon size={22} />,
+      icon: <ShieldCheckIcon style={{ width: 22, height: 22 }} />,
       text: n?.trustBar[2]?.text || "Moderne Untersuchungsverfahren und Technik",
     },
     {
-      icon: <TrustHeartPulseIcon size={22} />,
+      icon: <HeartIcon style={{ width: 22, height: 22 }} />,
       text: n?.trustBar[3]?.text || "Mehr Lebensqualität durch gezielte Therapie",
     },
   ];
@@ -327,43 +78,43 @@ export function NeurologyDetailPageView({
   /* 10 Reasons with custom icons */
   const reasonsData = [
     {
-      icon: <HeadacheIcon size={20} />,
+      icon: <SparklesIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[0] || "Wiederkehrende Kopfschmerzen und Migräne.",
     },
     {
-      icon: <TinglingHandIcon size={20} />,
+      icon: <BoltIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[1] || "Kribbeln, Taubheitsgefühle und andere Empfindungsstörungen.",
     },
     {
-      icon: <CarpalTunnelIcon size={20} />,
+      icon: <ShieldCheckIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[2] || "Nervenengpasssyndrome, beispielsweise das Karpaltunnelsyndrom.",
     },
     {
-      icon: <PolyneuropathyIcon size={20} />,
+      icon: <BoltIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[3] || "Polyneuropathien.",
     },
     {
-      icon: <TremorHandIcon size={20} />,
+      icon: <SparklesIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[4] || "Zittern und andere Bewegungsstörungen.",
     },
     {
-      icon: <ParkinsonIcon size={20} />,
+      icon: <UserIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[5] || "Parkinson-Erkrankungen.",
     },
     {
-      icon: <EpilepsyIcon size={20} />,
+      icon: <BoltIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[6] || "Epilepsien.",
     },
     {
-      icon: <MemoryIcon size={20} />,
+      icon: <SparklesIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[7] || "Gedächtnisstörungen.",
     },
     {
-      icon: <StrokeAftercareIcon size={20} />,
+      icon: <HeartIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[8] || "Neurologische Nachsorge nach einem Schlaganfall.",
     },
     {
-      icon: <MultipleSclerosisIcon size={20} />,
+      icon: <ShieldCheckIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[9] || "Multiple Sklerose und andere entzündliche Erkrankungen des Nervensystems.",
     },
   ];
@@ -374,27 +125,27 @@ export function NeurologyDetailPageView({
   /* 6 Diagnostics Items */
   const diagnosticsData = [
     {
-      icon: <StethoscopeExamIcon size={22} />,
+      icon: <ClipboardDocumentCheckIcon style={{ width: 22, height: 22 }} />,
       text: richData.services[0] || "Ausführliche neurologische Untersuchung.",
     },
     {
-      icon: <NerveConductivityIcon size={22} />,
+      icon: <BoltIcon style={{ width: 22, height: 22 }} />,
       text: richData.services[1] || "Elektroneurographie: Messung der Nervenleitfähigkeit.",
     },
     {
-      icon: <MuscleEMGIcon size={22} />,
+      icon: <ChartBarIcon style={{ width: 22, height: 22 }} />,
       text: richData.services[2] || "Elektromyographie: Untersuchung der elektrischen Muskelaktivität.",
     },
     {
-      icon: <EEGWaveIcon size={22} />,
+      icon: <SparklesIcon style={{ width: 22, height: 22 }} />,
       text: richData.services[3] || "EEG: Aufzeichnung der elektrischen Hirnaktivität.",
     },
     {
-      icon: <MemoryTestIcon size={22} />,
+      icon: <DocumentTextIcon style={{ width: 22, height: 22 }} />,
       text: richData.services[4] || "Standardisierte Tests bei Gedächtnisbeschwerden.",
     },
     {
-      icon: <UltrasoundProbeIcon size={22} />,
+      icon: <SparklesIcon style={{ width: 22, height: 22 }} />,
       text: richData.services[5] || "Ultraschalluntersuchungen hirnversorgender Gefäße (im tatsächlich angebotenen Umfang).",
     },
   ];
@@ -409,15 +160,15 @@ export function NeurologyDetailPageView({
   /* 3 Checklist Items */
   const checklistCards = [
     {
-      icon: <DocumentClipboardIcon size={24} />,
+      icon: <ClipboardDocumentCheckIcon style={{ width: 24, height: 24 }} />,
       text: richData.checklistItems[0] || "Neurologische Vorbefunde, Krankenhausberichte, vorhandene Bildbefunde und Medikamentenplan mitbringen.",
     },
     {
-      icon: <DiaryIcon size={24} />,
+      icon: <DocumentTextIcon style={{ width: 24, height: 24 }} />,
       text: richData.checklistItems[1] || "Ein Kopfschmerz- oder Anfallstagebuch kann hilfreich sein.",
     },
     {
-      icon: <CompanionIcon size={24} />,
+      icon: <UserIcon style={{ width: 24, height: 24 }} />,
       text: richData.checklistItems[2] || "Bei Gedächtnisbeschwerden kann eine vertraute Begleitperson mit Ihrem Einverständnis wichtige ergänzende Angaben machen.",
     },
   ];
@@ -450,7 +201,7 @@ export function NeurologyDetailPageView({
                   href={localePath(locale, "kontakt")}
                   className="btn btn--primary page-hero-btn"
                 >
-                  <span>{appointmentButtonText[locale]}</span>
+                  <span>{dict.common.bookAppointmentOnline}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -460,7 +211,7 @@ export function NeurologyDetailPageView({
             <div className="page-hero-grid__badges">
               <div className="page-hero-badge">
                 <div className="page-hero-badge__icon">
-                  <TrustBrainIcon size={20} />
+                  <BoltIcon style={{ width: 20, height: 20 }} />
                 </div>
                 <div>
                   <div className="page-hero-badge__title">
@@ -494,7 +245,7 @@ export function NeurologyDetailPageView({
 
               <div className="page-hero-badge">
                 <div className="page-hero-badge__icon">
-                  <TrustShieldIcon size={20} />
+                  <ShieldCheckIcon style={{ width: 20, height: 20 }} />
                 </div>
                 <div>
                   <div className="page-hero-badge__title">
@@ -776,7 +527,7 @@ export function NeurologyDetailPageView({
                 <div className="neuro-ref-emergency-left">
                   <div className="neuro-ref-emergency-badge-row">
                     <div className="neuro-ref-emergency-alert-icon">
-                      <EmergencyAlertBadge size={26} />
+                      <ExclamationTriangleIcon style={{ width: 26, height: 26 }} />
                     </div>
                   </div>
 

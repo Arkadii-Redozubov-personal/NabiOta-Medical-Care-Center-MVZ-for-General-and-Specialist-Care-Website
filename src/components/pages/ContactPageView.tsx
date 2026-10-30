@@ -4,308 +4,22 @@ import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { Icon } from "@/components/ui/Icon";
-import { subpageHeroBadges } from "@/data/heroBadges";
+import {
+  PrinterIcon,
+  Squares2X2Icon,
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/outline";
+import { contactBranchLocations as branchLocations } from "@/data/branches";
 
 interface ContactPageViewProps {
   locale: Locale;
 }
 
-const branchLabels = {
-  de: {
-    branchesHeading: "Unsere 3 Praxisstandorte",
-    addressesCardTitle: "Standorte & Adressen",
-    centralPhonesTitle: "Zentrale Telefonnummern",
-    emailContactTitle: "E-Mail-Kontakt",
-    emergencyDutyTitle: "Notruf & Bereitschaft",
-    generalInquiries: "Allgemeine Anfragen",
-    practiceContact: "Praxiskontakt",
-    medicalDuty: "Ärztlicher Bereitschaftsdienst",
-    lifeThreatening: "Lebensbedrohlicher Notfall",
-    address: "Adresse",
-    phone: "Telefon",
-    forPatients: "Für Patienten",
-    forDoctors: "Für Ärztliche Kollegen",
-    fax: "Fax",
-    email: "E-Mail",
-    openingHours: "Öffnungszeiten",
-    onSiteServices: "Leistungen vor Ort",
-    onSiteServicesText: "Konsultationen, Diagnostik, Nachsorge",
-    accessibilityMG: "Barrierefreier Zugang: Ja, Personenaufzug vorhanden.",
-    accessibilityViersen: "Barrierefreier Zugang: Ja, ebenerdiger bzw. Aufzugszugang.",
-    accessibilityDus: "Barrierefreier Zugang: Ja, Personenaufzug vorhanden.",
-    bookDoctolib: "Termin auf Doctolib buchen",
-    planRoute: "Route in Google Maps planen",
-    qrNotice: "Scannen Sie den QR-Code oder tippen Sie darauf, um die Navigation direkt in Google Maps zu starten.",
-    startRoute: "Route in Google Maps starten",
-    days: {
-      mo: "Mo",
-      di: "Di",
-      mi: "Mi",
-      do: "Do",
-      fr: "Fr",
-      sa: "Sa",
-      satHours: "nach Vereinbarung",
-    },
-  },
-  ru: {
-    branchesHeading: "Наши 3 филиала",
-    addressesCardTitle: "Адреса филиалов",
-    centralPhonesTitle: "Центральные телефонные номера",
-    emailContactTitle: "Электронная почта",
-    emergencyDutyTitle: "Срочная помощь и дежурная служба",
-    generalInquiries: "Общие вопросы",
-    practiceContact: "Прямой контакт клиники",
-    medicalDuty: "Дежурная медицинская служба",
-    lifeThreatening: "Угроза жизни (экстренно)",
-    address: "Адрес",
-    phone: "Телефон",
-    forPatients: "Для пациентов",
-    forDoctors: "Для врачей",
-    fax: "Факс",
-    email: "Эл. почта",
-    openingHours: "Часы работы",
-    onSiteServices: "Услуги на месте",
-    onSiteServicesText: "Консультации, диагностика, уход",
-    accessibilityMG: "Безбарьерный доступ: Да, есть лифт.",
-    accessibilityViersen: "Безбарьерный доступ: Да, есть лифт.",
-    accessibilityDus: "Безбарьерный доступ: Да, есть лифт.",
-    bookDoctolib: "Записаться через Doctolib",
-    planRoute: "Маршрут в Google Maps",
-    qrNotice: "Отсканируйте QR-код или нажмите на него, чтобы сразу проложить маршрут в Google Maps.",
-    startRoute: "Проложить маршрут в Google Maps",
-    days: {
-      mo: "Пн",
-      di: "Вт",
-      mi: "Ср",
-      do: "Чт",
-      fr: "Пт",
-      sa: "Сб",
-      satHours: "по предварительной записи",
-    },
-  },
-  en: {
-    branchesHeading: "Our 3 Practice Locations",
-    addressesCardTitle: "Locations & Addresses",
-    centralPhonesTitle: "Central Phone Numbers",
-    emailContactTitle: "Email Contact",
-    emergencyDutyTitle: "Emergency & On-call Service",
-    generalInquiries: "General Inquiries",
-    practiceContact: "Practice Contact",
-    medicalDuty: "Medical On-call Service",
-    lifeThreatening: "Life-threatening Emergency",
-    address: "Address",
-    phone: "Phone",
-    forPatients: "For Patients",
-    forDoctors: "For Medical Colleagues",
-    fax: "Fax",
-    email: "Email",
-    openingHours: "Opening Hours",
-    onSiteServices: "Services on Site",
-    onSiteServicesText: "Consultations, diagnostics, aftercare",
-    accessibilityMG: "Barrier-free access: Yes, elevator available.",
-    accessibilityViersen: "Barrier-free access: Yes, elevator available.",
-    accessibilityDus: "Barrier-free access: Yes, elevator available.",
-    bookDoctolib: "Book appointment on Doctolib",
-    planRoute: "Plan route in Google Maps",
-    qrNotice: "Scan the QR code or tap it to start navigation directly in Google Maps.",
-    startRoute: "Start route in Google Maps",
-    days: {
-      mo: "Mon",
-      di: "Tue",
-      mi: "Wed",
-      do: "Thu",
-      fr: "Fri",
-      sa: "Sat",
-      satHours: "by appointment",
-    },
-  },
-  tr: {
-    branchesHeading: "3 Klinik Konumumuz",
-    addressesCardTitle: "Konumlar ve Adresler",
-    centralPhonesTitle: "Merkezi Telefon Numaraları",
-    emailContactTitle: "E-posta İletişimi",
-    emergencyDutyTitle: "Acil Durum ve Nöbetçi Servis",
-    generalInquiries: "Genel Sorular",
-    practiceContact: "Klinik İletişimi",
-    medicalDuty: "Nöbetçi Doktor Hizmeti",
-    lifeThreatening: "Hayati Tehlike",
-    address: "Adres",
-    phone: "Telefon",
-    forPatients: "Hastalar için",
-    forDoctors: "Meslektaşlar için",
-    fax: "Faks",
-    email: "E-posta",
-    openingHours: "Çalışma Saatleri",
-    onSiteServices: "Şube Hizmetleri",
-    onSiteServicesText: "Konsültasyonlar, tanı ve takip",
-    accessibilityMG: "Engelsiz erişim: Evet, asansör mevcuttur.",
-    accessibilityViersen: "Engelsiz erişim: Evet, asansör mevcuttur.",
-    accessibilityDus: "Engelsiz erişim: Evet, asansör mevcuttur.",
-    bookDoctolib: "Doctolib üzerinden randevu alın",
-    planRoute: "Google Maps'te Yol Tarifi",
-    qrNotice: "Rotayı doğrudan Google Maps'te başlatmak için QR kodunu tarayın veya dokunun.",
-    startRoute: "Google Maps'te navigasyonu başlat",
-    days: {
-      mo: "Pzt",
-      di: "Sal",
-      mi: "Çar",
-      do: "Per",
-      fr: "Cum",
-      sa: "Cmt",
-      satHours: "randevu ile",
-    },
-  },
-  ar: {
-    branchesHeading: "فروعنا الثلاثة",
-    addressesCardTitle: "عناوين وفروع العيادة",
-    centralPhonesTitle: "أرقام الهواتف المركزية",
-    emailContactTitle: "البريد الإلكتروني",
-    emergencyDutyTitle: "الطوارئ والخدمة المناوبة",
-    generalInquiries: "استفسارات عامة",
-    practiceContact: "اتصال العيادة",
-    medicalDuty: "الخدمة الطبية المناوبة",
-    lifeThreatening: "حالات الطوارئ المهددة للحياة",
-    address: "العنوان",
-    phone: "الهاتف",
-    forPatients: "للمرضى",
-    forDoctors: "للأطباء والزملاء",
-    fax: "الفاكس",
-    email: "البريد الإلكتروني",
-    openingHours: "ساعات العمل",
-    onSiteServices: "الخدمات المتاحة",
-    onSiteServicesText: "استشارات، تشخيص، رعاية ومتابعة",
-    accessibilityMG: "وصول مهيأ: نعم، يتوفر مصعد.",
-    accessibilityViersen: "وصول مهيأ: نعم، يتوفر مصعد.",
-    accessibilityDus: "وصول مهيأ: نعم، يتوفر مصعد.",
-    bookDoctolib: "حجز موعد عبر Doctolib",
-    planRoute: "تحديد المسار في خرائط جوجل",
-    qrNotice: "امسح رمز الاستجابة السريعة أو اضغط عليه لبدء الملاحة مباشرة في خرائط جوجل.",
-    startRoute: "بدء الملاحة في خرائط جوجل",
-    days: {
-      mo: "الاثنين",
-      di: "الثلاثاء",
-      mi: "الأربعاء",
-      do: "الخميس",
-      fr: "الجمعة",
-      sa: "السبت",
-      satHours: "حسب الموعد المسبق",
-    },
-  },
-  uz: {
-    branchesHeading: "Bizning 3 ta filialimiz",
-    addressesCardTitle: "Filiallar va manzillar",
-    centralPhonesTitle: "Markaziy telefon raqamlari",
-    emailContactTitle: "Elektron pochta",
-    emergencyDutyTitle: "Shoshilinch yordam va navbatchilik",
-    generalInquiries: "Umumiy so'rovlar",
-    practiceContact: "Klinika bilan aloqa",
-    medicalDuty: "Shifokor navbatchilik xizmati",
-    lifeThreatening: "Hayot uchun xavfli holat",
-    address: "Manzil",
-    phone: "Telefon",
-    forPatients: "Bemorlar uchun",
-    forDoctors: "Shifokorlar uchun",
-    fax: "Faks",
-    email: "Elektron pochta",
-    openingHours: "Ish vaqti",
-    onSiteServices: "Filial xizmatlari",
-    onSiteServicesText: "Konsultatsiyalar, diagnostika, nazorat",
-    accessibilityMG: "To'siqsiz kirish: Ha, lift mavjud.",
-    accessibilityViersen: "To'siqsiz kirish: Ha, lift mavjud.",
-    accessibilityDus: "To'siqsiz kirish: Ha, lift mavjud.",
-    bookDoctolib: "Doctolib orqali yozilish",
-    planRoute: "Google Maps'da yo'nalish",
-    qrNotice: "Marshrutni to'g'ridan-to'g'ri Google Maps'da ochish uchun QR-kodni skanerlang yoki bosing.",
-    startRoute: "Google Maps'da yo'nalishni boshlash",
-    days: {
-      mo: "Dush",
-      di: "Sesh",
-      mi: "Chor",
-      do: "Pay",
-      fr: "Jum",
-      sa: "Shan",
-      satHours: "oldindan kelishuv bo'yicha",
-    },
-  },
-};
-
-const branchLocations = [
-  {
-    city: "Mönchengladbach",
-    addressTitle: "Bismarckstr. 106, 41061 Mönchengladbach, 3. OG",
-    addressUrl: "https://www.google.com/maps/dir/?api=1&destination=Bismarckstr.+106%2C+41061+M%C3%B6nchengladbach",
-    mapEmbedUrl: "https://maps.google.com/maps?q=Bismarckstr.%20106%2C%2041061%20M%C3%B6nchengladbach&t=&z=15&ie=UTF8&iwloc=&output=embed",
-    qrImageUrl: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%3Fapi%3D1%26destination%3DBismarckstr.%2B106%252C%2B41061%2BM%25C3%25B6nchengladbach",
-    patientPhone: "02161 678 2683",
-    patientPhoneUrl: "+4921616782683",
-    colleaguePhone: "02161 988 3200",
-    colleaguePhoneUrl: "+4921619883200",
-    fax: "02161 678 0381",
-    email: "moenchengladbach@nabiota-mvz.de",
-    doctolibUrl: "https://www.doctolib.de/neurochirurgie/moenchengladbach/kasim-fischer",
-    accessibilityKey: "accessibilityMG" as const,
-    hours: [
-      { dayKey: "mo" as const, time: "08:00–13:00 & 14:00–18:00 Uhr" },
-      { dayKey: "di" as const, time: "08:00–15:00 Uhr" },
-      { dayKey: "mi" as const, time: "08:00–15:00 Uhr" },
-      { dayKey: "do" as const, time: "08:00–13:00 & 14:00–18:00 Uhr" },
-      { dayKey: "fr" as const, time: "08:00–14:00 Uhr" },
-      { dayKey: "sa" as const, timeKey: "satHours" as const },
-    ],
-  },
-  {
-    city: "Viersen",
-    addressTitle: "Theodor-Heuss-Platz 10, 41747 Viersen",
-    addressUrl: "https://www.google.com/maps/dir/?api=1&destination=Theodor-Heuss-Platz+10%2C+41747+Viersen",
-    mapEmbedUrl: "https://maps.google.com/maps?q=Theodor-Heuss-Platz%2010%2C%2041747%20Viersen&t=&z=15&ie=UTF8&iwloc=&output=embed",
-    qrImageUrl: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%3Fapi%3D1%26destination%3DTheodor-Heuss-Platz%2B10%252C%2B41747%2BViersen",
-    patientPhone: "02162 144 8720",
-    patientPhoneUrl: "+4921621448720",
-    colleaguePhone: "02162 144 8837",
-    colleaguePhoneUrl: "+4921621448837",
-    fax: "02162 144 9098",
-    email: "viersen@nabiota-mvz.de",
-    doctolibUrl: "https://www.doctolib.de/neurochirurgie/moenchengladbach/kasim-fischer",
-    accessibilityKey: "accessibilityViersen" as const,
-    hours: [
-      { dayKey: "mo" as const, time: "08:00–13:00 & 14:00–18:00 Uhr" },
-      { dayKey: "di" as const, time: "08:00–15:00 Uhr" },
-      { dayKey: "mi" as const, time: "08:00–15:00 Uhr" },
-      { dayKey: "do" as const, time: "08:00–13:00 & 14:00–18:00 Uhr" },
-      { dayKey: "fr" as const, time: "08:00–14:00 Uhr" },
-      { dayKey: "sa" as const, timeKey: "satHours" as const },
-    ],
-  },
-  {
-    city: "Düsseldorf",
-    addressTitle: "Königsallee 60F, 40212 Düsseldorf",
-    addressUrl: "https://www.google.com/maps/dir/?api=1&destination=K%C3%B6nigsallee+60F%2C+40212+D%C3%BCsseldorf",
-    mapEmbedUrl: "https://maps.google.com/maps?q=K%C3%B6nigsallee%2060F%2C%2040212%20D%C3%BCsseldorf&t=&z=15&ie=UTF8&iwloc=&output=embed",
-    qrImageUrl: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%3Fapi%3D1%26destination%3DK%C3%B6nigsallee%2B60F%252C%2B40212%2BD%C3%BCsseldorf",
-    patientPhone: "0211 8302 5546",
-    patientPhoneUrl: "+4921183025546",
-    colleaguePhone: "0211 8302 5546",
-    colleaguePhoneUrl: "+4921183025546",
-    fax: "0211 8302 5547",
-    email: "duesseldorf@nabiota-mvz.de",
-    doctolibUrl: "https://www.doctolib.de/neurochirurgie/moenchengladbach/kasim-fischer",
-    accessibilityKey: "accessibilityDus" as const,
-    hours: [
-      { dayKey: "mo" as const, time: "08:00–13:00 & 14:00–18:00 Uhr" },
-      { dayKey: "di" as const, time: "08:00–15:00 Uhr" },
-      { dayKey: "mi" as const, time: "08:00–15:00 Uhr" },
-      { dayKey: "do" as const, time: "08:00–13:00 & 14:00–18:00 Uhr" },
-      { dayKey: "fr" as const, time: "08:00–14:00 Uhr" },
-      { dayKey: "sa" as const, timeKey: "satHours" as const },
-    ],
-  },
-];
-
 export function ContactPageView({ locale }: ContactPageViewProps) {
   const dict = getDictionary(locale);
   const page = dict.contactPage;
-  const badges = subpageHeroBadges[locale]?.contact || subpageHeroBadges.de.contact;
-  const labels = branchLabels[locale] || branchLabels.de;
+  const badges = dict.heroBadges.contact;
+  const labels = dict.branchLabels;
 
   return (
     <div className="contact-page-view">
@@ -705,20 +419,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                   {/* 3. Fax */}
                   <div className="info-row fax-row">
                     <div className="info-icon">
-                      <svg
-                        width="22"
-                        height="22"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="6 9 6 2 18 2 18 9" />
-                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-                        <rect x="6" y="14" width="12" height="8" />
-                      </svg>
+<PrinterIcon style={{ width: 22, height: 22 }} />
                     </div>
                     <div className="info-content">
                       <h4>{labels.fax}</h4>
@@ -768,20 +469,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                   {/* 6. Leistungen vor Ort */}
                   <div className="info-row">
                     <div className="info-icon">
-                      <svg
-                        width="22"
-                        height="22"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                        <polyline points="2 17 12 22 22 17" />
-                        <polyline points="2 12 12 17 22 12" />
-                      </svg>
+<Squares2X2Icon style={{ width: 22, height: 22 }} />
                     </div>
                     <div className="info-content">
                       <h4>{labels.onSiteServices}</h4>

@@ -2,10 +2,17 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { getDictionary, type RichSpecialtyContent } from "@/dictionaries";
 import { specialties } from "@/data/specialties";
 import { Icon } from "@/components/ui/Icon";
-import { type RichSpecialtyContent } from "@/data/specialtyDetailData";
+import {
+  SparklesIcon,
+  BoltIcon,
+  BeakerIcon,
+  ShieldCheckIcon,
+  HeartIcon,
+  ChartBarIcon,
+} from "@heroicons/react/24/outline";
 import { SpecialtyDownloadsSection } from "@/components/ui/SpecialtyDownloadsSection";
 
 interface PneumologyDetailPageViewProps {
@@ -19,107 +26,7 @@ interface PneumologyDetailPageViewProps {
   richData: RichSpecialtyContent;
 }
 
-const appointmentButtonText: Record<Locale, string> = {
-  de: "Termin vereinbaren",
-  ru: "Записаться на приём",
-  en: "Book an Appointment",
-  tr: "Randevu Al",
-  ar: "حجز موعد",
-  uz: "Qabulga yozilish",
-};
 
-/* Custom SVG Icons matching the reference design */
-function LungsOutlineIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 4v16" />
-      <path d="M12 7c-2-2-5-3-7-1s-3 6-2 10c1 3 3 5 5 5h4" />
-      <path d="M12 7c2-2 5-3 7-1s3 6 2 10c-1 3-3 5-5 5h-4" />
-      <path d="M9 13c-1.5 0-3 .5-3 2" />
-      <path d="M15 13c1.5 0 3 .5 3 2" />
-    </svg>
-  );
-}
-
-function LungsTreeIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v9" />
-      <path d="M12 8l-3 3m3-1l3 3" />
-      <path d="M12 5c-3-2-7-1-8 3-1 4 0 9 4 10h4" />
-      <path d="M12 5c3-2 7-1 8 3 1 4 0 9-4 10h-4" />
-    </svg>
-  );
-}
-
-function CoughIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="7" r="4" />
-      <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
-      <path d="M17 10l2-1m-1 3l3 1" />
-    </svg>
-  );
-}
-
-function InhalerIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="7" y="3" width="7" height="13" rx="2" />
-      <path d="M14 11h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4" />
-      <path d="M10 3V2" />
-    </svg>
-  );
-}
-
-function InfectionIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2v3m0 14v3M2 12h3m14 0h3" />
-      <circle cx="12" cy="12" r="5" />
-      <circle cx="9" cy="10" r="1" fill="currentColor" />
-      <circle cx="14" cy="13" r="1" fill="currentColor" />
-      <path d="M5 5l2 2m10 10l2 2M5 19l2-2m10-10l2-2" />
-    </svg>
-  );
-}
-
-function AllergyFlowerIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 4a3 3 0 0 1 3 3v2h-6V7a3 3 0 0 1 3-3z" />
-      <path d="M12 20a3 3 0 0 1-3-3v-2h6v2a3 3 0 0 1-3 3z" />
-      <path d="M4 12a3 3 0 0 1 3-3h2v6H7a3 3 0 0 1-3-3z" />
-      <path d="M20 12a3 3 0 0 1-3 3h-2v-6h2a3 3 0 0 1 3 3z" />
-    </svg>
-  );
-}
-
-function DiffusionDotsIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="2.5" />
-      <circle cx="6" cy="8" r="2" />
-      <circle cx="18" cy="8" r="2" />
-      <circle cx="6" cy="16" r="2" />
-      <circle cx="18" cy="16" r="2" />
-      <line x1="8" y1="9" x2="10" y2="11" />
-      <line x1="16" y1="9" x2="14" y2="11" />
-      <line x1="8" y1="15" x2="10" y2="13" />
-      <line x1="16" y1="15" x2="14" y2="13" />
-    </svg>
-  );
-}
-
-function OxygenDropIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-      <circle cx="12" cy="13" r="2" />
-    </svg>
-  );
-}
 
 export function PneumologyDetailPageView({
   locale,
@@ -133,31 +40,31 @@ export function PneumologyDetailPageView({
   /* The 7 Reasons mapped to matching icons */
   const reasonsData = [
     {
-      icon: <LungsOutlineIcon size={20} />,
+      icon: <SparklesIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[0] || "Asthma bronchiale.",
     },
     {
-      icon: <LungsTreeIcon size={20} />,
+      icon: <SparklesIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[1] || "Chronisch obstruktive Lungenerkrankung, kurz COPD.",
     },
     {
-      icon: <CoughIcon size={20} />,
+      icon: <BoltIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[2] || "Anhaltender oder wiederkehrender Husten.",
     },
     {
-      icon: <InhalerIcon size={20} />,
+      icon: <BeakerIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[3] || "Atemnot bei Belastung.",
     },
     {
-      icon: <InfectionIcon size={20} />,
+      icon: <ShieldCheckIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[4] || "Wiederkehrende Atemwegsinfektionen.",
     },
     {
-      icon: <AllergyFlowerIcon size={20} />,
+      icon: <SparklesIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[5] || "Allergisch bedingte Atemwegsbeschwerden.",
     },
     {
-      icon: <DiffusionDotsIcon size={20} />,
+      icon: <ChartBarIcon style={{ width: 20, height: 20 }} />,
       title: richData.reasons[6] || "Auffällige Lungenfunktionsbefunde.",
     },
   ];
@@ -169,32 +76,32 @@ export function PneumologyDetailPageView({
   /* The 6 Diagnostics Cards (2x3 Grid) */
   const diagnosticsData = [
     {
-      icon: <LungsOutlineIcon size={22} />,
+      icon: <SparklesIcon style={{ width: 22, height: 22 }} />,
       title: locale === "ru" ? "Спирометрия" : "Spirometrie",
       desc: locale === "ru" ? "Измерение объёма и потока воздуха." : "Messung von Atemvolumen und Atemfluss.",
     },
     {
-      icon: <LungsTreeIcon size={22} />,
+      icon: <SparklesIcon style={{ width: 22, height: 22 }} />,
       title: locale === "ru" ? "Бодиплетизмография" : "Bodyplethysmografie",
       desc: locale === "ru" ? "Расширенная оценка лёгочной функции." : "weiterführende Untersuchung der Lungenfunktion.",
     },
     {
-      icon: <InhalerIcon size={22} />,
+      icon: <BeakerIcon style={{ width: 22, height: 22 }} />,
       title: locale === "ru" ? "Бронходилатационный тест" : "Bronchodilatationstest",
       desc: locale === "ru" ? "Оценка ответа дыхательных путей на препарат." : "Prüfung, wie sich die Atemwege nach einem bronchienerweiternden Medikament verändern.",
     },
     {
-      icon: <OxygenDropIcon size={22} />,
+      icon: <HeartIcon style={{ width: 22, height: 22 }} />,
       title: locale === "ru" ? "Измерение сатурации кислорода" : "Messung der Sauerstoffsättigung",
       desc: locale === "ru" ? "Контроль уровня кислорода в крови." : "Messung der Sauerstoffsättigung.",
     },
     {
-      icon: <DiffusionDotsIcon size={22} />,
+      icon: <ChartBarIcon style={{ width: 22, height: 22 }} />,
       title: locale === "ru" ? "Исследование диффузионной способности" : "Untersuchung der Diffusionskapazität",
       desc: locale === "ru" ? "Оценка газообмена в лёгких." : "zur Beurteilung des Gastransfers.",
     },
     {
-      icon: <AllergyFlowerIcon size={22} />,
+      icon: <SparklesIcon style={{ width: 22, height: 22 }} />,
       title: locale === "ru" ? "Аллергологические исследования" : "Ausgewählte allergologische Untersuchungen",
       desc: locale === "ru" ? "При соответствующих показаниях." : "bei entsprechender Fragestellung.",
     },
@@ -244,7 +151,7 @@ export function PneumologyDetailPageView({
                   href={localePath(locale, "kontakt")}
                   className="btn btn--primary page-hero-btn"
                 >
-                  <span>{appointmentButtonText[locale]}</span>
+                  <span>{dict.common.bookAppointmentOnline}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -254,7 +161,7 @@ export function PneumologyDetailPageView({
             <div className="page-hero-grid__badges">
               <div className="page-hero-badge">
                 <div className="page-hero-badge__icon">
-                  <LungsOutlineIcon size={20} />
+                  <SparklesIcon style={{ width: 20, height: 20 }} />
                 </div>
                 <div>
                   <div className="page-hero-badge__title">
@@ -276,7 +183,7 @@ export function PneumologyDetailPageView({
 
               <div className="page-hero-badge">
                 <div className="page-hero-badge__icon">
-                  <OxygenDropIcon size={20} />
+                  <HeartIcon style={{ width: 20, height: 20 }} />
                 </div>
                 <div>
                   <div className="page-hero-badge__title">

@@ -8,23 +8,13 @@ import { getDictionary } from "@/dictionaries";
 import { site } from "@/data/site";
 import { activeSpecialties } from "@/data/specialties";
 import { Icon } from "@/components/ui/Icon";
-import { HomeBranchesInteractiveMap } from "@/components/ui/HomeBranchesInteractiveMap";
-
 import {
-  homepageSpecialtiesData,
-  expertiseTitles,
-  homeSectionTranslations,
-} from "@/data/homeTranslations";
-import { homeExtraTranslations } from "@/data/homeExtraTranslations";
-
-const branchMotto: Record<Locale, string> = {
-  de: "An jedem Standort kümmern wir uns verlässlich um Ihre Gesundheit.",
-  en: "At every location, we care for your health with dedication.",
-  ru: "В каждом филиале мы заботимся о вашем здоровье.",
-  tr: "Her şubemizde sağlığınız için özenle yanınızdayız.",
-  ar: "في كل فرع، نهتم بصحتكم بكل تفانٍ.",
-  uz: "Har bir filialimizda sizning sog'lig'ingiz haqida g'amxo'rlik qilamiz.",
-};
+  ArrowRightIcon,
+  ChevronRightIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from "@heroicons/react/24/outline";
+import { HomeBranchesInteractiveMap } from "@/components/ui/HomeBranchesInteractiveMap";
 
 const branchImages = [
   "/img/home/branch_moenchengladbach.webp",
@@ -38,8 +28,8 @@ interface LegacyHomePageViewProps {
 
 export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
   const dict = getDictionary(locale);
-  const copy = homeSectionTranslations[locale] || homeSectionTranslations.de;
-  const extra = homeExtraTranslations[locale] || homeExtraTranslations.de;
+  const copy = dict.homeSections;
+  const extra = dict.homeExtra;
 
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [showDoctolib, setShowDoctolib] = useState(true);
@@ -147,7 +137,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
             <div className="expertise-wrapper">
               <div className="expertise-container">
                 <div className="expertise-grid">
-                  {(homepageSpecialtiesData[locale] || homepageSpecialtiesData.de).map((spec) => (
+                  {dict.homeSpecialties.map((spec) => (
                     <Link
                       key={spec.slug}
                       href={localePath(locale, `fachbereiche/${spec.slug}`)}
@@ -161,19 +151,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                         <span className="expertise-card-desc">{spec.desc}</span>
                       </div>
                       <div className="expertise-arrow-btn" aria-hidden="true">
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <line x1="5" y1="12" x2="19" y2="12" />
-                          <polyline points="12 5 19 12 12 19" />
-                        </svg>
+                        <ArrowRightIcon style={{ width: 14, height: 14 }} />
                       </div>
                     </Link>
                   ))}
@@ -345,9 +323,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                     </div>
 
                     <div className="home-branch-chevron-btn" aria-hidden="true">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="9 18 15 12 9 6" />
-                      </svg>
+                      <ChevronRightIcon style={{ width: 18, height: 18 }} />
                     </div>
                   </Link>
                 ))}
@@ -369,7 +345,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
             <svg width="34" height="18" viewBox="0 0 34 18" fill="none" stroke="#219DD8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M1 9h8l3-6 4 12 4-9 3 5h10" />
             </svg>
-            <span>{branchMotto[locale] || branchMotto.de}</span>
+            <span>{dict.branchMotto}</span>
           </div>
         </section>
 
@@ -548,9 +524,11 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                   >
                     {item.q}
                     <span className="faq-icon" aria-hidden="true">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points={isOpen ? "18 15 12 9 6 15" : "6 9 12 15 18 9"} />
-                      </svg>
+                      {isOpen ? (
+                        <ChevronUpIcon style={{ width: 18, height: 18 }} />
+                      ) : (
+                        <ChevronDownIcon style={{ width: 18, height: 18 }} />
+                      )}
                     </span>
                   </div>
                   {isOpen && <div className="faq-answer">{item.a}</div>}

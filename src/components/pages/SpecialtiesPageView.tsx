@@ -4,7 +4,6 @@ import Image from "next/image";
 import { type Locale, localePath } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { Icon } from "@/components/ui/Icon";
-import { subpageHeroBadges } from "@/data/heroBadges";
 
 interface SpecialtiesPageViewProps {
   locale: Locale;
@@ -20,19 +19,12 @@ const activeSpecialties = [
   { slug: "praevention", icon: "award", image: "/img/specialties/prevention.webp" },
 ];
 
-const appointmentButtonText = {
-  de: "Termin online vereinbaren",
-  ru: "Записаться на приём онлайн",
-  en: "Book appointment online",
-  tr: "Çevrimiçi randevu alın",
-  ar: "حجز موعد عبر الإنترنت",
-  uz: "Qabulga onlayn yozilish",
-};
+
 
 export function SpecialtiesPageView({ locale }: SpecialtiesPageViewProps) {
   const dict = getDictionary(locale);
   const page = dict.specialtiesPage;
-  const badges = subpageHeroBadges[locale]?.specialties || subpageHeroBadges.de.specialties;
+  const badges = dict.heroBadges.specialties;
 
   return (
     <div className="specialties-page-view">
@@ -60,7 +52,7 @@ export function SpecialtiesPageView({ locale }: SpecialtiesPageViewProps) {
                   href={localePath(locale, "kontakt")}
                   className="btn btn--primary specialty-hero-btn"
                 >
-                  <span>{appointmentButtonText[locale]}</span>
+                  <span>{dict.common.bookAppointmentOnline}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -138,17 +130,7 @@ export function SpecialtiesPageView({ locale }: SpecialtiesPageViewProps) {
 
                     <div className="specialty-card-focus-wrap">
                       <div className="specialty-card-focus-label">
-                        {locale === "ru"
-                          ? "Ключевые направления:"
-                          : locale === "en"
-                          ? "Focus Areas:"
-                          : locale === "tr"
-                          ? "Önemli Alanlar:"
-                          : locale === "ar"
-                          ? "مجالات التركيز:"
-                          : locale === "uz"
-                          ? "Asosiy yo'nalishlar:"
-                          : "Schwerpunkte:"}
+                        {dict.common.focusAreasTitle}
                       </div>
                       <ul className="specialty-card-focus-list">
                         {specData?.focus?.slice(0, 3).map((f: string, i: number) => (
@@ -213,7 +195,7 @@ export function SpecialtiesPageView({ locale }: SpecialtiesPageViewProps) {
           </p>
           <div className="specialties-cta-btn-wrap">
             <Link href={localePath(locale, "kontakt")} className="specialties-cta-btn">
-              {appointmentButtonText[locale]} →
+              {dict.common.bookAppointmentOnline} →
             </Link>
           </div>
         </div>

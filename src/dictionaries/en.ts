@@ -1,4 +1,12 @@
 import type { Dictionary } from "./de";
+import { teamDataByLocale, aboutPageContentByLocale } from "./teamTranslations";
+import { patientServiceTranslations } from "./patientServiceTranslations";
+import { richSpecialtiesByLocale } from "./specialtyDetailTranslations";
+import {
+  homeSectionTranslations,
+  homepageSpecialtiesData,
+} from "./homeTranslations";
+import { homeExtraTranslations, branchMotto } from "./homeExtraTranslations";
 
 const en: Dictionary = {
   meta: {
@@ -39,6 +47,9 @@ const en: Dictionary = {
     emergencyTitle: "In Case of Emergency",
     emergencyText:
       "Outside office hours, contact the medical on-call service at 116 117. For life-threatening emergencies, call 112 immediately.",
+    bookAppointmentOnline: "Book appointment online",
+    emergencyNoticeTitle: "Important Emergency Notice:",
+    focusAreasTitle: "Focus Areas:",
   },
   home: {
     meta: {
@@ -502,6 +513,197 @@ const en: Dictionary = {
     text: "The page you are looking for does not exist or may have been moved.",
     cta: "Back to Home",
   },
+  cookieModal: {
+    title: "Cookie Settings",
+    description:
+      "We use essential cookies to operate this website. Optional services (such as Google Maps) are only loaded with your consent.",
+    acceptAll: "Accept all",
+    necessaryOnly: "Essential only",
+    customize: "Customize",
+    saveSelection: "Save selection",
+    back: "Close",
+    detailsTitle: "Privacy & Cookie Preferences",
+    detailsSubtitle:
+      "Choose which optional services you wish to allow. You can adjust this anytime via the link in the footer.",
+    alwaysActive: "Always active",
+    privacyLinkText: "Privacy Policy",
+    imprintLinkText: "Legal Notice",
+    categories: {
+      necessary: {
+        title: "Strictly Necessary",
+        desc: "Required for navigation, site security, language choice, and saving your preferences.",
+      },
+      functional: {
+        title: "External Media (Google Maps)",
+        desc: "Enables interactive maps for our clinic locations.",
+      },
+      analytics: {
+        title: "Anonymous Analytics",
+        desc: "Helps us improve website usability and information clarity.",
+      },
+    },
+  },
+  heroBadges: {
+    contact: [
+      { icon: "calendar", title: "Online Booking", subtitle: "Fast & easy appointment booking" },
+      { icon: "mapPin", title: "3 Practice Locations", subtitle: "Mönchengladbach, Viersen, Düsseldorf" },
+      { icon: "clock", title: "Short-term Appointments", subtitle: "Acute consultations by arrangement" },
+    ],
+    patients: [
+      { icon: "shield", title: "Reliable Preparation", subtitle: "Structured guides for your visit" },
+      { icon: "heart", title: "Care & Respect", subtitle: "Patient well-being at the center" },
+      { icon: "phone", title: "Fast Accessibility", subtitle: "Available by phone and online" },
+    ],
+    specialties: [
+      { icon: "pulse", title: "7 Medical Fields", subtitle: "Comprehensive outpatient care" },
+      { icon: "users", title: "Interdisciplinary", subtitle: "Close network of medical specialists" },
+      { icon: "award", title: "All Insurances", subtitle: "Statutory (GKV) & Private (PKV)" },
+    ],
+    services: [
+      { icon: "pulse", title: "Cutting-edge Technology", subtitle: "Specialized diagnostic equipment" },
+      { icon: "users", title: "Holistic Approach", subtitle: "Individually tailored therapies" },
+      { icon: "shield", title: "Evidence-based Medicine", subtitle: "Guideline-oriented treatments" },
+    ],
+    quality: [
+      { icon: "award", title: "Certified QM", subtitle: "Strict adherence to highest medical standards" },
+      { icon: "shield", title: "Patient Safety", subtitle: "Comprehensive hygiene & data security" },
+      { icon: "pulse", title: "Regular Audits", subtitle: "Continuous process optimization" },
+    ],
+    career: [
+      { icon: "users", title: "Strong Team", subtitle: "Appreciative culture & great cohesion" },
+      { icon: "award", title: "Fair Compensation", subtitle: "Attractive conditions & employee benefits" },
+      { icon: "clock", title: "Work-Life Balance", subtitle: "Regular working hours without night shifts" },
+    ],
+  },
+  branchLabels: {
+    branchesHeading: "Our 3 Practice Locations",
+    addressesCardTitle: "Locations & Addresses",
+    centralPhonesTitle: "Central Phone Numbers",
+    emailContactTitle: "Email Contact",
+    emergencyDutyTitle: "Emergency & On-call Service",
+    generalInquiries: "General Inquiries",
+    practiceContact: "Practice Contact",
+    medicalDuty: "Medical On-call Service",
+    lifeThreatening: "Life-threatening Emergency",
+    address: "Address",
+    phone: "Phone",
+    forPatients: "For Patients",
+    forDoctors: "For Medical Colleagues",
+    fax: "Fax",
+    email: "Email",
+    openingHours: "Opening Hours",
+    onSiteServices: "Services on Site",
+    onSiteServicesText: "Consultations, diagnostics, aftercare",
+    accessibilityMG: "Barrier-free access: Yes, elevator available.",
+    accessibilityViersen: "Barrier-free access: Yes, elevator available.",
+    accessibilityDus: "Barrier-free access: Yes, elevator available.",
+    bookDoctolib: "Book appointment on Doctolib",
+    planRoute: "Plan route in Google Maps",
+    qrNotice: "Scan the QR code or tap it to start navigation directly in Google Maps.",
+    startRoute: "Start route in Google Maps",
+    days: {
+      mo: "Mon",
+      di: "Tue",
+      mi: "Wed",
+      do: "Thu",
+      fr: "Fri",
+      sa: "Sat",
+      satHours: "by appointment",
+    },
+  },
+  patientsExtra: {
+    heroCta: "Book an Appointment",
+    checklist: {
+      title: "What You Should Bring to Your Appointment",
+      items: [
+        "Electronic health insurance card (eGK) or private insurance information.",
+        "Medical referral, if required for your appointment.",
+        "Current medication plan with precise dosages.",
+        "Relevant doctor's letters, hospital reports, and examination findings.",
+        "Information regarding allergies and intolerances.",
+        "Specialty logs, such as blood pressure, blood glucose, or headache diaries.",
+      ],
+      assist: "Please inform us in advance if you require language support or special assistance for your visit.",
+    },
+    findings: {
+      title: "Findings and Treatment Documentation",
+      p1: "Findings help coordinate examinations and treatments. Please inform us which physicians are involved in your care.",
+      p2: "If you require copies of your treatment records or would like findings forwarded to another practice, please contact our team.",
+      p3: "Document release and transmission strictly comply with mandatory identity verification and applicable data protection regulations (GDPR).",
+    },
+    prescriptions: {
+      title: "Prescriptions and Referrals",
+      p1: "Follow-up prescriptions and referrals can be prepared following physician review.",
+      p2: "When requesting medication, please state the exact medication name, strength, and prescribed dosage.",
+      p3: "Depending on your clinical situation, an in-person appointment or follow-up examination may be required before renewing a prescription.",
+    },
+    info: {
+      title: "Information Prior to Examinations",
+      p1: "For examinations requiring special preparation, you will receive tailored guidance. This may include fasting, bowel preparation, medication schedules, or arranging an escort.",
+      p2: "Please ask if you do not understand any instructions or feel uncertain due to pre-existing conditions. General website information does not replace personal physician consultation.",
+    },
+    cost: {
+      title: "Costs and Insurance Coverage",
+      p1: "Which services your health insurance covers depends on the specific examination, medical indication, and your insurance status.",
+      p2: "If an elective or self-pay service is planned, we will inform you clearly about the procedure and expected costs in advance.",
+    },
+    emergency: {
+      title: "Out-of-Hours Medical Assistance",
+      p1: "In life-threatening emergencies, please dial 112 immediately.",
+      p2: "For urgent, non-life-threatening conditions that cannot wait until regular consulting hours, contact the on-call medical service at 116 117.",
+    },
+    organizer: {
+      eyebrow: "YOUR APPOINTMENT WITH US",
+      title: "We are here for you – in every organizational aspect.",
+      text: "For questions regarding appointments, documents, or special requests, our team is gladly at your disposal.",
+      btn: "Contact Us",
+      script: "Well organized – for your health.",
+    },
+  },
+  vaccineBanner: {
+    title: "Timely Vaccination – Protection for Your Health",
+    subtitle:
+      "Preventive screenings and vaccinations protect against serious illnesses and preserve long-term wellness.",
+  },
+  generalServices: {
+    anamnese: { title: "Medical History & Examination", desc: "Detailed consultation, symptom history, and thorough physical examination." },
+    bp_pulse: { title: "Blood Pressure & Pulse", desc: "Accurate evaluation of vital circulatory parameters, blood pressure, and heart rate." },
+    lab: { title: "Laboratory Diagnostics", desc: "Medically indicated comprehensive blood, urine, and stool testing." },
+    ekg: { title: "Resting ECG", desc: "12-lead electrocardiogram recording heart electrical rhythm at rest." },
+    smad: { title: "24h Blood Pressure Monitoring", desc: "Continuous 24-hour ambulatory blood pressure tracking during daily activities and sleep." },
+    spirometry: { title: "Spirometry (Lung Function)", desc: "Digital assessment of respiratory lung volumes and airway resistance." },
+    ultrasound: { title: "Ultrasound Imaging", desc: "Diagnostic sonography of abdominal organs and soft tissue structures." },
+    medication: { title: "Medication Safety Audit", desc: "Review of prescriptions and medications for optimal dosage, compatibility, and safety." },
+  },
+  branchMap: {
+    mg: { city: "Mönchengladbach", subtitle: "Main Location · MVZ", detail: "3rd Floor · Passenger elevator available" },
+    viersen: { city: "Viersen", subtitle: "Practice Location · MVZ", detail: "Centrally located · Barrier-free access" },
+    dus: { city: "Düsseldorf", subtitle: "Practice Location · MVZ", detail: "Convenient transit access · Elevator available" },
+    ui: {
+      allLocations: "All 3 Locations",
+      mapBadge: "Interactive Map",
+      liveStatus: "GDPR-compliant",
+      routeBtn: "Directions in Google Maps",
+      phoneLabel: "Phone",
+      moreDetails: "Full details",
+    },
+  },
+  categoryHeadings: {
+    allgemeinmedizin: { title: "General Practice Documents & Downloads", subtitle: "Blood pressure log, preventive check-up checklist, and vaccination preparation guide ready to print." },
+    kardiologie: { title: "Cardiology Documents & Downloads", subtitle: "Cardiovascular questionnaire, Holter ECG & 24h BP guides, and stress test preparation." },
+    gastroenterologie: { title: "Gastroenterology Documents & Downloads", subtitle: "Digestive symptom questionnaire, preparation for endoscopy, and dietary instructions." },
+    pneumologie: { title: "Pneumology Documents & Downloads", subtitle: "Respiratory & allergy questionnaire, lung function testing guide, and Peak-Flow diary." },
+    neurologie: { title: "Neurology Documents & Downloads", subtitle: "Headache diary, seizure log, neurological symptom survey, and electrophysiology instructions." },
+    endokrinologie: { title: "Endocrinology Documents & Downloads", subtitle: "Hormonal & metabolic symptom survey, preparation for hormone functional tests, and blood sugar logs." },
+  },
+  team: teamDataByLocale.en,
+  aboutPageContent: aboutPageContentByLocale.en,
+  patientService: patientServiceTranslations.en,
+  specialtyDetail: richSpecialtiesByLocale.en,
+  homeSections: homeSectionTranslations.en,
+  homeSpecialties: homepageSpecialtiesData.en,
+  homeExtra: homeExtraTranslations.en,
+  branchMotto: branchMotto.en,
 };
 
 export default en;
