@@ -322,7 +322,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
           />
         </div>
 
-        <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+        <div className="container">
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
               <h1 className="h1">{page.hero.title}</h1>
@@ -348,25 +348,25 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
       </section>
 
       {/* ── 2. Urgent / Information Banners ────────────── */}
-      <section className="section" style={{ paddingBlock: "40px 20px" }}>
-        <div className="container" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <section className="section contact-banners-section">
+        <div className="container contact-banners-container">
           
           {/* WhatsApp Emergency Contact Block */}
-          <div style={{ background: "linear-gradient(135deg, rgba(37, 211, 102, 0.06) 0%, #ffffff 100%)", border: "1.5px solid rgba(37, 211, 102, 0.4)", padding: "24px 28px", borderRadius: "16px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "20px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
-            <div style={{ flex: "1 1 500px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
-                <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", background: "#25D366", color: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 8px rgba(37, 211, 102, 0.4)", flexShrink: 0 }}>
+          <div className="contact-banner-whatsapp">
+            <div className="contact-banner-whatsapp-left">
+              <div className="contact-banner-header">
+                <span className="contact-banner-whatsapp-badge">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.12.82.83-3.04-.19-.3a8.163 8.163 0 0 1-1.26-4.47c0-4.54 3.7-8.24 8.24-8.24zm-3.6 3.63c-.2 0-.43.08-.66.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.74 2.67 4.25 3.74.6.25 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.48-.6 1.69-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.13-.57.13-.17.25-.66.81-.81.98-.15.17-.3.19-.55.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.88-.2-.49-.41-.43-.57-.43z"/>
                   </svg>
                 </span>
-                <h3 style={{ color: "#128C7E", margin: 0, fontSize: "1.15rem", fontWeight: 800 }}>In dringenden Fällen: WhatsApp-Kontakt</h3>
+                <h3 className="contact-banner-whatsapp-title">In dringenden Fällen: WhatsApp-Kontakt</h3>
               </div>
-              <p style={{ color: "#163754", margin: "0 0 6px 0", fontSize: "1rem", lineHeight: 1.6 }}>
+              <p className="contact-banner-whatsapp-text">
                 Bei akuten Beschwerden oder dringenden Terminanfragen erreichen Sie uns direkt per WhatsApp unter{" "}
-                <strong style={{ color: "#075E54" }}>+49 152 54085568</strong>.
+                <strong className="contact-banner-whatsapp-strong">+49 152 54085568</strong>.
               </p>
-              <span style={{ display: "block", color: "#64748b", fontSize: "0.85rem", fontStyle: "italic" }}>
+              <span className="contact-banner-whatsapp-note">
                 (Hinweis: Bei lebensbedrohlichen Notfällen wählen Sie bitte sofort den Notruf 112.)
               </span>
             </div>
@@ -375,7 +375,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                 href="https://wa.me/4915254085568"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#25D366", color: "#ffffff", padding: "14px 24px", borderRadius: "10px", fontWeight: 700, fontSize: "0.98rem", textDecoration: "none", boxShadow: "0 4px 12px rgba(37, 211, 102, 0.3)" }}
+                className="contact-banner-whatsapp-btn"
               >
                 <span>WhatsApp Chat starten</span>
                 <span>→</span>
@@ -384,27 +384,27 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
           </div>
 
           {/* 116 117 Terminservice Block */}
-          <div style={{ background: "linear-gradient(135deg, rgba(220, 53, 69, 0.04) 0%, #ffffff 100%)", border: "1.5px solid rgba(220, 53, 69, 0.3)", padding: "24px 28px", borderRadius: "16px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "10px" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", background: "#dc3545", color: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 8px rgba(220, 53, 69, 0.3)", flexShrink: 0 }}>
+          <div className="contact-banner-urgent">
+            <div className="contact-banner-header">
+              <span className="contact-banner-urgent-badge">
                 <Icon name="alert" size={20} />
               </span>
-              <h3 style={{ color: "#c82333", margin: 0, fontSize: "1.15rem", fontWeight: 800 }}>Dringende Termine mit Dringlichkeitscode</h3>
+              <h3 className="contact-banner-urgent-title">Dringende Termine mit Dringlichkeitscode</h3>
             </div>
-            <p style={{ color: "#163754", margin: 0, fontSize: "1rem", lineHeight: 1.6 }}>
+            <p className="contact-banner-urgent-text">
               Sollten Sie eine Überweisung mit Dringlichkeitscode haben, rufen Sie bitte die <strong>116 117</strong> an und fragen nach einem Akuttermin bei uns (NabiOta MVZ / Fachärzte Dr. Fischer &amp; Kollegen). Alternativ bitten Sie Ihre Hausarztpraxis, im Rahmen der „Hausarztvermittlung“ direkt bei uns einen zeitnahen Termin zu vereinbaren.
             </p>
           </div>
 
           {/* Gut vorbereitet zu Ihrem Termin */}
-          <div style={{ background: "linear-gradient(135deg, rgba(33, 157, 216, 0.06) 0%, #ffffff 100%)", border: "1.5px solid rgba(33, 157, 216, 0.3)", padding: "24px 28px", borderRadius: "16px", boxShadow: "0 4px 16px rgba(0,0,0,0.03)" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", background: "#168BCB", color: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 8px rgba(33, 157, 216, 0.3)", flexShrink: 0 }}>
+          <div className="contact-banner-prep">
+            <div className="contact-banner-header">
+              <span className="contact-banner-prep-badge">
                 <Icon name="fileText" size={20} />
               </span>
-              <h3 style={{ color: "#163754", margin: 0, fontSize: "1.15rem", fontWeight: 800 }}>Gut vorbereitet zu Ihrem Termin</h3>
+              <h3 className="contact-banner-prep-title">Gut vorbereitet zu Ihrem Termin</h3>
             </div>
-            <p style={{ color: "#475569", margin: 0, fontSize: "1rem", lineHeight: 1.6 }}>
+            <p className="contact-banner-prep-text">
               Damit wir uns bei Ihrem ersten Termin voll und ganz auf Ihre gesundheitlichen Fragen konzentrieren können, bitten wir Sie:
               <br />
               <strong>1.</strong> Ihre aktuellen <strong>MRT- oder CT-Aufnahmen einschließlich schriftlichem Befundbericht</strong> (auf CD oder digital) mitzubringen.
@@ -416,13 +416,13 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
       </section>
 
       {/* ── 3. Interactive Contact Form & 4 Quick Contact Info Cards (то что на фото: выше филиалов) ── */}
-      <section className="section" style={{ paddingBlock: "30px 50px", background: "#f8fafc", borderTop: "1px solid rgba(22, 55, 84, 0.06)", borderBottom: "1px solid rgba(22, 55, 84, 0.06)" }}>
+      <section className="section contact-main-section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "32px", alignItems: "stretch" }}>
+          <div className="contact-main-grid">
             
             {/* Form Column */}
-            <div style={{ background: "#ffffff", padding: "36px", borderRadius: "24px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 12px 36px rgba(22, 55, 84, 0.06)", display: "flex", flexDirection: "column", height: "100%" }}>
-              <h2 style={{ fontSize: "1.85rem", fontWeight: 800, color: "#163754", marginBottom: "8px" }}>
+            <div className="contact-form-card">
+              <h2 className="contact-form-title">
                 {locale === "ru"
                   ? "Прямое сообщение или запрос на приём"
                   : locale === "en"
@@ -435,7 +435,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                   ? "To'g'ridan-to'g'ri xabar yoki qabulga yozilish"
                   : "Direktnachricht oder Terminanfrage"}
               </h2>
-              <p style={{ color: "#547596", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "24px" }}>
+              <p className="contact-form-desc">
                 {locale === "ru"
                   ? "Отправьте ваш запрос. Наша регистратура свяжется с вами в кратчайшие сроки."
                   : locale === "en"
@@ -449,30 +449,30 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                   : "Senden Sie uns Ihr Anliegen. Unser Empfangsteam meldet sich zeitnah bei Ihnen zurück."}
               </p>
 
-              <form style={{ display: "flex", flexDirection: "column", gap: "16px", flex: 1, justifyContent: "space-between" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <form className="contact-form-wrapper">
+                <div className="form-row">
                   <input
                     type="text"
+                    className="form-input"
                     placeholder={locale === "ru" ? "Ваше имя *" : locale === "en" ? "Your Name *" : locale === "tr" ? "Adınız Soyadınız *" : locale === "ar" ? "اسمك الكريم *" : locale === "uz" ? "Ismingiz *" : "Ihr Name *"}
                     required
-                    style={{ padding: "14px 16px", borderRadius: "10px", border: "1px solid #cbd5e1", fontSize: "0.95rem", width: "100%", boxSizing: "border-box" }}
                   />
                   <input
                     type="email"
+                    className="form-input"
                     placeholder={locale === "ru" ? "Ваш E-Mail *" : locale === "en" ? "Your Email *" : locale === "tr" ? "E-posta Adresiniz *" : locale === "ar" ? "بريدك الإلكتروني *" : locale === "uz" ? "Elektron pochtangiz *" : "Ihre E-Mail *"}
                     required
-                    style={{ padding: "14px 16px", borderRadius: "10px", border: "1px solid #cbd5e1", fontSize: "0.95rem", width: "100%", boxSizing: "border-box" }}
                   />
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="form-row">
                   <input
                     type="tel"
+                    className="form-input"
                     placeholder={locale === "ru" ? "Номер телефона" : locale === "en" ? "Phone Number" : locale === "tr" ? "Telefon Numarası" : locale === "ar" ? "رقم الهاتف" : locale === "uz" ? "Telefon raqami" : "Telefonnummer"}
-                    style={{ padding: "14px 16px", borderRadius: "10px", border: "1px solid #cbd5e1", fontSize: "0.95rem", width: "100%", boxSizing: "border-box" }}
                   />
                   <select
-                    style={{ padding: "14px 16px", borderRadius: "10px", border: "1px solid #cbd5e1", fontSize: "0.95rem", width: "100%", boxSizing: "border-box", background: "#ffffff", color: "#334155" }}
+                    className="form-input"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -486,7 +486,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
 
                 <div>
                   <select
-                    style={{ padding: "14px 16px", borderRadius: "10px", border: "1px solid #cbd5e1", fontSize: "0.95rem", width: "100%", boxSizing: "border-box", background: "#ffffff", color: "#334155" }}
+                    className="form-input"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -504,17 +504,17 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                 <div>
                   <textarea
                     rows={4}
+                    className="form-textarea"
                     placeholder={locale === "ru" ? "Ваше обращение или запрос на приём *" : locale === "en" ? "Your inquiry or appointment request *" : locale === "tr" ? "Talebiniz veya randevu isteğiniz *" : locale === "ar" ? "رسالتك أو طلب الموعد *" : locale === "uz" ? "Murojaatingiz yoki qabul so'rovi *" : "Ihr Anliegen oder Terminanfrage *"}
                     required
-                    style={{ padding: "14px 16px", borderRadius: "10px", border: "1px solid #cbd5e1", fontSize: "0.95rem", width: "100%", boxSizing: "border-box", resize: "vertical" }}
                   />
                 </div>
 
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", fontSize: "0.82rem", color: "#64748b" }}>
-                  <input type="checkbox" required id="privacy-check" style={{ marginTop: "3px" }} />
+                <div className="form-checkbox-row">
+                  <input type="checkbox" required id="privacy-check" />
                   <label htmlFor="privacy-check">
                     Ich habe die{" "}
-                    <Link href={localePath(locale, "datenschutz")} style={{ color: "#168BCB", textDecoration: "underline" }}>
+                    <Link href={localePath(locale, "datenschutz")} className="form-checkbox-link">
                       Datenschutzerklärung
                     </Link>{" "}
                     zur Kenntnis genommen und willige in die Verarbeitung meiner Angaben ein. *
@@ -523,18 +523,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
 
                 <button
                   type="submit"
-                  className="btn btn--primary"
-                  style={{
-                    padding: "16px 32px",
-                    borderRadius: "10px",
-                    fontWeight: 700,
-                    fontSize: "1rem",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "8px",
-                    width: "100%",
-                  }}
+                  className="btn btn--primary contact-submit-btn"
                 >
                   <span>
                     {locale === "ru" ? "Отправить сообщение" : locale === "en" ? "Send Message" : locale === "tr" ? "Mesaj Gönder" : locale === "ar" ? "إرسال الرسالة" : locale === "uz" ? "Xabarni yuborish" : "Nachricht senden"}
@@ -545,32 +534,32 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
             </div>
 
             {/* Quick Contact Info Cards (то что на фото: 4 карточки) */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "18px", height: "100%", justifyContent: "space-between" }}>
+            <div className="contact-quick-cards-col">
               
               {/* Card 1: Standorte & Adressen (3 Standorte) */}
-              <div style={{ background: "#ffffff", padding: "22px 26px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "18px", alignItems: "flex-start" }}>
-                <div style={{ width: "50px", height: "50px", borderRadius: "14px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <div className="contact-quick-card">
+                <div className="contact-quick-card-icon">
                   <Icon name="mapPin" size={24} />
                 </div>
-                <div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#163754", margin: "0 0 8px" }}>
+                <div className="contact-quick-card-body">
+                  <h3 className="contact-quick-card-title">
                     {labels.addressesCardTitle}
                   </h3>
-                  <p style={{ margin: "0 0 6px", fontSize: "0.90rem", color: "#475569", lineHeight: 1.45 }}>
-                    <strong style={{ color: "#163754" }}>Mönchengladbach:</strong>{" "}
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=Bismarckstr.+106%2C+41061+M%C3%B6nchengladbach" target="_blank" rel="noopener noreferrer" style={{ color: "#168BCB", textDecoration: "none" }}>
+                  <p className="contact-quick-card-text">
+                    <strong>Mönchengladbach:</strong>{" "}
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Bismarckstr.+106%2C+41061+M%C3%B6nchengladbach" target="_blank" rel="noopener noreferrer" className="contact-quick-card-link">
                       Bismarckstr. 106, 41061 Mönchengladbach
                     </a>
                   </p>
-                  <p style={{ margin: "0 0 6px", fontSize: "0.90rem", color: "#475569", lineHeight: 1.45 }}>
-                    <strong style={{ color: "#163754" }}>Viersen:</strong>{" "}
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=Theodor-Heuss-Platz+10%2C+41747+Viersen" target="_blank" rel="noopener noreferrer" style={{ color: "#168BCB", textDecoration: "none" }}>
+                  <p className="contact-quick-card-text">
+                    <strong>Viersen:</strong>{" "}
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Theodor-Heuss-Platz+10%2C+41747+Viersen" target="_blank" rel="noopener noreferrer" className="contact-quick-card-link">
                       Theodor-Heuss-Platz 10, 41747 Viersen
                     </a>
                   </p>
-                  <p style={{ margin: 0, fontSize: "0.90rem", color: "#475569", lineHeight: 1.45 }}>
-                    <strong style={{ color: "#163754" }}>Düsseldorf:</strong>{" "}
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=K%C3%B6nigsallee+60F%2C+40212+D%C3%BCsseldorf" target="_blank" rel="noopener noreferrer" style={{ color: "#168BCB", textDecoration: "none" }}>
+                  <p className="contact-quick-card-text">
+                    <strong>Düsseldorf:</strong>{" "}
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=K%C3%B6nigsallee+60F%2C+40212+D%C3%BCsseldorf" target="_blank" rel="noopener noreferrer" className="contact-quick-card-link">
                       Königsallee 60F, 40212 Düsseldorf
                     </a>
                   </p>
@@ -578,29 +567,29 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
               </div>
 
               {/* Card 2: Zentrale Telefonnummern */}
-              <div style={{ background: "#ffffff", padding: "22px 26px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "18px", alignItems: "flex-start" }}>
-                <div style={{ width: "50px", height: "50px", borderRadius: "14px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <div className="contact-quick-card">
+                <div className="contact-quick-card-icon">
                   <Icon name="phone" size={24} />
                 </div>
-                <div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#163754", margin: "0 0 8px" }}>
+                <div className="contact-quick-card-body">
+                  <h3 className="contact-quick-card-title">
                     {labels.centralPhonesTitle}
                   </h3>
-                  <p style={{ margin: "0 0 5px", fontSize: "0.90rem", color: "#475569" }}>
+                  <p className="contact-quick-card-text">
                     Mönchengladbach:{" "}
-                    <a href="tel:+4921616782683" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>
+                    <a href="tel:+4921616782683" className="contact-quick-card-link">
                       02161 678 2683
                     </a>
                   </p>
-                  <p style={{ margin: "0 0 5px", fontSize: "0.90rem", color: "#475569" }}>
+                  <p className="contact-quick-card-text">
                     Viersen:{" "}
-                    <a href="tel:+4921621448720" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>
+                    <a href="tel:+4921621448720" className="contact-quick-card-link">
                       02162 144 8720
                     </a>
                   </p>
-                  <p style={{ margin: 0, fontSize: "0.90rem", color: "#475569" }}>
+                  <p className="contact-quick-card-text">
                     Düsseldorf:{" "}
-                    <a href="tel:+4921183025546" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>
+                    <a href="tel:+4921183025546" className="contact-quick-card-link">
                       0211 8302 5546
                     </a>
                   </p>
@@ -608,23 +597,23 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
               </div>
 
               {/* Card 3: E-Mail-Kontakt */}
-              <div style={{ background: "#ffffff", padding: "22px 26px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "18px", alignItems: "flex-start" }}>
-                <div style={{ width: "50px", height: "50px", borderRadius: "14px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <div className="contact-quick-card">
+                <div className="contact-quick-card-icon">
                   <Icon name="mail" size={24} />
                 </div>
-                <div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#163754", margin: "0 0 8px" }}>
+                <div className="contact-quick-card-body">
+                  <h3 className="contact-quick-card-title">
                     {labels.emailContactTitle}
                   </h3>
-                  <p style={{ margin: "0 0 5px", fontSize: "0.90rem", color: "#475569" }}>
+                  <p className="contact-quick-card-text">
                     {labels.generalInquiries}:{" "}
-                    <a href="mailto:info@nabiota-mvz.de" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>
+                    <a href="mailto:info@nabiota-mvz.de" className="contact-quick-card-link">
                       info@nabiota-mvz.de
                     </a>
                   </p>
-                  <p style={{ margin: 0, fontSize: "0.90rem", color: "#475569" }}>
+                  <p className="contact-quick-card-text">
                     {labels.practiceContact}:{" "}
-                    <a href="mailto:kontakt@my-bandscheibe.de" style={{ color: "#168BCB", fontWeight: 700, textDecoration: "none" }}>
+                    <a href="mailto:kontakt@my-bandscheibe.de" className="contact-quick-card-link">
                       kontakt@my-bandscheibe.de
                     </a>
                   </p>
@@ -632,19 +621,19 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
               </div>
 
               {/* Card 4: Notruf & Bereitschaft */}
-              <div style={{ background: "#ffffff", padding: "22px 26px", borderRadius: "20px", border: "1px solid rgba(22, 55, 84, 0.08)", boxShadow: "0 6px 20px rgba(22, 55, 84, 0.04)", display: "flex", gap: "18px", alignItems: "flex-start" }}>
-                <div style={{ width: "50px", height: "50px", borderRadius: "14px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <div className="contact-quick-card">
+                <div className="contact-quick-card-icon">
                   <Icon name="alert" size={24} />
                 </div>
-                <div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#163754", margin: "0 0 8px" }}>
+                <div className="contact-quick-card-body">
+                  <h3 className="contact-quick-card-title">
                     {labels.emergencyDutyTitle}
                   </h3>
-                  <p style={{ margin: "0 0 5px", fontSize: "0.90rem", color: "#475569" }}>
-                    {labels.medicalDuty}: <strong style={{ color: "#163754" }}>116 117</strong>
+                  <p className="contact-quick-card-text">
+                    {labels.medicalDuty}: <strong>116 117</strong>
                   </p>
-                  <p style={{ margin: 0, fontSize: "0.90rem", color: "#475569" }}>
-                    {labels.lifeThreatening}: <strong style={{ color: "#dc2626" }}>112</strong>
+                  <p className="contact-quick-card-text">
+                    {labels.lifeThreatening}: <strong className="contact-emergency-num">112</strong>
                   </p>
                 </div>
               </div>
@@ -655,15 +644,15 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
       </section>
 
       {/* ── 4. DETAILED BRANCH CARDS (Unsere 3 Praxisstandorte) ── */}
-      <section className="section" style={{ paddingBlock: "40px 60px" }}>
+      <section className="section contact-branches-section">
         <div className="container">
-          <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 40px" }}>
-            <h2 style={{ fontSize: "2.2rem", fontWeight: 800, color: "#163754", marginBottom: "12px" }}>
+          <div className="contact-branches-header">
+            <h2 className="contact-branches-title">
               {labels.branchesHeading}
             </h2>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+          <div className="contact-branches-stack">
             {branchLocations.map((b) => (
               <div key={b.city} className="branch-card">
                 {/* Left Column: Full Information from Legacy Website */}
@@ -698,7 +687,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                     </div>
                     <div className="info-content">
                       <h4>{labels.phone}</h4>
-                      <p style={{ marginBottom: "4px" }}>
+                      <p className="branch-phone-item">
                         {labels.forPatients}:{" "}
                         <a href={`tel:${b.patientPhoneUrl}`} className="branch-phone-link">
                           {b.patientPhone}
@@ -757,7 +746,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                     <div className="info-icon">
                       <Icon name="clock" size={22} />
                     </div>
-                    <div className="info-content" style={{ width: "100%" }}>
+                    <div className="info-content">
                       <h4>{labels.openingHours}</h4>
                       <table className="branch-hours-table">
                         <tbody>
@@ -801,12 +790,12 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                   </div>
 
                   {/* 7. Barrierefreier Zugang */}
-                  <div className="info-row" style={{ marginBottom: "28px" }}>
+                  <div className="info-row branch-accessibility-row">
                     <div className="info-icon">
                       <Icon name="check" size={20} />
                     </div>
                     <div className="info-content">
-                      <p style={{ fontWeight: 600 }}>{labels[b.accessibilityKey]}</p>
+                      <p>{labels[b.accessibilityKey]}</p>
                     </div>
                   </div>
 
@@ -874,15 +863,7 @@ export function ContactPageView({ locale }: ContactPageViewProps) {
                       />
                     </a>
                     <div>
-                      <p
-                        style={{
-                          color: "#334155",
-                          fontSize: "0.93rem",
-                          lineHeight: 1.5,
-                          margin: 0,
-                          maxWidth: "280px",
-                        }}
-                      >
+                      <p className="branch-qr-notice">
                         {labels.qrNotice}
                       </p>
                       <a

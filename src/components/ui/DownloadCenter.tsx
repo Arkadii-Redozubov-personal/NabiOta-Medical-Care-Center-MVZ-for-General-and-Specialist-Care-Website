@@ -144,8 +144,8 @@ export function DownloadCenter({
       {/* ── Document Rows List ── */}
       <div className="download-list-container">
         {displayedItems.length === 0 ? (
-          <div style={{ textAlign: "center", padding: "48px 24px", background: "#ffffff", borderRadius: "16px", border: "1px dashed #cbd5e1", margin: "20px 0" }}>
-            <p style={{ color: "#64748b", margin: 0, fontSize: "1rem" }}>
+          <div className="download-empty-state">
+            <p>
               {content.noResultsText}
             </p>
           </div>

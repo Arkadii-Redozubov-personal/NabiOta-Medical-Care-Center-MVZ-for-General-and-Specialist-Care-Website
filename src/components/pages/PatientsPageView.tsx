@@ -518,24 +518,16 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
           />
         </div>
 
-        <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+        <div className="container">
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
               <h1 className="h1">{content.hero.title}</h1>
               <p className="lead">{content.hero.lead}</p>
 
-              <div style={{ marginTop: "24px" }}>
+              <div className="patient-hero-cta">
                 <Link
                   href={localePath(locale, "kontakt")}
-                  className="btn btn--primary"
-                  style={{
-                    padding: "12px 28px",
-                    borderRadius: "9999px",
-                    fontSize: "0.95rem",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                  }}
+                  className="btn btn--primary patient-hero-btn"
                 >
                   <span>{pageData.heroCta}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
@@ -588,7 +580,7 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
               </div>
 
               {/* Standalone Language & Mobility Assistance Banner */}
-              <div className="patient-ref-assist-banner" style={{ marginTop: "20px" }}>
+              <div className="patient-ref-assist-banner">
                 <div className="patient-ref-assist-left">
                   <div className="patient-ref-assist-icon">
                     <UserAvatarIcon size={22} />
@@ -624,28 +616,28 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
                   </div>
                 </div>
                 <div className="patient-ref-findings-content">
-                  <h3 className="patient-ref-title" style={{ fontSize: "1.45rem" }}>
+                  <h3 className="patient-ref-title">
                     {pageData.findings.title}
                   </h3>
                   <p className="patient-ref-card-p">{pageData.findings.p1}</p>
                   <p className="patient-ref-card-p">{pageData.findings.p2}</p>
-                  <p className="patient-ref-card-p" style={{ fontSize: "0.88rem", color: "#64748b" }}>{pageData.findings.p3}</p>
+                  <p className="patient-ref-card-p patient-ref-card-muted">{pageData.findings.p3}</p>
                 </div>
               </div>
 
               {/* Right Card: Rezepte und Überweisungen */}
               <div className="patient-ref-card-prescriptions">
-                <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                  <div className="patient-ref-circle-icon" style={{ width: "50px", height: "50px" }}>
+                <div className="patient-card-header">
+                  <div className="patient-ref-circle-icon">
                     <PrescriptionDocIcon size={24} />
                   </div>
-                  <h3 className="patient-ref-title" style={{ fontSize: "1.45rem" }}>
+                  <h3 className="patient-ref-title">
                     {pageData.prescriptions.title}
                   </h3>
                 </div>
                 <p className="patient-ref-card-p">{pageData.prescriptions.p1}</p>
                 <p className="patient-ref-card-p">{pageData.prescriptions.p2}</p>
-                <p className="patient-ref-card-p" style={{ fontSize: "0.88rem", color: "#64748b" }}>{pageData.prescriptions.p3}</p>
+                <p className="patient-ref-card-p patient-ref-card-muted">{pageData.prescriptions.p3}</p>
               </div>
             </section>
 
@@ -653,11 +645,11 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
             <section className="patient-ref-grid-info-cost" aria-label="Informationen und Versicherung">
               {/* Left Card: Informationen vor Untersuchungen */}
               <div className="patient-ref-card-info">
-                <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                  <div className="patient-ref-circle-icon" style={{ width: "48px", height: "48px" }}>
+                <div className="patient-card-header">
+                  <div className="patient-ref-circle-icon">
                     <CalendarEventIcon size={24} />
                   </div>
-                  <h3 className="patient-ref-title" style={{ fontSize: "1.35rem" }}>
+                  <h3 className="patient-ref-title">
                     {pageData.info.title}
                   </h3>
                 </div>
@@ -676,11 +668,11 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
 
               {/* Right Card: Kosten und Versicherung */}
               <div className="patient-ref-card-cost">
-                <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                  <div className="patient-ref-circle-icon" style={{ width: "48px", height: "48px" }}>
+                <div className="patient-card-header">
+                  <div className="patient-ref-circle-icon">
                     <ShieldCrossIcon size={24} />
                   </div>
-                  <h3 className="patient-ref-title" style={{ fontSize: "1.35rem" }}>
+                  <h3 className="patient-ref-title">
                     {pageData.cost.title}
                   </h3>
                 </div>
@@ -715,11 +707,11 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
 
             {/* ── Section: Download Center (Preserved as requested) ── */}
             <section className="patient-ref-section-downloads" id="downloads" aria-label={content.downloadCenter.title}>
-              <div className="patient-ref-section-header" style={{ marginBottom: "28px" }}>
+              <div className="patient-ref-section-header patient-section-header-mb">
                 <h2 className="patient-ref-title">
                   {content.downloadCenter.title}
                 </h2>
-                <p style={{ color: "#547596", marginTop: "10px", fontSize: "1rem", maxWidth: "780px" }}>
+                <p className="patient-section-desc">
                   {content.downloadCenter.desc}
                 </p>
               </div>
@@ -729,44 +721,26 @@ export function PatientsPageView({ locale }: PatientsPageViewProps) {
 
             {/* ── Section: FAQ Accordion (Preserved as requested) ──── */}
             <section className="patient-ref-section-faq" id="faq" aria-label={content.faq.title}>
-              <div className="patient-ref-section-header" style={{ marginBottom: "28px" }}>
+              <div className="patient-ref-section-header patient-section-header-mb">
                 <h2 className="patient-ref-title">
                   {content.faq.title}
                 </h2>
-                <p style={{ color: "#547596", marginTop: "10px", fontSize: "1rem", maxWidth: "780px" }}>
+                <p className="patient-section-desc">
                   {content.faq.desc}
                 </p>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <div className="patient-faq-list">
                 {content.faq.items.map((fq, fIdx) => (
                   <details
                     key={fIdx}
-                    style={{
-                      background: "#ffffff",
-                      border: "1px solid rgba(22, 55, 84, 0.08)",
-                      borderRadius: "18px",
-                      padding: "20px 24px",
-                      boxShadow: "0 4px 16px rgba(22, 55, 84, 0.03)",
-                      transition: "box-shadow 0.2s ease",
-                    }}
+                    className="patient-faq-item"
                   >
-                    <summary
-                      style={{
-                        fontWeight: 800,
-                        fontSize: "1.06rem",
-                        color: "#163754",
-                        cursor: "pointer",
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        listStyle: "none",
-                      }}
-                    >
+                    <summary className="patient-faq-summary">
                       <span>{fq.q}</span>
-                      <span style={{ color: "#168BCB", fontSize: "1.3rem", fontWeight: 700, marginLeft: "14px" }}>+</span>
+                      <span className="patient-faq-plus">+</span>
                     </summary>
-                    <p style={{ color: "#547596", fontSize: "0.95rem", lineHeight: 1.65, marginTop: "14px", marginBottom: 0 }}>
+                    <p className="patient-faq-answer">
                       {fq.a}
                     </p>
                   </details>

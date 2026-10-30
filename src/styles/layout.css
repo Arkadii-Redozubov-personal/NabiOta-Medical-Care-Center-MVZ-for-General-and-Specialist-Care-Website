@@ -32,3 +32,14 @@
   margin: 0;
   overflow-x: hidden;
 }
+
+.global-not-found-wrapper {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.global-not-found-link {
+  color: #219DD8;
+  text-decoration: underline;
+}
+

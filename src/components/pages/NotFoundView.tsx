@@ -3,6 +3,7 @@ import Link from "next/link";
 import { type Locale, locales, localeLabels, localePath } from "@/lib/i18n";
 import { getDictionary } from "@/dictionaries";
 import { Icon } from "@/components/ui/Icon";
+import styles from "./NotFoundView.module.css";
 
 interface NotFoundViewProps {
   locale?: Locale;
@@ -12,13 +13,13 @@ export function NotFoundView({ locale = "de" }: NotFoundViewProps) {
   const dict = getDictionary(locale);
 
   return (
-    <div className="not-found">
-      <div style={{ maxWidth: "600px" }}>
-        <span className="not-found__code">404</span>
-        <h1 className="h2" style={{ marginBlock: "1rem 0.5rem" }}>
+    <div className={styles.notFound}>
+      <div className={styles.notFoundContent}>
+        <span className={styles.notFoundCode}>404</span>
+        <h1 className={`h2 ${styles.notFoundTitle}`}>
           {dict.notFound.title}
         </h1>
-        <p className="lead" style={{ marginBlockEnd: "2rem" }}>
+        <p className={`lead ${styles.notFoundLead}`}>
           {dict.notFound.text}
         </p>
 
@@ -27,13 +28,12 @@ export function NotFoundView({ locale = "de" }: NotFoundViewProps) {
           <span>{dict.notFound.cta}</span>
         </Link>
 
-        <div className="not-found__langs">
+        <div className={styles.notFoundLangs}>
           {locales.map((l) => (
             <Link
               key={l}
               href={localePath(l, "")}
-              className="pill"
-              style={{ background: "var(--white)", border: "1px solid var(--border)" }}
+              className={`pill ${styles.langPill}`}
             >
               {localeLabels[l].native} ({localeLabels[l].short})
             </Link>

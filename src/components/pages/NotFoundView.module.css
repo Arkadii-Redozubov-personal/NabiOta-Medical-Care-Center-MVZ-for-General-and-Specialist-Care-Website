@@ -1,0 +1,43 @@
+.notFound {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2rem;
+  background:
+    radial-gradient(800px 400px at 50% 0%, rgb(33 157 216 / 0.16), transparent 60%),
+    var(--bg);
+}
+
+.notFoundContent {
+  max-width: 600px;
+}
+
+.notFoundCode {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(6rem, 18vw, 11rem);
+  line-height: 1;
+  color: var(--primary);
+}
+
+.notFoundTitle {
+  margin-block: 1rem 0.5rem;
+}
+
+.notFoundLead {
+  margin-block-end: 2rem;
+}
+
+.notFoundLangs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-start: 2rem;
+}
+
+.langPill {
+  background: var(--white);
+  border: 1px solid var(--border);
+}

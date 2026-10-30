@@ -14,7 +14,6 @@
 /* ── 2. Shared Shell & Layout Components ────────────────────────────────── */
 @import "../styles/navigation.css";
 @import "../styles/hero.css";
-@import "../styles/footer.css";
 
 /* ── 3. Shared UI Components ────────────────────────────────────────────── */
 @import "../styles/components/downloads.css";
@@ -29,4 +28,6 @@
 @import "../styles/pages/neurology.css";
 @import "../styles/pages/endocrinology.css";
 @import "../styles/pages/patients.css";
+@import "../styles/pages/about.css";
 @import "../styles/pages/contact.css";
+@import "../styles/pages/legal.css";

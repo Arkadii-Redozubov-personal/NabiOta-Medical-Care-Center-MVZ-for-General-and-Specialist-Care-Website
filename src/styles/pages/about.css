@@ -1,0 +1,382 @@
+/* ==========================================================================
+   About Page Styles
+   ========================================================================== */
+
+/* ── 1. Features Row (4 Items) ───────────────────────────────────────────── */
+.about-features-section {
+  padding-block: 40px 20px;
+}
+
+.about-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.about-feature-card {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  box-shadow: 0 4px 16px rgba(22, 55, 84, 0.04);
+}
+
+.about-feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(33, 157, 216, 0.1);
+  color: #168BCB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-feature-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #163754;
+  margin-bottom: 4px;
+}
+
+.about-feature-desc {
+  font-size: 0.88rem;
+  color: #547596;
+  line-height: 1.5;
+}
+
+/* ── 2. Philosophy Block ─────────────────────────────────────────────────── */
+.about-philosophy-section {
+  padding-block: 50px 40px;
+}
+
+.about-philosophy-row {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.about-philosophy-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-philosophy-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #168BCB;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.about-philosophy-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #163754;
+}
+
+.about-philosophy-title span {
+  color: #168BCB;
+}
+
+.about-philosophy-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #547596;
+  margin-bottom: 16px;
+}
+
+.about-philosophy-desc:last-of-type {
+  margin-bottom: 0;
+}
+
+.about-philosophy-visual {
+  flex: 0 0 440px;
+  max-width: 100%;
+}
+
+.about-philosophy-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(22, 55, 84, 0.12);
+}
+
+.about-philosophy-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.about-philosophy-card {
+  background: #F4FAFD;
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid rgba(33, 157, 216, 0.2);
+}
+
+.about-philosophy-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #168BCB;
+  box-shadow: 0 4px 14px rgba(33, 157, 216, 0.15);
+  margin-bottom: 18px;
+}
+
+.about-philosophy-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #163754;
+  margin-bottom: 10px;
+}
+
+.about-philosophy-card-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #547596;
+  margin: 0;
+}
+
+/* ── 3. Doctor Showcase (Dr. Kasim Fischer) ──────────────────────────────── */
+.about-doctor-section {
+  padding-block: 50px 60px;
+  background: #F8FBFE;
+}
+
+.about-doctor-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  box-shadow: 0 12px 32px rgba(22, 55, 84, 0.06);
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.about-doctor-photo-col {
+  flex: 0 0 280px;
+  max-width: 100%;
+}
+
+.about-doctor-photo {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.about-doctor-info-col {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-doctor-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.about-doctor-name {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #163754;
+  margin: 0;
+}
+
+.about-doctor-tag {
+  background: rgba(33, 157, 216, 0.1);
+  color: #168BCB;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.about-doctor-role {
+  color: #168BCB;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.about-doctor-membership {
+  font-size: 0.85rem;
+  color: #547596;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.about-doctor-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #475569;
+  fontSize: 0.92rem;
+  line-height: 1.55;
+}
+
+.about-doctor-bullet {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.about-doctor-bullet-dot {
+  color: #168BCB;
+  font-weight: 700;
+}
+
+/* ── 4. Team Slider Section ──────────────────────────────────────────────── */
+.about-team-section {
+  padding-block: 70px 80px;
+}
+
+/* ── 5. Languages Section ────────────────────────────────────────────────── */
+.about-languages-section {
+  margin-bottom: 50px;
+}
+
+.about-languages-card {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 6px 24px rgba(22, 55, 84, 0.05);
+  text-align: center;
+}
+
+.about-languages-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(33, 157, 216, 0.1);
+  color: #168BCB;
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+
+.about-languages-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #163754;
+  margin: 0 0 12px;
+}
+
+.about-languages-lead {
+  color: #547596;
+  max-width: 700px;
+  margin: 0 auto 24px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.about-languages-list {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #168BCB;
+  padding: 14px 24px;
+  background: rgba(33, 157, 216, 0.06);
+  border-radius: 14px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* ── 6. Career CTA Section ───────────────────────────────────────────────── */
+.about-career-section {
+  margin-bottom: 80px;
+}
+
+.about-career-card {
+  background: linear-gradient(135deg, #163754 0%, #168BCB 100%);
+  border-radius: 24px;
+  padding: 48px 40px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  box-shadow: 0 16px 40px rgba(22, 55, 84, 0.16);
+}
+
+.about-career-content {
+  max-width: 650px;
+}
+
+.about-career-tag {
+  color: #C8A858;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.about-career-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 8px 0 16px;
+}
+
+.about-career-lead {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-career-btn {
+  background: #ffffff !important;
+  color: #163754 !important;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 99px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-career-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .about-doctor-card {
+    padding: 24px;
+  }
+  .about-career-card {
+    padding: 32px 24px;
+  }
+}

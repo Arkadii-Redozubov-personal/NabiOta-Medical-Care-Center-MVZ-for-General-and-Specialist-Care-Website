@@ -30,7 +30,7 @@ export function CareerPageView({ locale }: CareerPageViewProps) {
           />
         </div>
 
-        <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+        <div className="container">
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
               <h1 className="h1">{page.hero.title}</h1>
@@ -115,11 +115,11 @@ export function CareerPageView({ locale }: CareerPageViewProps) {
             ))}
           </div>
 
-          <div className="card glass" style={{ marginBlockStart: "2.5rem", textAlign: "center", padding: "2.5rem" }}>
-            <h3 className="h2" style={{ fontSize: "1.45rem", marginBlockEnd: "0.5rem" }}>
+          <div className="card glass career-apply-card">
+            <h3 className="h2 career-apply-title">
               {page.apply.title}
             </h3>
-            <p style={{ color: "var(--slate)", marginBlockEnd: "1.5rem" }}>{page.apply.text}</p>
+            <p className="career-apply-text">{page.apply.text}</p>
             <Link href={localePath(locale, "kontakt")} className="btn btn--primary">
               <Icon name="mail" size={18} />
               <span>{page.apply.cta}</span>

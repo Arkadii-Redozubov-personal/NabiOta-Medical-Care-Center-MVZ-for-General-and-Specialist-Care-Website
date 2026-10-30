@@ -2958,4 +2958,293 @@ html, body {
   transform: scaleX(-1);
 }
 
+/* ==========================================================================
+   Home Cleaned Component Styles
+   ========================================================================== */
+
+/* Hero tweaks */
+.hero-bg-slide {
+  background-image: url('/img/home/hero_reception.webp');
+  opacity: 1;
+}
+.hero-main .hero-desc {
+  margin-top: 24px;
+  margin-bottom: 36px;
+}
+.hero-main .trusted-expertise {
+  margin-top: 48px;
+}
+
+/* Feature Treatments Header */
+.section-header {
+  margin-bottom: 32px;
+}
+.section-header .section-title {
+  margin-bottom: 8px;
+}
+.section-header .section-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+}
+.section-header .btn-dark {
+  align-self: flex-start;
+}
+
+/* About Us Section */
+.about-section {
+  padding-bottom: 36px;
+}
+.about-title {
+  margin-bottom: 24px;
+  font-size: 2.8rem;
+  line-height: 1.2;
+  max-width: 900px;
+}
+.about-text-content {
+  max-width: 72ch;
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: #334155;
+}
+.about-text-content p {
+  margin-bottom: 18px;
+}
+.about-text-content p:last-child {
+  margin-bottom: 0;
+}
+.about-divider {
+  border: 0;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 36px 0 32px 0;
+}
+.about-stats-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.about-stats-content {
+  width: 100%;
+  max-width: 600px;
+}
+.about-stats-row {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.about-stats-row .stat-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.about-stats-row .stat-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+.doctor-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+.doctor-profile .doc-info h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.doctor-profile .doc-info p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  max-width: 60ch;
+}
+.about-praxis-img {
+  width: 380px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+/* Standorte Container padding override */
+.home-branches-container.standorte-section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* How It Works & Steps Grid */
+.how-it-works .steps-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+@media (max-width: 768px) {
+  .how-it-works .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Direct Message Form */
+.direct-message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 40px auto 80px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 48px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 800px;
+  width: 100%;
+}
+.direct-message-form-title {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+}
+.direct-message-success {
+  text-align: center;
+  padding: 32px;
+  background: rgba(33, 157, 216, 0.2);
+  border-radius: 12px;
+  color: #ffffff;
+}
+.direct-message-success h4 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+.direct-message-form input,
+.direct-message-form textarea,
+.direct-message-form select {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.direct-message-form select {
+  background: #163754;
+}
+.direct-message-form textarea {
+  resize: vertical;
+}
+.direct-message-privacy {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  color: #ffffff;
+  margin: 4px 0 12px;
+  text-wrap: pretty;
+}
+.direct-message-error {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+}
+.direct-message-submit {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  border-radius: 99px;
+  font-family: inherit;
+}
+.direct-message-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.honeypot-field {
+  display: none !important;
+}
+
+/* Testimonials */
+.testimonials-section .testimonial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(33, 157, 216, 0.08);
+  border: 1px solid rgba(33, 157, 216, 0.2);
+  padding: 8px 18px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+}
+.testimonials-section .testimonial-badge span {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #163754;
+}
+.testimonials-section .section-title {
+  margin: 0 auto 16px;
+}
+.testimonials-section .rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #475569;
+}
+.testimonials-section .rating-stars {
+  color: #f59e0b;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}
+.testimonials-section .rating-score {
+  color: #163754;
+  font-weight: 800;
+}
+.testimonial-card:nth-child(3n+1) .author-avatar-badge {
+  background: #0e699b;
+}
+.testimonial-card:nth-child(3n+2) .author-avatar-badge {
+  background: #163754;
+}
+.testimonial-card:nth-child(3n+3) .author-avatar-badge {
+  background: #0f5982;
+}
+
+/* FAQ */
+.faq-section .section-title {
+  margin: 0 auto 48px;
+  color: #ffffff;
+}
+.faq-question {
+  cursor: pointer;
+}
+
+/* Fullwidth CTA */
+.cta-fullwidth {
+  background: linear-gradient(135deg, #163754 0%, #168BCB 100%);
+  padding: 100px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+.cta-fullwidth .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cta-fullwidth .cta-desc {
+  max-width: 65ch;
+  margin: 0 auto 32px;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+.cta-fullwidth .btn-outline-white svg {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+
 

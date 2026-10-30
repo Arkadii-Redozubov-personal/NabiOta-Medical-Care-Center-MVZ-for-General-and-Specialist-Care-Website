@@ -30,7 +30,7 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
           />
         </div>
 
-        <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+        <div className="container">
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
               <h1 className="h1">{content.hero.title}</h1>
@@ -74,43 +74,19 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
       </section>
 
       {/* ── 2. Feature Row (4 Items) ───────────────────── */}
-      <section className="section" style={{ paddingBlock: "40px 20px" }}>
+      <section className="section about-features-section">
         <div className="container">
-          <div className="feature-row-4" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px" }}>
+          <div className="about-features-grid">
             {content.features.map((feat, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid rgba(22, 55, 84, 0.08)",
-                  borderRadius: "16px",
-                  padding: "24px",
-                  display: "flex",
-                  gap: "16px",
-                  alignItems: "flex-start",
-                  boxShadow: "0 4px 16px rgba(22, 55, 84, 0.04)",
-                }}
-              >
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    background: "rgba(33, 157, 216, 0.1)",
-                    color: "#168BCB",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
+              <div key={idx} className="about-feature-card">
+                <div className="about-feature-icon">
                   <Icon name={feat.icon as any} size={22} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: "1.05rem", color: "#163754", marginBottom: "4px" }}>
+                  <div className="about-feature-title">
                     {feat.title}
                   </div>
-                  <div style={{ fontSize: "0.88rem", color: "#547596", lineHeight: 1.5 }}>
+                  <div className="about-feature-desc">
                     {feat.desc}
                   </div>
                 </div>
@@ -121,29 +97,27 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
       </section>
 
       {/* ── 3. Praxis Philosophy Block ─────────────────── */}
-      <section className="section" style={{ paddingBlock: "50px 40px" }}>
+      <section className="section about-philosophy-section">
         <div className="container">
-          <div style={{ display: "flex", gap: "48px", alignItems: "center", marginBottom: "48px", flexWrap: "wrap" }}>
-            <div style={{ flex: 1, minWidth: "300px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
-                <span style={{ fontSize: "0.8rem", fontWeight: 800, letterSpacing: "2px", color: "#168BCB" }}>
-                  {content.philosophy.tag}
-                </span>
-              </div>
-              <h2 style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "24px", color: "#163754" }}>
+          <div className="about-philosophy-row">
+            <div className="about-philosophy-text">
+              <span className="about-philosophy-tag">
+                {content.philosophy.tag}
+              </span>
+              <h2 className="about-philosophy-title">
                 {content.philosophy.heading}<br />
-                <span style={{ color: "#168BCB" }}>{content.philosophy.headingSpan}</span>
+                <span>{content.philosophy.headingSpan}</span>
               </h2>
-              <p style={{ fontSize: "1.05rem", lineHeight: 1.8, color: "#547596", marginBottom: "16px" }}>
+              <p className="about-philosophy-desc">
                 {content.philosophy.desc1}
               </p>
-              <p style={{ fontSize: "1.05rem", lineHeight: 1.8, color: "#547596", margin: 0 }}>
+              <p className="about-philosophy-desc">
                 {content.philosophy.desc2}
               </p>
             </div>
 
-            <div style={{ flex: "0 0 440px", maxWidth: "100%" }}>
-              <div style={{ position: "relative", width: "100%", height: "360px", borderRadius: "24px", overflow: "hidden", boxShadow: "0 16px 40px rgba(22, 55, 84, 0.12)" }}>
+            <div className="about-philosophy-visual">
+              <div className="about-philosophy-img-wrapper">
                 <Image
                   src="/img/about/consultation.webp"
                   alt={content.philosophy.heading}
@@ -156,27 +130,27 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
           </div>
 
           {/* Two Philosophy Cards */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "28px" }}>
-            <div style={{ background: "#F4FAFD", borderRadius: "20px", padding: "32px 28px", border: "1px solid rgba(33, 157, 216, 0.2)" }}>
-              <div style={{ width: "52px", height: "52px", borderRadius: "14px", background: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", color: "#168BCB", boxShadow: "0 4px 14px rgba(33, 157, 216, 0.15)", marginBottom: "18px" }}>
+          <div className="about-philosophy-cards-grid">
+            <div className="about-philosophy-card">
+              <div className="about-philosophy-card-icon">
                 <Icon name="shield" size={24} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#163754", marginBottom: "10px" }}>
+              <h3 className="about-philosophy-card-title">
                 {content.philosophy.card1.title}
               </h3>
-              <p style={{ fontSize: "0.95rem", lineHeight: 1.65, color: "#547596", margin: 0 }}>
+              <p className="about-philosophy-card-text">
                 {content.philosophy.card1.text}
               </p>
             </div>
 
-            <div style={{ background: "#F4FAFD", borderRadius: "20px", padding: "32px 28px", border: "1px solid rgba(33, 157, 216, 0.2)" }}>
-              <div style={{ width: "52px", height: "52px", borderRadius: "14px", background: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", color: "#168BCB", boxShadow: "0 4px 14px rgba(33, 157, 216, 0.15)", marginBottom: "18px" }}>
+            <div className="about-philosophy-card">
+              <div className="about-philosophy-card-icon">
                 <Icon name="pulse" size={24} />
               </div>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#163754", marginBottom: "10px" }}>
+              <h3 className="about-philosophy-card-title">
                 {content.philosophy.card2.title}
               </h3>
-              <p style={{ fontSize: "0.95rem", lineHeight: 1.65, color: "#547596", margin: 0 }}>
+              <p className="about-philosophy-card-text">
                 {content.philosophy.card2.text}
               </p>
             </div>
@@ -185,53 +159,41 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
       </section>
 
       {/* ── 4. Doctor Showcase (Dr. Kasim Fischer) ─────── */}
-      <section className="section" style={{ paddingBlock: "50px 60px", background: "#F8FBFE" }}>
+      <section className="section about-doctor-section">
         <div className="container">
-          <div
-            style={{
-              background: "#ffffff",
-              borderRadius: "24px",
-              padding: "40px",
-              border: "1px solid rgba(22, 55, 84, 0.08)",
-              boxShadow: "0 12px 32px rgba(22, 55, 84, 0.06)",
-              display: "flex",
-              gap: "40px",
-              alignItems: "flex-start",
-              flexWrap: "wrap",
-            }}
-          >
-            <div style={{ flex: "0 0 280px", maxWidth: "100%" }}>
+          <div className="about-doctor-card">
+            <div className="about-doctor-photo-col">
               <Image
                 src="/img/team/surgeon1.webp"
                 alt={content.fischer.name}
                 width={320}
                 height={380}
-                style={{ width: "100%", height: "350px", objectFit: "cover", borderRadius: "18px", boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
+                className="about-doctor-photo"
               />
             </div>
 
-            <div style={{ flex: 1, minWidth: "300px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "8px" }}>
-                <h3 style={{ fontSize: "2rem", fontWeight: 800, color: "#163754", margin: 0 }}>
+            <div className="about-doctor-info-col">
+              <div className="about-doctor-header">
+                <h3 className="about-doctor-name">
                   {content.fischer.name}
                 </h3>
-                <span style={{ background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", padding: "4px 12px", borderRadius: "99px", fontSize: "0.8rem", fontWeight: 700 }}>
+                <span className="about-doctor-tag">
                   {content.fischer.roleTag}
                 </span>
               </div>
 
-              <div style={{ color: "#168BCB", fontWeight: 700, fontSize: "0.95rem", marginBottom: "12px" }}>
+              <div className="about-doctor-role">
                 {content.fischer.roleFull}
               </div>
 
-              <div style={{ fontSize: "0.85rem", color: "#547596", fontStyle: "italic", marginBottom: "20px" }}>
+              <div className="about-doctor-membership">
                 {content.fischer.membership}
               </div>
 
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px", color: "#475569", fontSize: "0.92rem", lineHeight: 1.55 }}>
+              <ul className="about-doctor-bullets">
                 {content.fischer.bullets.map((bullet, idx) => (
-                  <li key={idx} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
-                    <span style={{ color: "#168BCB", fontWeight: 700 }}>•</span>
+                  <li key={idx} className="about-doctor-bullet">
+                    <span className="about-doctor-bullet-dot">•</span>
                     <span>{bullet}</span>
                   </li>
                 ))}
@@ -242,47 +204,47 @@ export function AboutPageView({ locale }: AboutPageViewProps) {
       </section>
 
       {/* ── 5. Praxisteam Slider (wie auf Legacy) ────────── */}
-      <section className="section" style={{ paddingBlock: "70px 80px" }}>
+      <section className="section about-team-section">
         <div className="container">
           <TeamSlider locale={locale} />
         </div>
       </section>
 
       {/* ── 6. Mehrsprachigkeit ("Wir sprechen Ihre Sprache") ── */}
-      <section className="container" style={{ marginBottom: "50px" }}>
-        <div style={{ background: "#ffffff", border: "1px solid rgba(22, 55, 84, 0.08)", borderRadius: "20px", padding: "36px", boxShadow: "0 6px 24px rgba(22, 55, 84, 0.05)", textAlign: "center" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(33, 157, 216, 0.1)", color: "#168BCB", padding: "6px 16px", borderRadius: "99px", fontWeight: 700, fontSize: "0.85rem", marginBottom: "16px" }}>
+      <section className="container about-languages-section">
+        <div className="about-languages-card">
+          <div className="about-languages-badge">
             <Icon name="globe" size={16} />
             <span>{content.languages.tag}</span>
           </div>
-          <h2 style={{ fontSize: "2rem", fontWeight: 800, color: "#163754", margin: "0 0 12px" }}>
+          <h2 className="about-languages-title">
             {content.languages.title}
           </h2>
-          <p style={{ color: "#547596", maxWidth: "700px", margin: "0 auto 24px", fontSize: "1rem", lineHeight: 1.6 }}>
+          <p className="about-languages-lead">
             {content.languages.lead}
           </p>
-          <div style={{ fontSize: "1.15rem", fontWeight: 700, color: "#168BCB", padding: "14px 24px", background: "rgba(33, 157, 216, 0.06)", borderRadius: "14px", display: "inline-block", maxWidth: "100%" }}>
+          <div className="about-languages-list">
             {content.languages.list}
           </div>
         </div>
       </section>
 
       {/* ── 7. Join Our Team CTA ───────────────────────── */}
-      <section className="container" style={{ marginBottom: "80px" }}>
-        <div style={{ background: "linear-gradient(135deg, #163754 0%, #168BCB 100%)", borderRadius: "24px", padding: "48px 40px", color: "#ffffff", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "32px", boxShadow: "0 16px 40px rgba(22, 55, 84, 0.16)" }}>
-          <div style={{ maxWidth: "650px" }}>
-            <span style={{ color: "#C8A858", fontWeight: 800, fontSize: "0.85rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+      <section className="container about-career-section">
+        <div className="about-career-card">
+          <div className="about-career-content">
+            <span className="about-career-tag">
               {content.career.tag}
             </span>
-            <h2 style={{ fontSize: "2.2rem", fontWeight: 800, color: "#ffffff", margin: "8px 0 16px" }}>
+            <h2 className="about-career-title">
               {content.career.title}
             </h2>
-            <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "1.05rem", lineHeight: 1.6, margin: 0 }}>
+            <p className="about-career-lead">
               {content.career.lead}
             </p>
           </div>
           <div>
-            <Link href={localePath(locale, "kontakt")} className="btn btn--white" style={{ background: "#ffffff", color: "#163754", fontWeight: 700, padding: "16px 32px", borderRadius: "99px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "1rem" }}>
+            <Link href={localePath(locale, "kontakt")} className="btn btn--white about-career-btn">
               <span>{content.career.btn}</span>
               <span>→</span>
             </Link>

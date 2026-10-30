@@ -386,9 +386,9 @@ export function GeneralMedicineServicesShowcase({
 
       {/* Subtle services footnote matching reference */}
       {servicesNote && (
-        <div className="specialty-services-note" style={{ marginTop: "28px" }}>
+        <div className="specialty-services-note specialty-services-note--showcase">
           <div className="specialty-services-note-left">
-            <Icon name="info" size={18} style={{ color: "#219DD8", flexShrink: 0 }} />
+            <Icon name="info" size={18} className="specialty-services-note-icon" />
             <span>{servicesNote}</span>
           </div>
           {/* Subtle decorative ECG line matching reference */}
@@ -402,7 +402,7 @@ export function GeneralMedicineServicesShowcase({
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
-            style={{ flexShrink: 0 }}
+            className="specialty-services-note-ecg"
           >
             <path d="M0 14h42l4-8 6 18 6-20 5 14 5-4h62" />
           </svg>

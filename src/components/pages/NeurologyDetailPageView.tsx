@@ -437,35 +437,18 @@ export function NeurologyDetailPageView({
           />
         </div>
 
-        <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+        <div className="container">
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
               <h1 className="h1">{richData ? richData.title : specData.name}</h1>
-              <p
-                className="lead"
-                style={{
-                  margin: "14px 0 0",
-                  color: "rgba(255, 255, 255, 0.94)",
-                  fontSize: "1.15rem",
-                  lineHeight: 1.65,
-                  maxWidth: "840px",
-                }}
-              >
+              <p className="lead page-hero-lead">
                 {richData?.heroDescription || specData.short || specData.intro}
               </p>
 
-              <div style={{ marginTop: "24px" }}>
+              <div className="page-hero-grid__cta">
                 <Link
                   href={localePath(locale, "kontakt")}
-                  className="btn btn--primary"
-                  style={{
-                    padding: "12px 28px",
-                    borderRadius: "9999px",
-                    fontSize: "0.95rem",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                  }}
+                  className="btn btn--primary page-hero-btn"
                 >
                   <span>{appointmentButtonText[locale]}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>

@@ -900,4 +900,236 @@ html[dir="rtl"] .link-arrow:hover svg {
   }
 }
 
+/* ── Specialties Hub Page Styles ────────────────────────────────────────── */
+.specialty-hero-btn {
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 
+.specialties-overview-section {
+  padding-block: 60px 80px;
+}
+
+.specialties-overview-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.specialties-overview-header .section-title {
+  margin: 8px auto;
+}
+
+.specialties-overview-sub {
+  color: #547596;
+  max-width: 650px;
+  margin: 12px auto 0;
+  font-size: 1.05rem;
+}
+
+.specialties-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.specialty-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  box-shadow: 0 6px 24px rgba(22, 55, 84, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.specialty-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(22, 55, 84, 0.1);
+}
+
+.specialty-card-img-wrap {
+  height: 220px;
+  position: relative;
+}
+
+.specialty-card-icon-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(22, 55, 84, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.specialty-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.specialty-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #163754;
+  margin-bottom: 8px;
+}
+
+.specialty-card-desc {
+  color: #547596;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.specialty-card-focus-wrap {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.specialty-card-focus-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #168BCB;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.specialty-card-focus-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.specialty-card-focus-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.specialty-card-check {
+  color: #168BCB;
+}
+
+.specialty-card-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 12px;
+  font-size: 0.92rem;
+}
+
+.specialties-cta-section {
+  margin-bottom: 80px;
+}
+
+.specialties-cta-card {
+  background: linear-gradient(135deg, #163754 0%, #168BCB 100%);
+  border-radius: 24px;
+  padding: 48px 40px;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(22, 55, 84, 0.16);
+}
+
+.specialties-cta-tag {
+  color: #C8A858;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.specialties-cta-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 10px auto 16px;
+  max-width: 700px;
+}
+
+.specialties-cta-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+.specialties-cta-btn-wrap {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.specialties-cta-btn {
+  background: #ffffff !important;
+  color: #163754 !important;
+  padding: 16px 32px;
+  border-radius: 99px;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.specialties-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.specialty-detail-section {
+  padding: 60px 0 90px;
+}
+
+.specialty-treatment-text {
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 6px 0 0;
+}
+
+.specialty-treatment-text p {
+  margin: 0 0 10px;
+}
+
+.specialty-treatment-text p:last-child {
+  margin-bottom: 0;
+}
+
+.specialty-checklist-check {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.specialty-services-note-icon {
+  color: #219DD8;
+  flex-shrink: 0;
+}
+
+.specialty-services-note-ecg {
+  flex-shrink: 0;
+}
+
+.specialty-services-note--showcase {
+  margin-top: 28px;
+}

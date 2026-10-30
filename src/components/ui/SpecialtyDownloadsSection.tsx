@@ -248,32 +248,17 @@ export function SpecialtyDownloadsSection({
   };
 
   return (
-    <div className="specialty-downloads-wrapper" style={{ width: "100%", textAlign: "start" }}>
-      <div style={{ textAlign: "start", marginBottom: "32px" }}>
-        <h2
-          className="section-title"
-          style={{
-            margin: "0 0 12px",
-            textAlign: "start",
-          }}
-        >
+    <div className="specialty-downloads-wrapper">
+      <div className="specialty-downloads-header">
+        <h2 className="section-title">
           {title || defaultTitle}
         </h2>
-        <p
-          style={{
-            color: "#547596",
-            maxWidth: "840px",
-            margin: 0,
-            fontSize: "1.02rem",
-            lineHeight: 1.6,
-            textAlign: "start",
-          }}
-        >
+        <p>
           {subtitle || defaultSubtitle}
         </p>
       </div>
 
-      <div className="download-list-container" style={{ width: "100%" }}>
+      <div className="download-list-container">
         {items.map((item) => (
           <DownloadItemRow
             key={item.id}

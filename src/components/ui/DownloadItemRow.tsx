@@ -13,19 +13,7 @@ interface DownloadItemRowProps {
 
 export function PdfFileIcon({ size = 46 }: { size?: number }) {
   return (
-    <div
-      style={{
-        width: `${size}px`,
-        height: `${Math.round(size * 1.08)}px`,
-        borderRadius: "10px",
-        background: "rgba(22, 139, 203, 0.08)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexShrink: 0,
-      }}
-      aria-hidden="true"
-    >
+    <div className="pdf-file-icon" aria-hidden="true">
       <svg
         width={Math.round(size * 0.54)}
         height={Math.round(size * 0.64)}
@@ -141,14 +129,14 @@ export function DownloadItemRow({
           aria-label={`${labels.download}: ${item.title}`}
         >
           {isDownloaded ? (
-            <span style={{ color: "#10b981", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+            <span className="download-status-success">
               <span>✓</span>
               <span>{labels.downloaded}</span>
             </span>
           ) : (
-            <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+            <span className="download-action-content">
               <span>{labels.download}</span>
-              <span aria-hidden="true" style={{ fontSize: "1rem", lineHeight: 1 }}>↓</span>
+              <span aria-hidden="true" className="download-action-arrow">↓</span>
             </span>
           )}
         </button>

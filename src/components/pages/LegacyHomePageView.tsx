@@ -79,10 +79,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
       <div className="hero-container">
         <div className="hero-inner">
           <div className="hero-bg-slider">
-            <div
-              className="hero-bg-slide"
-              style={{ backgroundImage: "url('/img/home/hero_reception.webp')", opacity: 1 }}
-            />
+            <div className="hero-bg-slide" />
           </div>
           <div className="hero-overlay" />
           <div className="container">
@@ -90,7 +87,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
               <h1 className="hero-title">
                 {copy.hero.title}
               </h1>
-              <p className="hero-desc" style={{ marginTop: "24px", marginBottom: "36px" }}>
+              <p className="hero-desc">
                 {copy.hero.text}
               </p>
 
@@ -107,7 +104,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
               </div>
 
               {/* Trusted Expertise Bar */}
-              <div className="trusted-expertise" style={{ marginTop: "48px" }}>
+              <div className="trusted-expertise">
                 <div className="trusted-stats">
                   <div className="trusted-stat">
                     <div className="trusted-stat-icon">
@@ -200,14 +197,14 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
       {/* ── 3. Feature Treatments / Schwerpunkte ────────── */}
       <div className="section-wrapper">
         <section className="section container">
-          <div className="section-header" style={{ marginBottom: "32px" }}>
+          <div className="section-header">
             <div>
-              <h2 className="section-title" style={{ marginBottom: "8px" }}>{copy.schwerpunkte.title}</h2>
-              <p style={{ fontSize: "1.05rem", color: "#64748b", margin: 0 }}>
+              <h2 className="section-title">{copy.schwerpunkte.title}</h2>
+              <p className="section-subtitle">
                 {copy.schwerpunkte.subtitle}
               </p>
             </div>
-            <Link href={localePath(locale, "fachbereiche")} className="btn-dark" style={{ alignSelf: "flex-start" }}>
+            <Link href={localePath(locale, "fachbereiche")} className="btn-dark">
               {copy.schwerpunkte.allSpecialties} &rarr;
             </Link>
           </div>
@@ -234,15 +231,15 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
 
       {/* ── 4. About Us Section (Willkommen im NabiOta MVZ) ── */}
       <div className="section-wrapper">
-        <section className="section about-section container" style={{ paddingBottom: "36px" }}>
-          <h2 className="about-title fade-in" style={{ marginBottom: "24px", fontSize: "2.8rem", lineHeight: 1.2, maxWidth: "900px" }}>
+        <section className="section about-section container">
+          <h2 className="about-title fade-in">
             {copy.welcome.title}
           </h2>
-          <div className="about-text-content" style={{ maxWidth: "72ch", fontSize: "1.06rem", lineHeight: 1.75, color: "#334155" }}>
-            <p style={{ marginBottom: "18px" }}>
+          <div className="about-text-content">
+            <p>
               {copy.welcome.p1}
             </p>
-            <p style={{ marginBottom: "18px" }}>
+            <p>
               {copy.welcome.p2}
             </p>
             <p>
@@ -250,29 +247,29 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
             </p>
           </div>
 
-          <hr style={{ border: 0, height: "1px", background: "#e2e8f0", margin: "36px 0 32px 0" }} />
+          <hr className="about-divider" />
 
-          <div className="about-stats-container fade-in" style={{ display: "flex", gap: "40px", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap" }}>
-            <div style={{ width: "100%", maxWidth: "600px" }}>
-              <div className="about-stats-row" style={{ display: "flex", gap: "48px", alignItems: "center", flexWrap: "wrap", marginBottom: "24px" }}>
+          <div className="about-stats-container fade-in">
+            <div className="about-stats-content">
+              <div className="about-stats-row">
                 <div className="stat-item">
-                  <div className="stat-value" style={{ fontSize: "3.5rem", fontWeight: 800, letterSpacing: "-1px" }}>{copy.welcome.stat1Value}</div>
-                  <div className="stat-label" style={{ fontSize: "0.9rem", color: "var(--text-light)" }}>{copy.welcome.stat1Label}</div>
+                  <div className="stat-value">{copy.welcome.stat1Value}</div>
+                  <div className="stat-label">{copy.welcome.stat1Label}</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-value" style={{ fontSize: "3.5rem", fontWeight: 800, letterSpacing: "-1px" }}>{copy.welcome.stat2Value}</div>
-                  <div className="stat-label" style={{ fontSize: "0.9rem", color: "var(--text-light)" }}>{copy.welcome.stat2Label}</div>
+                  <div className="stat-value">{copy.welcome.stat2Value}</div>
+                  <div className="stat-label">{copy.welcome.stat2Label}</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-value" style={{ fontSize: "3.5rem", fontWeight: 800, letterSpacing: "-1px" }}>{copy.welcome.stat3Value}</div>
-                  <div className="stat-label" style={{ fontSize: "0.9rem", color: "var(--text-light)" }}>{copy.welcome.stat3Label}</div>
+                  <div className="stat-value">{copy.welcome.stat3Value}</div>
+                  <div className="stat-label">{copy.welcome.stat3Label}</div>
                 </div>
               </div>
 
-              <div className="doctor-profile" style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "0px", marginTop: "16px" }}>
+              <div className="doctor-profile">
                 <div className="doc-info">
-                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700 }}>{copy.welcome.docTitle}</h3>
-                  <p style={{ fontSize: "0.9rem", color: "var(--text-light)", lineHeight: 1.5, maxWidth: "60ch" }}>
+                  <h3>{copy.welcome.docTitle}</h3>
+                  <p>
                     {copy.welcome.docText}
                   </p>
                 </div>
@@ -284,7 +281,6 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
               src="/img/team/team_group.webp"
               alt="Praxisteam NabiOta MVZ"
               className="about-praxis-img"
-              style={{ width: "380px", height: "240px", objectFit: "cover", borderRadius: "var(--radius-lg)" }}
             />
           </div>
         </section>
@@ -292,7 +288,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
 
       {/* ── 5. Standorte Section (An drei Standorten für Sie da - Redesign) ── */}
       <div className="home-branches-section-wrap standorte-section-wrapper">
-        <section className="section container home-branches-container standorte-section" style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <section className="section container home-branches-container standorte-section">
           <div className="home-branches-grid">
             {/* Left Column: Title + Descriptions + 3 Branch Cards */}
             <div className="home-branches-left-col">
@@ -392,7 +388,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
         <div className="how-it-works container">
           <h2 className="how-title">{extra.contact.title}</h2>
 
-          <div className="steps-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)", gap: "40px" }}>
+          <div className="steps-grid">
             <div className="step-card fade-in">
               <h3 className="step-card-title"><span className="step-icon">1</span> {extra.contact.phoneTitle}</h3>
               <p className="step-card-desc">
@@ -420,25 +416,14 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
             id="contact-form"
             className="direct-message-form"
             onSubmit={handleContactSubmit}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "16px",
-              margin: "40px auto 80px",
-              background: "rgba(255,255,255,0.02)",
-              padding: "48px",
-              borderRadius: "var(--radius-lg)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              maxWidth: "800px",
-            }}
           >
-            <h3 style={{ fontSize: "1.5rem", marginBottom: "8px", fontWeight: 700, textAlign: "center", color: "white" }}>
+            <h3 className="direct-message-form-title">
               {extra.contact.formTitle}
             </h3>
 
             {formSubmitted ? (
-              <div style={{ textAlign: "center", padding: "32px", background: "rgba(33, 157, 216, 0.2)", borderRadius: "12px", color: "white" }}>
-                <h4 style={{ fontSize: "1.3rem", marginBottom: "8px" }}>{extra.contact.successTitle}</h4>
+              <div className="direct-message-success">
+                <h4>{extra.contact.successTitle}</h4>
                 <p>{extra.contact.successDesc}</p>
               </div>
             ) : (
@@ -448,61 +433,19 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                   name="user_name"
                   placeholder={extra.contact.namePlaceholder}
                   required
-                  style={{
-                    padding: "16px",
-                    borderRadius: "8px",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    background: "rgba(255,255,255,0.08)",
-                    color: "white",
-                    width: "100%",
-                    boxSizing: "border-box",
-                    fontSize: "1rem",
-                  }}
                 />
                 <input
                   type="email"
                   name="user_email"
                   placeholder={extra.contact.emailPlaceholder}
                   required
-                  style={{
-                    padding: "16px",
-                    borderRadius: "8px",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    background: "rgba(255,255,255,0.08)",
-                    color: "white",
-                    width: "100%",
-                    boxSizing: "border-box",
-                    fontSize: "1rem",
-                  }}
                 />
                 <input
                   type="tel"
                   name="user_phone"
                   placeholder={extra.contact.phonePlaceholder}
-                  style={{
-                    padding: "16px",
-                    borderRadius: "8px",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    background: "rgba(255,255,255,0.08)",
-                    color: "white",
-                    width: "100%",
-                    boxSizing: "border-box",
-                    fontSize: "1rem",
-                  }}
                 />
-                <select
-                  name="specialty"
-                  style={{
-                    padding: "16px",
-                    borderRadius: "8px",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    background: "#163754",
-                    color: "white",
-                    width: "100%",
-                    boxSizing: "border-box",
-                    fontSize: "1rem",
-                  }}
-                >
+                <select name="specialty">
                   <option value="">{extra.contact.specialtyDefault}</option>
                   {activeSpecialties.map((s) => (
                     <option key={s.slug} value={s.slug}>
@@ -515,27 +458,16 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                   placeholder={extra.contact.messagePlaceholder}
                   required
                   rows={4}
-                  style={{
-                    padding: "16px",
-                    borderRadius: "8px",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    background: "rgba(255,255,255,0.08)",
-                    color: "white",
-                    width: "100%",
-                    boxSizing: "border-box",
-                    fontSize: "1rem",
-                    resize: "vertical",
-                  }}
                 />
                 {/* Honeypot field */}
-                <input type="text" name="website" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+                <input type="text" name="website" className="honeypot-field" tabIndex={-1} autoComplete="off" />
 
-                <p style={{ fontSize: "0.85rem", opacity: 0.8, color: "white", margin: "4px 0 12px", textWrap: "pretty" }}>
+                <p className="direct-message-privacy">
                   {extra.contact.privacyNotice}
                 </p>
 
                 {formError && (
-                  <div style={{ color: "#f87171", background: "rgba(239,68,68,0.1)", padding: "12px", borderRadius: "8px" }}>
+                  <div className="direct-message-error">
                     {formError}
                   </div>
                 )}
@@ -543,16 +475,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                 <button
                   type="submit"
                   disabled={formLoading}
-                  className="btn-primary"
-                  style={{
-                    border: "none",
-                    cursor: "pointer",
-                    width: "100%",
-                    padding: "16px",
-                    fontSize: "1rem",
-                    borderRadius: "99px",
-                    opacity: formLoading ? 0.7 : 1,
-                  }}
+                  className="btn-primary direct-message-submit"
                 >
                   {formLoading ? extra.contact.submittingBtn : extra.contact.submitBtn}
                 </button>
@@ -566,44 +489,41 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
       <div className="section-wrapper">
         <section className="section container testimonials-section">
           <div className="text-center">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(33, 157, 216, 0.08)", border: "1px solid rgba(33, 157, 216, 0.2)", padding: "8px 18px", borderRadius: "99px", marginBottom: "16px" }}>
-              <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "#163754" }}>{extra.testimonials.badge}</span>
+            <div className="testimonial-badge">
+              <span>{extra.testimonials.badge}</span>
             </div>
-            <h2 className="section-title text-center" style={{ margin: "0 auto 16px" }}>
+            <h2 className="section-title text-center">
               {extra.testimonials.title}
             </h2>
-            <div className="rating-summary" style={{ display: "flex", alignItems: "center", justifyItems: "center", justifyContent: "center", gap: "8px", fontSize: "1.05rem", fontWeight: 600, color: "#475569" }}>
-              <span style={{ color: "#f59e0b", fontSize: "1.25rem", letterSpacing: "2px" }}>★★★★★</span>
-              <span style={{ color: "#163754", fontWeight: 800 }}>{extra.testimonials.ratingBadge}</span>
+            <div className="rating-summary">
+              <span className="rating-stars">★★★★★</span>
+              <span className="rating-score">{extra.testimonials.ratingBadge}</span>
             </div>
           </div>
 
           <div className="testimonials-grid">
-            {extra.testimonials.items.map((item, idx) => {
-              const avatarBg = idx === 0 ? "#0e699b" : idx === 1 ? "#163754" : "#0f5982";
-              return (
-                <div key={idx} className="testimonial-card fade-in">
-                  <div className="testimonial-card-header">
-                    <div className="testimonial-author-wrap">
-                      <div className="author-avatar-badge" style={{ background: avatarBg }}>
-                        {item.name.charAt(0)}
-                      </div>
-                      <div className="author-details">
-                        <div className="author-name-text">{item.name}</div>
-                        <div className="author-meta-sub">{item.meta}</div>
-                      </div>
+            {extra.testimonials.items.map((item, idx) => (
+              <div key={idx} className="testimonial-card fade-in">
+                <div className="testimonial-card-header">
+                  <div className="testimonial-author-wrap">
+                    <div className="author-avatar-badge">
+                      {item.name.charAt(0)}
+                    </div>
+                    <div className="author-details">
+                      <div className="author-name-text">{item.name}</div>
+                      <div className="author-meta-sub">{item.meta}</div>
                     </div>
                   </div>
-                  <div className="testimonial-rating-row">
-                    <span className="testimonial-stars-gold">★★★★★</span>
-                    <span className="testimonial-date-text">{item.time}</span>
-                  </div>
-                  <div className="testimonial-text-content">
-                    <p>{item.text}</p>
-                  </div>
                 </div>
-              );
-            })}
+                <div className="testimonial-rating-row">
+                  <span className="testimonial-stars-gold">★★★★★</span>
+                  <span className="testimonial-date-text">{item.time}</span>
+                </div>
+                <div className="testimonial-text-content">
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </div>
@@ -612,7 +532,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
       <div className="section-wrapper bg-dark-section">
         <section className="section container faq-section">
           <div className="text-center">
-            <h2 className="section-title text-center" style={{ margin: "0 auto 48px", color: "white" }}>
+            <h2 className="section-title text-center">
               {extra.faq.title}
             </h2>
           </div>
@@ -625,7 +545,6 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                   <div
                     className={`faq-question ${isOpen ? "active" : ""}`}
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    style={{ cursor: "pointer" }}
                   >
                     {item.q}
                     <span className="faq-icon" aria-hidden="true">
@@ -634,7 +553,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                       </svg>
                     </span>
                   </div>
-                  {isOpen && <div className="faq-answer" style={{ display: "block" }}>{item.a}</div>}
+                  {isOpen && <div className="faq-answer">{item.a}</div>}
                 </div>
               );
             })}
@@ -643,10 +562,10 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
       </div>
 
       {/* ── 9. Fullwidth CTA ─────────────────────────────── */}
-      <div className="cta-fullwidth" style={{ background: "linear-gradient(135deg, #163754 0%, #168BCB 100%)", padding: "100px 20px", textAlign: "center", color: "white" }}>
-        <div className="container" style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <div className="cta-fullwidth">
+        <div className="container">
           <h2 className="cta-title">{extra.cta.title}</h2>
-          <p className="cta-desc" style={{ maxWidth: "65ch", margin: "0 auto 32px", fontSize: "1.08rem", lineHeight: 1.6 }}>
+          <p className="cta-desc">
             {extra.cta.desc}
           </p>
 
@@ -655,7 +574,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
               {extra.cta.btn}
             </Link>
             <a href={`tel:${site.phoneHref}`} className="btn-outline-white">
-              <Icon name="phone" size={16} style={{ marginRight: "8px", verticalAlign: "middle" }} />
+              <Icon name="phone" size={16} />
               {site.phone}
             </a>
           </div>

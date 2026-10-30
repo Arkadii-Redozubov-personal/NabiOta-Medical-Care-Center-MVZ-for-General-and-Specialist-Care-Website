@@ -80,35 +80,18 @@ export function CardiologyDetailPageView({
           />
         </div>
 
-        <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+        <div className="container">
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
               <h1 className="h1">{richData.title}</h1>
-              <p
-                className="lead"
-                style={{
-                  margin: "14px 0 0",
-                  color: "rgba(255, 255, 255, 0.94)",
-                  fontSize: "1.15rem",
-                  lineHeight: 1.65,
-                  maxWidth: "840px",
-                }}
-              >
+              <p className="lead page-hero-lead">
                 {richData.heroDescription || richData.subtitle}
               </p>
 
-              <div style={{ marginTop: "24px" }}>
+              <div className="page-hero-grid__cta">
                 <Link
                   href={localePath(locale, "kontakt")}
-                  className="btn btn--primary"
-                  style={{
-                    padding: "12px 28px",
-                    borderRadius: "9999px",
-                    fontSize: "0.95rem",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                  }}
+                  className="btn btn--primary page-hero-btn"
                 >
                   <span>{appointmentButtonText[locale]}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
@@ -213,7 +196,7 @@ export function CardiologyDetailPageView({
       </section>
 
       {/* ── Main Content Area ─────────────────────────────────── */}
-      <section className="section" style={{ padding: "64px 0 96px" }}>
+      <section className="section specialty-detail-section">
         <div className="container">
           <div className="cardio-page-flow">
             {/* ── SECTION 1: 3x2 Grid of Cardiology Services ─────────── */}
@@ -324,12 +307,9 @@ export function CardiologyDetailPageView({
 
               {/* Subtle services footnote matching PDF */}
               {richData.servicesNote && (
-                <div
-                  className="specialty-services-note"
-                  style={{ marginTop: "18px" }}
-                >
+                <div className="specialty-services-note specialty-services-note--cardio">
                   <div className="specialty-services-note-left">
-                    <Icon name="info" size={18} style={{ color: "#219DD8", flexShrink: 0 }} />
+                    <Icon name="info" size={18} className="specialty-services-note-icon" />
                     <span>{richData.servicesNote}</span>
                   </div>
                   {/* Decorative subtle ECG line */}
@@ -343,7 +323,7 @@ export function CardiologyDetailPageView({
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden="true"
-                    style={{ flexShrink: 0 }}
+                    className="specialty-services-note-ecg"
                   >
                     <path d="M0 13h38l4-7 5 16 6-18 5 12 4-3h58" />
                   </svg>
@@ -355,7 +335,7 @@ export function CardiologyDetailPageView({
             {heartSection && (
               <div className="cardio-heart-card">
                 <div className="cardio-heart-content">
-                  <h2 className="cardio-main-title" style={{ color: "#163754" }}>
+                  <h2 className="cardio-main-title">
                     {heartSection.title}
                   </h2>
                   <p className="cardio-main-lead">{heartSection.desc}</p>
@@ -463,12 +443,12 @@ export function CardiologyDetailPageView({
                 <div className="cardio-advantages-content">
                   <h2 className="cardio-main-title">{advantagesSection.title}</h2>
                   {advantagesSection.desc && (
-                    <p className="cardio-main-lead" style={{ marginBottom: "10px" }}>
+                    <p className="cardio-main-lead cardio-advantages-lead">
                       {advantagesSection.desc}
                     </p>
                   )}
                   {advantagesSection.descSecondary && (
-                    <p className="cardio-main-lead" style={{ marginBottom: "8px" }}>
+                    <p className="cardio-main-lead cardio-advantages-lead--last">
                       {advantagesSection.descSecondary}
                     </p>
                   )}
@@ -504,7 +484,7 @@ export function CardiologyDetailPageView({
                   <div className="specialty-checklist-grid">
                     {richData.checklistItems.map((item, idx) => (
                       <div key={idx} className="specialty-checklist-item">
-                        <Icon name="check" size={16} style={{ color: "#10b981", flexShrink: 0 }} />
+                        <Icon name="check" size={16} className="specialty-checklist-check" />
                         <span>{item}</span>
                       </div>
                     ))}

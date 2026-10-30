@@ -87,35 +87,18 @@ export function GastroenterologyDetailPageView({
           />
         </div>
 
-        <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+        <div className="container">
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
               <h1 className="h1">{richData ? richData.title : specData.name}</h1>
-              <p
-                className="lead"
-                style={{
-                  margin: "14px 0 0",
-                  color: "rgba(255, 255, 255, 0.92)",
-                  fontSize: "1.15rem",
-                  lineHeight: 1.65,
-                  maxWidth: "820px",
-                }}
-              >
+              <p className="lead page-hero-lead">
                 {richData?.heroDescription || specData.short || specData.intro}
               </p>
 
-              <div style={{ marginTop: "24px" }}>
+              <div className="page-hero-grid__cta">
                 <Link
                   href={localePath(locale, "kontakt")}
-                  className="btn btn--primary"
-                  style={{
-                    padding: "12px 28px",
-                    borderRadius: "9999px",
-                    fontSize: "0.95rem",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                  }}
+                  className="btn btn--primary page-hero-btn"
                 >
                   <span>{appointmentButtonText[locale]}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
@@ -198,7 +181,7 @@ export function GastroenterologyDetailPageView({
       </section>
 
       {/* ── Main Content Area ────────────────────────────────────── */}
-      <section className="section" style={{ padding: "64px 0 96px" }}>
+      <section className="section specialty-detail-section">
         <div className="container">
           <div className="gastro-page-flow">
             {/* ── 0. Introduction from PDF ──────────────────────────── */}
@@ -294,16 +277,16 @@ export function GastroenterologyDetailPageView({
                 </div>
 
                 {/* Endoscopy Section: Interactive Showcase (Main card on Left + Sidebar on Right) */}
-                <div className="gastro-endoscopy-section" style={{ marginTop: "48px" }}>
+                <div className="gastro-endoscopy-section">
                   <div className="cardio-services-header">
                     <div className="cardio-services-header-left">
-                      <h2 className="gastro-section-title" style={{ margin: 0 }}>
+                      <h2 className="gastro-section-title gastro-section-title--no-margin">
                         {gastro.endoscopyTag}
                       </h2>
                     </div>
                   </div>
 
-                  <div className="cardio-interactive-showcase" style={{ marginTop: "24px" }}>
+                  <div className="cardio-interactive-showcase cardio-interactive-showcase--gastro">
                     {/* Left: Featured Active Card */}
                     {activeEndo && (
                       <div key={selectedEndoIdx} className="cardio-featured-card">
@@ -416,17 +399,10 @@ export function GastroenterologyDetailPageView({
             {gastro?.treatment && (
               <div className="gastro-treatment-section">
                 <div className="gastro-treatment-left">
-                  <h2 className="gastro-section-title" style={{ margin: "0 0 14px" }}>
+                  <h2 className="gastro-section-title gastro-section-title--spaced">
                     {gastro.treatment.title}
                   </h2>
-                  <p
-                    style={{
-                      fontSize: "1rem",
-                      lineHeight: 1.7,
-                      color: "#475569",
-                      margin: 0,
-                    }}
-                  >
+                  <p className="gastro-treatment-desc">
                     {gastro.treatment.desc}
                   </p>
                 </div>
@@ -458,17 +434,14 @@ export function GastroenterologyDetailPageView({
                   {gastro.preparation.title}
                 </h2>
                 {gastro.preparation.desc && (
-                  <p
-                    className="gastro-main-lead"
-                    style={{ marginBottom: "22px" }}
-                  >
+                  <p className="gastro-main-lead gastro-main-lead--prep">
                     {gastro.preparation.desc}
                   </p>
                 )}
                 <div className="gastro-prep-grid">
                   <div className="gastro-prep-col">
                     <h4>
-                      <Icon name="check" size={20} style={{ color: "#10b981" }} />
+                      <Icon name="check" size={20} className="gastro-icon-success" />
                       <span>{gastro.preparation.bringTitle}</span>
                     </h4>
                     <div className="gastro-prep-list">
@@ -483,7 +456,7 @@ export function GastroenterologyDetailPageView({
 
                   <div className="gastro-prep-col">
                     <h4>
-                      <Icon name="alert" size={20} style={{ color: "#f59e0b" }} />
+                      <Icon name="alert" size={20} className="gastro-icon-warning" />
                       <span>{gastro.preparation.importantTitle}</span>
                     </h4>
                     <div className="gastro-prep-list">

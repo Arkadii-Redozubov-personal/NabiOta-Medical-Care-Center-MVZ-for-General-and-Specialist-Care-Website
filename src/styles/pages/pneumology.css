@@ -593,3 +593,8 @@
     padding: 24px 20px;
   }
 }
+
+.pneumo-detail-section {
+  padding: 64px 0 100px;
+  background: #ffffff;
+}

@@ -117,22 +117,13 @@ export function Navbar({ locale }: NavbarProps) {
         {/* Brand Logo Lockup */}
         <Link
           href={localePath(locale, "")}
-          className="logo"
-          style={{ display: "inline-flex", alignItems: "center", gap: "12px", textDecoration: "none" }}
+          className="logo nav-brand-link"
           aria-label="NabiOta Health Group Germany Startseite"
         >
           <img
             src="/img/nLogo.svg"
             alt="NabiOta Health Group Germany"
-            style={{
-              height: "50px",
-              width: "auto",
-              borderRadius: "12px",
-              flexShrink: 0,
-              filter: isSolid
-                ? "drop-shadow(0 2px 6px rgba(22, 55, 84, 0.25))"
-                : "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4))",
-            }}
+            className="nav-brand-logo"
           />
           <div className="brand-text-lockup">
             <span className="brand-title-gold">NABIOTA</span>
@@ -165,7 +156,6 @@ export function Navbar({ locale }: NavbarProps) {
                   setSpecOpen(!specOpen);
                 }
               }}
-              style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
             >
               <span>{dict.nav.specialties}</span>
             </Link>
@@ -200,7 +190,7 @@ export function Navbar({ locale }: NavbarProps) {
                   aria-current={currentRoute === "fachbereiche" ? "page" : undefined}
                 >
                   <span>{dict.nav.allSpecialties}</span>
-                  <span style={{ fontSize: "1.1rem" }}>→</span>
+                  <span className="btn-arrow">→</span>
                 </Link>
               </div>
             )}
@@ -230,7 +220,6 @@ export function Navbar({ locale }: NavbarProps) {
         <div
           className="lang-switcher hidden-mobile"
           ref={langRef}
-          style={{ position: "relative" }}
           onMouseEnter={handleLangMouseEnter}
           onMouseLeave={handleLangMouseLeave}
         >
@@ -239,57 +228,25 @@ export function Navbar({ locale }: NavbarProps) {
             className="lang-current"
             onClick={() => setLangOpen(!langOpen)}
             aria-label={dict.nav.language}
-            style={{
-              background: "transparent",
-              border: isSolid ? "1px solid rgba(22, 55, 84, 0.2)" : "1px solid rgba(255, 255, 255, 0.3)",
-              cursor: "pointer",
-              fontFamily: "inherit",
-            }}
           >
             <span>{localeLabels[locale].short}</span>
-            <span style={{ fontSize: "0.7em", opacity: 0.8 }}>▼</span>
+            <span className="lang-caret">▼</span>
           </button>
 
           {langOpen && (
             <div
-              className="lang-dropdown"
+              className={`lang-dropdown ${langOpen ? "is-open" : ""}`}
               onMouseEnter={handleLangMouseEnter}
               onMouseLeave={handleLangMouseLeave}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                position: "absolute",
-                top: "100%",
-                right: 0,
-                marginTop: "4px",
-                background: "#ffffff",
-                borderRadius: "14px",
-                boxShadow: "0 14px 40px rgba(22, 55, 84, 0.14)",
-                border: "1px solid rgba(22, 55, 84, 0.08)",
-                padding: "6px",
-                minWidth: "190px",
-                zIndex: 1000,
-              }}
             >
               {locales.map((l) => (
                 <Link
                   key={l}
                   href={localePath(l, currentRoute)}
-                  style={{
-                    padding: "9px 14px",
-                    borderRadius: "8px",
-                    color: l === locale ? "#168BCB" : "#163754",
-                    background: l === locale ? "#E5F3FC" : "transparent",
-                    fontWeight: l === locale ? 700 : 500,
-                    fontSize: "0.94rem",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    textDecoration: "none",
-                  }}
+                  className={l === locale ? "active" : ""}
                 >
                   <span>{localeLabels[l].native}</span>
-                  <span style={{ fontSize: "0.80rem", opacity: 0.7 }}>{localeLabels[l].short}</span>
+                  <span className="lang-short">{localeLabels[l].short}</span>
                 </Link>
               ))}
             </div>
@@ -345,7 +302,7 @@ export function Navbar({ locale }: NavbarProps) {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="mobile-menu" id="mobileMenu" style={{ display: "flex" }}>
+        <div className="mobile-menu" id="mobileMenu">
           <div className="mobile-menu-inner">
             <Link
               href={localePath(locale, "")}
@@ -395,9 +352,8 @@ export function Navbar({ locale }: NavbarProps) {
                 ))}
                 <Link
                   href={localePath(locale, "fachbereiche")}
-                  className={`mobile-sublink ${currentRoute === "fachbereiche" ? "active" : ""}`}
+                  className={`mobile-sublink mobile-all-specialties ${currentRoute === "fachbereiche" ? "active" : ""}`}
                   onClick={() => setMobileOpen(false)}
-                  style={{ color: "#219DD8", fontWeight: 700 }}
                 >
                   <span className="sublink-left">
                     <span className="sublink-text">{dict.nav.allSpecialties} →</span>

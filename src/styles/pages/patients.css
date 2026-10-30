@@ -108,6 +108,7 @@
 }
 
 .patient-ref-assist-banner {
+  margin-top: 20px;
   background: #ebf6fc;
   border: 1px solid rgba(22, 139, 203, 0.24);
   border-radius: 20px;
@@ -503,6 +504,86 @@
 .patient-ref-section-downloads,
 .patient-ref-section-faq {
   margin-top: 10px;
+}
+
+.patient-hero-cta {
+  margin-top: 24px;
+}
+
+.patient-hero-btn {
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.patient-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.patient-ref-card-muted {
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
+.patient-section-header-mb {
+  margin-bottom: 28px;
+}
+
+.patient-section-desc {
+  color: #547596;
+  margin-top: 10px;
+  font-size: 1rem;
+  max-width: 780px;
+}
+
+.patient-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.patient-faq-item {
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  border-radius: 18px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 16px rgba(22, 55, 84, 0.03);
+  transition: box-shadow 0.2s ease;
+}
+
+.patient-faq-summary {
+  font-weight: 800;
+  font-size: 1.06rem;
+  color: #163754;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.patient-faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.patient-faq-plus {
+  color: #168BCB;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-left: 14px;
+}
+
+.patient-faq-answer {
+  color: #547596;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-top: 14px;
+  margin-bottom: 0;
 }
 
 /* ── Responsive Rules for Patient Reference ──────────────────────────── */

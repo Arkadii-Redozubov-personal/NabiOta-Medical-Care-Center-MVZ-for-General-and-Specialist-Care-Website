@@ -163,36 +163,19 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
           />
         </div>
 
-        <div className="container" style={{ position: "relative", zIndex: 2, width: "100%" }}>
+        <div className="container">
           <div className="page-hero-grid">
             <div className="page-hero-grid__text">
               <h1 className="h1">{richData ? richData.title : specData.name}</h1>
               {/* Essence description in the hero */}
-              <p
-                className="lead"
-                style={{
-                  margin: "14px 0 0",
-                  color: "rgba(255, 255, 255, 0.92)",
-                  fontSize: "1.15rem",
-                  lineHeight: 1.65,
-                  maxWidth: "820px",
-                }}
-              >
+              <p className="lead page-hero-lead">
                 {richData?.heroDescription || specData.short || specData.intro}
               </p>
 
-              <div style={{ marginTop: "24px" }}>
+              <div className="page-hero-grid__cta">
                 <Link
                   href={localePath(locale, "kontakt")}
-                  className="btn btn--primary"
-                  style={{
-                    padding: "12px 28px",
-                    borderRadius: "9999px",
-                    fontSize: "0.95rem",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                  }}
+                  className="btn btn--primary page-hero-btn"
                 >
                   <span>{appointmentButtonText[locale]}</span>
                   <span className="btn-arrow" aria-hidden="true">→</span>
@@ -237,7 +220,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
       </section>
 
       {/* ── 2. Content ────────────────────────────────────── */}
-      <section className="section" style={{ padding: "60px 0 90px" }}>
+      <section className="section specialty-detail-section">
         <div className="container">
           {richData ? (
             <div className="specialty-rich-flow">
@@ -290,10 +273,6 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                         alt=""
                         width={130}
                         height={68}
-                        style={{
-                          objectFit: "contain",
-                          mixBlendMode: "multiply",
-                        }}
                       />
                     </div>
                   </div>
@@ -331,7 +310,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     {richData.servicesNote && (
                       <div className="specialty-services-note">
                         <div className="specialty-services-note-left">
-                          <Icon name="info" size={18} style={{ color: "#219DD8", flexShrink: 0 }} />
+                          <Icon name="info" size={18} className="specialty-services-note-icon" />
                           <span>{richData.servicesNote}</span>
                         </div>
                         {/* Subtle decorative ECG line matching reference */}
@@ -345,7 +324,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           aria-hidden="true"
-                          style={{ flexShrink: 0 }}
+                          className="specialty-services-note-ecg"
                         >
                           <path d="M0 14h42l4-8 6 18 6-20 5 14 5-4h62" />
                         </svg>
@@ -364,9 +343,9 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     </div>
                     <h2>{richData.treatmentTitle || richData.preventionTitle}</h2>
                   </div>
-                  <div style={{ color: "#475569", fontSize: "0.98rem", lineHeight: 1.7, margin: "6px 0 0" }}>
+                  <div className="specialty-treatment-text">
                     {(richData.treatmentText || richData.preventionText || []).map((p, idx) => (
-                      <p key={idx} style={{ margin: "0 0 10px" }}>
+                      <p key={idx}>
                         {p}
                       </p>
                     ))}
@@ -417,9 +396,9 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     </div>
                     <h2>{richData.longTermTitle}</h2>
                   </div>
-                  <div style={{ color: "#475569", fontSize: "0.98rem", lineHeight: 1.7, margin: "6px 0 0" }}>
+                  <div className="specialty-treatment-text">
                     {richData.longTermText.map((p, idx) => (
-                      <p key={idx} style={{ margin: "0 0 12px" }}>
+                      <p key={idx}>
                         {p}
                       </p>
                     ))}
@@ -441,7 +420,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                     <div className="specialty-checklist-grid">
                       {richData.checklistItems.map((item, idx) => (
                         <div key={idx} className="specialty-checklist-item">
-                          <Icon name="check" size={16} style={{ color: "#10b981", flexShrink: 0 }} />
+                          <Icon name="check" size={16} className="specialty-checklist-check" />
                           <span>{item}</span>
                         </div>
                       ))}
@@ -496,7 +475,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
               <SpecialtyDownloadsSection category="allgemeinmedizin" locale={locale} />
             </div>
           ) : (
-            <div className="detail-main" style={{ width: "100%" }}>
+            <div className="detail-main">
               {/* Fallback for other specialties without rich PDF data yet */}
               <div>
                 <h2>{dict.specialty.focusTitle}</h2>
@@ -518,11 +497,7 @@ export function SpecialtyDetailPageView({ locale, slug }: SpecialtyDetailPageVie
                       <Icon
                         name="pulse"
                         size={16}
-                        style={{
-                          display: "inline",
-                          verticalAlign: "text-bottom",
-                          marginInlineEnd: "6px",
-                        }}
+                        className="diag-chip-icon"
                       />
                       {diag}
                     </li>

@@ -23,7 +23,7 @@ export function ImprintPageView({ locale }: ImprintPageViewProps) {
       <section className="section">
         <div className="container legal">
           <div className="legal-notice">
-            <Icon name="alert" size={16} style={{ display: "inline", verticalAlign: "text-bottom", marginInlineEnd: "6px" }} />
+            <Icon name="alert" size={16} className="legal-notice-icon" />
             <span>{dict.common.sampleNotice}</span>
           </div>
 
