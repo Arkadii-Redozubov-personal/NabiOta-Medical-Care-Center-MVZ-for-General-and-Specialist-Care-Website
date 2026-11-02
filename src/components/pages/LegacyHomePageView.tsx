@@ -15,6 +15,7 @@ import {
   ChevronUpIcon,
 } from "@heroicons/react/24/outline";
 import { HomeBranchesInteractiveMap } from "@/components/ui/HomeBranchesInteractiveMap";
+import { MobileSnapSlider } from "@/components/ui/MobileSnapSlider";
 
 const branchImages = [
   "/img/home/branch_moenchengladbach.webp",
@@ -133,10 +134,14 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
               </div>
             </div>
 
-            {/* Areas of Expertise Grid (Frameless reference design) */}
+            {/* Areas of Expertise (Grid on desktop, Snap Slider on mobile) */}
             <div className="expertise-wrapper">
               <div className="expertise-container">
-                <div className="expertise-grid">
+                <MobileSnapSlider
+                  className="expertise-slider"
+                  trackClassName="expertise-grid"
+                  slideClassName="expertise-slide"
+                >
                   {dict.homeSpecialties.map((spec) => (
                     <Link
                       key={spec.slug}
@@ -155,7 +160,7 @@ export function LegacyHomePageView({ locale }: LegacyHomePageViewProps) {
                       </div>
                     </Link>
                   ))}
-                </div>
+                </MobileSnapSlider>
               </div>
             </div>
           </div>

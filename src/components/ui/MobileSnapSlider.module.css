@@ -1,0 +1,143 @@
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.trackContainer {
+  position: relative;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  width: calc((100% - 20px) / 3);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Floating next arrow on right edge (mobile only) */
+.nextBtn {
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(22, 55, 84, 0.08);
+  box-shadow: 0 4px 14px rgba(22, 55, 84, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #163754;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  padding: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nextBtn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.nextIcon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.2;
+}
+
+/* RTL support for next button */
+:global([dir="rtl"]) .nextBtn {
+  right: auto;
+  left: -6px;
+}
+
+:global([dir="rtl"]) .nextBtn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+:global([dir="rtl"]) .nextIcon {
+  transform: scaleX(-1);
+}
+
+/* Pagination dots below */
+.dotsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  gap: 3px;
+}
+
+.dotBtn {
+  padding: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--slider-dot-inactive, rgba(255, 255, 255, 0.35));
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dotActive {
+  background-color: var(--slider-dot-active, var(--primary, #219DD8));
+  box-shadow: 0 0 8px rgba(33, 157, 216, 0.6);
+  transform: scale(1.25);
+}
+
+/* Desktop layout (>= 769px): render normal grid, hide slider controls */
+@media (min-width: 769px) {
+  .nextBtn {
+    display: none !important;
+  }
+
+  .dotsContainer {
+    display: none !important;
+  }
+
+  .track {
+    overflow: visible !important;
+    scroll-snap-type: none !important;
+  }
+
+  .slide {
+    width: auto !important;
+    flex-shrink: 1 !important;
+    scroll-snap-align: none !important;
+    display: contents !important;
+  }
+}

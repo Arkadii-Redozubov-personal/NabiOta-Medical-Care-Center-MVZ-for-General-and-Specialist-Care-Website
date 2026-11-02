@@ -268,7 +268,7 @@ export function Navbar({ locale }: NavbarProps) {
         {/* Burger Button (Only displayed on mobile < 1180px) */}
         <button
           type="button"
-          className={`burger-menu ${mobileOpen ? "open" : ""}`}
+          className={`burger-menu ${mobileOpen ? "open is-open" : ""}`}
           id="burgerMenu"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? dict.nav.close : dict.nav.menu}
@@ -281,7 +281,7 @@ export function Navbar({ locale }: NavbarProps) {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="mobile-menu" id="mobileMenu">
+        <div className="mobile-menu open is-open" id="mobileMenu">
           <div className="mobile-menu-inner">
             <Link
               href={localePath(locale, "")}

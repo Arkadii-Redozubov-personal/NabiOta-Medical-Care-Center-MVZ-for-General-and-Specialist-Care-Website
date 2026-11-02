@@ -94,14 +94,14 @@
     .navbar.is-solid .lang-current {
       color: #163754 !important;
     }
-    .navbar.scrolled .burger-menu:not(.is-open),
-    .navbar.is-solid .burger-menu:not(.is-open) {
+    .navbar.scrolled .burger-menu:not(.is-open):not(.open),
+    .navbar.is-solid .burger-menu:not(.is-open):not(.open) {
       color: #163754 !important;
       background: rgba(22, 55, 84, 0.08) !important;
       border-color: rgba(22, 55, 84, 0.15) !important;
     }
-    .navbar.scrolled .burger-menu:not(.is-open) .burger-bar,
-    .navbar.is-solid .burger-menu:not(.is-open) .burger-bar {
+    .navbar.scrolled .burger-menu:not(.is-open):not(.open) .burger-bar,
+    .navbar.is-solid .burger-menu:not(.is-open):not(.open) .burger-bar {
       background: #163754 !important;
     }
     .btn-book {
@@ -142,23 +142,6 @@
     .btn-download:hover { background: var(--primary-hover); transform: none; }
     .btn-download:active { transform: translateY(2px) scale(0.97); }
 
-    /* Hero Content */
-    .hero-main { max-width: 1180px; width: 100%; margin-top: 215px; }
-    .tag-pill {
-
-
-/* Mobile Header & Language Switcher */
-    /* Mobile Header Fixes */
-    .navbar > a > span { display: none !important; }
-    
-    /* Contact Form Fixes */
-    .contact-form { padding: 0 !important; }
-    .contact-form-container { padding: 24px 16px !important; }
-    .form-input, .form-textarea { padding: 12px 16px !important; }
-  
-  /* Footer */
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-}
 
 @media (max-width: 480px) {
   .hero-title { font-size: 2.2rem !important; }
@@ -469,39 +452,7 @@
   background: transparent;
 }
 
-/* Mobile Dropdown Adjustments */
-.mobile-dropdown-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.mobile-dropdown-toggle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.mobile-dropdown-menu {
-  display: none;
-  flex-direction: column;
-  padding-left: 16px;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  margin-top: 8px;
-  margin-left: 8px;
-  gap: 8px;
-}
-
-.mobile-dropdown-menu.active {
-  display: flex;
-}
-
-.mobile-dropdown-menu a {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-}
 
 
 
