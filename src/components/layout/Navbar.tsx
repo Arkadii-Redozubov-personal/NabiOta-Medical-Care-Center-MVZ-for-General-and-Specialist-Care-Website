@@ -231,9 +231,10 @@ export function Navbar({ locale }: NavbarProps) {
         >
           <button
             type="button"
-            className="lang-current"
+            className={`lang-current ${langOpen ? "is-open" : ""}`}
             onClick={() => setLangOpen(!langOpen)}
             aria-label={dict.nav.language}
+            aria-expanded={langOpen}
           >
             <span>{localeLabels[locale].short}</span>
             <span className="lang-caret">▼</span>

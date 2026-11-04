@@ -11,6 +11,9 @@
       outline: 2px solid var(--primary);
       outline-offset: 3px;
     }
+    button, input, select, textarea {
+      font-family: inherit;
+    }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: var(--white);
